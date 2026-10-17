@@ -1,0 +1,13 @@
+"""Integer multiplicity witness for the conservative arc/lens aggregate relaxation."""
+from pathlib import Path
+from fractions import Fraction as F
+import json,hashlib
+ROOT=Path(__file__).resolve().parents[1]
+def need(x,m):
+ if not x:raise ValueError(m)
+def main():
+ src=ROOT/'verify/out/n100-arc-lens-support.json';z=json.loads(src.read_text(encoding='utf-8'));dual=json.loads((ROOT/'verify/out/n100-arc-lens-free-intercept-independent.json').read_text(encoding='utf-8'));i=next(i for i in dual['active_constraints'] if isinstance(i,int));row=z['steps'][i];p=F(row['arc_half_upper']);C=F(row['lens_area_upper']);M=F(z['maximum_half_arc_upper']);r=F(z['radius']);s=1-2*r+F(z['delta']);pl,ph=map(F,z['pi_interval']);k=54;m=100
+ # Integer n near-type disks, k-n tail disks. Require total arc >=pi_hi,
+ # total optimistic capacity >= pi_hi*s^2, using pi_lo for full disk area.
+ ratio=(k*M-ph)/(M-p);n=ratio.numerator//ratio.denominator;need(0<=n<=k,'integer multiplicities');arc=n*p+(k-n)*M;target=ph*s*s;full=(m-k)*pl*r*r;inner=n*C;need(arc>=ph and inner+full>target,'strict aggregate relaxation witness');types=[{'kind':'near','source_radial_interval':i,'multiplicity':n,'half_arc':str(p),'inner_area_capacity':str(C)},{'kind':'tail','multiplicity':k-n,'half_arc':str(M),'inner_area_capacity':'0'}];out=ROOT/'verify/out/n100-arc-lens-integer-relaxation.json';need(not out.exists(),'overwrite');out.write_text(json.dumps({'schema':'n100-arc-lens-integer-relaxation/v1','verified_exact_aggregate_relaxation_witness':True,'radius':str(r),'delta':z['delta'],'total_disks':m,'serving_disks':k,'nonserving_disks':m-k,'types':types,'arc_sum':str(arc),'arc_surplus_over_pi_upper':str(arc-ph),'inner_capacity_sum':str(inner+full),'inner_target_area_upper':str(target),'capacity_surplus':str(inner+full-target),'pi_interval':z['pi_interval'],'relaxation_definition':'each serving disk chooses one certified rectangle [0,p_i] x [0,C_i], or tail [0,M] x {0}; integer multiplicities, half-arc sum>=pi, inner capacity plus full nonserving disk areas>=pi*s^2; individual p,C need not be jointly geometrically attainable','scope':'feasibility only of conservative fixed rectangular aggregate relaxation; proves that relaxation alone cannot exclude k54, not actual covering existence or exact geometric method impossibility','global_optimality':False,'input_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+'\n',encoding='utf-8');print('PASS integer relaxation near',n,'tail',k-n,'strict arc and area surplus',True)
+if __name__=='__main__':main()

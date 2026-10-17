@@ -1,0 +1,20 @@
+"""Audit boundary subdivision/owner counts and the recursive count-domain interface."""
+from pathlib import Path
+from collections import defaultdict,Counter
+import json,hashlib
+ROOT=Path(__file__).resolve().parents[1]
+def need(c,m):
+ if not c:raise ValueError(m)
+def main():
+ p=ROOT/'verify/out/n100-candidate-clipped-map.json';G=json.loads(p.read_text(encoding='utf-8'));arcs=[e for e in G['edges'] if e['kind']=='unit_circle_arc'];adj=defaultdict(list)
+ for i,e in enumerate(arcs):
+  need(len(e['faces'])==1,'single boundary arc owner')
+  for v in e['ends']:adj[v].append(i)
+ need(all(len(v)==2 for v in adj.values()),'boundary cycle degree2');start=min(adj);v=start;prev=None;order=[];vertices=[]
+ while True:
+  vertices.append(v);opts=[j for j in adj[v] if j!=prev];j=min(opts);order.append(j);e=arcs[j];w=next(x for x in e['ends'] if x!=v);prev=j;v=w
+  if v==start:break
+  need(len(order)<=len(arcs),'cycle termination')
+ need(len(order)==len(arcs) and len(set(order))==len(arcs),'one complete boundary cycle');owners=[arcs[j]['faces'][0] for j in order];transitions=[i for i in range(len(owners)) if owners[i]!=owners[i-1]];distinct=sorted(set(owners));runowners=[owners[i] for i in transitions];need(len(transitions)==len(distinct)==32,'single cyclic run per boundary owner');same_owner_vertices=[vertices[i] for i in range(len(order)) if owners[i]==owners[i-1]];need(len(arcs)==36 and len(same_owner_vertices)==4,'four subdivisions');need(all(G['vertices'][v]['type']=='axis' for v in same_owner_vertices),'only axis subdivisions');counts=Counter(owners)
+ domainpath=ROOT/'verify/out/n100-recursive-inner-envelope.json';domain=json.loads(domainpath.read_text(encoding='utf-8'));T=set(map(tuple,domain['remaining_triples']));need((100,32,32) in T,'candidate count control retained');need(all(B<=k<=m-56 for m,B,k in T),'new domain bridge');normproof=ROOT/'runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/lower_bounds_extension_20261004/PROOF_EXTENSION.md';out=ROOT/'verify/out/n100-boundary-count-semantics.json';need(not out.exists(),'overwrite');out.write_text(json.dumps({'schema':'n100-boundary-count-semantics/v1','verified_candidate_combinatorial_boundary_semantics':True,'candidate_subdivided_arc_count':len(arcs),'candidate_distinct_boundary_cells':len(distinct),'candidate_merged_owner_run_count':len(transitions),'same_owner_subdivision_vertices':same_owner_vertices,'ordered_boundary_vertices':vertices,'ordered_boundary_arc_indices':order,'ordered_boundary_owners':owners,'distinct_boundary_owners':distinct,'owner_arc_multiplicity':dict(sorted(counts.items())),'candidate_count_tuple':[100,32,32],'candidate_retained_by_recursive_domain':True,'recursive_domain_triple_count':len(T),'semantic_contract':{'B_count_domain':'number of distinct boundary cells in same-radius normalized generic irredundant diagram, one assigned connected arc per cell as an inherited analytic lemma','A_general_polygon_envelope':'number of maximal ownership arcs in an arbitrary clipped diagram; permits repeated owners; not universally <=k','S_compiled_map':'number of boundary arc segments after inserting axis points; neither assumed equal to B nor <=k','k':'distinct disks intersecting the unit circle in that same configuration'},'dependencies_not_machine_proved':['same-radius whole-cover normalization before classifying m,B,k','single connected assigned arc per normalized boundary cell, from imported proof; this audit checks candidate only','B<=k holds for distinct boundary cells, not arbitrary ownership arc count'],'scope':'candidate map semantics and recursive-domain arithmetic, not a new proof of universal normalization/single-arc reduction or full geometry','global_optimality':False,'bindings':{str(q.relative_to(ROOT)):hashlib.sha256(q.read_bytes()).hexdigest() for q in [p,domainpath,normproof]},'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+'\n',encoding='utf-8');print('PASS boundary semantics;36 segments,32 owner runs,32 cells; axis subdivisions4; candidate count retained')
+if __name__=='__main__':main()

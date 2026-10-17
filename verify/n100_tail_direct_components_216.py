@@ -1,0 +1,9 @@
+"""Exact decomposition of the B36 diagonal obstruction direct term."""
+from pathlib import Path
+from fractions import Fraction as F
+import sys,json,hashlib
+ROOT=Path(__file__).resolve().parents[1];W=ROOT/'runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working';sys.path[:0]=[str(W),str(W/'threshold_11305_components')]
+import verify_remaining_cases as m
+def main():
+ R=F(2831,25000);x=F(9921033,12500000);mu=F(92531,10**7);lam=F(3,50);m.b.R=m.b.ci(R);m.b.R2=m.b.ci(R*R);m.b.LAM=m.b.ci(lam);t=int(x*m.b.D);s,h,u,v,c,H=m.b.state((t,t),-1);S,j,U,V,C,J=m.b.state((t,t),1);d=m.b.vs(c,C);dist=m.b.add(m.b.sq(d[0]),m.b.sq(d[1]));angle=m.b.half(m.b.add(H,J));pen=m.b.mul(m.b.ci(mu),m.b.half(m.b.add(m.b.asin(s),m.b.asin(S))));direct=m.b.add(m.b.mul(m.b.LAM,dist),angle);direct=m.b.sub(direct,pen);vals={'lambda_distance':[str(F(z,m.b.D)) for z in m.b.mul(m.b.LAM,dist)],'half_H':[str(F(z,m.b.D)) for z in angle],'slope_angle_penalty':[str(F(z,m.b.D)) for z in pen],'direct':[str(F(z,m.b.D)) for z in direct],'distance_over_R2':str(F(dist[0],m.b.D)/(R*R))};out=ROOT/'verify/out/n100-tail-direct-components-216.json';assert not out.exists();out.write_text(json.dumps({'schema':'n100-tail-direct-components/v1','status':'PASS','radius':str(R),'x':str(x),'y':str(x),'lambda':str(lam),'mu':str(mu),'components':vals,'interpretation':'At the exact obstruction point the support terms vanish; this file decomposes the remaining direct pair/angle expression. A new proof must improve this direct expression or add a geometry constraint; support refinement alone cannot help.','B36_closed':False,'global_bound_improved':False,'bindings':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__),W/'threshold_11305_components/verify_remaining_cases.py',W/'pair_bound_certificate_20261004/verify_pair_bound.py')}},indent=2)+'\n');print('DIRECT COMPONENTS PASS',flush=True)
+if __name__=='__main__':main()

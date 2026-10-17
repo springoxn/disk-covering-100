@@ -1,0 +1,90 @@
+{
+  "schema": "n100-six-branch-progress/v10",
+  "target_radius": "2831/25000",
+  "accepted_global_lower_bound": "1132301/10000000",
+  "closed_branches": [
+    "B31",
+    "B32",
+    "B33",
+    "B34",
+    "B35"
+  ],
+  "pending_branches": [
+    "B36"
+  ],
+  "all_six_closed": false,
+  "global_bound_improved": false,
+  "branches": {
+    "B31": {
+      "status": "PASS",
+      "evidence": "verify\\out\\n100-B31-at-11324.json"
+    },
+    "B32": {
+      "status": "PASS",
+      "M_partition": [
+        "M<=25",
+        "M>=26"
+      ],
+      "evidence": "verify\\out\\n100-B32-complete-149.json"
+    },
+    "B33": {
+      "status": "PASS",
+      "evidence": "verify/out/n100-B33-complete-167-v2.json",
+      "M_partition": [
+        "M<=25",
+        "M>=26"
+      ],
+      "unique5_actual_B_neighbor_split_complete": true,
+      "ring_metric_models": 108,
+      "minimum_reported_positive_margin": "1471448836581788939/500000000000000000000000"
+    },
+    "B34": {
+      "status": "PASS",
+      "evidence": "verify/out/n100-B34-complete-180.json",
+      "M_partition": [
+        "M<=25",
+        "M>=26"
+      ],
+      "chordless_models": 23,
+      "onechord_models": 47,
+      "minimum_reported_positive_margin": "190482881108285619519923/292968750000000000000000000"
+    },
+    "B35": {
+      "status": "PASS",
+      "evidence": "verify/out/n100-B35-complete-203.json",
+      "M_partition": [
+        "M<=24",
+        "M25",
+        "M26",
+        "M>=27"
+      ],
+      "independent_lowM_margin_min": "169690032082888672651865333931/625000000000000000000000000000000",
+      "high_models": 16
+    },
+    "B36plus": {
+      "status": "NOT_CLOSED",
+      "B37plus_status": "PASS",
+      "B37plus_evidence": "verify/out/n100-tail-B37plus-210-a.json",
+      "B36_status": "NOT_CLOSED",
+      "B36_obstruction": "verify/out/n100-tail-support-obstruction-206.json",
+      "reason": "B>=37 exact 93257-box cover passes with L=19/2500, but B36 budget permits only L\u22480.00750553 while old pair relaxation has exact point lower bound\u22480.0075099921; fixed constants cannot close B36.",
+      "direct_term_diagnostic": "verify/out/n100-tail-point-branch-212.json",
+      "support_overestimation_at_obstruction": false
+    }
+  },
+  "source_bindings": {
+    "verify/n100_11324_progress_211.py": "0b44a26d59517484e92b343b0db45c437a3b4426859411a5445a56531c4989de",
+    "verify/out/n100-11324-six-branch-ledger-204.json": "92850b1601799f5c90e3469b41d77a5b38f34893c613048604b271825875fa86",
+    "verify/out/n100-B35-complete-203.json": "32dd462f1cdd60c342fec3e9b07d3c981275156145b4ca86da9ca3b86c7e2e5c",
+    "verify/out/n100-tail-B37plus-210-a.json": "eb3c85b39a675191329ce8ac54f07f3be94ab0f32066d187eb4cbd819a7f80d3",
+    "verify/out/n100-tail-support-obstruction-206.json": "4cff8906896b4bc5644b47670c9ad67fb13994fb4f219811318df50df3b097b4",
+    "verify/n100_11324_progress_213.py": "e0b3d4b08b4117f6cfd7180ebb1d7b4b7a645692e5d9917dfb6250905988e282",
+    "verify/out/n100-11324-six-branch-ledger-211.json": "9f8a51ce708e8243cc323e4c3219133b7bb513bfbfb262674fdd1106472d3805",
+    "verify/out/n100-tail-point-branch-212.json": "f875d195850ff492ae185116bb93e641171233db26b3bf82da748d03582765d4"
+  },
+  "next_priority": "Replace or tighten the direct pair/angle relaxation for B36; support-box refinement alone is mathematically insufficient",
+  "B33_optimized_mode_rejected": {
+    "exit_code": 1,
+    "expected_message": "Assertions must remain enabled"
+  }
+}

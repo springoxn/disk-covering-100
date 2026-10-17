@@ -1,0 +1,3 @@
+"""Keep genuine pre-proposal boundary/hinge failures as exact evidence."""
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];path=ROOT/'verify/n100_B33_high_new_K.py';text=path.read_text(encoding='utf-8');old="assert seen==['source','proposal']";new="assert seen in (['source'],['source','proposal'])";assert text.count(old)==1;text=text.replace(old,new);old='for p in (Path(__file__),CANDIDATE';new="for p in (Path(__file__),ROOT/'verify/n100_B33_high_new_K.py',CANDIDATE";assert text.count(old)==1;text=text.replace(old,new);exec(compile(text,str(Path(__file__).resolve()),'exec'),{'__file__':str(Path(__file__).resolve()),'__name__':'__main__'})

@@ -1,0 +1,93 @@
+{
+  "schema": "n100-B31-new-radius/v1",
+  "radius": "2831/25000",
+  "B": 31,
+  "original_checker_all_assertions_passed": true,
+  "proposal_change": "radius metadata only; fixed dimensionless rows/charges/potentials byte-value equal",
+  "source_release_unchanged": true,
+  "independent_final_margin_and_ear_bad_recomputation_matches": true,
+  "result": {
+    "status": "PASS",
+    "radius": "2831/25000",
+    "B": 31,
+    "m": 100,
+    "scope": "Complete B31 branch after unit-disk projection before classification; other counts and exact optimality remain separate",
+    "required_center_norm_squared_upper": "1",
+    "center_projection_precedes_classification": true,
+    "n99_exclusion": {
+      "n": 99,
+      "radius": "2831/25000",
+      "cases": 96,
+      "tightest_B": 34,
+      "minimum_area_margin": "90760643444874567415784330459815116276063107608295618615864890360339289982629025443935753395667463/170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "ordinary_marked_incidence_upper": 3,
+    "footprint": {
+      "B": 31,
+      "consecutive_arcs": 5,
+      "angle_upper": "6933/10000",
+      "containing_radius_factor": 3,
+      "certified_margin_greater_than": "1/1000",
+      "margin_interval": [
+        "1087152482242073769/50000000000000000000",
+        "2174304964484147539/100000000000000000000"
+      ]
+    },
+    "degree_window": [
+      5,
+      8
+    ],
+    "old_normalized_loss_upper": "1154334450369615061641311372450829655801471922198539748379/3205824400000000000000000000000000000000000000000000000000",
+    "global_degree_five_requirement": 1,
+    "degree_five_requirement_for_M_le23": 2,
+    "all_twenty_face_label_multisets_allowed": true,
+    "deep_label_assumption": false,
+    "reflected_center_hypothesis": false,
+    "squared_edge_penalty": "0",
+    "halfside_multiplier": "0",
+    "arbitrary_ears_and_bad_faces_allowed": true,
+    "face_supports": 40,
+    "vertex_supports": 32,
+    "minimum_area_margin": "3205113070935301276991/1000000000000000000000000",
+    "branches": [
+      {
+        "M_endpoint": 23,
+        "required_degree_five_count": 2,
+        "M_slope_lower": "1377688362666098474777/500000000000000000000000",
+        "M_slope_upper": "551075345066439389911/200000000000000000000000",
+        "shifted_ear_upper": "-12485421521650564442257/100000000000000000000000",
+        "bad_q1_upper": "-22933479452784149618971/125000000000000000000000",
+        "minimum_face_slack": "74999999999999987/500000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "area_margin": "3284893769260873430073/500000000000000000000000"
+      },
+      {
+        "M_endpoint": 24,
+        "required_degree_five_count": 1,
+        "M_slope_lower": "-2245544926140198203727/100000000000000000000000",
+        "M_slope_upper": "-22455449261401982037269/1000000000000000000000000",
+        "shifted_ear_upper": "-35510842232442866358937/250000000000000000000000",
+        "bad_q1_upper": "-26020371165284149618971/125000000000000000000000",
+        "minimum_face_slack": "74984794709764029/500000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "area_margin": "3205113070935301276991/1000000000000000000000000"
+      }
+    ]
+  },
+  "geometric_transfer_obligations": [
+    "same-radius whole-cover normalization then rebuild diagram",
+    "unconditional full-star degree-loss inequality and current budget comparison",
+    "whole-disk /6 and induced-core /5 isoperimetry",
+    "same full-face labels, signed edge cancellation and single budget use",
+    "closed endpoint finite-type continuity argument"
+  ],
+  "scope": "full B31 numeric checker at11324 with its written geometric skeleton; no statement about B32..B35 or tail",
+  "global_lower_bound_improved": false,
+  "bindings": {
+    "verify/n100_B31_new_radius.py": "8a3cace6e209ff5a56629227b30a33bb332acae52f162b68b053f0fbd0764f59",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/B31_global_low_degree_0p11323_proposals.json": "91ac8d82f93578b69e73fa61293ec4f3295431a54b998a00fec79e5130766e94",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/verify_B31_global_low_degree_0p11323.py": "ee9d5bc6925e00a161a9688825f152105299bd2d17e38fc234aec35246790edf",
+    "verify/out/n100-lower-radius-bottleneck-firstpass.json": "43376d0e005a525a11e2ecd0b8933d2a01fe1044a87caac8a526574baf5b782a"
+  },
+  "script_sha256": "8a3cace6e209ff5a56629227b30a33bb332acae52f162b68b053f0fbd0764f59"
+}

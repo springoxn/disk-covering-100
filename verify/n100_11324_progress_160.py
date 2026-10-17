@@ -1,0 +1,12 @@
+"""Current same-radius ledger after new B33 degree proof and full lowM closure."""
+from pathlib import Path
+from fractions import Fraction as F
+import json,hashlib
+ROOT=Path(__file__).resolve().parents[1]
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def main():
+ basepath=ROOT/'verify/out/n100-11324-six-branch-ledger-149.json';base=json.loads(basepath.read_text(encoding='utf-8'));paths=[ROOT/'verify/out/n100-B33-degree-window-151.json',ROOT/'verify/out/n100-B33-degree-window-independent-153.json',ROOT/'verify/out/n100-B33-low-complete-157.json',ROOT/'verify/out/n100-B33-high-residual-159.json'];degree,ind,low,high=[json.loads(p.read_text(encoding='utf-8')) for p in paths];assert degree['status']==ind['status']==low['status']=='PASS';assert high['status']=='PASS_REDUCTION' and low['low_M_closed'];assert all(F(x['radius'])==F(2831,25000) for x in (degree,ind,low,high));assert len(high['degree5_remaining_profiles'])==2
+ for x in (degree,ind,low,high):
+  for rel,h in x.get('bindings',{}).items():assert sha(ROOT/rel)==h
+ base['schema']='n100-six-branch-progress/v3';base['branches']['B33']={'status':'NOT_CLOSED','degree_window':[5,8],'degree_window_new_proof':paths[0].relative_to(ROOT).as_posix(),'independent_degree_proof':paths[1].relative_to(ROOT).as_posix(),'low_M_closed':True,'low_M_domain':'M<=25','low_M_evidence':paths[2].relative_to(ROOT).as_posix(),'high_M_closed':False,'high_M_residual':high['degree5_remaining_profiles'],'high_M_evidence':paths[3].relative_to(ROOT).as_posix(),'reason':'Old degree4 window failure repaired by boundary-fan peel. All lowM closed. Original no5 conditional metric components remain valid; new unique5 M26 e0 b0 with total high curvature2 requires its own complete closure. Invalid newK/global or local hinge candidates not accepted.'};base['all_six_closed']=False;base['global_bound_improved']=False;base['next_priority']='B33 unique5 with two7 or one8: actual original-B-neighbor split; deep star vs ring-degree-unrestricted h0/1/2 core metric';base['source_bindings']={p.relative_to(ROOT).as_posix():sha(p) for p in [Path(__file__),basepath,*paths]};out=ROOT/'verify/out/n100-11324-six-branch-ledger-160.json';assert not out.exists();out.write_text(json.dumps(base,indent=2)+'\n',encoding='utf-8');print('LEDGER160 PASS: B31,B32 closed; B33 degreewindow and lowM closed, highM2 residual macroprofiles; global0.1132301 unchanged',flush=True)
+if __name__=='__main__':main()

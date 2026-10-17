@@ -1,0 +1,86 @@
+{
+  "schema": "n100-B32-same-radius-complete-composition/v1",
+  "status": "PASS",
+  "radius": "2831/25000",
+  "B": 32,
+  "m": 100,
+  "required_center_norm_squared_upper": "616985439/625000000",
+  "full_B32_closed": true,
+  "complete_M_partition": [
+    "M<=25",
+    "M>=26"
+  ],
+  "low_M25_profile_partition": [
+    73,
+    8
+  ],
+  "high_remaining_Euler_profiles": [
+    [
+      0,
+      26,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      26,
+      0,
+      0,
+      1
+    ]
+  ],
+  "unique5_boundary_neighbor_partition": [
+    {
+      "low_p": 0,
+      "original_B_neighbor": false,
+      "closure": "direct_star_p0"
+    },
+    {
+      "low_p": 0,
+      "original_B_neighbor": true,
+      "closure": "four_face_metric_h0_h1"
+    },
+    {
+      "low_p": 1,
+      "original_B_neighbor": true,
+      "closure": "four_face_metric_h0_h1"
+    },
+    {
+      "low_p": 2,
+      "original_B_neighbor": true,
+      "closure": "four_face_metric_h0_h1"
+    },
+    {
+      "low_p": 3,
+      "original_B_neighbor": true,
+      "closure": "four_face_metric_h0_h1"
+    }
+  ],
+  "minimum_reported_positive_closure_margin": "15600046212127187429/200000000000000000000000",
+  "low_M_closed": true,
+  "high_M_closed": true,
+  "same_radius_prerequisites": true,
+  "no_unproved_marked_low_exclusion_used": true,
+  "negative_marked_margin_retained_as_diagnostic": "-490979625631490392613/1000000000000000000000000",
+  "CAS_ring_and_original_boundary_centered_angle_identities": true,
+  "metric_ring_degree_unrestricted_and_no_p_low_assumption": true,
+  "physical_edge_cancellation": "same26 DRR/BRR opposite halfside pairs; no added fee and no second variance/hinge spend",
+  "geometric_dependencies": "Generic normalized common center diagram, marked-incidence definition, planar separation of original-B neighbor from strict core-block interior, general /6 block isoperimetry and polygon-star support inherited from reviewed release. CAS checks angle bookkeeping and integer classification; not a formal theorem-prover derivation.",
+  "global_bound_improved": false,
+  "other_B_branches_pending": [
+    "B33",
+    "B34",
+    "B35",
+    "B>=36"
+  ],
+  "bindings": {
+    "verify/n100_B32_complete_149_v2.py": "838a410e53b80ef7ee830df9135552ff601ec5ef6aa4243c57b95676b8829f28",
+    "verify/n100_B32_complete_149.py": "18e8fd492781941282b9694df0ca42356edee05885349306e400a408b19d1c6e",
+    "verify/out/n100-B32-M25-specialized-K-145.json": "3c8b4955d236f72645a2b8c4c02272785ff700ce8a522edfd4eca100d50c387d",
+    "verify/out/n100-B32-M25-independent-146.json": "3c896d553a5d21a1fe85ffdfe8ecc2a249acffee2173ca290e6989f0f50789e3",
+    "verify/out/n100-B32-high-expanded-148.json": "48ee872e34d2657040dd2df5e180577c19068722055858346a1f0afff9fca398",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/lower_staging/verify_B32_highM_complete_0p11323.py": "3a2dc869379d688a0dee7379eeb2849fffaafe25c868d293cc144fc127015154",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/lower_staging/B32_HIGHM_CATALOG_FREE_COMPLETE_0p11323.md": "bce25e990661a24cc1b3beb41917707ffd106e197869bfef6fe695774c27d70e"
+  }
+}

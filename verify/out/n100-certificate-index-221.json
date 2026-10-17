@@ -1,0 +1,103 @@
+{
+  "schema": "n100-certificate-index/v1",
+  "ledger": "verify/out/n100-11324-six-branch-ledger-213.json",
+  "target_radius": "2831/25000",
+  "accepted_global_lower_bound": "1132301/10000000",
+  "branches": [
+    {
+      "branch": "B31",
+      "status": "PASS",
+      "evidence": [
+        {
+          "field": "evidence",
+          "path": "verify/out/n100-B31-at-11324.json",
+          "exists": true,
+          "sha256": "1460b4b56014694eb7a9f0d50bf1424e981adcb93379535c1e650baae58d6893",
+          "status": null
+        }
+      ]
+    },
+    {
+      "branch": "B32",
+      "status": "PASS",
+      "evidence": [
+        {
+          "field": "evidence",
+          "path": "verify/out/n100-B32-complete-149.json",
+          "exists": true,
+          "sha256": "c419132ee7ebbc0b100365406c9b5013fdf77a11d3eccf1b458d9a48614b1ebb",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "branch": "B33",
+      "status": "PASS",
+      "evidence": [
+        {
+          "field": "evidence",
+          "path": "verify/out/n100-B33-complete-167-v2.json",
+          "exists": true,
+          "sha256": "25ea3fb9be3f82e5c1c1a153692b2c4167d5e83d5c348bdf287ca60bacca4ca4",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "branch": "B34",
+      "status": "PASS",
+      "evidence": [
+        {
+          "field": "evidence",
+          "path": "verify/out/n100-B34-complete-180.json",
+          "exists": true,
+          "sha256": "4ca166e709338a6481d01ff68a1201cc061d9d50672c9fba39eb14b7102a46e2",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "branch": "B35",
+      "status": "PASS",
+      "evidence": [
+        {
+          "field": "evidence",
+          "path": "verify/out/n100-B35-complete-203.json",
+          "exists": true,
+          "sha256": "32dd462f1cdd60c342fec3e9b07d3c981275156145b4ca86da9ca3b86c7e2e5c",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "branch": "B36plus",
+      "status": "NOT_CLOSED",
+      "evidence": [
+        {
+          "field": "B37plus_evidence",
+          "path": "verify/out/n100-tail-B37plus-210-a.json",
+          "exists": true,
+          "sha256": "eb3c85b39a675191329ce8ac54f07f3be94ab0f32066d187eb4cbd819a7f80d3",
+          "status": "PASS"
+        },
+        {
+          "field": "B36_obstruction",
+          "path": "verify/out/n100-tail-support-obstruction-206.json",
+          "exists": true,
+          "sha256": "4cff8906896b4bc5644b47670c9ad67fb13994fb4f219811318df50df3b097b4",
+          "status": "PASS_OBSTRUCTION_TO_OLD_RELAXATION"
+        },
+        {
+          "field": "direct_term_diagnostic",
+          "path": "verify/out/n100-tail-point-branch-212.json",
+          "exists": true,
+          "sha256": "f875d195850ff492ae185116bb93e641171233db26b3bf82da748d03582765d4",
+          "status": "PASS"
+        }
+      ]
+    }
+  ],
+  "all_six_closed": false,
+  "global_bound_improved": false,
+  "source_sha256": "71a251968a7d314d10c947a9d960825394b209573e70aaca12214c6e4bca3039"
+}

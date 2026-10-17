@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "radius": "22647/200000",
+  "m_at_most": 100,
+  "boundary_counts": "36 through 99",
+  "scope": "Every B>=36 branch only; smaller B and the exact optimum remain separate",
+  "penalty": "3/50",
+  "marked_constant": "973/3125",
+  "slope": "92531/10000000",
+  "intercept": "939/125000",
+  "all_q_triangle_supports": [
+    {
+      "marked_sides": 1,
+      "status": "PASS",
+      "boxes": 3761
+    },
+    {
+      "marked_sides": 2,
+      "status": "PASS",
+      "boxes": 104
+    },
+    {
+      "marked_sides": 3,
+      "status": "PASS",
+      "boxes": 35
+    }
+  ],
+  "complete_capped_pair": {
+    "B": 36,
+    "status": "PASS",
+    "lambda_value": "3/50",
+    "mu": "92531/10000000",
+    "target": "939/125000",
+    "normalized_sine_minimum": "0",
+    "visited": 1841089,
+    "accepted": 917297,
+    "seconds": 130.04108189999988
+  },
+  "minimum_area_margin_at_B36": "1808710125022421182469778967931605940457120574226219/100000000000000000000000000000000000000000000000000000000",
+  "additional_margin_per_boundary_cell": "2576085930071985489/500000000000000000000",
+  "schema": "n100-tail-candidate/v1",
+  "source_sha256": "09093f319f009b49da6249a0358b8737e5078a0bd1fec43bb809f94f137f3fce",
+  "adapter_sha256": "78a0617a72c0bf5168bcc5141471c41c87abe77cce3612429ba56c56d39df8b9"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "n100-B35-complete-independent/v1",
+  "status": "PASS",
+  "radius": "2831/25000",
+  "B": 35,
+  "m": 100,
+  "required_center_norm_squared_upper": "616985439/625000000",
+  "full_B35_closed": true,
+  "M_partition": [
+    "M<=24",
+    "M25",
+    "M26",
+    "M>=27"
+  ],
+  "independent_lowM_margin_min": "169690032082888672651865333931/625000000000000000000000000000000",
+  "M25_M26_independent_margins": {
+    "M25": "671273149757930295147147596582353981001502187841576209/133799681047716881916468750000000000000000000000000000000",
+    "M26_chordless": "41016769570013162146594398919393288543761405468296039/5615296943533080047304375000000000000000000000000000000",
+    "M26_onechord": "47057165177431708555140784085444247478713536796723409/6954292515663726658470112500000000000000000000000000000"
+  },
+  "source_hashes_checked": true,
+  "budget_review": "LowM and highM use separate complete conditional contradictions. LowM uses one original scalar payment and vertex slacks once; unique5/core-ear topology consumes none. High16-model ledgers each use their own verified boundaryK and exact one-time physical-edge cancellation; original variance payment not spent twice.",
+  "geometric_dependencies": "Original normalized center triangulation, general /6 disk isoperimetry and inherited /5 for at most one strictdegree5; two nonadjacent boundary-ear deletion preserves strict original stars. Arithmetic and Fraction/CAS are executable; analytic planar arguments remain reviewed prose rather than formal kernel.",
+  "global_bound_improved": false,
+  "pending_other_B": [
+    "B>=36"
+  ],
+  "bindings": {
+    "verify/n100_B35_complete_203.py": "b0c06e4a6f94da6b622ac516e4b0ff9194994a4e56a6ee24d53919d16dbf4205",
+    "verify/out/n100-B35-full-gaps-190.json": "4bc68ad63275c692871e9ff561c7b260e28b0604f9600212e0f84ce6b4776940",
+    "verify/out/n100-B35-profile-reduction-191.json": "2c77413210b3cbc6bedf186cb309396cceb73aed3e128e7e80ecbdbca65a7417",
+    "verify/out/n100-B35-M25-M26-complete-201.json": "490e332b7944ab2f25e905673ea36fe50b3c2d5e11240262dadc5e6d64ee4615",
+    "verify/out/n100-B35-lowM-complete-202.json": "7b50fd46a9466a0f9d7ddb600b7f5253328328863a4daacbfe9b5b4083e22d13"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "n100-B35-lowM-complete/v1",
+  "status": "PASS",
+  "radius": "2831/25000",
+  "B": 35,
+  "low_M_closed": true,
+  "domain": "M<=24",
+  "required_center_norm_squared_upper": "616985439/625000000",
+  "M_min_conservative": -34,
+  "profile_margins": {
+    "selected_witness_degree3or4": "153711748804123094107980565819/31250000000000000000000000000000",
+    "additional_low_degree": "29729148192919399006032930827/12500000000000000000000000000000",
+    "any_degree8plus": "78111709578329786398584092943/39062500000000000000000000000000",
+    "any_degree7_p_le3": "169719622529696740793900558901/625000000000000000000000000000000",
+    "one_ear": "77678509790793305723679098457/62500000000000000000000000000000",
+    "one_bad_q1": "1129189373729012834011409086059/625000000000000000000000000000000"
+  },
+  "forced_profile": "e=b0; unique unmarkeddegree5; all other interior degrees6/7; every7 owns4 marked edges",
+  "CAS_curvature_identity": "N7=30-M",
+  "remaining_core_topologies_before_ear_contradiction": [
+    {
+      "M": 23,
+      "core_faces": 105,
+      "core_boundary": 23,
+      "required_core_ears_min": 7,
+      "two_ear_contradiction_integer_margin": 74
+    },
+    {
+      "M": 24,
+      "core_faces": 104,
+      "core_boundary": 24,
+      "required_core_ears_min": 6,
+      "two_ear_contradiction_integer_margin": 26
+    }
+  ],
+  "geometric_argument": "Inherited one-positive-curvature disk /5 applied blockwise: only simpleP23/F105 orP24/F104 cores survive. A degree7 owner of4 boundary edges has>=5 original-boundary neighbours, hence exactly2 core neighbours and is a core ear. Two degree2 boundary vertices in a simple triangulated diskP>3 are nonadjacent and can be deleted together, giving simple disk(P-2,F-2) with at most one strictdegree5 and other strictdegrees>=6; /5 fails in both cases. Euler requires at least6 such ears. No metric payment is added for this topology argument.",
+  "dependencies": "Same-radius compulsory unmarked low-degree core obstruction, reviewed /5 disk lemma, common normalized center triangulation and degree/Euler identities. Analytic combinatorial proof with exact integer/CAS checks, not formal embedding kernel.",
+  "full_B35_closed": false,
+  "global_bound_improved": false,
+  "bindings": {
+    "verify/n100_B35_lowM_complete_202.py": "7c3ed4c4c43e05bfa0952f0663429231e79ace2c919163df27121a6fda5a4dff",
+    "verify/out/n100-B35-full-gaps-190.json": "4bc68ad63275c692871e9ff561c7b260e28b0604f9600212e0f84ce6b4776940"
+  }
+}

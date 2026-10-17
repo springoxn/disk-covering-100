@@ -1,0 +1,82 @@
+{
+  "schema": "n100-candidate-complete/v1",
+  "status": "PASS",
+  "candidate_radius": "22647/200000",
+  "previous_target_radius": "2831/25000",
+  "accepted_global_lower_bound": "22647/200000",
+  "closed_branches": [
+    "B31",
+    "B32",
+    "B33",
+    "B34",
+    "B35",
+    "B36plus"
+  ],
+  "all_six_closed": true,
+  "global_bound_improved": true,
+  "monotonicity_justification": "A covering at radius R<old is also a covering at old radius after enlarging every disk; therefore certified exclusion at old radius implies exclusion at R. B36plus is independently replayed at candidate R.",
+  "B36plus_certificate": {
+    "intercept": "939/125000",
+    "visited": 1841089,
+    "accepted": 917297,
+    "q_support_boxes": [
+      {
+        "marked_sides": 1,
+        "status": "PASS",
+        "boxes": 3761
+      },
+      {
+        "marked_sides": 2,
+        "status": "PASS",
+        "boxes": 104
+      },
+      {
+        "marked_sides": 3,
+        "status": "PASS",
+        "boxes": 35
+      }
+    ],
+    "B36_margin": "1808710125022421182469778967931605940457120574226219/100000000000000000000000000000000000000000000000000000000",
+    "per_boundary_gain": "2576085930071985489/500000000000000000000"
+  },
+  "evidence": {
+    "B31": {
+      "path": "verify/out/n100-B31-at-11324.json",
+      "source_radius": "2831/25000",
+      "monotone_inherited_to": "22647/200000",
+      "sha256": "1460b4b56014694eb7a9f0d50bf1424e981adcb93379535c1e650baae58d6893"
+    },
+    "B32": {
+      "path": "verify/out/n100-B32-complete-149.json",
+      "source_radius": "2831/25000",
+      "monotone_inherited_to": "22647/200000",
+      "sha256": "c419132ee7ebbc0b100365406c9b5013fdf77a11d3eccf1b458d9a48614b1ebb"
+    },
+    "B33": {
+      "path": "verify/out/n100-B33-complete-167-v2.json",
+      "source_radius": "2831/25000",
+      "monotone_inherited_to": "22647/200000",
+      "sha256": "25ea3fb9be3f82e5c1c1a153692b2c4167d5e83d5c348bdf287ca60bacca4ca4"
+    },
+    "B34": {
+      "path": "verify/out/n100-B34-complete-180.json",
+      "source_radius": "2831/25000",
+      "monotone_inherited_to": "22647/200000",
+      "sha256": "4ca166e709338a6481d01ff68a1201cc061d9d50672c9fba39eb14b7102a46e2"
+    },
+    "B35": {
+      "path": "verify/out/n100-B35-complete-203.json",
+      "source_radius": "2831/25000",
+      "monotone_inherited_to": "22647/200000",
+      "sha256": "32dd462f1cdd60c342fec3e9b07d3c981275156145b4ca86da9ca3b86c7e2e5c"
+    },
+    "B36plus": {
+      "path": "verify/out/n100-tail-candidate-224.json",
+      "radius": "22647/200000",
+      "sha256": "b5ca9c60be73136356c5c77a3b13a9d9c22a07d265299cb3acda2262a5715fee"
+    }
+  },
+  "ledger_sha256": "a1943aef3a9bfbec13b2829e5b91fa77fbdb7fcf3bbb4a6040b8bf0042726ed0",
+  "index_sha256": "31cd77f67ffacacfe97e02944f2074f99851eee546fdf23eb94d59762617834c",
+  "assembly_sha256": "752eb5dc6f54c99c71e6c5445d3e7560ecf1d0f16c523fcd3d2260f605741ece"
+}

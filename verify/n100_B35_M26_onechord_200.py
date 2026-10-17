@@ -1,0 +1,4 @@
+"""Exact one-chord replay for corrected B35 boundary candidate199."""
+from pathlib import Path
+if not __debug__:raise RuntimeError('Assertions must remain enabled')
+ROOT=Path(__file__).resolve().parents[1];source=ROOT/'verify/n100_B35_M26_onechord_196.py';text=source.read_text(encoding='utf-8');old="exec(compile(text,str(Path(__file__).resolve()),'exec'),{'__file__':str(Path(__file__).resolve()),'__name__':'__main__'})";new="text=text.replace('B35-M26-onechord-discovery-194','B35-M26-onechord-discovery-199').replace('n100-B35-M26-onechord-196.json','n100-B35-M26-onechord-200.json');exec(compile(text,str(Path(__file__).resolve()),'exec'),{'__file__':str(Path(__file__).resolve()),'__name__':'__main__'})";assert text.count(old)==1;text=text.replace(old,new);exec(compile(text,str(Path(__file__).resolve()),'exec'),{'__file__':str(Path(__file__).resolve()),'__name__':'__main__'})

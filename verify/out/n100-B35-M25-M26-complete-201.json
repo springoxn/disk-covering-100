@@ -1,0 +1,49 @@
+{
+  "schema": "n100-B35-M25-M26-independent/v1",
+  "status": "PASS",
+  "radius": "2831/25000",
+  "B": 35,
+  "required_center_norm_squared_upper": "616985439/625000000",
+  "M25_closed": true,
+  "M26_closed": true,
+  "M_ge27_closed": true,
+  "low_M_closed": false,
+  "remaining": "M<=24 with compulsory unmarked lowdegree witness",
+  "model_counts": {
+    "M25": 8,
+    "M26_chordless": 3,
+    "M26_onechord": 5
+  },
+  "independent_fraction_margins": {
+    "M25": "671273149757930295147147596582353981001502187841576209/133799681047716881916468750000000000000000000000000000000",
+    "M26_chordless": "41016769570013162146594398919393288543761405468296039/5615296943533080047304375000000000000000000000000000000",
+    "M26_onechord": "47057165177431708555140784085444247478713536796723409/6954292515663726658470112500000000000000000000000000000"
+  },
+  "M26_topology_slots": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "CAS_face_count_and_centered_potential": true,
+  "hinge_variance_payment_for_new_metrics": 0,
+  "budget_review": "Original variance payment row establishes residuals; new metrics each have their own complete boundaryK/face sum with exact physical edge cancellation. No scalar deficit is paid across two rows.",
+  "geometric_dependencies": "Same-radius normalized common triangulation and original /6 disk topology; integer peel excludes C>=2. All high7 have positivep and lie on ring. M25 core chordlessP25/F103, M26 coreP26/F102 from source. Pure topology and metric ledger reviewed here; not formal planar-embedding kernel.",
+  "full_B35_closed": false,
+  "global_bound_improved": false,
+  "bindings": {
+    "verify/n100_B35_M25_M26_complete_201.py": "996a8a8b69a3caa9223cf523133a30ad74b70391c8886279b771d8ce3b3bdd76",
+    "verify/out/n100-B35-profile-reduction-191.json": "2c77413210b3cbc6bedf186cb309396cceb73aed3e128e7e80ecbdbca65a7417",
+    "verify/out/n100-B35-M25-metric-193.json": "ed8889d92fb8adb878cdc14ded94a062aab506c7f50a71f778f417f57efa26ad",
+    "verify/out/n100-B35-M26-chordless-197.json": "690173c0d8bee346a9dbc8e566c426b4e62c1a22e8f6b903e5ce00b49867030b",
+    "verify/out/n100-B35-M26-onechord-200.json": "0191d558170538b763ac5fad4ff00e9e5ab241fd0f1a58a0348a8aa4a7cee4a5",
+    "verify/n100_B35_M26_onechord_196.py": "6943c2eb0b341a9d2c66ff75b1fd41ccf29a82132b374c3d0a46ba600d912dcc",
+    "tools/n100_B35_M26_onechord_discover_199.py": "eef4d3f1870b1d98c40d3cfc3a72f8daab6dd03a97ec54f7496c223ace9805d5",
+    "tools/n100_B35_M26_onechord_discover_194.py": "c5ebca0b8b31d31f4a7bb771438cba84f2e388cb6574d24640e03a8d3c521354",
+    "tools/n100_B34_onechord_labelled_discover.py": "6c5bd2427c752967015c2124444947f66e2d5a693a35f08d900738c121a102d8"
+  }
+}

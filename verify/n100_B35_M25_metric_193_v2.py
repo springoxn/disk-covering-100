@@ -1,0 +1,4 @@
+"""B35 M25 exact replay with finer rational boundary partition."""
+from pathlib import Path
+if not __debug__:raise RuntimeError('Assertions must remain enabled')
+ROOT=Path(__file__).resolve().parents[1];source=ROOT/'verify/n100_B35_M25_metric_193.py';text=source.read_text(encoding='utf-8');old='boundary.R=R;boundary.B=35;boundary.K=K;';new="bs=Path(boundary.__file__).read_text(encoding='utf-8');assert bs.count('count=1000;')==1;exec(compile(bs.replace('count=1000;','count=10000;'),str(boundary.__file__),'exec'),boundary.__dict__);boundary.R=R;boundary.B=35;boundary.K=K;";assert text.count(old)==1;text=text.replace(old,new);text=text.replace('for p in (Path(__file__),pp,tp,',"for p in (Path(__file__),ROOT/'verify/n100_B35_M25_metric_193.py',pp,tp,");exec(compile(text,str(Path(__file__).resolve()),'exec'),{'__file__':str(Path(__file__).resolve()),'__name__':'__main__'})

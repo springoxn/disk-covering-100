@@ -1,0 +1,13 @@
+"""Exact branch audit at the B36 old-relaxation obstruction point."""
+from pathlib import Path
+from fractions import Fraction as F
+import sys,json,hashlib
+ROOT=Path(__file__).resolve().parents[1];W=ROOT/'runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working';sys.path[:0]=[str(W),str(W/'threshold_11305_components')]
+import verify_remaining_cases as m
+
+def main():
+ if not __debug__:raise RuntimeError('Assertions must remain enabled')
+ R=F(2831,25000);x=F(9921033,12500000);mu=F(92531,10**7);lam=F(3,50);m.b.R=m.b.ci(R);m.b.R2=m.b.ci(R*R);m.b.LAM=m.b.ci(lam);t=int(x*m.b.D);s,h,u,v,c,H=m.b.state((t,t),-1);S,j,U,V,C,J=m.b.state((t,t),1);d=m.b.vs(c,C);w=m.b.va(m.b.vm(d,m.b.scal(m.b.LAM,2)),m.b.vm(u,m.b.sub(m.b.mul(m.b.scal(m.b.LAM,4),h),m.b.half(s))));Wv=m.b.va(m.b.vm(d,m.b.scal(m.b.LAM,-2)),m.b.vm(U,m.b.sub(m.b.mul(m.b.scal(m.b.LAM,4),j),m.b.half(S))));wr=m.b.dot(w,u);wt=m.b.ab(m.b.dot(w,v));Wr=m.b.dot(Wv,U);Wt=m.b.ab(m.b.dot(Wv,V));assert wr[1]<0 and wt[1]*h[1]<(-wr[0])*s[0];assert Wr[1]<0 and Wt[1]*j[1]<(-Wr[0])*S[0]
+ zero=(0,0);direct=m.b.sub(m.b.add(m.b.mul(m.b.scal(m.b.LAM,4),m.b.R2),m.b.half(m.b.add(H,J))),m.b.mul(m.b.ci(mu),m.b.half(m.b.add(m.b.asin(s),m.b.asin(S)))));assert direct[0]>0
+ out=ROOT/'verify/out/n100-tail-point-branch-212.json';assert not out.exists();out.write_text(json.dumps({'schema':'n100-tail-point-branch/v1','status':'PASS','radius':str(R),'x':str(x),'y':str(x),'lambda':str(lam),'mu':str(mu),'left_support_branch':'ZERO','right_support_branch':'ZERO','left_conditions':{'wr':list(map(str,wr)),'wt_times_h':list(map(str,m.b.mul(wt,h))),'minus_wr_times_s':list(map(str,m.b.mul(m.b.neg(wr),s)))},'right_conditions':{'wr':list(map(str,Wr)),'wt_times_h':list(map(str,m.b.mul(Wt,j))),'minus_wr_times_s':list(map(str,m.b.mul(m.b.neg(Wr),S)))},'direct_relaxation_interval':[str(F(direct[0],m.b.D)),str(F(direct[1],m.b.D))],'interpretation':'At the exact obstruction point both circular support terms are rigorously in their zero branch; the excess over the B36-allowed intercept comes from the direct pair/angle expression, not support interval overestimation. Fixed old capped-pair support cannot close B36 by merely refining support boxes.','B36_closed':False,'global_bound_improved':False,'bindings':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__),W/'pair_bound_certificate_20261004/verify_pair_bound.py',W/'threshold_11305_components/verify_remaining_cases.py')}},indent=2)+'\n',encoding='utf-8');print('TAIL BRANCH DIAGNOSTIC PASS: both supports zero; direct term bottleneck',flush=True)
+if __name__=='__main__':main()

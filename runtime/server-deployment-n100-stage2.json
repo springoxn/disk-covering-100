@@ -1,0 +1,20 @@
+[
+  {
+    "local": "tools/pilot_n100_stage2.py",
+    "remote": "/home/zhengyj/adb-n100-stage2-pilot-20261012/pilot_n100_stage2.py",
+    "sha256": "b06e054ec882d67e4ea23f61821360fabb8f0e5a054b2d9f7b5fa34989effa59",
+    "bytes": 90489
+  },
+  {
+    "local": "runtime/freecover_n100.json",
+    "remote": "/home/zhengyj/adb-n100-stage2-pilot-20261012/inputs/freecover_n100.json",
+    "sha256": "36286ebc48041a2a007c34a0ffa4a060b25fa9762ee881cf05405cf6f881a92e",
+    "bytes": 4549
+  },
+  {
+    "local": "runtime/n100_polar_probe.json",
+    "remote": "/home/zhengyj/adb-n100-stage2-pilot-20261012/inputs/n100_polar_probe.json",
+    "sha256": "7d51b569daa90756405460458381b6802b4972b56c4636d5836f7c4cbcd00ca5",
+    "bytes": 103292
+  }
+]

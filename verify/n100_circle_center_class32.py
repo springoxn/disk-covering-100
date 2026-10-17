@@ -1,0 +1,19 @@
+"""Alternating circle and center propagation on the complete 32-case class."""
+from pathlib import Path
+import json,hashlib
+from collections import Counter
+from n100_circle_center_alternating import coupled,need,independent
+from n100_axis_coupled_boxes import build
+from n100_boundary_circle_propagation import setup
+ROOT=Path(__file__).resolve().parents[1]
+def load(p):return json.loads((ROOT/p).read_text(encoding='utf-8'))
+def width(B):return sum(b[1]-b[0]+b[3]-b[2] for b in B)
+def main():
+ source='verify/out/n100-boundary-circle-class77711.json';cp='verify/out/n100-cubic-core-roundtrip.json';bp='verify/out/n100-axis-coupled-boxes.json';dom='verify/out/n100-boundary-circle-survivor-domain.json';core=load(cp)['core'];baseline=load(source);prior={tuple(r['placement']):r['boxes'] for r in load(bp)['retained']};members={tuple(p) for p in load(dom)['survivor_axis_edge_placements'] if tuple((p[(j+1)%4]-p[j])%32 for j in range(4))==(7,7,7,11)};need(len(members)==32 and members=={tuple(r['placement']) for r in baseline['rows']},'complete class')
+ _,adj,_=build(core);pairs=sorted({tuple(sorted((i,j))) for i,row in enumerate(adj) for j in row if i!=j})
+ F=independent.cyc(core['phi']);owner={d:i for i,row in enumerate(F) for d in row};outer=next(i for i,row in enumerate(F) if core['core_tags'][row[0]][0]=='outer');index={f:i for i,f in enumerate(f for f in range(len(F)) if f!=outer)};pairs2=sorted({tuple(sorted((index[owner[d]],index[owner[e]]))) for d,e in enumerate(core['alpha']) if owner[d]!=outer and owner[e]!=outer and owner[d]!=owner[e]});need(pairs==pairs2 and len(pairs)==265,'pairs')
+ rows=[]
+ for row in sorted(baseline['rows'],key=lambda r:r['placement']):
+  p=row['placement'];root=prior[tuple(p)];B,E,q=setup(core,p,root);IB,IE,Iq=independent.setup(core,p,root);need((B,E,q)==(IB,IE,Iq),'setup');start=row['boxes'];need(row['fixed'],'baseline fixed');check=independent.propagate(start,IE,Iq,limit=1);need(not check['excluded'] and check['fixed'] and check['boxes']==start,'baseline is fixed');a=coupled(start,E,q,pairs);b=coupled(start,IE,Iq,pairs2,True);need(a==b,'independent full result');final=a.get('boxes',a.get('result',{}).get('boxes'));need(all(s[2*k]<=f[2*k]<=f[2*k+1]<=s[2*k+1] for s,f in zip(start,final) for k in (0,1)),'nested boxes');rows.append({'placement':p,'extra_width_reduction':width(start)-width(final),'result':a});print('case',p,'excluded',a['excluded'],'extra width',rows[-1]['extra_width_reduction'],flush=True)
+ counts={'excluded':sum(r['result']['excluded'] for r in rows),'fixed':sum(not r['result']['excluded'] and r['result']['fixed'] for r in rows),'capped':sum(not r['result']['excluded'] and not r['result']['fixed'] for r in rows),'contracted':sum(r['extra_width_reduction']>0 for r in rows)};out=ROOT/'verify/out/n100-circle-center-class32.json';need(not out.exists(),'overwrite');paths=[source,cp,bp,dom,'verify/n100_circle_center_alternating.py','verify/n100_boundary_circle_branch_tree.py','verify/n100_boundary_circle_branch_tree_independent_full.py','verify/n100_axis_coupled_boxes.py','verify/n100_axis_coupled_boxes_independent.py','verify/n100_boundary_circle_propagation.py'];out.write_text(json.dumps({'schema':'n100-circle-center-class32/v1','verified_integer_replay':True,'member_count':32,'counts':counts,'total_extra_width_reduction':sum(r['extra_width_reduction'] for r in rows),'rows':rows,'all_independent_results_equal':True,'baseline_fixedness_rechecked':True,'scope':'one complete32-case fixed-core gap class; baseline provenance inherited; nonempty is unresolved','machine_verified_geometry':False,'global_optimality':False,'bindings':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+'\n',encoding='utf-8');print('PASS class32 alternating',counts,'extra total',sum(r['extra_width_reduction'] for r in rows))
+if __name__=='__main__':main()

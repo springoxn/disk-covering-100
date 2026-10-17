@@ -1,0 +1,81 @@
+{
+  "schema": "n100-B33-complete-independent-composition/v1",
+  "status": "PASS",
+  "radius": "2831/25000",
+  "B": 33,
+  "m": 100,
+  "required_center_norm_squared_upper": "616985439/625000000",
+  "full_B33_closed": true,
+  "M_partition": [
+    "M<=25",
+    "M>=26"
+  ],
+  "high_integer_survivors_before_local_closures": [
+    [
+      0,
+      26,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      26,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      26,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      27,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      26,
+      0,
+      0,
+      2
+    ]
+  ],
+  "unique5_boundary_neighbor_split_complete": true,
+  "ring_models": 108,
+  "independent_fraction_ring_min_margin": "9966252064994980802864269960387104708971305381739161/13503329587997549508671250000000000000000000000000000000",
+  "CAS_DDD_DDR_and_angle_potential_identities": true,
+  "marked_range_derived_from_chordless_core": true,
+  "physical_edge_pairs_cancellation": 26,
+  "global_K_hinge_budgets_not_stacked": "Old valid K=.44 row used only for profile reduction and deep-star replacement; labelled-ring contradiction uses its own freshly verified K envelope and spends no hinge or variance. Each conditional contradiction has its own complete single area ledger.",
+  "no5_bad_and_deep7_topology_review": true,
+  "minimum_reported_positive_margin": "1471448836581788939/500000000000000000000000",
+  "geometric_dependencies": "Common normalized center triangulation, planar separation of original-B neighbor from strict core interior, general/6 disk isoperimetry, core/outer-band decomposition without B chords when connected/no ears, complete-star/perimeter lemma and full-simplex signed face supports inherited and reviewed. Integer counts, all26-cycle signatures and angular cancellation CAS checked; not formal theorem-prover kernel.",
+  "geometry_review_completed_for_ring165": true,
+  "global_bound_improved": false,
+  "pending_other_B": [
+    "B34",
+    "B35",
+    "B>=36"
+  ],
+  "bindings": {
+    "verify/n100_B33_complete_167_v2.py": "578cb3a097099483eee4d9c15f6e7603ed50989ba0a1bf49b58142775fd3b789",
+    "verify/n100_B33_complete_167.py": "3dfb48d10eb84ebffdc4587e1106b946e9f7135870bc20f526563c6b832cf207",
+    "verify/out/n100-B33-low-complete-157.json": "d84d13335705bc93aaa2db7af7e367b5750d1fc71e926168133ff9274c80034e",
+    "verify/out/n100-B33-high-residual-159.json": "885d08aa8c685df683c4342910a34092baf563bcd12b027e974a4cd13c9ae68a",
+    "verify/out/n100-B33-deep5-complete-163.json": "25f38c2aa963dcec6ef7dce37e148b0389467f95a93ddb70d89820c457e0e1b2",
+    "verify/out/n100-B33-ring5-complete-165.json": "4172d4b1893de4d83c981aa084e92bef02d9bb8917d968d7fa5f4945b0330096",
+    "verify/out/n100-B33-no5-components-166.json": "8b068f12cf4eab4c646c1e71c2a0891b073421530f261cd0720942c41de638d7",
+    "runtime/B33-labelled-ring-discovery-164/proposal.json": "fc67f57e4f757a0115792f411c480da35eaa9934423cba0360ec7ed9d4ab4548",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/lower_bounds_extension_20261004/GENERAL_DISK_ISOPERIMETRY.md": "3dd646f173e5b840370d725260d98500d7c2e1b6b7ce87feecbfaf7e8a92de38",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/verify_B33_hinge_metric_complete_0p11323.py": "00a2a4e7c4ea66584cbfe28f54ad1e19e2429563e90bf2d4c8d3e0e642ecb6d3",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/exact_signed_sine_full_face_support.py": "9771385657022f006daf986057165db0514e296b0538a7e81d99808a772487e3",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/exact_linear_halfside_marked_conjugate.py": "12308a08e76ead613dc36555bc16026bfaf0ea928dda6f18d18b1f4e8ccc23e4"
+  }
+}

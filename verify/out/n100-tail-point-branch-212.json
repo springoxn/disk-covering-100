@@ -1,0 +1,51 @@
+{
+  "schema": "n100-tail-point-branch/v1",
+  "status": "PASS",
+  "radius": "2831/25000",
+  "x": "9921033/12500000",
+  "y": "9921033/12500000",
+  "lambda": "3/50",
+  "mu": "92531/10000000",
+  "left_support_branch": "ZERO",
+  "right_support_branch": "ZERO",
+  "left_conditions": {
+    "wr": [
+      "-26608029002023",
+      "-26608029002017"
+    ],
+    "wt_times_h": [
+      "1371979754645",
+      "1371979754646"
+    ],
+    "minus_wr_times_s": [
+      "2391439768866",
+      "2391439768867"
+    ]
+  },
+  "right_conditions": {
+    "wr": [
+      "-26608029002023",
+      "-26608029002017"
+    ],
+    "wt_times_h": [
+      "1371979754645",
+      "1371979754646"
+    ],
+    "minus_wr_times_s": [
+      "2391439768866",
+      "2391439768867"
+    ]
+  },
+  "direct_relaxation_interval": [
+    "8921389947031/1000000000000000",
+    "4460694973517/500000000000000"
+  ],
+  "interpretation": "At the exact obstruction point both circular support terms are rigorously in their zero branch; the excess over the B36-allowed intercept comes from the direct pair/angle expression, not support interval overestimation. Fixed old capped-pair support cannot close B36 by merely refining support boxes.",
+  "B36_closed": false,
+  "global_bound_improved": false,
+  "bindings": {
+    "verify/n100_tail_point_branch_diagnostic_212.py": "1b90429df21701f1ce7551c876b4ecc730582a36ad4282913f17f2317d9391ff",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/pair_bound_certificate_20261004/verify_pair_bound.py": "eb2a02334dc7441f1e68484505f649d43b824929489062352d68ce4fa77e31bc",
+    "runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/threshold_11305_components/verify_remaining_cases.py": "04200e031fff37aabb5c9994435e81bb6c4310e0c0a638ee8d62470adcaab236"
+  }
+}

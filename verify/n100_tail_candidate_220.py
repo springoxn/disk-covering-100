@@ -1,0 +1,4 @@
+"""Full B36 pair replay at candidate radius 0.113237 and rational intercept."""
+from pathlib import Path
+import json,hashlib
+ROOT=Path(__file__).resolve().parents[1];src=ROOT/'runtime/disk100-release-lf-67ebf1c/certified_bounds_11323/working/verify_capped_pair_B36plus_0p11323.py';text=src.read_text(encoding='utf-8');assert text.count('R=F(11323,100000)')==1 and text.count('L=F(751,100000)')==1;text=text.replace('R=F(11323,100000)','R=F(113237,1000000)').replace('L=F(751,100000)','L=F(75097,10000000)');ns={'__file__':str(src),'__name__':'candidate220'};exec(compile(text,str(src),'exec'),ns);result=ns['verify']();out=ROOT/'verify/out/n100-tail-candidate-220.json';assert not out.exists();out.write_text(json.dumps({**result,'schema':'n100-tail-candidate/v1','source_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'adapter_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+'\n');print('CANDIDATE220 PASS',json.dumps(result),flush=True)

@@ -1,0 +1,12 @@
+{
+  "schema": "n100-candidate-budget/v1",
+  "status": "PASS",
+  "radius": "113237/1000000",
+  "intercept": "75097/10000000",
+  "slope": "92531/10000000",
+  "marked_constant": "973/3125",
+  "B36_margin": "49064452224646078469778967931605940457120574226219/100000000000000000000000000000000000000000000000000000000",
+  "per_boundary_gain": "64436490287698376249/12500000000000000000000",
+  "scope": "Scalar budget only; full pair-domain and other-branch replays remain required.",
+  "source_sha256": "a2c77d208810cf22c8498f8d2573c388e21398be0b75be0d0cb9092875515b4e"
+}

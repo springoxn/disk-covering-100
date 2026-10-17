@@ -1,0 +1,75 @@
+{
+  "schema": "n100-B34-complete-independent/v1",
+  "status": "PASS",
+  "radius": "2831/25000",
+  "B": 34,
+  "m": 100,
+  "required_center_norm_squared_upper": "616985439/625000000",
+  "full_B34_closed": true,
+  "M_partition": [
+    "M<=25",
+    "M>=26"
+  ],
+  "high_topology_slots": [
+    {
+      "deep_excess": 0,
+      "chords": 0,
+      "empty_boundary_triangles": 0,
+      "a": 0,
+      "inner_frontier": 20,
+      "removed_faces": 46,
+      "remaining_faces": 58,
+      "peel_upper": "338/3"
+    },
+    {
+      "deep_excess": 0,
+      "chords": 1,
+      "empty_boundary_triangles": 1,
+      "a": 0,
+      "inner_frontier": 19,
+      "removed_faces": 45,
+      "remaining_faces": 59,
+      "peel_upper": "631/6"
+    },
+    {
+      "deep_excess": 1,
+      "chords": 0,
+      "empty_boundary_triangles": 0,
+      "a": 0,
+      "inner_frontier": 19,
+      "removed_faces": 45,
+      "remaining_faces": 59,
+      "peel_upper": "631/6"
+    }
+  ],
+  "chordless_models": 23,
+  "onechord_models": 47,
+  "independent_fraction_chordless_min_margin": "110774796103675920019753504620580261193838912278281171/68496493679406126070696875000000000000000000000000000000",
+  "independent_fraction_onechord_min_margin": "18859659811227488415021882954876900044804679502034921/4338506272259337356792250000000000000000000000000000000",
+  "minimum_reported_positive_margin": "190482881108285619519923/292968750000000000000000000",
+  "CAS_centered_angle_and_core_ear_identities": true,
+  "physical_edge_cancellation": {
+    "chordless": 26,
+    "onechord_outer": 24,
+    "onechord_diagonal": 1,
+    "onechord_unpaid_BRR": 2
+  },
+  "geometry_review_completed_for_177_and179": true,
+  "high_metric_hinge_variance_payment": 0,
+  "budget_review": "OldK=.5 q4-payment row used for residual reduction and low contradiction. High chordless/single-chord contradiction each owns its freshly verified boundaryK, one full face ledger and shared-edge cancellation. No payments from distinct conditional contradictions combined.",
+  "geometric_dependencies": "Inherited common normalized center triangulation, core first peel and general/6 block isoperimetry. Core-ear originalp=d-3 vs non-earp<=d-4, markedq<=4 from same-radius original cluster. Chord adjacent boundary triangles enumerated over every26-cycle label arrangement; independent coverage and CAS accounting checked, not theorem-prover embedding kernel.",
+  "global_bound_improved": false,
+  "pending_other_B": [
+    "B35",
+    "B>=36"
+  ],
+  "bindings": {
+    "verify/n100_B34_complete_180_v2.py": "2e7dd75e3e0ec4c5094c8f0707d7923ae8dee8d39668e62766df7196d7bb4449",
+    "verify/n100_B34_complete_180.py": "326394f9833d79cadf9d3e6476e6dc6925cee337baca3e0a3a27871aee5180e4",
+    "verify/out/n100-B34-low-and-high-reduction-171.json": "c1309fb2523a38d86a2d2c4ef765b67dd43efe360992d44b8080139690860789",
+    "verify/out/n100-B34-low-independent-172.json": "9bc05f8895b1738b64b019049243cccf090dfaa727e85e2a75e7d75da5669998",
+    "verify/out/n100-B34-high-topology-174.json": "3b8ce94a1838d9e7a3b4b60947b0c99431100341770a408d5e395c7beb299c78",
+    "verify/out/n100-B34-chordless-complete-177.json": "d8face2b91700fa65e683dc46164170d4d4853cdcb8a50ee52b3a69c0fc0f9fa",
+    "verify/out/n100-B34-onechord-complete-179.json": "dc2d36529e3c2fa5dd8a9e73c289cbf4348029489f9647cd4e0500d88caa8d25"
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "schema": "independent-lattice97-cover/v1",
+  "all_passed": true,
+  "coverage_confirmed": true,
+  "exact_candidate_radius_confirmed": true,
+  "alpha_squared": "1/67",
+  "minpoly_coefficients": [
+    67,
+    0,
+    -1
+  ],
+  "machine_verified_geometry": false,
+  "input_sha256": "7e732e189a0d69e30184dbd053ae2eda6ee588f0418d49553d71004e5f4ff475",
+  "proof_sha256": "a0454013448a2612475975b539d64fa722ab9e69434ca0d1d913bfba03d57d4b",
+  "checker_sha256": "9655d038a2194ebf2f849ad550ccc645f10c5f7516270d7dfe47267cb23ac878",
+  "checks": {
+    "retained_count_97": true,
+    "shell_count_12": true,
+    "outside_box_cannot_be_low_norm": true,
+    "hex_circumradius_squared": true,
+    "all_shell_cells_touch_only_at_retained_contacts": true,
+    "far_shell_strict_separation": true,
+    "hole_nearby_min_squared": true,
+    "hole_far_points_excluded": true,
+    "hole_inside_unit_disk": true,
+    "positive_root_bracket": true,
+    "irreducibility_nonsquare_67": true,
+    "improves_old_upper_bound": true,
+    "explicit_indices_100": true,
+    "all_indices_are_lattice": true,
+    "alpha_squared_matches": true,
+    "minpoly_coefficients_match": true,
+    "proof_hash_matches": true
+  },
+  "shell_support_certificates": [
+    {
+      "index": [
+        -6,
+        2
+      ],
+      "closest_vertex": [
+        "-9/2",
+        "5/6"
+      ],
+      "support_inequalities": [
+        "5/6",
+        "7/2",
+        "16/3",
+        "9/2",
+        "11/6",
+        "0"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          -5,
+          1
+        ],
+        [
+          -5,
+          2
+        ]
+      ]
+    },
+    {
+      "index": [
+        -6,
+        4
+      ],
+      "closest_vertex": [
+        "-7/2",
+        "11/6"
+      ],
+      "support_inequalities": [
+        "11/6",
+        "9/2",
+        "16/3",
+        "7/2",
+        "5/6",
+        "0"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          -5,
+          3
+        ],
+        [
+          -5,
+          4
+        ]
+      ]
+    },
+    {
+      "index": [
+        -4,
+        -2
+      ],
+      "closest_vertex": [
+        "-9/2",
+        "-5/6"
+      ],
+      "support_inequalities": [
+        "0",
+        "11/6",
+        "9/2",
+        "16/3",
+        "7/2",
+        "5/6"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          -4,
+          -1
+        ],
+        [
+          -3,
+          -2
+        ]
+      ]
+    },
+    {
+      "index": [
+        -4,
+        6
+      ],
+      "closest_vertex": [
+        "-1",
+        "8/3"
+      ],
+      "support_inequalities": [
+        "7/2",
+        "16/3",
+        "9/2",
+        "11/6",
+        "0",
+        "5/6"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          -4,
+          5
+        ],
+        [
+          -3,
+          5
+        ]
+      ]
+    },
+    {
+      "index": [
+        -2,
+        -4
+      ],
+      "closest_vertex": [
+        "-7/2",
+        "-11/6"
+      ],
+      "support_inequalities": [
+        "0",
+        "5/6",
+        "7/2",
+        "16/3",
+        "9/2",
+        "11/6"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          -2,
+          -3
+        ],
+        [
+          -1,
+          -4
+        ]
+      ]
+    },
+    {
+      "index": [
+        -2,
+        6
+      ],
+      "closest_vertex": [
+        "1",
+        "8/3"
+      ],
+      "support_inequalities": [
+        "9/2",
+        "16/3",
+        "7/2",
+        "5/6",
+        "0",
+        "11/6"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          -2,
+          5
+        ],
+        [
+          -1,
+          5
+        ]
+      ]
+    },
+    {
+      "index": [
+        2,
+        -6
+      ],
+      "closest_vertex": [
+        "-1",
+        "-8/3"
+      ],
+      "support_inequalities": [
+        "5/6",
+        "0",
+        "11/6",
+        "9/2",
+        "16/3",
+        "7/2"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          1,
+          -5
+        ],
+        [
+          2,
+          -5
+        ]
+      ]
+    },
+    {
+      "index": [
+        2,
+        4
+      ],
+      "closest_vertex": [
+        "7/2",
+        "11/6"
+      ],
+      "support_inequalities": [
+        "16/3",
+        "9/2",
+        "11/6",
+        "0",
+        "5/6",
+        "7/2"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "index": [
+        4,
+        -6
+      ],
+      "closest_vertex": [
+        "1",
+        "-8/3"
+      ],
+      "support_inequalities": [
+        "11/6",
+        "0",
+        "5/6",
+        "7/2",
+        "16/3",
+        "9/2"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          3,
+          -5
+        ],
+        [
+          4,
+          -5
+        ]
+      ]
+    },
+    {
+      "index": [
+        4,
+        2
+      ],
+      "closest_vertex": [
+        "9/2",
+        "5/6"
+      ],
+      "support_inequalities": [
+        "16/3",
+        "7/2",
+        "5/6",
+        "0",
+        "11/6",
+        "9/2"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "index": [
+        6,
+        -4
+      ],
+      "closest_vertex": [
+        "7/2",
+        "-11/6"
+      ],
+      "support_inequalities": [
+        "7/2",
+        "5/6",
+        "0",
+        "11/6",
+        "9/2",
+        "16/3"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          5,
+          -4
+        ],
+        [
+          5,
+          -3
+        ]
+      ]
+    },
+    {
+      "index": [
+        6,
+        -2
+      ],
+      "closest_vertex": [
+        "9/2",
+        "-5/6"
+      ],
+      "support_inequalities": [
+        "9/2",
+        "11/6",
+        "0",
+        "5/6",
+        "7/2",
+        "16/3"
+      ],
+      "min_norm_squared": "67/3",
+      "retained_contact_neighbors": [
+        [
+          5,
+          -2
+        ],
+        [
+          5,
+          -1
+        ]
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "case": "wrong_squared_radius",
+      "rejected": true
+    },
+    {
+      "case": "wrong_minpoly",
+      "rejected": true
+    },
+    {
+      "case": "wrong_proof_hash",
+      "rejected": true
+    },
+    {
+      "case": "delete_required_center",
+      "rejected": true
+    },
+    {
+      "case": "scale_increase_breaks_contact_precondition",
+      "rejected": true,
+      "scope": "rejects the fixed contact normalization, not an uncovered point proof"
+    }
+  ],
+  "not_claimed": [
+    "global optimality",
+    "minimal polynomial of optimal n100 radius"
+  ]
+}

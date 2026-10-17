@@ -1,0 +1,25 @@
+\section{证据台账与结论}
+\begin{table}[h]
+\centering
+\small
+\resizebox{\linewidth}{!}{\begin{tabular}{p{0.28\linewidth}p{0.18\linewidth}p{0.43\linewidth}}
+\toprule
+断言 & 状态 & 主要证据 \\
+\midrule
+存在100圆盘构型的上界 & 已重放 & \texttt{external-disk100-bounds-67ebf1c.json} \\
+透明晶格候选 & 独立复核 & \texttt{independent\_lattice97\_upperbound\_n100.json} \\
+B31--B35排除 & PASS & B31--B35完成证书 \\
+$B\ge36$在$R=0.113235$下排除 & PASS & \texttt{n100-tail-candidate-224.json} \\
+$R=0.113235$六分支组合 & PASS & \texttt{n100-candidate-complete-225.json} \\
+$R=0.11324$旧pair松弛 & 未闭合/受阻 & support障碍和直接项诊断 \\
+$R=0.113236$与$0.113237$ & 未验证 & 停止前未产生完整证书 \\
+\bottomrule
+\end{tabular}}
+\caption{主要定量断言的状态。}
+\end{table}
+
+因此当前有证据支持的区间为
+\[
+\boxed{0.113235<r_D(100)\le0.1154469548855829}.
+\]
+左端是有证书的排除半径，右端是有证书的具体构型半径。中间差距是真正的数学工作，而不只是排版或精度问题。公开仓库的设计目标正是让这个差距及其产生路线都可检查。

@@ -1,0 +1,8 @@
+\section{Software, dependencies, and reproducibility}
+The release uses Python's standard library for the final rational ledgers, especially `Fraction`, exact integer arithmetic, interval-style outward rounding, JSON manifests, and SHA-256 binding. SymPy is used for symbolic contracts and factor checks; NumPy and mpmath are used in discovery and high-precision exploration; optional python-flint/LLL tools support selected integer-relation experiments. Floating-point output is never sufficient for a final exclusion certificate.
+
+The project also replays and independently audits material associated with VonEquinox's \texttt{DiskCoveringSolve}. That material is treated as an external reference and replay input, not as an automatically inherited proof. Third-party source is not vendored in this release.
+
+The public package provides \texttt{reproduce.py}, which checks the core certificate files, their statuses, the candidate radius, the six-branch closure flag, and SHA-256 digests. The full route inventory is in \texttt{ROUTE\_INDEX.md} and \texttt{route\_manifest.json}; the claim-to-evidence table is in \texttt{docs/EVIDENCE\_LEDGER.md}.
+
+A PASS is scoped: it certifies the assertions recorded in its JSON certificate, including its domain, radius, dependencies, and machine checks. It does not mean that every geometric reduction has been formalized in a proof assistant. This limitation is part of the result, not a footnote.

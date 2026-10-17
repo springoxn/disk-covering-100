@@ -1,0 +1,17 @@
+\section{Problem and scope}
+Let $D=\{x\in\mathbb R^2:\|x\|\le 1\}$. We define
+\[
+r_D(100)=\inf\left\{r:\ D\subseteq\bigcup_{i=1}^{100}B(c_i,r),\quad c_i\in\mathbb R^2\right\}.
+\]
+The problem is continuous and non-convex. The centres are unrestricted, and the combinatorial type of the induced Voronoi or covering decomposition changes during optimization. Consequently, a numerical configuration supplies an upper bound, whereas a lower bound must exclude every admissible configuration at a prescribed radius.
+
+This work is a certificate-oriented computational study rather than a claim of a formalized theorem in a proof assistant. The final decision layer uses integer, rational, or outward interval arithmetic whenever possible. Floating-point optimization and high-precision numerics are discovery tools only.
+
+\subsection{What is proved and what is not}
+The public release certifies
+\[
+  0.113235<r_D(100)\le 0.1154469548855829.
+\]
+The lower inequality is a six-branch exclusion certificate at $R=22647/200000$. The upper inequality is a replayed explicit configuration. Neither statement identifies the exact optimum. In particular, the nearby target $0.11324$ remains open in the present certificate system.
+
+The distinction matters: a successful local box exclusion is not a global proof; an unblocked numerical point is not a certificate; and a covering configuration does not prove optimality.

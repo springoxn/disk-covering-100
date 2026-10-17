@@ -1,0 +1,8 @@
+\section{软件、依赖与可复现性}
+最终有理账本主要使用Python标准库，尤其是 `Fraction`、整数算术、向外取整的区间风格计算、JSON清单和SHA-256绑定。SymPy用于符号合同和因式检查；NumPy与mpmath用于发现和高精度探索；可选的python-flint/LLL工具用于部分整数关系实验。浮点结果不能单独构成最终排除证书。
+
+项目还读取、重放并独立审计了VonEquinox的 \texttt{DiskCoveringSolve} 相关材料。它被视为外部参照和重放输入，而不是自动继承的证明。第三方源码不随本版本发布。
+
+公开包提供 \texttt{reproduce.py}，检查核心证书文件、状态、候选半径、六分支闭合标志和SHA-256。全部线路位于 \texttt{ROUTE\_INDEX.md} 和 \texttt{route\_manifest.json}；断言与证据对应关系见 \texttt{docs/EVIDENCE\_LEDGER.md}。
+
+PASS 具有范围：它只认证对应JSON证书中写明的域、半径、依赖和机器检查，并不表示所有几何归约都已经在证明助手中形式化。这一限制是结果的一部分，而不是脚注。

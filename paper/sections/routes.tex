@@ -1,0 +1,14 @@
+\section{Routes attempted: successes, failures, and open directions}
+A useful research record must include routes that failed. They identify which relaxations are too weak and prevent rediscovering the same obstruction.
+
+\subsection{Combinatorial and topological routes}
+Dart-map, Voronoi-owner, triangulation, and generic-map compilers were used to turn geometric cases into finite combinatorial objects. Euler counting, ear decompositions, non-adjacent ear deletion, and core inequalities closed selected low-$M$ branches. Ring enumeration, chordless models, and one-chord models closed selected high-$M$ branches. The main failure mode was not enumeration itself but proving that every geometric degeneration was represented by the finite catalogue; this is why model ledgers and scope fields are retained.
+
+\subsection{Capacity and local pruning}
+Hall-style capacity trees, weighted witness capacities, axial multi-anchor boxes, spatial branch trees, reverse Voronoi distance bounds, annular cuts, radial hierarchies, directional counts, and shared-vertex controls all produced useful exclusions or ranked survivors. None alone closed the full target radius. Nonempty boxes remain unresolved; they are not silently counted as excluded.
+
+\subsection{Energy, arc, and lens attempts}
+Angular and harmonic energy proposals produced negative witnesses or counterexamples, showing that simple global energies were too weak. Arc caps, lens supports, Young-type support inequalities, and boundary-arc budgets became the successful B$\ge36$ route at $0.113235$. Replacing a coarse $4\lambda R^2$ distance cap by the exact centre distance was tested but is already contained in the original direct expression; it therefore adds no new geometric information. A common-endpoint lens inequality or a genuinely coupled multi-edge averaging inequality remains the principal open route for B36 at $0.11324$.
+
+\subsection{Radius scanning and engineering}
+A rational scan of 101 radii between $0.1132301$ and $0.11324$ diagnosed the collision between the old B36 budget and its exact obstruction. Candidates $0.113236$ and $0.113237$ were attempted with full pair subdivision but did not produce completed PASS or FAIL certificates before the runs were stopped. They must not be reported as mathematical failures. The next engineering improvement is a resumable queue of rational boxes with cached inverse-trigonometric and support intervals, independent hashes, and diagonal/non-diagonal sharding.

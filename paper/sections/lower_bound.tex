@@ -1,0 +1,26 @@
+\section{The six-branch lower-bound architecture}
+Fix a candidate radius $R$ and assume, for contradiction, that 100 disks of radius $R$ cover $D$. The reduction classifies the boundary-serving count into
+\[
+ B31,\ B32,\ B33,\ B34,\ B35,\ B\ge 36.
+\]
+The first five branches reduce possible planar covering graphs to finite families using Euler relations, boundary ownership, triangulation, ears, chords, and internal-face counts $M$. Every accepted branch must provide (i) same-radius premises, (ii) exhaustive model coverage, (iii) an exact or outward-rational geometric inequality, and (iv) a positive budget margin.
+
+\subsection{Finite combinatorial branches}
+The B31--B35 certificates use different combinations of degree/curvature losses, core-ear exchange, ring models, chordless models, one-chord models, and special reductions for $M=25$ and $M=26$. The final evidence is stored in the B31, B32, B33, B34, and B35 JSON certificates. Their exclusion statements were established at a radius no smaller than the accepted candidate; radius monotonicity then transfers exclusion to smaller radii.
+
+\subsection{The high-boundary branch}
+For $B\ge36$, boundary arcs are arranged cyclically and adjacent pairs are bounded by a function of two half-arc parameters. A representative direct term has the form
+\[
+ \Phi(a,b)=\lambda\lVert c_a-c_b\rVert^2+\frac{H(a)+H(b)}2
+ -\frac\mu2\bigl(\arcsin(s_a)+\arcsin(s_b)\bigr).
+\]
+The verifier partitions the parameter square into closed rational rectangles and proves an upper bound on every rectangle. The cyclic penalty uses the exact identity
+\[
+ \sum_i\frac{a_i+a_{i+1}}2=\sum_i a_i=\pi,
+\]
+not an unproved equal-arc Jensen assertion. The resulting area inequality has a B=36 margin and a positive increment per additional boundary cell, so the tail is closed once the B=36 pair domain is closed.
+
+At $R=22647/200000$, the B36 replay visited 1,841,089 rational boxes and accepted 917,297; the three marked-side support classes used 3761, 104, and 35 boxes. These counts are certificate data, not numerical sampling claims.
+
+\subsection{The target obstruction}
+At $R=2831/25000=0.11324$, the current pair relaxation has an exact obstruction near $x=y=9921033/12500000$. Both support branches are zero there, so merely refining support intervals cannot repair the margin. The residual is therefore a geometric limitation of the present relaxation, not a missing grid refinement.

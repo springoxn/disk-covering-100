@@ -1,0 +1,15 @@
+\section{The upper-bound side}
+An upper bound is constructive. One supplies 100 centres and proves that every point of $D$ lies within the proposed radius of at least one centre. The release contains two related forms of evidence.
+
+\subsection{Replayed configuration}
+The certificate `external-disk100-bounds-67ebf1c.json` records a replayed configuration with
+\[
+ r_D(100)\le \frac{1154469548855829}{10^{16}}.
+\]
+The verification decomposes the unit disk into boundary and interior cells, checks the relevant farthest points with exact or outward-rounded arithmetic, and binds the input and checker hashes. The result is an existence statement, not an optimality statement.
+
+\subsection{A transparent lattice construction}
+A separate certificate describes a triangular-lattice/hexagonal-shell construction with candidate radius $\alpha$ satisfying $\alpha^2=1/67$. Its independent checker verifies the retained lattice indices, shell counts, separation conditions, the positive root bracket, and irreducibility of $67t^2-1$. This construction is deliberately presented as a transparent upper-bound witness; it is not asserted to be the best 100-centre configuration.
+
+\subsection{Why the upper bound is not the hard part}
+The upper-bound workflow can optimize or replace the configuration and then re-run coverage checks. The lower-bound workflow cannot optimize over a finite list: it must cover arbitrary centre sets and all combinatorial types. This asymmetry is why the main effort is spent on exhaustive reductions and interval certificates.

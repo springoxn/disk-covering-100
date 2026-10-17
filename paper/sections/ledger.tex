@@ -1,0 +1,25 @@
+\section{Evidence ledger and conclusion}
+\begin{table}[h]
+\centering
+\small
+\resizebox{\linewidth}{!}{\begin{tabular}{p{0.28\linewidth}p{0.18\linewidth}p{0.43\linewidth}}
+\toprule
+Claim & Status & Primary artifact \\
+\midrule
+Explicit 100-disk configuration upper bound & replayed & \texttt{external-disk100-bounds-67ebf1c.json} \\
+Transparent lattice candidate & independently checked & \texttt{independent\_lattice97\_upperbound\_n100.json} \\
+B31--B35 exclusion & PASS & B31--B35 completion certificates \\
+B$\ge36$ at $R=0.113235$ & PASS & \texttt{n100-tail-candidate-224.json} \\
+Six-branch assembly at $R=0.113235$ & PASS & \texttt{n100-candidate-complete-225.json} \\
+$R=0.11324$ under the old pair relaxation & unresolved/obstructed & support obstruction and direct-term diagnostics \\
+$R=0.113236$ and $0.113237$ & unverified & stopped before a completed certificate \\
+\bottomrule
+\end{tabular}}
+\caption{The status of the principal quantitative claims.}
+\end{table}
+
+The present rigorously supported interval is therefore
+\[
+ \boxed{0.113235<r_D(100)\le0.1154469548855829}.
+\]
+The lower endpoint is a certified exclusion radius; the upper endpoint is a certified explicit configuration radius. The gap is real mathematical work, not merely a formatting or precision issue. The public repository is designed to make that gap—and the routes that created it—inspectable.

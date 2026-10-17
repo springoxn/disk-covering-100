@@ -1,0 +1,22 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref,xcolor,enumitem,graphicx}
+\emergencystretch=3em
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\title{A Certificate-Oriented Study of Covering the Unit Disk with 100 Equal Disks}
+\author{Open computational research dossier\\\small springoxn/disk-covering-100}
+\date{October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study the minimum radius $r_D(100)$ for covering the closed unit disk by 100 congruent closed disks. The current certificate chain proves $r_D(100)>0.113235$ through six exhaustive boundary-count branches, while a separately replayed configuration gives $r_D(100)\le 0.1154469548855829$. The target $0.11324$ is not claimed: the $B=36$ branch retains a strict obstruction for the current pair relaxation. This dossier explains the geometric reduction, rational interval verification, upper and lower bounds, external dependencies, and unsuccessful routes, with each quantitative claim tied to a machine-readable artifact.
+\end{abstract}
+\input{sections/background}
+\input{sections/upper_bound}
+\input{sections/lower_bound}
+\input{sections/routes}
+\input{sections/reproducibility}
+\input{sections/ledger}
+\end{document}

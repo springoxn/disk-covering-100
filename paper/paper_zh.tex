@@ -1,0 +1,23 @@
+\documentclass[UTF8,11pt]{ctexart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref,xcolor,enumitem,graphicx}
+\emergencystretch=3em
+\sloppy
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\newtheorem{proposition}{命题}
+\newtheorem{remark}{说明}
+\title{用100个等圆盘覆盖单位圆盘：证书、方法与失败路线}
+\author{公开计算研究档案\\\small springoxn/disk-covering-100}
+\date{2026年10月}
+\begin{document}
+\maketitle
+\begin{abstract}
+本文研究用100个全等闭圆盘覆盖单位闭圆盘的最小半径。当前证书链通过六个穷尽的边界计数分支证明 $r_D(100)>0.113235$；另一个独立重放的具体构型给出 $r_D(100)\le0.1154469548855829$。目标值 $0.11324$ 尚未闭合：在当前 pair 松弛下，$B=36$ 分支仍有严格障碍。本文系统解释几何归约、有理区间验证、上下界、外部依赖以及失败路线，并把每个定量断言绑定到机器可读证据。
+\end{abstract}
+\input{sections/background_zh}
+\input{sections/upper_bound_zh}
+\input{sections/lower_bound_zh}
+\input{sections/routes_zh}
+\input{sections/reproducibility_zh}
+\input{sections/ledger_zh}
+\end{document}

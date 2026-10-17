@@ -7,6 +7,7 @@ EXPECTED = {
     "verify/out/n100-candidate-complete-225.json": "PASS",
     "verify/out/n100-tail-candidate-224.json": "PASS",
     "verify/out/n100-candidate-budget-222.json": "PASS",
+    "verify/out/independent_lattice97_upperbound_n100.json": "PASS",
 }
 
 def load(rel):
@@ -20,7 +21,11 @@ def main():
     for rel, expected_status in EXPECTED.items():
         p, data = load(rel)
         status = data.get("status")
-        if status != expected_status:
+        if rel.endswith("independent_lattice97_upperbound_n100.json"):
+            if data.get("all_passed") is not True or data.get("coverage_confirmed") is not True:
+                raise SystemExit(f"BAD UPPER-BOUND CERTIFICATE: {rel}")
+            status = "all_passed"
+        elif status != expected_status:
             raise SystemExit(f"BAD STATUS: {rel}: {status!r}")
         rows.append((rel, status, hashlib.sha256(p.read_bytes()).hexdigest()))
     cert = load("verify/out/n100-candidate-complete-225.json")[1]

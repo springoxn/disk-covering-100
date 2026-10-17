@@ -1,0 +1,48 @@
+{
+  "schema": "external-disk100-local-replay/v1",
+  "kind": "margin",
+  "upstream_repository": "https://github.com/cjt42554-crypto/disk100-covering-certificates",
+  "commit": "67ebf1c5776f72a7b7786a8655eed5463429ae55",
+  "upstream_original_bytes": true,
+  "git_archive": "runtime/disk100-release-lf-67ebf1c.zip",
+  "entry": "strict_upper_margin_1154469/verify_margin.py",
+  "entry_sha256": "2bc8cef446d3eab9af93a84f7c4cd86ea6cc5f9c67699e13fd465af8fc515385",
+  "manifest_sha256": "a768624d0d23143cc10895891460c02e84517070c2fcf47ec4bbd7e6ca1b3b30",
+  "actual_exit_code": 0,
+  "all_passed": true,
+  "seconds_reporting_only": 0.5048063999993246,
+  "result": {
+    "covering_exact_verified": true,
+    "strict_margin_exact_verified": true,
+    "local_cover_radius_bound": [
+      1154469548855829,
+      10000000000000000
+    ],
+    "reference_radius_bound": [
+      115446954885583,
+      1000000000000000
+    ],
+    "strict_radius_margin": [
+      1,
+      10000000000000000
+    ],
+    "configuration_sha256": "84fb2a5dd9869e641f18250b8839ceb44bfe1263fa54bf588cfdb4867fb28a36",
+    "candidate_counts": {
+      "T": 128436,
+      "B": 9900,
+      "A": 100,
+      "E": 1
+    },
+    "total": 138437,
+    "actual_covering_squared_bound": "1332799939235381342323027277241/100000000000000000000000000000000",
+    "statement": "The explicit frozen 100-center rational configuration covers the whole closed unit disk at V, and V<U. Its covering radius, and consequently the arbitrary-configuration optimum, is strictly below U.",
+    "cloud_statement_not_changed": "The separate cloud result remains its reported non-strict <= bound."
+  },
+  "stderr": "",
+  "raw_stdout_on_parse_failure": null,
+  "not_claimed": [
+    "global optimum",
+    "minimal polynomial of r_D(100)",
+    "formal proof assistant geometry"
+  ]
+}

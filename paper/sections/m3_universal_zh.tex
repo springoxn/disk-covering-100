@@ -1,0 +1,404 @@
+\part*{第三部分：普适解析下界（不依赖构型的路线）}
+\addcontentsline{toc}{part}{第三部分：普适解析下界（不依赖构型的路线）}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{两类下界}
+
+对 $\rD(100)$ 的下界可以用两种本质不同的方式得到。
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{普适（不依赖构型）界。} 一个单一的解析不等式，对某个半径范围内的任意
+$100$ 个圆盘覆盖都成立，从而与低于某阈值 $L$ 的覆盖矛盾。特定构型的组合结构完全不
+进入；代价是这类界相对较弱。
+\item \textbf{候选半径矛盾。} 固定一个有理数 $R$ 并假设半径为 $R$ 的覆盖存在；随后导出
+对所有可能构型的有限、穷尽的组合分类，并用精确不等式逐类排除。这是第四部分的引擎，
+也是当前承载界 $0.113235$ 的东西。
+\end{enumerate}
+
+第三部分是第一种。它重要有三点原因：它给出一个不需要组合目录的地板；它校准了每个成分
+至多能弥合多少差距；它产生了两个有教益的反驳（周界缺陷律（perimeter-defect law），
+以及简单的全局能量），把纲领重新引向第四部分。
+
+\section{面积界及其直接锐化}
+
+最粗糙的界既精确又平凡：
+\[
+\pi=\area(D)\le\sum_{i=1}^{100}\area\bigl(B(c_i,r)\cap D\bigr)\le100\pi r^2
+\quad\Longrightarrow\quad r\ge\frac1{10}.
+\]
+渐近密度陈述 $\delta=2\pi/(3\sqrt3)=1.2091996\ldots$ 在极限 $\eps\to0$ 下把 $1$ 换成
+$\delta$，对边界可忽略的假想大 $n$ 构型给出 $\sqrt{\delta/100}=0.109964$。两个数都远低于
+真值，而它们与所接受上界 $0.11544\ldots$ 之间的差距，就是每条严肃路线都必须挣得的
+「边界修正」。
+
+\section{路线：整数边计数，被修复的 Euler 路线}
+\label{sec:integer-edge}
+
+这是本纲领中写得最完整的解析路线。它证明精确陈述
+\[
+\rD(100)\ \ge\ L_1:=\frac{554570693}{5000000000}=0.1109141386 ,
+\]
+其意义在于：它修复而不是丢弃了历史上的「Euler + 边界胞（boundary cell）」链条——该链条
+的审计曾把它降级为\emph{未证明}，并列出十条明确义务 O1--O10。
+
+\subsection{建立：Voronoi 胞、弧与内接多边形}
+
+假设 $100$ 个圆盘 $B(c_i,r)$ 以 $r<1$ 覆盖 $D$（若 $r\ge1$ 结论平凡），并施加第一部分的
+投影与去重规范化（normalized），使得 $\|c_i\|\le1$ 且各 $c_i$ 互不相同。定义闭凸
+Voronoi 胞
+\[
+V_i=\{x\in D:\|x-c_i\|\le\|x-c_j\|\ \ \forall j\}.
+\]
+三个事实会被反复使用：
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item $\bigcup_iV_i=D$，且对 $i\ne j$ 有
+$\operatorname{int}V_i\cap\operatorname{int}V_j=\emptyset$；
+\item $V_i\subseteq B(c_i,r)$：对 $x\in V_i$，由覆盖性有
+$\|x-c_i\|=\min_j\|x-c_j\|\le r$；
+\item 投影与去重之后每个 $V_i$ 都有正面积，因此不存在「空胞」记账问题。
+\end{itemize}
+设\emph{边界弧}（boundary arc）$A_1,\dots,A_{B_{\mathrm{arc}}}$ 为 $\partial D$ 的极大
+正测度连通段，在其上归属（取得最小距离的最小下标）几乎处处为常数；孤立的零测度并列不
+切断弧。设\emph{边界顶点}为各弧的端点，并设
+\[
+P:=\conv(\text{all boundary vertices})
+\]
+为内接多边形。
+
+\begin{lemma}[弧长界；以及一处勘误]\label{lem:arc}
+对 $r<1$，每条弧的角测度 $\le2\arcsin r<\pi$。从而
+$B_{\mathrm{arc}}\ge\pi/\arcsin r$，且没有弧能绕满整个圆周。
+\end{lemma}
+\begin{proof}
+若某条弧的测度 $\psi\ge\pi$，它就含一条测度为 $\pi$ 的子弧，其两个端点对径，故距离为
+$2$；两者都落在 $V_i\subseteq B(c_i,r)$ 中，于是 $2r\ge2$，即 $r\ge1$，矛盾。对
+$\psi<\pi$ 弦长公式适用：弦长 $\ell\le2r$ 时 $\psi=2\arcsin(\ell/2)\le2\arcsin r<\pi$。
+对各弧求和得 $2\pi\le B_{\mathrm{arc}}\cdot2\arcsin r$。
+\end{proof}
+
+\begin{remark}[一个被更正并留档的常数]
+早期草稿用 $4\arcsin(r/2)$ 作为 $\partial D\cap B(c_i,r)$ 角测度的上界。那是错的：它只是
+$\|c_i\|=1$ 处的取值，\emph{小于}真正的最大值。令
+$Q(\rho)=(1+\rho^2-r^2)/(2\rho)$，测度为 $2\arccos Q(\rho)$，而 $Q$ 在
+$\rho_\ast=\sqrt{1-r^2}$ 处取极小，给出最大值
+$2\arccos\sqrt{1-r^2}=2\arcsin r$。错误常数无法对接近 $1$ 的 $r$ 推出 $<\pi$，因此不可
+用；勘误保留在源文件中。
+\end{remark}
+
+\begin{lemma}[引理 A：圆盘内凸多边形的面积，圆心不受限]\label{lem:A}
+设 $K\subset\R^2$ 凸且紧，$K\subseteq B(c,r)$，其中 $c$ 不必属于 $K$；设 $k$ 为 $K$ 的
+极点个数。则
+\[
+\area(K)\le r^2f(k),\qquad
+f(k)=\tfrac k2\sin\tfrac{2\pi}k\ \ (k\ge3),\qquad f(0)=f(1)=f(2):=0 .
+\]
+\end{lemma}
+\begin{proof}[五步梗概]
+设 $B(o,R)$ 为 $K$ 的最小包围圆，故 $R\le r$。接触集 $S=K\cap\partial B(o,R)$ 由顶点
+组成且非空。一个有限分离论证表明 $o\in\conv(S)$：否则把 $o$ 朝 $\conv(S)$ 略微平移，会
+严格减小到每个接触顶点的距离，并由有限性也减小到其他每个顶点的距离，与极小性矛盾。故
+$o\in K$。由于 $o\in K$，以极点 $v_1,\dots,v_m$ 为顶点的三角形 $(o,v_j,v_{j+1})$ 恰好
+剖分 $K$（其中边界与顶点位置的 $o$ 另行处理；「$o$ 是极点」的情形被排除，因为在开度
+$<\pi$ 的凸锥内不可能有非负组合 $\sum_s\lambda_su_s=0$）。因此
+$\area(K)\le\frac{R^2}2\sum_j\sin\alpha_j$，其中 $\alpha_j\in[0,\pi]$ 且
+$\sum_j\alpha_j=2\pi$。对凹的正弦函数用 Jensen 不等式得
+$\sum_j\sin\alpha_j\le m\sin(2\pi/m)$，而 $M\mapsto M\sin(2\pi/M)$ 对 $M\ge3$ 递增，
+因为 $x\mapsto\sin x/x$ 在 $(0,\pi)$ 上严格递减。最后 $m\le k$，而 $f$ 在整数 $\ge3$ 上
+递增；$m\le2$ 时面积为 $0$。
+\end{proof}
+
+\begin{remark}
+引理~\ref{lem:A} 去掉了历史假设 $c_i\in V_i\cap P$。扇形分解以最小包围圆的圆心 $o$ 为
+基准，而 $o\in K$ 是被\emph{证明}的，不是被假设的。该界是最优的：对半径为 $r$ 的圆的
+内接正 $k$ 边形取等号。
+\end{remark}
+
+\begin{lemma}[引理 B：帽属于它们自己的胞；$Q_i=V_i\cap P$ 精确成立]\label{lem:B}
+对每条弧 $A$，令 $C(A)=\conv(A)$ 为其弦所截的弓形，并令 $H_A^{\mathrm{in}}$ 为以该弦为
+边界、包含原点的闭半平面。
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item 若弧 $A$ 属于胞 $V_i$（即 $A\subseteq V_i$），则 $C(A)\subseteq V_i$。
+\item 对 $i\ne j$ 以及胞 $j$ 的弧 $A$，有 $V_i\subseteq H_A^{\mathrm{in}}$。
+\item 从而，令 $Q_i:=V_i\cap P$，
+\[
+Q_i=V_i\cap\bigcap_{A\ \text{of cell}\ i}H_A^{\mathrm{in}}
+\quad\text{(exact identity)},
+\]
+\[
+\bigcup_iQ_i=P,\quad \operatorname{int}Q_i\ \text{pairwise disjoint},\quad Q_i\subseteq B(c_i,r).
+\]
+\item $\#\text{sides}(Q_i)\le m_i+a_i=:e_i$，其中 $m_i$ 是 $V_i$ 的极大直边数，$a_i$ 是
+胞 $i$ 所拥有的弧数；且 $\sum_ia_i=B_{\mathrm{arc}}$。
+\end{enumerate}
+\end{lemma}
+\begin{proof}[梗概]
+(1) 由两行凸性论证得 $C(A)=\conv(A)$，而 $V_i$ 凸。(2) 若
+$x\in V_i\cap\operatorname{int}C(A)$，则因
+$\operatorname{int}C(A)\subseteq
+\operatorname{int}V_j$ 且不同胞的内部互不相交，得到
+矛盾；边界情形沿从 $V_i$ 内点出发的一条线段取极限即得。(3) 取所有半平面的交，并由 (2)
+删去冗余者。(4) 每条被拥有的弦半平面至多增加一条直边，且不能切开已有的直边；退化的
+$Q_i$（点或线段）面积为 $0$。
+\end{proof}
+
+\begin{remark}[风险点，已作答]
+自然的担心是 $V_i\cap P$ 可能获得来自\emph{其他}胞之弦的边。引理~\ref{lem:B}(2) 表明
+不会：每个帽都包含在其自身胞的凸包内，所以 $V_i\cap P$ 与 $V_i$ 的差别恰好是它自己的
+帽。这对任意弧数、任意退化情形与任意 $r$ 都成立。
+\end{remark}
+
+\begin{lemma}[引理 C：$P$ 的面积下界]\label{lem:C}
+若 $g_1,\dots,g_B\ge0$，$\sum_kg_k=2\pi$ 且 $g_k\le\gamma\in(0,\pi]$，则
+\[
+A:=\tfrac12\sum_k\sin g_k\ \ge\ \pi\frac{\sin\gamma}{\gamma}\ \ge\ \pi\Bigl(1-\frac{\gamma^2}6\Bigr)
+\qquad(\gamma<1).
+\]
+\end{lemma}
+\begin{proof}
+$\sin g_k=g_k\,s(g_k)\ge g_k\,s(\gamma)$，因为 $s(t)=\sin t/t$ 在 $(0,\pi]$ 上递减；
+求和即得。第二个不等式是 $\sin\gamma/\gamma$ 的交替级数界。
+\end{proof}
+
+\begin{lemma}[引理 D：平面图边记账（edge accounting），无需一般位置]\label{lem:D}
+构造边界 Voronoi 复形：顶点为内部 Voronoi 顶点（$\ge3$ 个胞以正楔角相交处）与
+$B_{\mathrm{arc}}$ 个边界顶点；边为\emph{在每个图顶点处切断}的平分线段，加上
+$B_{\mathrm{arc}}$ 条弧边；面为 $N$ 个胞加上外部面。则每个顶点的度 $\ge3$，且
+\[
+\sum_{i=1}^{N}e_i\ \le\ 6N-6-B_{\mathrm{arc}} .
+\]
+\end{lemma}
+\begin{proof}[梗概]
+度数：在内部顶点处，相交的胞填满整个 $2\pi$ 的楔角，这些楔角被正长度的平分射线隔开，
+故至少三个；在边界顶点处，来自两侧的弧端点加上至少一条进入 $\operatorname{int}D$ 的
+平分射线给出度 $\ge3$（平分线与 $\partial D$ 横截相交，因为
+$\varphi(\theta)=\|u(\theta)-c_k\|^2-\|u(\theta)-c_i\|^2$ 的符号在此改变，故
+$\varphi'\ne0$）。不假设连通性的 Euler 公式，在 $K\ge1$ 个连通分支时读作
+$E_s=V_{\mathrm{int}}+N-K\le V_{\mathrm{int}}+N-1$。双重计数给出
+$\sum_im_i\le2E_s$，且 $\sum_ia_i=B_{\mathrm{arc}}$。于是由
+$2E_s\ge3V_{\mathrm{int}}+B_{\mathrm{arc}}$ 得
+$V_{\mathrm{int}}\le2N-2K-B_{\mathrm{arc}}$，
+$2E_s\le6N-6K-2B_{\mathrm{arc}}\le6N-6-2B_{\mathrm{arc}}$，最终
+$\sum_ie_i\le6N-6-B_{\mathrm{arc}}$。
+\end{proof}
+
+\begin{remark}[表明假设不可去掉的精确反例]
+(i) $n=1$，$c_1=0$，$r=1$：单条弧绕满圆周，两个端点重合，恒等式
+$\#\text{boundary vertices}=B_{\mathrm{arc}}$ 失效，且 $\sum m_i=0$ 违反
+$6N-6-2B_{\mathrm{arc}}=-2<0$。由引理~\ref{lem:arc}，这种退化对 $r<1$ 不可能。
+(ii) 三圆心构型 $c_1=0$，$c_2=(a,0)$，$c_3=(-a,0)$（$0<a<2$）中
+$V_1=D\cap\{|x_1|\le a/2\}$ 拥有\emph{两条}弧，$V_2,V_3$ 是仅有帽的胞且 $e=2$，故
+$B_{\mathrm{arc}}=4$，而触及边界的胞数为 $3$；且
+$\sum_ie_i=8=6N-6-B_{\mathrm{arc}}$ 取到等号。把 $B$ 读作边界胞数会损失一个单位的
+强度；假设「每个边界胞一条弧」会把 $e_1$ 记为 $3$ 而不是 $4$，这根本是错的。
+\end{remark}
+
+\subsection{七步聚合}
+
+假设存在半径 $r\le L_1$ 的覆盖，且 $r<1$。
+
+\begin{enumerate}[leftmargin=1.8em,itemsep=3pt]
+\item[(1)] \emph{边界结构。} 由引理~\ref{lem:arc}，
+$B_{\mathrm{arc}}\ge\pi/\arcsin r$；因 $\pi/\arcsin L_1=28.2663>28$ 且
+$B_{\mathrm{arc}}$ 为整数，$B_{\mathrm{arc}}\ge29$。又 $B_{\mathrm{arc}}\ge3$，故 $P$
+是真正的多边形。
+\item[(2)] \emph{剖分与面积恒等式。} 由引理~\ref{lem:B}，
+$\area(P)=\sum_i\area(Q_i)$，其中 $N\le100$，每个 $Q_i\subseteq B(c_i,r)$ 凸且
+$\#\text{sides}(Q_i)\le e_i$。
+\item[(3)] \emph{逐胞面积界。} 由引理~\ref{lem:A} 以及 $f$ 在整数 $\ge3$ 上的单调性，
+$\area(Q_i)\le r^2f(e_i)$；$k_i\le2$ 的胞贡献 $0=r^2f(e_i)$。故
+$\area(P)\le r^2\sum_if(e_i)$。
+\item[(4)] \emph{边记账。} 引理~\ref{lem:D} 给出
+$\sum_ie_i\le6N-6-B_{\mathrm{arc}}\le600-6-29=565$。
+\item[(5)] \emph{仿射割线记账。} 令
+\[
+a:=f(6)-f(5)=0.2204349206\ldots>0,\qquad
+b:=6f(5)-5f(6)=1.2754666876\ldots>0,
+\]
+并令 $\varphi(e)=ae+b$ 为过 $(5,f(5))$ 与 $(6,f(6))$ 的割线。对整数 $e\ge3$ 有
+$f(e)\le\varphi(e)$：$e\ge6$ 时这来自 $f$ 在 $[3,\infty)$ 上的凹性
+（$f''(M)=-2\pi^2\sin(2\pi/M)/M^3<0$），而 $e=3,4$ 可精确验证，
+\[
+\varphi(3)-f(3)=\tfrac{15}4\bigl(2\sin72^\circ-\sqrt3\bigr)>0,\qquad
+\varphi(4)-f(4)=5\sin72^\circ-\tfrac32\sqrt3-2=0.1568\ldots>0 .
+\]
+$e\le2$ 的胞被删除（它们贡献 $0$）。故
+\[
+\sum_if(e_i)\le a\sum_ie_i+bN\le565a+100b=65f(6)+35f(5),
+\]
+最后一步是代数恒等式 $565(f_6-f_5)+100(6f_5-5f_6)=65f_6+35f_5$。数值上
+$565a+100b=252.0923989138\ldots$。这一手段把「整数凹性加上 $92$ 次单独符号检查」替换为
+两个有限不等式，而且关键在于它是\emph{严格的}：连续松弛会给出
+$100f(5.65)=253.2941376702\ldots$，所以离散记账买到了 $1.2017387564$
+（$\approx0.48\%$）。
+\item[(6)] \emph{面积下界。} 由引理~\ref{lem:C} 与~\ref{lem:arc}，取
+$\gamma=2\arcsin r$，$\area(P)\ge\pi(1-\gamma^2/6)$。
+\item[(7)] \emph{收尾。} 把 (3)--(5) 与 (6) 结合，
+\[
+\pi\bigl(1-\tfrac16(2\arcsin r)^2\bigr)\ \le\ r^2\bigl(65f(6)+35f(5)\bigr)
+\qquad\text{for all }r\le L_1 .
+\]
+左端关于 $r$ 递减而右端关于 $r$ 递增，故只需在 $r=L_1$ 处反驳该不等式。精确地，
+\[
+65f(6)+35f(5)=\frac{195\sqrt3}{2}+\frac{175}{8}\sqrt{10+2\sqrt5},
+\]
+\[
+\pi\bigl(1-\tfrac16(2\arcsin L_1)^2\bigr)=3.1157211653\ldots
+\ >\ L_1^2\cdot252.0923989138\ldots=3.1012271140\ldots,
+\]
+余量为 $0.0144940513$（相对意义下 $0.467\%$）。最后一步是一个有限的代数／有理不等式，
+由算术代理用 $\pi$ 与 $\arcsin L_1$ 的有理包络做了 $15$ 次精确检查而闭合。因此不存在
+半径 $\le L_1$ 的覆盖：
+\[
+\rD(100)\ \ge\ L_1=\frac{554570693}{5000000000}=0.1109141386 .
+\]
+\end{enumerate}
+
+\begin{remark}[修复的内容]
+历史链条使用了 $\area(P)_{\min}(r,B)$ 的精确极值以及一个连续不动点，其根位于 $L_1$ 下方
+$7.6\times10^{-12}$ 处。修复后的路线刻意使用\emph{更粗糙}的下界 $\pi(1-\gamma^2/6)$，
+放弃约 $0.46\%$ 的精度，换来的是一举消除关于 $B$ 的取值以及 $P$ 的顶点分布的所有
+问题——正是这一点使最终不等式既严格又有限。$0.467\%$ 的净余量完全来自第 (5) 步严格的
+离散割线记账。
+\end{remark}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
+\toprule
+历史义务 & 修复后的状态 \\
+\midrule
+O1 退化的度 $\ge4$ 顶点 & 已吸收：只需度 $\ge3$ 加上不等式
+$\sum_im_i\le2E_s$ \\
+O2 退化的边界顶点改变 $b$ & $B$ 定义为弧数；对 $r<1$ 每条弧
+$<\!\pi$ \\
+O3 $b$ 的良定义性、多弧胞 & 已解决：$e_i=m_i+a_i$，并有一个精确反例 \\
+O4 扇形分解需要 $c_i\in V_i\cap P$ & 已去除：引理~\ref{lem:A} 使用最小包围圆
+圆心 \\
+O4$'$ 帽项界 & 已去除：帽归其所在胞所有（引理~\ref{lem:B}） \\
+O5 圆心在 $D$ 外 & 投影规范化；不再需要 $c_i\in P$ \\
+O6 圆心重合 & 去重；每个胞都有正面积 \\
+O7 共线三元组／平行平分线 & 已解决：只需 Euler、度 $\ge3$ 与 $\le$ 方向 \\
+O8 冗余圆盘／空胞 & 投影与去重后没有空胞 \\
+O9 边界退化（相切、单点弧） & 零测度接触不产生弧；绕满圆周的弧被排除 \\
+O10 不动点／单调性升级 & 已去除：替换为 $r=L_1$ 处的一个有限不等式 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{这条路线中仍然开放的部分}
+
+几何部分依赖于一个有限不等式，其精确算术被委派出去；而「在边界顶点相交的胞填满半个
+邻域」这一步是没有机器证书的几何论证。该路线不假设一般位置，因此不需要扰动或极限论证；
+若仍要使用，正确的形式是取 $\eps<(L-r)/2$ 并把半径放大到 $r+\eps<L$，\emph{同时}由
+$\eps$ 的选取重新保证 $r+\eps\le L$——要避免的错误是扰动越过 $L$ 却继续使用
+$r+\eps\le L$。
+
+\section{路线：锐化包络（sharpened envelope）}
+
+同一骨架——投影、凸 Voronoi 胞、多弧 Euler 记账、整数边计数——随后用重新认证的参数推进
+\[
+\arcsin L<T,\qquad 28T<\pi,
+\]
+它们强制 $B\ge29$ 与 $\sum_ie_i\le565$，而面积上界系数保持其精确形式
+$G=65f_6+35f_5$，面积下界保持更锐的 $\pi\sin(2\arcsin r)/(2\arcsin r)$（而不是截断
+级数）。一个交替有理多项式下界随即一次性排除所有 $0<r\le L$。结果是
+\[
+\rD(100)\ \ge\ L_2:=\frac{1111720153}{10^{10}}=0.1111720153 ,
+\]
+比前一个值恰好改进 $2578767/10^{10}=0.0002578767$，其正余量约
+$2.5235222738557335\times10^{-9}$，以精确分数存于证书中。主算术执行 $16$ 次精确检查；
+独立算术使用 $\arctan$ 与平方根包络，与主算术不共享任何级数实现，并通过 $40$ 次检查加
+$9$ 个负对照。该路线的理想包络有唯一零点，隔离于
+$(1111720153/10^{10},\,1111720154/10^{10})$——这是关于\emph{方法极限}的陈述，而不是
+$\rD(100)$ 的区间。更高精度无法沿这条路线弥合与上界的差距。来源：
+\texttt{proofs/\allowbreak{}n100-\allowbreak{}sharp-\allowbreak{}envelope-\allowbreak{}lowerbound.md}、
+\texttt{docs/\allowbreak{}review-\allowbreak{}sharp-\allowbreak{}envelope-\allowbreak{}n100.md}、
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}algebraic-\allowbreak{}bounds-\allowbreak{}bundle.json}。
+
+\section{路线：长弦二次亏损（long-chord quadratic deficit）}
+
+另一个普适界来自与边界弧的长弦相关的二次亏损。经过三轮独立评审后，几何草稿被冻结于
+SHA-256
+{\footnotesize{\footnotesize\texttt{658863d2a36118be915fda66f10596f05073aadd51738da55bcf35f967d8cf73}}}，
+主检查器与独立有理算术检查器通过
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}longchord-\allowbreak{}bundle-\allowbreak{}frozen.json} 重放：统一退出码 $0$，子退出码 $[0,0]$，
+\texttt{all\_\allowbreak{}passed = true}，\texttt{universal\_\allowbreak{}lower\_\allowbreak{}bound\_\allowbreak{}accepted = true}，全部 $566$ 个弧数
+被枚举且余量为正，最坏情形 $B=42$，$6/6$ 个负对照被拒绝。这给出
+\[
+\rD(100)\ \ge\ L_3:=\frac{2787}{25000}=0.11148 ,
+\]
+它同时优于 $L_1$ 与 $L_2$，是当前被接受的最强免构型界。其几何是解析证明加评审
+（\texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry = false}）；它不是形式化证明。
+
+\begin{remark}[冻结包内部的分层，保留可见]
+同一个包在其自身的子块中比在顶层更保守，这一区别很重要。顶层字段报告
+\texttt{universal\_\allowbreak{}lower\_\allowbreak{}bound\_\allowbreak{}accepted = true}，并且主算术行与独立算术行在 $566$ 行上一致给出约
+$4.4799\times10^{-4}$ 的最小余量。然而在几何子块内部，
+\texttt{all\_\allowbreak{}geometric\_\allowbreak{}premises\_\allowbreak{}closed = true}，而
+\texttt{combined\_\allowbreak{}universal\_\allowbreak{}lower\_\allowbreak{}bound\_\allowbreak{}accepted = false}，并且算术被标记为
+\texttt{reported\_\allowbreak{}exit\_\allowbreak{}0\_\allowbreak{}by\_\allowbreak{}parent\_\allowbreak{}agent\_\allowbreak{}not\_\allowbreak{}recomputed\_\allowbreak{}and\_\allowbreak{}not\_\allowbreak{}accepted\_\allowbreak{}here}：对一个数值阈值
+断言而言，该链条还需要前提 (P1) 与 (P2) 由精确有理算术\emph{以及}一次独立检查来认证，而
+这额外的一步位于单独的算术证书中，而不是在冻结的几何块内部。引用顶层的接受而不加这个
+限定，会夸大几何块自身所认证的内容。
+\end{remark}
+
+\section{被反驳的普适路线}
+
+\subsection{周界缺陷（$\lambda$）律不可能成立}
+
+早期纲领计划提出证明如下形式的律
+\[
+n r^2\ \ge\ \delta\,(1+\lambda r),\qquad \delta=\frac{2\pi}{3\sqrt3}=1.2091996\ldots,
+\]
+并调节 $\lambda$，使 $n=100$ 被钉在 $0.4\%$ 以内。该计划已死，原因是一个两行计算。若
+这样的律对某个 $n$ 成立，则在该 $n$ 已被证明的最优值 $r_n$ 处它强制
+\[
+\lambda\ \le\ \frac{n\,r_n^2/\delta-1}{r_n},
+\]
+而被证明的取值给出 $0.697$（$n=8$）、$\mathbf{0.669}$（$n=9$）、$0.734$（$n=10$）、
+$0.752$（$n=19$）、$0.763$（$n=25$）。所以 $\lambda\approx0.87$ 的全局律不可能成立——
+仅 $n=9$ 就反驳了它——而最大可容许常数 $\lambda^\ast=0.6688$ 至多给出
+$\rD(100)\ge0.114081$，即比已知最佳构型低 $6.75\%$。更糟的是，本应提供周界层的
+面积--周界实现从未逐胞起约束作用（$0/25$ 个案例），其聚合上界仅为 $0.1540$。原始校准表
+（显示值）为：$\lambda=0.76$ 时 $0.114655$，$\lambda=0.83$ 时 $0.115096$，
+$\lambda=0.86$ 时 $0.115286$——它们全都不可达，因为 $n=9$ 的天花板是 $0.669$。
+
+该路线在 $n=25$ 上校准后被正式降级：同一方法在那里以有效普适界 $0.2235441655$ 闭合
+（即距精确值 $-6.52\%$，或按最有利的读法 $-5.75\%$）；在 $n=100$ 上同一路线为
+$-9.34\%$，其周界缺陷常数为 $\lambda\approx0.15$，而阈值为 $\approx1.01$。那里用到的
+三个引理是边界 Euler 记账 $\sum(6-m_i)=6+2b$、「边界胞 = 一条额外边」
+$\max_\Theta g=f(m+1)$，以及弧覆盖界 $b\ge\pi/\arcsin r$；其中第一个正是后来被
+引理~\ref{lem:D} 用更安全的不等式 $\sum_ie_i\le6N-6-B_{\mathrm{arc}}$ 替换掉的东西。
+换言之，\S\ref{sec:integer-edge} 的现代普适界，是一条以原形被放弃的路线的修复后裔。
+
+\subsection{见证（witness）校准：正确但太弱}
+
+一条有限见证路线被完整认证，随后搁置。它有 $21$ 个有理见证点、$32$ 个极大模式、$53$ 个
+可行非空子集与 $506$ 次枚举事件，总权重 $21/2$，在 $r=7/25$ 处排除 $n=8,9,10$。独立
+检查器通过 $74$ 次检查，$0$ 次失败。但该界弱于 $n=8,9,10$ 的已知面积界，也没有改进
+$n=100$ 的区间：在这个网格上 $r=7/25$ 处的对偶最优值恰好为 $12$，而对 $r\ge3/10$，
+八个圆盘已经覆盖了见证集。因此该构造无法越过面积界成为一条路线，而有限归约的解析完备性
+依赖于一个未形式化的平面 Helly／最小包围圆支撑界。
+
+\subsection{简单的全局能量在候选图上失败}
+
+曾提出一条角／调和能量路线，把被吸收的 $n=19$ 证明的应力结构搬到 $n=100$。两份证书
+了结此事。第一，真正的调和延拓应力能量的二次型，在候选角域内的候选根处其区间上界严格
+低于 $-1/100000$
+（{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}independent.json}}，退出码 $0$）。第二，一个有理
+旋转反例表明，在允许的角域内能量可以\emph{减少}超过 $10^{-12}$
+（{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}harmonic-\allowbreak{}energy-\allowbreak{}relaxation-\allowbreak{}counterexample.json}}，退出码 $0$）。
+因此固定应力的全局凸能量路线不可用，必须替换为逐杆的力与约束分支（branch），并配以
+定量隔离
+（{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}obstruction-\allowbreak{}audit.json}}）。这是关于一个候选
+接触图的陈述；它不是覆盖反例，也不与局部二阶条件矛盾。
+
+\subsection{另外两条未被提升的数值路线}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item 一个逐胞等弧／边数-$5,6$ 抽样族找到 $0.1118772$，但对手族的完备性从未被证明，
+因此它不能作为普适界。
+\item 一个径向壳层 LP 报告了接近 $92.56$ 的值；细网格复核发现所抽样的解不可行，所以它
+不是覆盖数的已认证界。该报告在独立质疑下被更正。这并不证明有限见证路线不可能——只说明
+所测试的松弛没有兑现。
+\end{itemize}

@@ -1,0 +1,123 @@
+import json, pathlib
+R = pathlib.Path(r'E:\study\ADB\n100-public')
+ADB = pathlib.Path(r'E:\study\ADB')
+refs = [
+    'runtime/disk100-release-lf-67ebf1c',
+    'verify/out/n100-B31-at-11324.json',
+    'verify/out/n100-B32-complete-149.json',
+    'verify/out/n100-B33-complete-167-v2.json',
+    'verify/out/n100-B34-complete-180.json',
+    'verify/out/n100-B35-complete-203.json',
+    'verify/out/n100-B35-M25-M26-complete-201.json',
+    'verify/out/n100-B35-lowM-complete-202.json',
+    'verify/out/n100-tail-candidate-224.json',
+    'verify/out/n100-tail-B37plus-210-a.json',
+    'verify/out/n100-tail-support-obstruction-206.json',
+    'verify/out/n100-tail-point-branch-212.json',
+    'verify/out/n100-tail-direct-components-216.json',
+    'verify/out/n100-candidate-complete-225.json',
+    'verify/out/n100-six-branch-ledger-226.json',
+    'verify/out/n100-certificate-index-221.json',
+    'verify/out/n100-radius-scan-219.json',
+    'verify/out/n100-candidate-budget-222.json',
+    'verify/out/n100-11324-six-branch-ledger-213.json',
+    'verify/out/n100-lower-small-advance-143.json',
+    'verify/out/n100-new-lower-bound-143.json',
+    'verify/out/n100-radius-dependency-audit-143.json',
+    'verify/out/n100-small-advance-controls-143.json',
+    'verify/out/n100-B32-M25-specialized-K-145.json',
+    'verify/out/n100-B32-M25-independent-146.json',
+    'verify/out/n100-B32-high-expanded-148.json',
+    'verify/out/n100-B33-low-complete-157.json',
+    'verify/out/n100-B33-high-residual-159.json',
+    'verify/out/n100-B33-deep5-complete-163.json',
+    'verify/out/n100-B33-ring5-complete-165.json',
+    'verify/out/n100-B33-no5-components-166.json',
+    'verify/out/n100-B34-low-and-high-reduction-171.json',
+    'verify/out/n100-B34-low-independent-172.json',
+    'verify/out/n100-B34-high-topology-174.json',
+    'verify/out/n100-B34-chordless-complete-177.json',
+    'verify/out/n100-B34-onechord-complete-179.json',
+    'verify/out/n100-B35-full-gaps-190.json',
+    'verify/out/n100-B35-profile-reduction-191.json',
+    'verify/out/n100-B35-M25-metric-193.json',
+    'verify/out/n100-B35-M26-chordless-197.json',
+    'verify/out/n100-B35-M26-onechord-200.json',
+    'verify/out/n100-B31-at-11323.json',
+    'verify/out/external-disk100-local-quadtree/replay.json',
+    'verify/out/external-disk100-strict-local-67ebf1c.json',
+    'proofs/n100-lattice97-algebraic-upperbound.md',
+    'proofs/n100-strengthened-lowerbound-combined.md',
+    'proofs/n100-sharp-envelope-lowerbound.md',
+    'proofs/n100-long-chord-quadratic-deficit.md',
+    'verify/out/strengthened_lowerbound_n100.json',
+    'verify/out/n100-longchord-bundle-frozen.json',
+    'verify/out/n100-algebraic-bounds-bundle.json',
+    'verify/out/lattice97_upperbound_n100.json',
+    'verify/out/coverage_n100.json',
+    'verify/out/independent_coverage_n100.json',
+    'verify/out/coverage_controls_n100.json',
+    'verify/out/pilot_n100_stage2_summary.json',
+    'verify/out/n100-cooperative-polish-tight/replay.json',
+    'verify/out/n100-cooperative-refine-tight/replay.json',
+    'verify/out/n100-cooperative-anchor-tight/replay.json',
+    'verify/out/n100-interface-timing-calibration.json',
+    'verify/out/n100-composition-scaling.json',
+    'verify/out/n100-shared-support-session.json',
+    'verify/out/n100-legacy-rule-disposition.json',
+    'verify/out/n100-pruning-recursive-inventory-v3.json',
+    'verify/out/n100-boundary-circle-full-revalidation.json',
+    'verify/out/n100-final-proof-interface-registry.json',
+    'verify/out/n100-unified-proof-interface-registry.json',
+    'verify/out/n100-study-archive.json',
+    'verify/out/n100-delivery-audit-135.json',
+    'verify/out/n100-boundary-circle-survivor-domain.json',
+    'verify/out/n100-cap-area-thresholds.json',
+    'verify/out/n100-arc-lens-integer-relaxation.json',
+    'verify/out/n100-angular-energy-independent.json',
+    'verify/out/n100-harmonic-energy-relaxation-counterexample.json',
+    'verify/out/n100-angular-energy-obstruction-audit.json',
+    'verify/out/n100-vonequinox-count-domain-bound.json',
+    'verify/out/n100-first-order-rod-dual.json',
+    'verify/out/n100-fixed-rod-local-budget.json',
+    'verify/out/n100-cover-hole-bridge.json',
+    'verify/out/n100-local-leaf-example.json',
+    'verify/out/n100-separated-witness-hall.json',
+    'verify/out/n100-weighted-witness-capacity.json',
+    'verify/out/n100-witness-dual-obstruction.json',
+    'verify/out/n100-finite-grid-candidate-controls.json',
+    'verify/out/n100-global-witness-tree-interface.json',
+    'verify/out/n100-candidate-quadratic-cover-model.json',
+    'verify/out/n100-face-axis-global-exclusion.json',
+    'verify/out/n100-boundary-serving-count.json',
+    'verify/out/n100-disconnected-boundary-owner-counterexample.json',
+    'verify/out/n100-cover-transfer-identities.json',
+    'verify/out/witness_calibration_bundle_n100.json',
+    'verify/out/n100-recursive-ear-obstruction.json',
+    'verify/out/n100-inner-radial-hierarchy.json',
+    'verify/out/n100-annular-center-cuts.json',
+    'verify/out/n100-radius-count-strata.json',
+    'verify/out/n100-center-distribution-interface-contracts.json',
+    'verify/out/n100-arc-pair-consistency.json',
+    'verify/out/n100-arc-ordered-cycle.json',
+    'verify/out/n100-center-spatial-tree.json',
+    'verify/out/n100-proof-interface-contracts-v2.json',
+]
+missing_local, present_local, only_root = [], [], []
+for r in refs:
+    a = (R / r).exists()
+    b = (ADB / r).exists()
+    if a:
+        present_local.append(r)
+    else:
+        missing_local.append(r)
+        if b:
+            only_root.append(r)
+print('total refs checked      :', len(refs))
+print('present under n100-public:', len(present_local))
+print('absent under n100-public :', len(missing_local))
+print('  ...but present at ADB root:', len(only_root))
+print()
+print('ABSENT under n100-public:')
+for r in missing_local:
+    print('  ', r, '| at ADB root:', (ADB / r).exists())

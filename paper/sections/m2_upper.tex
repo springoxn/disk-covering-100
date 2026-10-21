@@ -1,0 +1,273 @@
+\part*{Part II. Upper bounds: constructions and their certificates}
+\addcontentsline{toc}{part}{Part II. Upper bounds: constructions and their certificates}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{What an upper-bound route has to do}
+
+An upper bound is a construction: exhibit $100$ centres $c_1,\dots,c_{100}$ and a rational $U$, and
+prove $\max_{x\in D}\min_i\|x-c_i\|\le U$. The mathematical content is therefore always the same
+two-step reduction
+\[
+\underbrace{D\subseteq\bigcup_i B(c_i,U)}_{\text{continuous statement}}
+\;\Longleftarrow\;
+\underbrace{\text{finite list of exact box/leaf checks}}_{\text{machine decision}} ,
+\]
+and the whole difficulty is in the implication. Three different finite reductions are used in this
+programme, and they are worth separating because they have different strengths.
+
+\subsection{Reduction A: quadtree / box subdivision with an exact distance criterion}
+
+Cover $D$ by axis-parallel boxes. For a box $X$ and a centre $c$, an interval evaluation of
+$\|x-c\|^2$ over $X$ gives $[\ell(X,c),u(X,c)]$. The box is certified if
+$\min_i \ell(X,c_i)\le U^2$ with the minimum computed exactly; otherwise subdivide. A leaf whose
+interval cannot be decided is \emph{unresolved} and must be reported, never rounded into
+``covered''. The initial continuous-coverage certificate for the historical configuration is of
+this type: $R=153/1250$, $22\,804$ leaves, depth $16$, $0$ unresolved, $21/21$ checks
+(\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}n100.json}). An independent checker re-derives the criterion from
+integer corner comparisons and shares no geometric function with the generator; it rejects three
+deliberately corrupted cases (\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}coverage\_\allowbreak{}n100.json}). A control
+battery of $12$ positive and negative cases passes
+(\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}controls\_\allowbreak{}n100.json}). All of these carry
+\texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry = false}: the reduction from ``boxes certified'' to ``$D$ is
+covered'' is analytic.
+
+\subsection{Reduction B: lattice-cell reduction (exact, with a finite enumeration)}
+
+For a lattice construction one can do much better than a quadtree: the cells tile the plane, so
+coverage of $D$ reduces to a finite exact check over the finitely many lattice sites whose cells
+can meet $D$. This is the method of \S\ref{sec:lattice}, and it produces a certificate whose
+decisions are integer/Fraction only.
+
+\subsection{Reduction C: replay of an external configuration}
+
+When the configuration is given by an external package, the honest upper-bound route is a
+byte-faithful replay of that package's own checker plus independent cross-checks. This is the
+method of \S\ref{sec:external}.
+
+\section{The triangular-lattice $97{+}3$ configuration}
+\label{sec:lattice}
+
+\subsection{The configuration}
+
+Work first in \emph{normalized} coordinates where nearest lattice neighbours are at distance $1$.
+A lattice site is a pair $(i,j)\in\Z^2$ with real position
+\[
+x(i,j)=(u,\sqrt3\,v),\qquad u=i+\tfrac j2,\qquad v=\tfrac j2,
+\qquad
+\|x(i,j)\|^2=i^2+ij+j^2 .
+\]
+The hexagonal Voronoi cell of a site is the translate of the hexagon $H$ with vertices
+$(0,\pm\frac13)$, $(\pm\frac12,\pm\frac16)$ in $(u,v)$ coordinates, whose circumradius is
+$1/\sqrt3$.
+
+\begin{construction}[The $97{+}3$ configuration]\label{con:lattice}
+Take all sites with $i^2+ij+j^2<28$ (there are $97$ of them), plus the three norm-$28$ sites
+\[
+(-6,4),\quad(-2,-4),\quad(2,4).
+\]
+With the scaling
+\[
+a=\sqrt{3/67},\qquad R=1/a=\sqrt{67/3},\qquad \alpha=1/\sqrt{67},
+\]
+the $100$ closed disks of radius $\alpha$ about the scaled centres $a\,x(i,j)$ cover $D$, and
+$\alpha$ is \emph{exactly} the covering radius of this centre configuration.
+\end{construction}
+
+\begin{proposition}[Exact covering radius of the configuration]\label{prop:lattice-alpha}
+$\alpha=1/\sqrt{67}$ is the least radius at which the $100$ centres of Construction~\ref{con:lattice}
+cover $D$.
+\end{proposition}
+
+\begin{proof}[Argument]
+The upper half is the cell check described below. For the lower half, consider the interior lattice
+hole $q=(u,v)=(\tfrac12,\tfrac16)$, i.e.\ the centre of a hexagon surrounded by six sites. Its
+normalized norm is $\|q\|^2=u^2+3v^2=\tfrac14+\tfrac1{12}=\tfrac13$, and its distance to the nearest
+lattice site is the hexagon circumradius $1/\sqrt3$. After scaling by $a$, the nearest retained
+centre is at distance $a/\sqrt3=1/\sqrt{67}=\alpha$, while $\|a q\|=a/\sqrt3=\alpha<1$, so $aq$ is a
+point of $D$ at distance exactly $\alpha$ from every centre. Hence no smaller radius covers $D$.
+\end{proof}
+
+\begin{remark}
+The three norm-$28$ sites are \emph{redundant} for coverage: the $97$-site configuration already
+covers $D$ with the same radius, and the certificate records the construction order
+($97$ sites, then three extra sites). Redundancy does not prove that a smaller radius is achievable
+with $100$ disks; it only shows that this particular configuration does not use its budget.
+\end{remark}
+
+\subsection{The exact cell argument}
+
+The certificate \texttt{verify/\allowbreak{}out/\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json} (schema
+\texttt{n100-\allowbreak{}lattice97-\allowbreak{}upperbound-\allowbreak{}v1}) reduces continuous coverage to a finite exact check by four
+steps, each of which is an integer or \texttt{Fraction} decision:
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{Cell containment.} Every point of the Voronoi cell of a site $p$ is within
+$1/\sqrt3$ of $p$ (circumradius of $H$).
+\item \textbf{Finite site list.} A site whose cell meets the closed disk of radius $R=\sqrt{67/3}$
+satisfies $\|p\|^2<29$, hence $\|p\|^2\le28$, hence $|i|,|j|\le7$. The enumeration box used is
+$|i|,|j|\le24$, generously larger than the sufficient box $7$.
+\item \textbf{Exact minimum at a unique vertex.} For every site $p\notin C$ with $\|p\|^2\le28$,
+the minimum of $\|x\|^2$ over the cell is exactly $R^2=67/3$, attained at a unique vertex $v_p$;
+this is certified by the supporting-plane inequality $\langle v_p,\,w-v_p\rangle\ge0$ over all six
+vertices $w$ of the cell.
+\item \textbf{Exterior shell.} Sites with $\|p\|^2\ge29$ have cell distance
+$\ge\sqrt{29}-1/\sqrt3>R$, certified by the pure integer inequality $3(29-22)^2>4\cdot29$, i.e.\
+$7>2\sqrt{29/3}$.
+\end{enumerate}
+
+\subsection{Algebraic data of the candidate radius}
+
+\[
+\alpha=\frac1{\sqrt{67}},\qquad P(t)=67t^2-1 \ \ (\text{coefficients } [67,0,-1]),
+\]
+$P$ is primitive with positive leading coefficient; $67$ is not a square, so $P$ is irreducible in
+$\Q[t]$; and
+\[
+\frac{1221694443}{10^{10}}<\alpha<\frac{1221694444}{10^{10}}
+\]
+is a rational isolating interval. The endpoint signs are decided by integer square comparison, and
+$P$ is strictly increasing on the positive half-line ($P'(t)=134t>0$), so the interval contains
+exactly one root. This is the minimal polynomial of \emph{this configuration's} covering radius ---
+it is \emph{not} claimed to be the minimal polynomial of $\rD(100)$, because the lower bounds of
+Part III/IV do not meet $\alpha$.
+
+\subsection{Negative controls in the certificate}
+
+The lattice certificate's thirteen negative controls must all be rejected, and are: a scaled-up
+target disk (precondition only, explicitly \emph{not} an uncovered witness for the delivered claim);
+an explicit uncovered point for the enlarged-disk variant; a shrunk covering radius; an enlarged
+covering radius; a wrong metric; a wrong/rotated hexagon; an inflated hexagon; a truncated neighbour
+search; a misattributed neighbour; two removed tangency centres; the $97$-centre configuration
+submitted as a ``$100$-point'' claim; a single shell centre removed (coverage still holds, so only the
+cardinality is rejected); and a removed interior centre. An independent implementation
+({\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json}}, \texttt{all\_\allowbreak{}passed = true},
+\texttt{coverage\_\allowbreak{}confirmed = true}) reproduces the claim with a different code path.
+
+\section{The external $100$-centre configuration}
+\label{sec:external}
+
+The best currently accepted upper bound comes from an external public package at the frozen commit
+\[
+{\footnotesize{\footnotesize\texttt{67ebf1c5776f72a7b7786a8655eed5463429ae55}}},
+\]
+whose bytes were replayed locally without modification. It provides a $100$-centre configuration
+and the exact rational bound
+\[
+U_\star=\frac{1154469548855829}{10^{16}}=0.1154469548855829 .
+\]
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.32\textwidth}>{\raggedright\arraybackslash}p{0.54\textwidth}@{}}
+\toprule
+Artifact & What it establishes \\
+\midrule
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}bounds-\allowbreak{}67ebf1c.json}} &
+the complete interval evidence: exit $0$; all six lower-bound branches recomputed \texttt{PASS} \\
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}margin-\allowbreak{}67ebf1c.json}} &
+an independent upper-bound margin check; exit $0$ \\
+\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}local-\allowbreak{}quadtree/\allowbreak{}replay.json} &
+this project's own quadtree cross-check at the slightly wider $R=0.115447$: main and independent
+\texttt{PASS}, $0$ unresolved \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two boundary remarks belong here. First, the same package also supplied the \emph{six-branch
+skeleton} that Part IV uses; the absorption report fixes the roles: the third-party material is a
+replayable input and an external reference, not an authority automatically inherited by this
+project. Second, the replay is a byte-faithful run of the package's own checkers plus independent
+cross-checks; it is \emph{not} a claim that the package's analytic geometry has been formalized.
+
+\section{The cooperative-search tightening track}
+
+Before the external configuration was absorbed, this project tightened its own configuration
+through a cooperative (free-point plus annealing) search. Each stage froze its output read-only and
+certified a rational upper bound with an independent quadtree replay:
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
+\toprule
+Stage & floating-point discovery radius (not a decision) & certified rational upper bound & evidence \\
+\midrule
+exact lattice & $0.1221694443563052$ & $1/\sqrt{67}$ (algebraic) &
+\texttt{n100-\allowbreak{}algebraic-\allowbreak{}bounds-\allowbreak{}bundle.json} \\
+cooperative, round 1 & $0.1200703574813639$ & $18761/156250=0.1200704$ &
+\texttt{n100-\allowbreak{}cooperative-\allowbreak{}anchor-\allowbreak{}tight/\allowbreak{}replay.json} \\
+refine & $0.1198908685151380$ & $119891/1000000=0.119891$ &
+\texttt{n100-\allowbreak{}cooperative-\allowbreak{}refine-\allowbreak{}tight/\allowbreak{}replay.json} \\
+polish & $0.1198764764337424$ & $119877/1000000=0.119877$ &
+\texttt{n100-\allowbreak{}cooperative-\allowbreak{}polish-\allowbreak{}tight/\allowbreak{}replay.json} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The replay certificates report \texttt{all\_\allowbreak{}passed = true},
+\texttt{independent.verified = true}, $35\,584$ leaves, maximum depth $23$, $0$ unresolved for the
+polish stage; the decimal coordinates of the frozen candidate are treated as \emph{exact rationals},
+not replaced by fitted lattice or algebraic coordinates. Earlier stages of the same track certified
+$153/1250=0.1224$ (stage 1) and $1223433/10000000=0.1223433$ (stage 2, server search with six
+candidates, $916$ objective evaluations in $15.746$ s, all six stopping after $150$ consecutive
+non-improvements).
+
+\subsection{Why the cooperative track stopped improving}
+
+The algebraic diagnostics are as important as the bounds. At every stage there was exactly one
+tight hole (threshold $10^{-9}$), with several near-tight holes participating in a finite band
+model. The polish run still recorded $115$ strict improvements when it hit its $4\times30$-round
+cap, so the end of the descent had not been reached: the local system has \emph{no} KKT or
+neighbourhood-optimality certificate. A stationarity diagnostic ran in $1.3$ s and reported: a
+$10^{-6}$ near-active band with $123$ contacts, but only $2$ contacts at $10^{-7}$ and $1$ at
+$10^{-9}$; $114$ interior gradient rows of floating-point rank $114$ with nullspace dimension $86$;
+and no non-negative KKT multiplier LP found at the tested tolerances. A contact-balance/SQP unit
+returned \texttt{NO\_\allowbreak{}IMPROVEMENT}: in $60$ s it lowered the radius by about $1.25\times10^{-9}$,
+below the acceptance threshold, so no new candidate was saved and no upper bound was updated.
+Smooth-max directions mostly increased the true radius and were rejected by the true evaluator.
+All of this is finite floating-point diagnosis: it neither proves that no other equilibrium branch
+exists nor that the candidate is ``non-algebraizable''.
+
+\section{The local algebraic route: an isolated KKT root}
+
+Independently of the configuration search, the local algebra of the absorbed candidate was
+replayed. The isolated algebraic KKT root has
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+Quantity & Value \\
+\midrule
+variables & $932$ \\
+basic variables & $493$ \\
+constraints & $439$ = $406$ distance + $32$ boundary + $1$ gauge \\
+monomials & $8\,348$, degree at most $2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The certificate {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}strict-\allowbreak{}local-\allowbreak{}67ebf1c.json}} records a fresh root,
+a fresh coverage check, and $8/8$ destruction tests rejected; a Krawczyk-style box isolates the root
+and the rotation quotient is handled. The stress-transfer analysis on the same root box (radius
+$10^{-58}$) found $406$ distance multipliers strictly positive inside the box, $32$ boundary
+multipliers strictly negative, and a $246$-node connected contact graph whose weighted Laplacian
+block over the $214$ free nodes, anchored at the $32$ boundary contacts, has an exact positive
+definite lower bound. However, the attempted cover-19-style global Dirichlet energy lower bound
+failed: the Loewner matrix built from boundary-angle cosine intervals and rod-graph hop distances
+still produced two negative LDL pivots, so the transfer result is recorded as
+\texttt{H0\_\allowbreak{}PSD = false}. That failure is a route diagnostic, not a counterexample to the local
+second-order condition and not a statement about other topologies.
+
+\section{What the upper bounds do \emph{not} give}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item They do not identify $\rD(100)$: the accepted interval has width $0.0022$ in absolute terms.
+\item They do not prove that the lattice configuration, the cooperative candidate, or the external
+configuration is optimal or locally optimal (except for the one isolated KKT root, where
+\emph{strict local} minimality of the fixed contact graph is certified --- a local statement about
+one graph).
+\item They do not yield the minimal polynomial of $\rD(100)$. What exists is the minimal polynomial
+$67t^2-1$ of the covering radius of one explicit configuration, which is a different object.
+\item The three redundant lattice disks show that this configuration does not saturate its budget;
+that is a hint, not a proof, that a smaller radius might be reachable with $100$ disks.
+\end{itemize}

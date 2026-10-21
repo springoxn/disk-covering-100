@@ -1,0 +1,92 @@
+\documentclass[UTF8,11pt]{ctexart}
+% Geometry mirrors monograph.tex exactly (see CONVENTIONS.md section 5): the 1in margin box
+% is preserved so artifact_qc.py measures the same edges in both editions.
+\usepackage[letterpaper,left=72pt,right=72pt,textheight=648pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem,graphicx,array,longtable}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+% 断行设置。原来的 \tolerance=3000 + \emergencystretch=3em 留下 45 行松行，其中 33 行
+% 为最差 badness 10000；原因是 \tolerance 限制了 TeX 的尝试强度，\emergencystretch 无从生效。
+% 提到 9999 后 TeX 宁可取略松的行，余量由下面的伸缩量吸收；\hbadness 则不再报告只是略松的行。
+\tolerance=9999
+\emergencystretch=3em
+\hbadness=2500
+% CJK has no hyphenation, so a looser line is preferable to a break inside a long \texttt path.
+\sloppy
+\newtheorem{theorem}{定理}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\theoremstyle{definition}
+\newtheorem{definition}{定义}
+\newtheorem{construction}{构造}
+\theoremstyle{remark}
+\newtheorem{remark}{说明}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Bd}{\partial}
+\newcommand{\area}{\operatorname{area}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\rD}{r_{D}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\half}{\tfrac12}
+% 每个部分重新开始小节编号，因此必须给 hyperref 目标加上部分前缀，否则锚点会冲突。
+% 同一计数器也作为小节编号前缀，使「第 IV 部分 4.1 节」这类引用无歧义。
+\newcounter{partanchor}
+\renewcommand{\thesection}{\thepartanchor.\arabic{section}}
+\renewcommand{\theHsection}{p\thepartanchor.\arabic{section}}
+% 三级编号（"1.4.5"）加两位页码放不进默认的 \@pnumwidth，曾使目录某行溢出 5.96pt。
+% 加宽页码框并给引导点留余量；只影响目录，不改变正文版心。
+\makeatletter
+\renewcommand{\@pnumwidth}{2.2em}
+\renewcommand{\@tocrmarg}{3.2em}
+\makeatother
+% 字体取舍（有意为之，勿当 bug 修）：离线 Tectonic bundle 缺粗体数学斜体 cmmib8 与部分 8pt 字号，
+% 故拉丁向量用 \mathbf，希腊向量用普通斜体希腊字母。详见 CONVENTIONS.md 第 5 节。
+\title{\bf 用100个等圆盘覆盖单位圆盘\\[2mm]
+\large 全部路线的系统讲解，以及当前的上下界}
+\author{公开计算研究档案\\\small \texttt{springoxn/disk-covering-100}}
+\date{2026年10月}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+本文研究 $r_{D}(100)$：用 $100$ 个全等闭圆盘覆盖单位闭圆盘 $D$ 所需的最小半径。本专著按路线逐条、
+系统地讲解整个研究纲领：试过的每一种构造、闭合的每一种松弛、以及被证伪或仍未决的每一条路线。
+当前可机器重放的严格结论是
+\[
+\boxed{\;0.113235\;<\;\rD(100)\;\le\;0.1154469548855829\;}
+\]
+下界是有理半径 $R=22647/200000$ 处的六分支排除证书：$B31$--$B35$ 由半径单调性从
+$R=2831/25000=0.11324$ 的证书继承，而尾分支 $B\ge36$ 在 $R$ 处直接对
+$1\,841\,089$ 个有理箱重放。上界是一个显式重放的 $100$ 中心构型。两者都不给出精确最优值。
+邻近目标 $0.11324$ 仍未闭合：在冻结的 capped-pair 常数下，分支 $B=36$ 存在一个精确有理障碍点，
+该点处局部 pair 松弛超过 $B=36$ 面积预算所能支付的截距。本文说明为什么该障碍无法靠增加箱预算或
+提高截距消除，并记录未决区间 $(0.113235,\,0.11324]$。
+
+下文每一个定量断言都绑定到 \texttt{verify/out/} 中的机器可读产物。本文刻意保留失败：
+一份只含成功的研究记录，无法告诉下一个读者哪些松弛太弱。
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/m0_preface_zh}
+\input{sections/m1_problem_zh}
+\input{sections/m2_upper_zh}
+\input{sections/m3_universal_zh}
+\input{sections/m4_sixbranch_zh}
+\input{sections/m5_frontier_zh}
+\input{sections/m6_catalogue_zh}
+\input{sections/m7_reproduce_zh}
+\input{sections/m8_open_zh}
+\input{sections/m9_appendix_zh}
+
+\end{document}

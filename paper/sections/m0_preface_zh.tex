@@ -1,0 +1,132 @@
+\section*{前言：本文档是什么，以及如何阅读}
+\addcontentsline{toc}{section}{前言}
+
+本专著不是一条定理加一个证明。它是一项研究纲领的地图。
+用 $100$ 个等圆盘覆盖单位圆盘是一个连续、非凸的问题，其组合类型
+随半径而变，没有已知方法能一步求解。实际存在的是一组 \emph{路线}：
+产生上界的构造、产生下界的松弛，以及大量被尝试过的变体——它们要么
+闭合了某个子情形，要么产生了一份诊断，要么被证伪。本文档的目的是
+系统地呈现这些路线，使读者能够看到 (i) 当前的前沿是什么，
+(ii) 哪个不等式承载了其中的哪一部分，以及 (iii) 剩余间隙究竟位于何处。
+
+\subsection*{一页纸的现状综述}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
+\toprule
+条目 & 数值 / 状态 \\
+\midrule
+已接受的严格区间 &
+$0.113235<\rD(100)\le 0.1154469548855829$ \\[1mm]
+已接受的下界（精确有理数） &
+$R_\star=22647/200000=0.113235$ \\[1mm]
+已接受的上界（精确有理数） &
+$U_\star=1154469548855829/10^{16}$ \\[1mm]
+相对间隙 $(U_\star-R_\star)/U_\star$ &
+约 $1.92\%$（仅作展示） \\[1mm]
+下界引擎 &
+六个互斥的边界计数分支（branch）
+$B31,B32,B33,B34,B35,B{\ge}36$；$B31$--$B35$ 由半径单调性（monotonicity inheritance）从 $R=2831/25000$ 继承，$B{\ge}36$ 在 $R_\star$ 处重放 \\[1mm]
+最弱分支 &
+$B\ge 36$，具体是单个取值 $B=36$ \\[1mm]
+未达到的目标 &
+$0.11324$；冻结的 capped-pair 松弛（capped-pair relaxation）在
+$x=y=9921033/12500000$ 处有一个精确障碍点（obstruction point） \\[1mm]
+未决窗口 &
+$(0.113235,\,0.11324]$；有理候选 $0.113236$ 与 $0.113237$ 已启动并停止，
+未产生证书（certificate） \\[1mm]
+精确最优值、极小多项式 &
+未获得；\texttt{global\_\allowbreak{}optimality\_\allowbreak{}proved = false} \\[1mm]
+最佳普适（不依赖构型）下界 &
+$2787/25000=0.11148$（长弦束），而更早的
+$554570693/5000000000=0.1109141386$ 与
+$1111720153/10^{10}=0.1111720153$ 仍然有效且被支配 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{各部分如何衔接}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{第 I 部分} 固定问题、约定（闭圆盘、中心不受限、有理判定层）与证据纪律。请先读这一部分：
+\emph{证书}、\emph{诊断}（diagnostic）、\emph{解析}（analytic）与\emph{继承}（inherited）
+这些词在这里有精确含义。
+\item \textbf{第 II 部分} 汇集上界路线：有限检查如何替代连续的覆盖命题、带 $\alpha=1/\sqrt{67}$ 的
+三角格点 $97{+}3$ 构型、被重放的外部 $100$ 中心构型、协作搜索路线，
+以及局部代数（KKT）路线。
+\item \textbf{第 III 部分} 汇集不依赖构型的解析下界：面积界
+$1/10$、带四条几何引理的整数边计数路线、锐化包络（sharpened envelope）、
+长弦二次亏损（long-chord quadratic deficit），以及对周界缺陷（$\lambda$）律的否证。
+\item \textbf{第 IV 部分} 是技术核心：六分支引擎。它解释了同半径规范化（normalized）、
+计数桥，随后是每个分支 $B31$--$B35$ 与尾分支 $B\ge36$，
+包括 capped-pair 松弛及其有理方形区域细分。
+\item \textbf{第 V 部分} 是前沿：已接受的界如何从 $0.11323$ 移到 $0.1132301$
+再到 $0.113235$，$0.11324$ 为何被阻塞，以及一条真正新的不等式必须做什么。
+\item \textbf{第 VI 部分} 是路线目录：每个路线族及其构造、状态与证据路径，
+包括被证伪与零产出的那些。
+\item \textbf{第 VII 部分} 给出复现命令、外部依赖，以及从第三方材料中吸收内容的边界。
+\item \textbf{第 VIII 部分} 列出未决义务，不加任何软化。
+\item \textbf{附录} 是证据账本：断言 $\leftrightarrow$ 产物，外加 JSON 字段词表
+与 $B=36$ 障碍的精确算术。
+\end{itemize}
+
+\subsection*{全文使用的证据等级}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}c>{\raggedright\arraybackslash}p{0.50\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+\toprule
+等级 & 含义 & 可信度 \\
+\midrule
+A & 结构化机器产物：带状态、计数、哈希、退出码的 JSON 证书 & 最强 \\
+B & 独立重放：由不同脚本或阶段复查同一子断言 & 强 \\
+C & 发现层（discovery layer）材料：浮点搜索、候选排序、失败的实验 & 仅用于指导下一步 \\
+D & 继承推理，例如把较大半径处的排除用于较小半径 & 仅当组合器显式记录时有效 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+另有三个限定词不断出现，绝不能与等级混淆：
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \emph{解析} --- 以文字论证证明、可由人核查，但未在证明助手中形式化。本文档中每一条
+「普适」陈述都是解析论证加上精确有限算术；没有一条是内核验证的定理。
+\item \emph{\texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry = false}} --- 有限的有理/区间不等式已被机器检查；从几何到这些不等式的归约没有。
+\item \emph{诊断} --- 该计算刻意报告一次失败、一个瓶颈或一个零产出结果，
+而\emph{不是}某个分支已闭合的证书。
+\end{itemize}
+
+\subsection*{记号}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+符号 & 含义 \\
+\midrule
+$D$ & 闭单位圆盘 $\{x\in\R^2:\|x\|\le 1\}$ \\
+$B(c,r)$ & 以 $c$ 为圆心、半径 $r$ 的闭圆盘 \\
+$\rD(n)$ & $\inf\{r: D\subseteq\bigcup_{i=1}^{n}B(c_i,r)\}$ \\
+$R$ & 用于矛盾论证的固定有理 \emph{候选}半径 \\
+$U$ & 已认证的上界（一个显式覆盖构型的半径） \\
+$B$ & 覆盖所服务的边界弧（boundary arc）（等价地边界顶点）数目 \\
+$M$ & 规范化的公共三角剖分的内部面数目 \\
+$N$, $m$ & 互异中心的数目，以及有效使用圆盘的数目 \\
+$k$ & 互异的服务边界圆盘的数目 \\
+$e_i$ & $m_i+a_i$，即被裁剪胞 $Q_i$ 的名义边数 \\
+$\Gamma$ & 角度记账中使用的标记内角和总计 \\
+$h$ & 严格深顶点的总度数超出量 \\
+$C$ & 核心（core）边界的弦数 \\
+$\lambda,\mu,L,K$ & 尾松弛的罚系数（penalty coefficient）、斜率（slope）、截距（intercept）与标记常数 \\
+$\Phi$ & capped-pair 松弛的局部 pair 损失 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{关于如何阅读这些数字的警告}
+
+本文档中的每个有理数都按其在证书或报告中出现的样子引用。凡为定位而给出的
+十进制数，都标注为展示。凡两个阶段给出略有差异的辅助常数（例如不同半径处
+规范化的中心范数平方界），二者都连同各自的来源一并引用，而不做静默调和。
+凡一次运行被启动后停止，就报告为已停止 --- 既不报告为失败，也不报告为证明。

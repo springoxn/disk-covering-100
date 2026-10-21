@@ -1,0 +1,281 @@
+\appendix
+\part*{Appendix. Evidence ledger, vocabulary and exact arithmetic}
+\addcontentsline{toc}{part}{Appendix. Evidence ledger, vocabulary and exact arithmetic}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{Evidence ledger: assertion $\leftrightarrow$ artifact}
+
+{\footnotesize
+\begin{longtable}{@{}@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.40\textwidth}@{}}
+\toprule
+Assertion & Status & Artifact \\
+\midrule
+\endfirsthead
+\toprule
+Assertion & Status & Artifact \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+$100$-disk configuration with radius $\le0.1154469548855829$ & replayed &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}bounds-\allowbreak{}67ebf1c.json}} \\
+Strict margin of that configuration over the reference bound & replayed &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}margin-\allowbreak{}67ebf1c.json}} \\
+Independent quadtree cross-check at $115447/10^{6}$ & replayed &
+\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}local-\allowbreak{}quadtree/\allowbreak{}replay.json} (parent repository) \\
+Isolated KKT root, strict local minimality mod rotation & replayed &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}strict-\allowbreak{}local-\allowbreak{}67ebf1c.json}} (parent repository) \\
+Lattice candidate satisfies $\alpha^2=1/67$ & independent replay &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json}} \\
+$B31$ exclusion & \texttt{PASS} & \texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B31-\allowbreak{}at-\allowbreak{}11324.json} \\
+$B32$ exclusion ($M\le25$ and $M\ge26$) & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B32-\allowbreak{}complete-\allowbreak{}149.json} \\
+$B33$ exclusion (low $M$, coherent deep-$5$, $108$ ring models) & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B33-\allowbreak{}complete-\allowbreak{}167-\allowbreak{}v2.json} \\
+$B34$ exclusion ($23$ chordless $+$ $47$ one-chord) & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B34-\allowbreak{}complete-\allowbreak{}180.json} \\
+$B35$ exclusion (low $M$, $M25$, $M26$, $M\ge27$) & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B35-\allowbreak{}complete-\allowbreak{}203.json} \\
+$B\ge36$ at $R_\star$ & \texttt{PASS} & \texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}tail-\allowbreak{}candidate-\allowbreak{}224.json} \\
+$B\ge37$ at $R=2831/25000$ & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}tail-\allowbreak{}B37plus-\allowbreak{}210-\allowbreak{}a.json} \\
+Candidate scalar budget conservation & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}budget-\allowbreak{}222.json} \\
+Six branches closed at $R_\star$ & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}complete-\allowbreak{}225.json} \\
+Six-branch ledger with no pending branch & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}six-\allowbreak{}branch-\allowbreak{}ledger-\allowbreak{}226.json} \\
+$0.11324$ proved & \textbf{not proved} &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}tail-\allowbreak{}support-\allowbreak{}obstruction-\allowbreak{}206.json}} \\
+$0.113236$ / $0.113237$ proved & \textbf{not proved} &
+{\footnotesize\texttt{docs/\allowbreak{}result-\allowbreak{}n100-\allowbreak{}stage229-\allowbreak{}current-\allowbreak{}best.md}} \\
+Integer-edge-count bound $554570693/5000000000$ & accepted (analytic $+$ arithmetic) &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}strengthened\_\allowbreak{}lowerbound\_\allowbreak{}n100.json}} \\
+Sharpened-envelope bound $1111720153/10^{10}$ & accepted &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}algebraic-\allowbreak{}bounds-\allowbreak{}bundle.json} \\
+Long-chord bound $2787/25000$ & accepted (top-level bundle; its geometry sub-block records the
+numeric threshold as reported, not recomputed) &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}longchord-\allowbreak{}bundle-\allowbreak{}frozen.json} \\
+Area bound $1/10$ & accepted & \texttt{verify/\allowbreak{}out/\allowbreak{}lowerbound\_\allowbreak{}n100.json} \\
+Continuous coverage at $R=153/1250$ & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}n100.json} \\
+Independent continuous-coverage replay & verified &
+\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}coverage\_\allowbreak{}n100.json} \\
+Coverage control battery & $12/12$ passed &
+\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}controls\_\allowbreak{}n100.json} \\
+Angular-energy route unavailable & counterexample & {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}obstruction-\allowbreak{}audit.json}} \\
+Global Dirichlet energy transfer fails & \texttt{H0\_\allowbreak{}PSD = false} &
+\texttt{runtime/\allowbreak{}n100-\allowbreak{}vonequinox-\allowbreak{}transfer/\allowbreak{}certificate.json} \\
+Uniform witness dual cannot reach $>100$ & refuted &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}witness-\allowbreak{}dual-\allowbreak{}obstruction.json}} \\
+Boundary-ownership connectivity pruning & refuted (counterexample) &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}disconnected-\allowbreak{}boundary-\allowbreak{}owner-\allowbreak{}counterexample.json}} \\
+\end{longtable}}
+
+
+\section{Certificate vocabulary}
+
+{\footnotesize
+\begin{longtable}{@{}@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
+\toprule
+Field & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Field & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{status} & \texttt{PASS}, \texttt{PASS\_\allowbreak{}PREMISES}, \texttt{NOT\_\allowbreak{}CLOSED},
+\texttt{PASS\_\allowbreak{}OBSTRUCTION\_\allowbreak{}TO\_\allowbreak{}OLD\_\allowbreak{}RELAXATION}, \texttt{PASS\_\allowbreak{}REDUCTION} \\
+\texttt{scope} & the exact domain in which the status holds; a \texttt{PASS} asserts nothing outside
+it \\
+\texttt{radius} & the candidate radius at which the certificate was established \\
+\texttt{required\_\allowbreak{}center\_\allowbreak{}norm\_\allowbreak{}squared\_\allowbreak{}upper} & outward rational enclosure of $1-R^2$ \\
+\texttt{minimum\_\allowbreak{}area\_\allowbreak{}margin} / \texttt{minimum\_\allowbreak{}reported\_\allowbreak{}positive\_\allowbreak{}margin} & the smallest exact
+rational margin in the branch \\
+\texttt{physical\_\allowbreak{}edge\_\allowbreak{}pairs} & number of shared physical edges whose opposite half-edge terms
+cancel \\
+\texttt{hinge\_\allowbreak{}payment}, \texttt{variance\_\allowbreak{}payment} & whether the branch spends its one hinge or
+variance budget \\
+\texttt{geometric\_\allowbreak{}dependencies} & the prose-level analytic lemmas the branch inherits \\
+\texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry} & \texttt{false} in every certificate here: finite arithmetic is
+machine-checked, the geometric reduction is not \\
+\texttt{global\_\allowbreak{}optimality}, \texttt{global\_\allowbreak{}bound\_\allowbreak{}improved} & \texttt{false} in every branch
+certificate; \texttt{true} only in the assembly certificates \\
+\texttt{bindings} & source/input SHA-256 map \\
+\texttt{not\_\allowbreak{}claimed} & an explicit list of what the artifact does not assert \\
+\end{longtable}}
+
+
+\section{The $B=36$ obstruction and the scalar budget, exactly}
+\label{app:budget}
+\label{sec:budget-recheck}
+
+\subsection{The obstruction}
+
+At $R=2831/25000$ with $\lambda=3/50$, $\mu=92531/10^{7}$, marked constant $K=973/3125$ and old
+intercept $L=1501/200000$, the point $x=y=9921033/12500000$ satisfies
+\[
+\frac{3754996055077}{500000000000000}\ \le\ \text{pair}\ \le\
+\frac{3754996055079}{500000000000000},
+\]
+so
+\[
+\text{pair}-L\ \ge\ \frac{2496055077}{500000000000000}\approx4.99211\times10^{-6},
+\]
+and the $B=36$ area budget permits at most
+\[
+L_{\max}=\frac{27019909263463328303182469778967931605940457120574226219}
+{3600000000000000000000000000000000000000000000000000000000},
+\]
+giving an excess of
+\[
+\frac{16062333091071696817530221032068394059542879425773781}
+{3600000000000000000000000000000000000000000000000000000000}>0 .
+\]
+The direct-term decomposition at the same point is
+\[
+\lambda\text{-distance}\in\Bigl[\frac{1666193587123}{10^{15}},\frac{416548396781}{250000000000000}\Bigr],
+\quad
+\tfrac12H\in\Bigl[\frac{3338279809719}{500000000000000},\frac{83456995243}{12500000000000}\Bigr],
+\]
+\[
+\mu\text{-angle penalty}\in\Bigl[\frac{416380548203}{500000000000000},\frac{832761096407}{10^{15}}\Bigr],
+\qquad
+\frac{\text{distance}}{R^2}=\frac{27769893118719}{12823297600000}.
+\]
+
+\subsection{The budget as implemented, and an independent recheck}
+
+The scalar budget used by the candidate scripts is
+\[
+\text{margin}=(1-\mu)\pi_{\text{lo}}-\bigl((2m-2-B)A+BK\bigr)R^2-BL,
+\qquad
+\text{gain}=(A-K)R^2-L,
+\]
+with $m=100$ and $A=129903810568/10^{11}$. Substituting the frozen constants:
+{\footnotesize
+\begin{longtable}{@{}llll@{}}
+\toprule
+Candidate & $R$ & $L$ & margin / gain (decimal) \\
+\midrule
+\endfirsthead
+\toprule
+Candidate & $R$ & $L$ & margin / gain (decimal) \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+stage 221/222 & $113237/10^{6}$ & $75097/10^{7}$ &
+$4.906445222464608\times10^{-7}$ \;/\; $5.1549192230158705\times10^{-3}$ \\
+candidate 224 & $22647/200000$ & $939/125000$ &
+$1.8087101250224213\times10^{-5}$ \;/\; $5.152171860143971\times10^{-3}$ \\
+\end{longtable}}
+
+Both reproduce the stored certificate values exactly, which is how the formula was checked. The
+stored exact margins are
+\[
+\text{candidate 222: }\quad \frac{49064452224646078469778967931605940457120574226219}{10^{56}},
+\]
+\[
+\text{candidate 224: }\quad \frac{1808710125022421182469778967931605940457120574226219}{10^{56}},
+\]
+and the stored per-cell gains are $64436490287698376249/12500000000000000000000$ and
+$2576085930071985489/500000000000000000000$.
+
+\section{Consolidated branch margins}
+
+Margins are listed per radius; they are computed at that radius and must not be compared across
+radii or added.
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item $B31$: at $R=1132301/10^{7}$,
+$\frac{3791306959813284956819}{10^{24}}$; at $R=2831/25000$,
+$\frac{3205113070935301276991}{10^{24}}$; at $R_\star$ inherited.
+\item $B32$: at $R=1132301/10^{7}$,
+$\frac{40052428178643350631}{125000000000000000000000}$; at $R=2831/25000$ positive, with the $73$
+original rows at least $0.00007800$ and the $8$ new rows more than $0.00012768$; at $R_\star$
+inherited.
+\item $B33$: at $R=1132301/10^{7}$,
+$\frac{141216899554184842489}{10^{24}}$; at $R=2831/25000$ at least
+$\frac{1471448836581788939}{500000000000000000000000}$; at $R_\star$ inherited.
+\item $B34$: at $R=1132301/10^{7}$,
+$\frac{57252253086154121097}{250000000000000000000000}$; at $R=2831/25000$ at least
+$\frac{190482881108285619519923}{292968750000000000000000000}$; at $R_\star$ inherited.
+\item $B35$: at $R=1132301/10^{7}$,
+$\frac{37566017111533099749}{500000000000000000000000}$; at $R=2831/25000$ at least
+$\frac{169690032082888672651865333931}{625000000000000000000000000000000}$; at $R_\star$ inherited.
+\item $B\ge36$: at $R=1132301/10^{7}$,
+$\frac{33605092614133890926309778967931605940457120574226219}{10^{56}}$; at $R=2831/25000$,
+$B=36$ is obstructed while $B\ge37$ gives
+$\frac{166438291677217339982469778967931605940457120574226219}{10^{56}}$; at $R_\star$, $B=36$
+gives
+$\frac{1808710125022421182469778967931605940457120574226219}{10^{56}}$.
+\end{itemize}
+
+The $B31$ margin at $R=11323/100000$ is $\frac{3797228001573004612011}{10^{24}}$.
+
+
+\section{Glossary}
+
+{\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+\toprule
+Term & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Term & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+boundary arc & maximal positive-measure connected segment of $\partial D$ with a.e.\ constant owner;
+its count is $B$ \\
+capped & propagation reached its round limit without a fixed point; retained, not decided \\
+capped-pair relaxation & the local pair loss used for the tail branch $B\ge36$ \\
+certificate & a structured machine artifact with a status, a scope, counts and hashes \\
+core & the induced disk remaining after peeling the outer boundary band \\
+deep / ring vertex & a vertex strictly interior to the core, resp.\ on its boundary \\
+ear & a core face block that can be deleted while preserving the star property \\
+bad face ($q1$) & a marked face of the type counted as a deficit \\
+hinge / variance budget & the single scalar budget a branch may spend once \\
+monotonicity inheritance & using an exclusion proved at a larger radius at a smaller one \\
+obstruction point & an exact rational point where a relaxation exceeds its allowed budget \\
+outward rounding & interval endpoints rounded away from the true value \\
+witness & a point or set of points used to derive a necessary condition \\
+\end{longtable}}
+
+
+\section{Audit record for this document}
+
+The following checks were executed while preparing this monograph, and their results are reported in
+the text rather than only in this appendix:
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \texttt{python reproduce.py} --- exit $0$; accepted bound $0.113235$; $0.11324$ retained as
+not closed; four certificate hashes printed (Part VII, the entry-point subsection).
+\item \textbf{Artifact-coverage audit} --- of $100$ paths referenced by the mirror's own documents,
+$19$ exist in the mirror and $81$ do not; $80$ of the $81$ exist in the parent repository;
+\texttt{n100-\allowbreak{}public/\allowbreak{}proofs/\allowbreak{}} is absent while the referenced proof exists in the parent repository
+with a SHA-256 matching the certificate's \texttt{proof\_\allowbreak{}sha256} (Part VII, the artifact-coverage subsection).
+\item \textbf{Binding audit} --- the independent lattice receipt binds a stale input and proof
+(\texttt{7e732e18\ldots} and \texttt{a0454013\ldots}) while its checker binding
+(\texttt{9655d038\ldots}) matches the current script (Part VII, the binding-audit subsection).
+\item \textbf{Numeric re-derivation} --- the scalar budget formula was re-evaluated in exact rational
+arithmetic at both candidate radii and reproduces the stored margins and gains exactly
+(Appendix~\ref{app:budget}).
+\item \textbf{Fraction-digit audit} --- the $B=36$ margins are numerators of $52$ digits over
+$10^{56}$; the obstruction's area-allowed intercept is a $56$-digit numerator over $36\cdot10^{55}$;
+the covering squared-radius bound is a $31$-digit numerator over $10^{33}$ equal to $U_\star^2$.
+\item \textbf{Transplant-package check} --- the four sources cited by the branch certificates are
+present in the parent repository's transplant package and absent from the mirror.
+\end{enumerate}
+
+\begin{remark}
+This appendix deliberately lists the failed and retracted items alongside the accepted ones. A
+record that only ever confirms itself has not been tested; the value of the list above is that it
+shows where the programme's own machinery was wrong and what replaced it.
+\end{remark}

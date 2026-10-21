@@ -1,0 +1,246 @@
+\part*{第二部分：上界——构造及其证书}
+\addcontentsline{toc}{part}{第二部分：上界——构造及其证书}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{上界路线必须做什么}
+
+上界是一个构造：给出 $100$ 个圆心 $c_1,\dots,c_{100}$ 与一个有理数 $U$，并证明
+$\max_{x\in D}\min_i\|x-c_i\|\le U$。因此其数学内容永远是同一个两步归约
+\[
+\underbrace{D\subseteq\bigcup_i B(c_i,U)}_{\text{continuous statement}}
+\;\Longleftarrow\;
+\underbrace{\text{finite list of exact box/leaf checks}}_{\text{machine decision}} ,
+\]
+而全部困难都在这条蕴含式里。本纲领用到三种不同的有限归约，它们值得分开讨论，
+因为三者的长处各不相同。
+
+\subsection{归约 A：四叉树／箱细分，配精确距离判据}
+
+用轴平行箱覆盖 $D$。对箱 $X$ 与圆心 $c$，$\|x-c\|^2$ 在 $X$ 上的区间赋值给出
+$[\ell(X,c),u(X,c)]$。若 $\min_i \ell(X,c_i)\le U^2$（最小值精确计算），则该箱获证；
+否则继续细分。区间无法判定的叶节点是\emph{未决}，必须如实报告，绝不能四舍五入成
+「已覆盖」。历史构型最初的连续覆盖证书（certificate）即属此类：$R=153/1250$，
+$22\,804$ 个叶节点，深度 $16$，$0$ 个未决，$21/21$ 项检查
+（\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}n100.json}）。一个独立检查器从整数角点比较重新导出该判据，
+与生成器不共享任何几何函数；它拒绝了三个刻意破坏的案例
+（\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}coverage\_\allowbreak{}n100.json}）。一个由 $12$ 个正例与负例组成的对照电池全部
+通过（\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}controls\_\allowbreak{}n100.json}）。所有这些都是
+\texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry = false}：从「箱已获证」到「$D$ 被覆盖」的归约是解析的。
+
+\subsection{归约 B：格胞归约（精确，带有限枚举）}
+
+对格构造可以做得比四叉树好得多：各胞铺满平面，因此 $D$ 的覆盖归约为对有限多个其胞
+可能碰到 $D$ 的格点所做的有限精确检查。这就是 \S\ref{sec:lattice} 的方法，它产生的证书
+其判定只用到整数／Fraction（有理数）。
+
+\subsection{归约 C：外部构型的重放}
+
+当构型由一个外部软件包给出时，诚实的上界路线是对该软件包自带检查器的逐字节忠实重放，
+外加独立的交叉检查。这就是 \S\ref{sec:external} 的方法。
+
+\section{三角格 $97{+}3$ 构型}
+\label{sec:lattice}
+
+\subsection{构型}
+
+先在\emph{规范化}（normalized）坐标中工作，其中最近邻格点之间的距离为 $1$。格点是数对
+$(i,j)\in\Z^2$，其实位置为
+\[
+x(i,j)=(u,\sqrt3\,v),\qquad u=i+\tfrac j2,\qquad v=\tfrac j2,
+\qquad
+\|x(i,j)\|^2=i^2+ij+j^2 .
+\]
+格点的六边形 Voronoi 胞是六边形 $H$ 的平移，其顶点在 $(u,v)$ 坐标下为
+$(0,\pm\frac13)$、$(\pm\frac12,\pm\frac16)$，外接圆半径为 $1/\sqrt3$。
+
+\begin{construction}[$97{+}3$ 构型]\label{con:lattice}
+取所有满足 $i^2+ij+j^2<28$ 的格点（共 $97$ 个），再加上三个范数为 $28$ 的格点
+\[
+(-6,4),\quad(-2,-4),\quad(2,4).
+\]
+以缩放
+\[
+a=\sqrt{3/67},\qquad R=1/a=\sqrt{67/3},\qquad \alpha=1/\sqrt{67},
+\]
+以 $a\,x(i,j)$ 为缩放后圆心、半径为 $\alpha$ 的 $100$ 个闭圆盘覆盖 $D$，且 $\alpha$
+\emph{恰好}是该圆心配置的覆盖半径（covering radius）。
+\end{construction}
+
+\begin{proposition}[构型的精确覆盖半径]\label{prop:lattice-alpha}
+$\alpha=1/\sqrt{67}$ 是构造~\ref{con:lattice} 的 $100$ 个圆心覆盖 $D$ 的最小半径。
+\end{proposition}
+
+\begin{proof}[论证]
+上半部分是下面描述的胞检查。下半部分考虑内部格洞 $q=(u,v)=(\tfrac12,\tfrac16)$，即被
+六个格点围住的六边形中心。其规范化范数为
+$\|q\|^2=u^2+3v^2=\tfrac14+\tfrac1{12}=\tfrac13$，而它到最近格点的距离就是六边形外接圆
+半径 $1/\sqrt3$。按 $a$ 缩放后，最近保留下来的圆心距离为 $a/\sqrt3=1/\sqrt{67}=\alpha$，
+而 $\|a q\|=a/\sqrt3=\alpha<1$，故 $aq$ 是 $D$ 中一点，它到每个圆心的距离恰好为
+$\alpha$。因此没有更小的半径能覆盖 $D$。
+\end{proof}
+
+\begin{remark}
+三个范数为 $28$ 的格点对覆盖是\emph{冗余}的：$97$ 个格点的配置已用同样的半径覆盖 $D$，
+而证书记录了构造顺序（先 $97$ 个格点，再三个额外格点）。冗余并不能证明用 $100$ 个圆盘
+可以达到更小的半径；它只说明这个特定构型没有用满它的预算。
+\end{remark}
+
+\subsection{精确的胞论证}
+
+证书 \texttt{verify/\allowbreak{}out/\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json}（模式
+\texttt{n100-\allowbreak{}lattice97-\allowbreak{}upperbound-\allowbreak{}v1}）通过四个步骤把连续覆盖归约为有限精确检查，每一步都是整数或
+\texttt{Fraction} 判定：
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{胞包含。} 格点 $p$ 的 Voronoi 胞中每一点都在 $p$ 的 $1/\sqrt3$ 之内
+（$H$ 的外接圆半径）。
+\item \textbf{有限格点表。} 若某格点的胞与半径 $R=\sqrt{67/3}$ 的闭圆盘相交，则该格点满足
+$\|p\|^2<29$，从而 $\|p\|^2\le28$，从而 $|i|,|j|\le7$。所用枚举箱为 $|i|,|j|\le24$，
+比充分箱 $7$ 宽裕得多。
+\item \textbf{唯一顶点处的精确最小值。} 对每个满足 $\|p\|^2\le28$ 且 $p\notin C$ 的格点，
+$\|x\|^2$ 在其胞上的最小值恰好为 $R^2=67/3$，并在唯一顶点 $v_p$ 处取到；这由支撑平面
+不等式 $\langle v_p,\,w-v_p\rangle\ge0$（对胞的全部六个顶点 $w$）给出证书。
+\item \textbf{外部壳层。} 满足 $\|p\|^2\ge29$ 的格点其胞距离
+$\ge\sqrt{29}-1/\sqrt3>R$，由纯整数不等式 $3(29-22)^2>4\cdot29$，即 $7>2\sqrt{29/3}$
+给出证书。
+\end{enumerate}
+
+\subsection{候选半径的代数数据}
+
+\[
+\alpha=\frac1{\sqrt{67}},\qquad P(t)=67t^2-1 \ \ (\text{coefficients } [67,0,-1]),
+\]
+$P$ 是本原的且首项系数为正；$67$ 不是平方数，故 $P$ 在 $\Q[t]$ 中不可约；并且
+\[
+\frac{1221694443}{10^{10}}<\alpha<\frac{1221694444}{10^{10}}
+\]
+是有理隔离区间。端点符号由整数平方比较判定，而 $P$ 在正半轴上严格递增
+（$P'(t)=134t>0$），故该区间恰含一个根。这是\emph{本构型}覆盖半径的极小多项式——
+它\emph{不}被声称是 $\rD(100)$ 的极小多项式，因为第三／第四部分的下界没有触及
+$\alpha$。
+
+\subsection{证书中的负对照}
+
+格证书的十三条负对照必须全部被拒绝，也确实全部被拒绝了：一个放大的目标圆盘（仅作为
+前提（precondition），明确\emph{不是}所交付命题的未覆盖见证（witness））；放大圆盘变体的
+一个显式未覆盖点；一个缩小的覆盖半径；一个放大的覆盖半径；一个错误的度量；一个错误／
+旋转过的六边形；一个膨胀的六边形；一次被截断的邻居搜索；一个归属错误的邻居；两个被删去的
+相切圆心；把 $97$ 个圆心的构型当作「$100$ 点」命题提交；删去单个壳层圆心（覆盖仍然成立，
+因此只有基数被拒绝）；以及一个被删去的内部圆心。一个独立实现
+（{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json}}，\texttt{all\_\allowbreak{}passed = true}，
+\texttt{coverage\_\allowbreak{}confirmed = true}）以不同的代码路径复现了该命题。
+
+\section{外部 $100$ 圆心构型}
+\label{sec:external}
+
+当前被接受的最佳上界来自一个外部公开软件包，其提交被冻结在
+\[
+{\footnotesize{\footnotesize\texttt{67ebf1c5776f72a7b7786a8655eed5463429ae55}}},
+\]
+其字节已在本地原样重放，未作修改。它给出一个 $100$ 圆心的构型以及精确有理界
+\[
+U_\star=\frac{1154469548855829}{10^{16}}=0.1154469548855829 .
+\]
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.32\textwidth}>{\raggedright\arraybackslash}p{0.54\textwidth}@{}}
+\toprule
+产物 & 它所确立的内容 \\
+\midrule
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}bounds-\allowbreak{}67ebf1c.json}} &
+完整的区间证据：退出码 $0$；六个下界分支（branch）全部重算为 \texttt{PASS} \\
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}margin-\allowbreak{}67ebf1c.json}} &
+一个独立的上界余量检查；退出码 $0$ \\
+\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}local-\allowbreak{}quadtree/\allowbreak{}replay.json} &
+本项目自己的四叉树交叉检查，半径取略宽的 $R=0.115447$：主检查与独立检查均
+\texttt{PASS}，$0$ 个未决 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+这里有两点评注。第一，同一个软件包还提供了第四部分所使用的\emph{六分支骨架}；吸收报告
+固定了各自的角色：第三方材料是可重放的输入与外部参照，而不是被本项目自动继承的权威。
+第二，重放是该软件包自带检查器的逐字节忠实运行，外加独立的交叉检查；它\emph{不}是
+「该软件包的解析几何已被形式化」这一断言。
+
+\section{协作搜索的收紧轨道}
+
+在外部构型被吸收之前，本项目通过协作（自由点加退火）搜索收紧了它自己的构型。每个阶段
+都把输出冻结为只读，并用独立的四叉树重放来认证一个有理上界：
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
+\toprule
+阶段 & 浮点发现半径（不是判定） & 已认证的有理上界 & 证据 \\
+\midrule
+精确格 & $0.1221694443563052$ & $1/\sqrt{67}$（代数） &
+\texttt{n100-\allowbreak{}algebraic-\allowbreak{}bounds-\allowbreak{}bundle.json} \\
+协作，第 1 轮 & $0.1200703574813639$ & $18761/156250=0.1200704$ &
+\texttt{n100-\allowbreak{}cooperative-\allowbreak{}anchor-\allowbreak{}tight/\allowbreak{}replay.json} \\
+精化 & $0.1198908685151380$ & $119891/1000000=0.119891$ &
+\texttt{n100-\allowbreak{}cooperative-\allowbreak{}refine-\allowbreak{}tight/\allowbreak{}replay.json} \\
+抛光 & $0.1198764764337424$ & $119877/1000000=0.119877$ &
+\texttt{n100-\allowbreak{}cooperative-\allowbreak{}polish-\allowbreak{}tight/\allowbreak{}replay.json} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+重放证书报告 \texttt{all\_\allowbreak{}passed = true}、\texttt{independent.verified = true}，抛光阶段有
+$35\,584$ 个叶节点、最大深度 $23$、$0$ 个未决；冻结候选的十进制坐标被当作\emph{精确
+有理数}，而不是替换为拟合出的格坐标或代数坐标。同一轨道的更早阶段认证了
+$153/1250=0.1224$（阶段 1）与 $1223433/10000000=0.1223433$（阶段 2，服务器搜索，六个
+候选，$15.746$ s 内 $916$ 次目标函数求值，六个候选都在连续 $150$ 次无改进之后停止）。
+
+\subsection{协作轨道为何停止改进}
+
+代数诊断（diagnostic）与界本身同样重要。每个阶段都恰好有一个紧洞（阈值 $10^{-9}$），
+另有若干接近紧的洞参与一个有限带模型。抛光运行在触及 $4\times30$ 轮上限时仍记录了
+$115$ 次严格改进，所以下降的终点尚未到达：该局部系统\emph{没有} KKT 或邻域最优性证书。
+一次平稳性诊断运行了 $1.3$ s 并报告：一个 $10^{-6}$ 的近活跃带含 $123$ 个接触，但在
+$10^{-7}$ 只有 $2$ 个接触、在 $10^{-9}$ 只有 $1$ 个；$114$ 行内部梯度，浮点秩 $114$，
+零空间维数 $86$；并且在所测容差下找不到非负 KKT 乘子 LP。一个接触平衡／SQP 单元返回
+\texttt{NO\_\allowbreak{}IMPROVEMENT}：它在 $60$ s 内把半径降低了约 $1.25\times10^{-9}$，低于接受
+阈值，因此没有保存新候选，也没有更新上界。光滑极大方向大多增大了真实半径，被真实求值器
+拒绝。所有这些都是有限浮点诊断：它既不证明不存在其他平衡分支，也不证明该候选
+「不可代数化」。
+
+\section{局部代数路线：一个孤立的 KKT 根}
+
+独立于构型搜索，被吸收候选的局部代数也被重放了。孤立的代数 KKT 根具有
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+量 & 值 \\
+\midrule
+变量 & $932$ \\
+基本变量 & $493$ \\
+约束 & $439$ = $406$ 距离 + $32$ 边界 + $1$ 规范 \\
+单项式 & $8\,348$，次数至多 $2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+证书 {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}strict-\allowbreak{}local-\allowbreak{}67ebf1c.json}} 记录了一个新根、
+一次新的覆盖检查，以及 $8/8$ 个破坏测试被拒绝；一个 Krawczyk 式箱隔离该根，旋转商也被
+处理。对同一根箱（半径 $10^{-58}$）的应力传递分析发现：箱内 $406$ 个距离乘子严格为正，
+$32$ 个边界乘子严格为负，以及一个 $246$ 节点的连通接触图，其加权 Laplacian 块在 $214$
+个自由节点上、以 $32$ 个边界接触为锚，具有精确的正定下界。然而，所尝试的 cover-19 式
+全局 Dirichlet 能量下界失败了：由边界角余弦区间与杆图跳跃距离构造的 Loewner 矩阵仍产生
+两个负的 LDL 主元，故该传递结果被记为 \texttt{H0\_\allowbreak{}PSD = false}。这个失败是一条路线
+诊断，而不是对局部二阶条件的反例，也不是关于其他拓扑的陈述。
+
+\section{上界\emph{不}给出什么}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item 它们没有确定 $\rD(100)$：所接受的区间在绝对意义下宽度为 $0.0022$。
+\item 它们没有证明格构型、协作候选或外部构型是最优的或局部最优的（唯一的例外是一个
+孤立 KKT 根，那里认证了固定接触图的\emph{严格局部}极小性——一个关于单个图的局部陈述）。
+\item 它们没有给出 $\rD(100)$ 的极小多项式。存在的是某个显式构型覆盖半径的极小多项式
+$67t^2-1$，那是另一个对象。
+\item 三个冗余的格圆盘表明这个构型没有用满其预算；这只是一个提示，而不是「用 $100$ 个
+圆盘可能达到更小半径」的证明。
+\end{itemize}

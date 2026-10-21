@@ -1,0 +1,59 @@
+\part*{第六部分 路线目录：每个族、其构造与状态}
+\addcontentsline{toc}{part}{第六部分 路线目录：每个族、其构造与状态}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\noindent
+本部分是全文其余内容所准备的系统清册。每一行给出路线（route）、其构造、其状态与其证据。状态词表：\textbf{闭合}（closed，在其声明的域内存在严格证书（certificate）——可能是条件子分支）、\textbf{部分排除}（partial，真实的严格排除只覆盖声明域的一部分）、\textbf{仅诊断}（diagnostic，只有测量、审计或瓶颈）、\textbf{证伪}（falsified，该断言或其前提被显式驳倒，或存在反例）、\textbf{未决}（undecided，跑到完成但零新增排除）、\textbf{接口登记}（interface，\texttt{PASS} 意味着契约登记或重放一致性，\emph{不是}几何闭合）、\textbf{上界构型}（configuration，一个上界（upper bound）构造）。除另有说明外，本部分的每条路线都带有 \texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry = false} 与 \texttt{global\_\allowbreak{}optimality = false}，并且那个时代的报告所引用的全局区间是 $11323/100000<\rD(100)\le1154469548855829/10^{16}$。制品路径相对于仓库根给出；它们中哪些位于已发布镜像中，见第七部分。
+
+\section{组合与拓扑路线}
+
+这些路线的目的是把连续覆盖变成有限组合对象：平面映射、dart map、带固定面目录的三角剖分，或一个边界字。
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{平面 / dart-map 编译器。} 具有独立边标识的顶点、面置换、有序四轴标记；半边编码 $(\alpha,\phi)$ 保持多重边标识；界 $V\le2m+2$，$E\le3m+1$；模型预算 $k_M=19m+22$（$n=100$ 时为 $1922$）\emph{状态：仅诊断（diagnostic）。} 证据：\texttt{verify/\allowbreak{}n100\_\allowbreak{}generic\_\allowbreak{}map\_\allowbreak{}compiler.py}, \texttt{n100\_\allowbreak{}dart\_\allowbreak{}map\_\allowbreak{}canonicalization.py}, \texttt{n100\_\allowbreak{}raw\_\allowbreak{}dart\_\allowbreak{}model\_\allowbreak{}adapter.py} \\
+映射规范化
+\end{itemize}
+
+
+\section{边界圆、轴与盒剪枝（box pruning）路线}
+
+这一族直接攻击构型空间：传播中心坐标上的区间约束、分裂盒，并计数有多少圆盘可以服务边界。
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{容量（capacity）前沿。} 边界服务上的容量 / Hall 型必要条件；盒感知剪枝；非分离三点容量切割 \emph{状态：部分排除（partial）。} 证据：{\footnotesize\texttt{docs/\allowbreak{}result-\allowbreak{}n100-\allowbreak{}stage25-\allowbreak{}capacity-\allowbreak{}frontier.md}} \\
+盒感知的共中心剪枝
+\end{itemize}
+
+
+\section{弧对、禁配（nogood）与学习路线}
+
+这一族在一个固定核心（core）与一个收窄的父域上工作，学习边界瓦片标号之间的必要关系，并追问还剩多少支持。
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{弧对一致性与环支持。} 共享一个中心的弧瓦片之间的必要 pair 关系（顶点盒最小距离 $\le2U$）；$289\,530/277\,368$ 对约化为 $1866/2312$ 个标号；通过 $32$ 顶点环上的独立集 DP 得到继承的有限成对模型的精确支持 \emph{状态：未决（undecided）。} 证据：\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}arc-\allowbreak{}pair-\allowbreak{}consistency.json}, \texttt{n100-\allowbreak{}arc-\allowbreak{}cycle-\allowbreak{}support.json} \\
+有序与单调环
+\end{itemize}
+
+
+\section{透镜（lens）、对偶、递归计数与接口路线}
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{加细的透镜上界。} 在 $d_0=1-r$ 处对交透镜的统一包围，配合 $\min(2rb-b^2,\ s^2-(1-2r+a)^2)$ 的逐条带上 Darboux 和：$256$ 条带给出 $0.11521249$，$4096$ 条带给出 $11521651/10^{8}$（$\delta=101/10000$），把已认证的 $k\ge55$ 半径从 $0.11516023$ 提升到 $0.11521651$ \emph{状态：闭合（closed，条件分支）。} 证据：{\footnotesize\texttt{docs/\allowbreak{}result-\allowbreak{}n100-\allowbreak{}stage94-\allowbreak{}refined-\allowbreak{}lens.md}} \\
+联合支持（已被取代）
+\end{itemize}
+
+
+\section{能量、力与局部排除路线}
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{固定应力的调和角能量。} $E(q)=\sum c_{ij}\|q_i-q_j\|^2$，其中 $v^{\mathsf T}H_{\text{ang}}v=2\sum c_{ij}(q_i\cdot q_j)(v_i-v_j)^2$；曾希望一个 Loewner 界能在角域上给出凸性 \emph{状态：证伪（falsified）。} 证据：{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}independent.json}}, \texttt{n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}negative-\allowbreak{}witness.json} \\
+角能量，两个精确障碍
+\end{itemize}
+
+
+\section{半径扫描与工程化路线}
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{六端点半径扫描。} 在 $0.11323$，$0.113231$，$0.113235$，$0.11324$，$0.11325$，$0.1133$ 处的精确有理扫描，记录计数桥、$B31$ 固定费用行与尾部的条件总预算；在 $0.11325$ 处 $B31$ 的 fan 前提已经失败 \emph{状态：仅诊断（diagnostic）。} 证据：{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}lower-\allowbreak{}radius-\allowbreak{}bottleneck-\allowbreak{}firstpass.json}} \\
+$101$ 点有理扫描
+\end{itemize}

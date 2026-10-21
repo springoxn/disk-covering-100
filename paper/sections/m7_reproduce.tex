@@ -1,0 +1,211 @@
+\part*{Part VII. Reproduction, artifacts and dependencies}
+\addcontentsline{toc}{part}{Part VII. Reproduction, artifacts and dependencies}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{Entry points}
+
+\subsection{The publication consistency check}
+
+The single cheapest entry point is
+\begin{verbatim}
+python reproduce.py          # from the repository root
+\end{verbatim}
+It loads the four core certificates, requires their statuses, requires
+\texttt{candidate\_\allowbreak{}radius = 22647/\allowbreak{}200000}, \texttt{accepted\_\allowbreak{}global\_\allowbreak{}lower\_\allowbreak{}bound = 22647/\allowbreak{}200000},
+\texttt{all\_\allowbreak{}six\_\allowbreak{}closed = true} and \texttt{pending\_\allowbreak{}branches = []}, requires the string
+``0.11324'' to remain present in the README's evidence-boundary section, and prints SHA-256 for each
+certificate. It does \emph{not} re-run the historical recomputations, and it says so.
+
+Its output in this audit was
+\begin{verbatim}
+n=100 publication consistency: PASS
+accepted bound: r_D(100) > 0.113235
+0.11324: not closed; B36 residual retained
+\end{verbatim}
+followed by one line per certificate. The certificate names and their SHA-256 digests, as printed
+(wrapped here only for page width), were:
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}complete-\allowbreak{}225.json}}\\
+{\footnotesize\texttt{c58c71562ed014c0f716f02137dcf473d98fd73e6888f89aa9d06f08a41707a5}}
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}tail-\allowbreak{}candidate-\allowbreak{}224.json}}\\
+{\footnotesize\texttt{b5ca9c60be73136356c5c77a3b13a9d9c22a07d265299cb3acda2262a5715fee}}
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}budget-\allowbreak{}222.json}}\\
+{\footnotesize\texttt{41c0106a015c31c7a323639368cd9ff241c5d745c8a4f842356647dd4922d0e2}}
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json}}\\
+{\footnotesize\texttt{c9f07ee0be9705cea9349fba2023af3a70824ee791373910809c802b2b1b4f4d}}
+\end{itemize}
+
+\subsection{Re-running individual routes}
+
+Each route has its own entry point, and every entry point refuses to overwrite an existing output
+target, so a genuine re-run needs a fresh path. Representative commands, as recorded by the reports:
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.42\textwidth}>{\raggedright\arraybackslash}p{0.44\textwidth}@{}}
+\toprule
+Command & Route \\
+\midrule
+\texttt{python verify/\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.py} & triangular-lattice upper bound \\
+{\footnotesize\texttt{python verify/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.py}} & independent upper-bound replay \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}algebraic\_\allowbreak{}bounds\_\allowbreak{}n100.py --out <fresh>} & sharpened envelope + lattice candidate \\
+{\footnotesize\texttt{python verify/\allowbreak{}run\_\allowbreak{}strengthened\_\allowbreak{}lowerbound\_\allowbreak{}n100.py --out <fresh>}} & integer-edge-count bound \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}longchord\_\allowbreak{}n100.py --out <fresh>} & long-chord bound \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}delivery\_\allowbreak{}audit.py --run-\allowbreak{}dir <fresh>} & seal \& fast replay \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}interface\_\allowbreak{}suite.py --run-\allowbreak{}dir <fresh>} & nine-batch interface replay \\
+{\footnotesize\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}boundary\_\allowbreak{}line\_\allowbreak{}replay.py --run-\allowbreak{}dir <fresh>}} & $m99$ boundary line \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}full\_\allowbreak{}revalidation.py --run-\allowbreak{}dir <fresh>} & all $4776$ configurations \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}interface\_\allowbreak{}timing.py --run-\allowbreak{}dir <fresh>} & timing calibration \\
+{\footnotesize\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}composition\_\allowbreak{}scaling.py --run-\allowbreak{}dir <fresh>}} & composition \& scaling \\
+{\footnotesize\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}shared\_\allowbreak{}support\_\allowbreak{}timing.py --run-\allowbreak{}dir <fresh>}} & shared-support session \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three of these (timing, composition/scaling and shared support) write to non-overwritable final
+targets and were \emph{not} uniformly output-isolated; the integrated report records this as an
+outstanding wrapper debt rather than hiding it. Branch-level replays are driven by
+\texttt{verify/\allowbreak{}n100\_\allowbreak{}B31\_\allowbreak{}new\_\allowbreak{}radius.py}, \texttt{n100\_\allowbreak{}B32\_\allowbreak{}complete\_\allowbreak{}149.py},
+\texttt{n100\_\allowbreak{}B33\_\allowbreak{}complete\_\allowbreak{}167\_\allowbreak{}v2.py}, \texttt{n100\_\allowbreak{}B34\_\allowbreak{}complete\_\allowbreak{}180.py},
+\texttt{n100\_\allowbreak{}B35\_\allowbreak{}complete\_\allowbreak{}203.py}, \texttt{n100\_\allowbreak{}tail\_\allowbreak{}B37plus\_\allowbreak{}resumable\_\allowbreak{}210.py},
+\texttt{n100\_\allowbreak{}tail\_\allowbreak{}candidate\_\allowbreak{}224.py}, \texttt{n100\_\allowbreak{}candidate\_\allowbreak{}complete\_\allowbreak{}225.py} and
+\texttt{n100\_\allowbreak{}candidate\_\allowbreak{}ledger\_\allowbreak{}226.py}. The $B33$ and $B34$ entry points require assertions to be
+enabled: they reject \texttt{python -\allowbreak{}O} and report \emph{Assertions must remain enabled}.
+
+\section{Artifact coverage: what is actually in the published mirror}
+
+This document was written against the working repository. Because a reproducibility claim is only
+as good as the bytes it points at, an explicit audit of artifact coverage was run for this
+monograph, and its result belongs in the paper.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
+\toprule
+Finding & Detail \\
+\midrule
+Mirror is a subset & Of $100$ artifact paths referenced by the mirror's own README, status file and
+stage reports, only $19$ exist under the published mirror \texttt{n100-\allowbreak{}public/\allowbreak{}}; $81$ are absent
+there, and $80$ of those $81$ do exist in the parent working repository (one probe path was an
+invented name and is excluded from the count) \\
+\texttt{proofs/\allowbreak{}} missing & \texttt{n100-\allowbreak{}public/\allowbreak{}proofs/\allowbreak{}} does not exist, although both lattice
+certificates reference
+\texttt{proofs/\allowbreak{}n100-\allowbreak{}lattice97-\allowbreak{}algebraic-\allowbreak{}upperbound.\allowbreak{}md}.
+That file exists in the parent repository and its SHA-256
+\texttt{73d39456b70fdcae\allowbreak{}41ede5718a608d13\allowbreak{}9661a6c7f2a6\allowbreak{}26cf95b4e348be19\allowbreak{}600b}
+matches the \texttt{proof\_\allowbreak{}sha256} field recorded by the main lattice certificate \\
+Transplant package & \texttt{runtime/\allowbreak{}disk100-\allowbreak{}release-\allowbreak{}lf-\allowbreak{}67ebf1c/\allowbreak{}} is absent from the mirror but
+present in the parent repository, including all four sources cited by the branch certificates
+(\texttt{verify\_\allowbreak{}B31\_\allowbreak{}global\_\allowbreak{}low\_\allowbreak{}degree\_\allowbreak{}0p11323.py},
+\texttt{verify\_\allowbreak{}capped\_\allowbreak{}pair\_\allowbreak{}B36plus\_\allowbreak{}0p11323.py},
+{\footnotesize\texttt{pair\_\allowbreak{}bound\_\allowbreak{}certificate\_\allowbreak{}20261004/\allowbreak{}verify\_\allowbreak{}pair\_\allowbreak{}bound.py}},
+\texttt{threshold\_\allowbreak{}11305\_\allowbreak{}components/\allowbreak{}verify\_\allowbreak{}remaining\_\allowbreak{}cases.py}). A replay from the mirror alone
+therefore cannot execute the branch checkers \\
+Intermediate certificates & The mirror keeps the final composition certificates and the tail
+certificates, but many intermediate sub-certificates (for example the $B32$/$B33$/$B34$/$B35$
+component receipts and the stage-143 assembly receipts) are absent; their numbers can then only be
+quoted from the stage reports, not re-read from JSON \\
+Root-only artifacts & \texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}local-\allowbreak{}quadtree/\allowbreak{}replay.json} and
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}strict-\allowbreak{}local-\allowbreak{}67ebf1c.json}} are referenced by the mirror's status
+file but exist only in the parent repository \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}[Consequence for this document]
+Every quantitative claim in Parts II--VI was checked against the artifact that exists in the parent
+repository, not against the mirror. Where a number could only be taken from a stage report because
+the underlying certificate is not in the mirror, the text says so or quotes the report. This is the
+same discipline the programme applies to its own stages, applied to the publication layer.
+\end{remark}
+
+\section{Binding inconsistencies found by this audit}
+
+Three binding issues were found and are recorded here rather than silently repaired.
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{The independent lattice receipt binds an earlier generation.} The independent replay
+certificate {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json}} records
+{\footnotesize\texttt{input\_\allowbreak{}sha256 = 7e732e189a0d69e30184dbd053ae2eda6ee588f0418d49553d71004e5f4ff475}} and
+{\footnotesize\texttt{proof\_\allowbreak{}sha256 = a0454013448a2612475975b539d64fa722ab9e69434ca0d1d913bfba03d57d4b}}, whereas the
+current main certificate file hashes to
+{\footnotesize\texttt{7a98772a8fb4c608ca32ffe6489bf1f09006dd3c59a4322125beca8c1e72cd7d}} and the current proof file to
+{\footnotesize\texttt{73d39456b70fdcae41ede5718a608d139661a6c7f2a626cf95b4e348be19600b}}. Its
+{\footnotesize\texttt{checker\_\allowbreak{}sha256 = 9655d038a2194ebf2f849ad550ccc645f10c5f7516270d7dfe47267cb23ac878}} \emph{does}
+match the current independent script. So the checker binding is current while the input and proof
+bindings are stale: the independent replay was made against an earlier certificate/proof pair. This
+does not invalidate the independent replay of the \emph{claim} (the $17$ checks pass on the current
+inputs when re-run), but the receipt as stored is not a same-generation binding, and it must not be
+presented as one.
+\item \textbf{A referenced certificate path is missing from the mirror} (see the artifact-coverage subsection of Part VII).
+\item \textbf{One documented constant is not in the published tree.} The tail budget uses a quantity
+imported from the absorbed package; the local re-expression of the budget in
+\texttt{verify/\allowbreak{}n100\_\allowbreak{}candidate\_\allowbreak{}budget\_\allowbreak{}222.py} uses
+$A=129903810568/10^{11}$, and substituting it together with the frozen slope, penalty and marked
+constant reproduces both stored margins exactly (see the budget re-check in the Appendix). The identity of
+that constant with an outward rational enclosure of $3\sqrt3/4$ is an \emph{inference} from the
+arithmetic, not a quotation from the package.
+\end{enumerate}
+
+\section{External material and the absorption boundary}
+
+\begin{center}
+\footnotesize
+% Column 1 carries a 56-char \texttt repository path plus a 40-hex-char SHA, so it needs
+% more than 0.38\textwidth; the widths below leave 2\tabcolsep = 12pt for the single gap.
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{\dimexpr0.55\textwidth-2\tabcolsep\relax}@{}}
+\toprule
+Source & Role and boundary \\
+\midrule
+\texttt{cjt42554-\allowbreak{}crypto/\allowbreak{}disk100-\allowbreak{}covering-\allowbreak{}certificates}
+@ \texttt{67ebf1c5776f72a7b7786a8655eed5463429ae55} &
+supplies the replayed $100$-centre configuration and the six-branch skeleton; $625$ files,
+$7\,269\,413$ bytes; the integrity block's own scope is ``Release integrity only; mathematical
+results require replay''. Its \texttt{not\_\allowbreak{}claimed} list is explicit: global optimum, minimal
+polynomial of $\rD(100)$, formal proof-assistant geometry \\
+\texttt{VonEquinox/\allowbreak{}DiskCoveringSolve} @ \texttt{0895849} &
+read, replayed and independently cross-checked: the $n=19$ double chain and the $n=20$ chain were
+re-run in isolated copies with exit $0$; $n=11..18$ were \emph{not} replayed; no third-party source
+is redistributed by this project \\
+\texttt{VonEquinox/\allowbreak{}DiskCover} & the HTTP request returned $404$ and Git reported
+``Repository not found''; nothing from it is attributed or accepted \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The absorption report states the transfer conditions for each reusable ingredient --- complete
+topological peeling and safe pruning; exact force, Farkas and energy certificates; candidate-anchor
+isolation with a continuous-domain proof tree; a linear-size semi-algebraic cover model; the
+single-quartic square relaxation with real quantifier elimination; and exact endpoint polynomials
+with isolation. In each case the condition is that $n=100$ must re-prove the family range, the
+necessary conditions and the recursive completeness: $n=19/20$ certificates cannot be reused as
+$n=100$ certificates.
+
+\section{Negative-control inventory}
+
+A certificate is accepted here only if its destruction tests are rejected. The battery in use
+includes, across the routes: a scaled-up target disk (precondition only, explicitly not an uncovered
+witness for the delivered claim); an explicit uncovered point for an enlarged-disk variant; a shrunk
+and an enlarged covering radius; a wrong metric (the missing factor $3$ in the hexagonal inner
+product); a rotated and an inflated hexagon; a truncated neighbour search; a misattributed
+neighbour; two removed tangency centres; a removed interior centre; the $97$-centre configuration
+submitted as a $100$-point claim; a single shell centre removed (coverage still holds --- only the
+cardinality is rejected); a broken dart pairing; a broken face permutation; a support declared
+inactive; an assertion-disabled run; a mismatched old radius; ten corrupted rational payloads; and
+$8$ tamper tests on the local Krawczyk witness (zero inverse row, zero Cholesky transform, duplicate
+pivot column, non-dyadic inverse denominator, wrong witness dimension, negated Lagrangian Hessian,
+witness-source SHA mismatch, altered geometric polynomial source). Two entry points additionally
+refuse to run under \texttt{python -\allowbreak{}O}.
+
+\section{Environment}
+
+The published runs use Windows 11 with Anaconda Python 3.13.5 (\texttt{sympy} 1.13.3,
+\texttt{mpmath} 1.3.0, \texttt{gmpy2} 2.2.1, \texttt{python-\allowbreak{}flint} 0.9.0), and \texttt{tectonic} for
+document building. The decision layer needs only the standard library: \texttt{fractions},
+\texttt{decimal}, \texttt{math}, \texttt{json}, \texttt{hashlib}, \texttt{pathlib},
+\texttt{itertools}. Symbolic work uses \texttt{sympy} for identity checking and factorization, never
+as a substitute for a numerical certificate. Server-side discovery ran in a \texttt{crystalx}
+environment with no environment installation; the six-candidate server search completed $916$
+objective evaluations in $15.746$ s and recovered $25$ files whose SHA-256 all verified. The one
+external-project replay required only a Windows compatibility layer (path separators, executable
+names, LF output); the mathematical conditions, constants, intervals and counts were unchanged.

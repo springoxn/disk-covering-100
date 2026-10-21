@@ -1,0 +1,220 @@
+\part*{Part I. The problem, the conventions, and the evidence discipline}
+\addcontentsline{toc}{part}{Part I. The problem, the conventions, and the evidence discipline}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{Statement of the problem}
+
+\begin{definition}[Covering radius and the extremal quantity]
+Let $D=\{x\in\R^2:\|x\|_2\le1\}$. For a centre tuple $C=(c_1,\dots,c_{100})\in(\R^2)^{100}$ put
+\[
+R_D(C)=\max_{x\in D}\ \min_{1\le i\le 100}\|x-c_i\|_2,
+\qquad
+\rD(100)=\inf_{C\in(\R^2)^{100}}R_D(C).
+\]
+The covering disks are \emph{closed}; they may overlap and may extend beyond $D$; the centres are
+not restricted to $D$. The task of the programme is to determine $\rD(100)$ together with an
+explicit minimal polynomial of it, an explicit configuration attaining it, a coverage proof and a
+global optimality proof, all backed by reproducible computer-assisted material.
+\end{definition}
+
+The five formal requirements are, in the order in which they constrain the work:
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item \textbf{Minimal polynomial and isolation.} List every coefficient of the primitive integer
+polynomial $P$ of the optimal radius, prove irreducibility over $\Q$, and give rationals $a<b$ with
+$P(a)P(b)\ne0$ and exactly one root of $P$ in $(a,b)$.
+\item \textbf{Explicit configuration.} A definite ordered $100$-tuple of centres given by exact
+algebraic data.
+\item \textbf{Coverage.} A rigorous proof that every $x\in D$ is within $\alpha$ of some centre; if
+the continuous statement is reduced to finitely many checks, the reduction itself must be proved
+sufficient.
+\item \textbf{Global optimality.} $R_D(C)\ge\alpha$ for \emph{every} $C$, with no unproved
+restriction on symmetry, contact structure or combinatorial type, and with degeneracies
+(coincident centres, redundant disks, collinear centres, tangential contacts) handled explicitly.
+\item \textbf{Computer-assisted proof.} Complete code, inputs, certificates, environment and actual
+verification results, with an explanation of why those results imply the mathematical statements.
+\end{enumerate}
+
+\section{Why the problem is hard}
+
+\subsection{Continuous, non-convex, combinatorially unstable}
+
+The objective $C\mapsto R_D(C)$ is a maximum of minima of distances: continuous, piecewise smooth,
+and non-convex. Its minimizers are not characterized by a single smooth system, because the
+combinatorial type of the induced decomposition changes with $r$: which centre owns a boundary arc,
+which triples of centres meet at a Voronoi vertex, and how many arcs the boundary carries are all
+functions of the configuration. Consequently a numerical optimizer can only ever produce an upper
+bound. A lower bound must exclude \emph{all} configurations, and the standard way to do that is to
+pass to a finite combinatorial catalogue of possible decompositions and then exclude each catalogue
+entry by exact inequalities.
+
+\subsection{Symmetry is not a necessary condition for optimality}
+
+The classical counterexample is $n=5$: the fully symmetric arrangement gives
+$r=\varphi-1=0.6180340\ldots$, whereas the true optimum is $0.6093829\ldots$, attained by a
+configuration with a single mirror axis. This is Connelly's question (must an optimal covering
+configuration have $n$-fold rotational symmetry?), answered negatively for $n=5$ and affirmatively
+for $n=3$ by Csik\'os. For the present programme the practical consequence is blunt: one may
+\emph{not} restrict to a symmetric family and call the result $\rD(100)$.
+
+\subsection{Enumeration is not viable at $n=100$}
+
+The mature paradigm for rigorous computer-assisted optimality proofs is
+\emph{combinatorial classification plus interval Newton / branch-and-bound}. Nurmela and
+\"Osterg{\aa}rd pushed the rigorous optimality of equal-circle \emph{packings} in a square to
+$n\le27$; their own account records that the initial combinatorial count grows rapidly, that
+$23\le n\le26$ cost CPU-months, and that $n=27$ required a change of algorithm. The present
+programme's estimate for $n=100$ is consistent with this: the orbit count of covering
+configurations is astronomical. Enumeration and classification are therefore used here only as
+\emph{local} devices inside a branch, never as the global method.
+
+\subsection{What is known in the literature (snapshot, October 2026)}
+
+Unit conversion: the literature usually writes $\rho(n)$ for the largest radius of $n$ unit disks
+that can cover a disk; then $\rD(n)=1/\rho(n)$.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.46\textwidth}@{}}
+\toprule
+$n$ & status & source \\
+\midrule
+$1$--$4$, $7$ & exact closed form, trivial optimality & --- \\
+$5$, $6$ & exact closed form, optimality proved & K. Bezdek 1979/1983 \\
+$8$, $9$, $10$ & $\rD(n)=1/(1+2\cos\frac{2\pi}{n-1})$, optimality proved &
+G.~Fejes T\'oth 1996/2005 \\
+$11$--$20$ & configurations found; optimality claimed by one group but still
+listed as unknown by a curated database & Melissen 1997 / Tan 2018; Friedman's
+\texttt{circovcir} page vs.\ \texttt{leapsinbounds} \\
+$21$--$25$ & configurations found, no optimality proof claim & Tan 2018 \\
+$26$--$99$ & no systematic public table & --- \\
+$100$ & no public data beyond lattice-type constructions & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three facts from that snapshot shape everything below. First, the asymptotic density statement is
+rigorous but asymptotic: $\lim_{\eps\to0^+}\eps^2N(\eps)=2\pi/(3\sqrt3)$, i.e.\ covering density
+$\delta=2\pi/(3\sqrt3)=1.2091996\ldots$ (Kershner 1939; Verblunsky 1949). Converting an asymptotic
+statement into a finite-$n$ bound requires a boundary correction term, and that correction is
+precisely where the difficulty sits. Second, the unique successful ``symmetry-forcing'' paradigm
+(Fejes T\'oth's proof for $n=8,9,10$) works only in the structure ``one central disk plus one
+ring''; $n=25$ (centre plus three octagonal rings) and $n=100$ (many rings) have no such theorem.
+Third, the covering-density inequality of L.~Fejes T\'oth with a perimeter term, and its packing
+dual (Oler/Thue--Groemer, $\frac{1}{2\sqrt3}A(C)+\frac14P(C)+1\ge n$), are the literature
+prototypes of the ``cell-by-cell plus boundary correction'' route --- which Part III shows is
+\emph{not} strong enough here, and Part IV replaces by a counting-plus-budget engine.
+
+\section{Conventions and normalizations}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{Closed everything.} Disks, the unit disk, and all rational intervals are closed.
+A closed interval $[a,b]$ used as an outer enclosure means the true value lies in $[a,b]$; a
+closed radius equality is retained rather than discarded.
+\item \textbf{Decision layer.} Every accepted inequality is decided by integer, \texttt{Fraction},
+or outward-rounded interval arithmetic. Floating point appears only in the discovery layer: Newton
+roots, candidate configurations, factor sieving, LLL/PSLQ candidate relations. A discovery result
+must be re-decided exactly before it can enter a certificate.
+\item \textbf{Projection.} If $c\notin D$, let $\Pi(c)$ be its projection onto the convex set $D$.
+Since $\Pi$ is non-expansive, $B(\Pi(c),r)\supseteq B(c,r)\cap D$; replacing every centre by its
+projection preserves both coverage and radius. One may therefore assume $\|c_i\|\le1$. This does
+\emph{not} place the centre inside the inscribed polygon $P$ used in Part III, and one of the
+geometric lemmas there exists precisely to remove that older assumption.
+\item \textbf{Deduplication.} If $c_i=c_j$ for $i\ne j$, delete one disk: coverage and radius are
+unchanged and the centre set shrinks. After deduplication all centres are distinct and every
+Voronoi cell has positive area.
+\item \textbf{Non-overwriting outputs.} Certificate scripts refuse to write over an existing JSON
+target. Re-running a stage therefore requires a fresh output path, which is how the repository
+distinguishes ``this certificate was produced by this run'' from ``a file with this name exists''.
+\end{enumerate}
+
+\section{The evidence discipline}
+
+\subsection{Five layers that must not be conflated}
+
+The programme's own integrated report separates five layers of verification, and insists that an
+earlier layer never substitutes for a later one:
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+\toprule
+Layer & What it establishes \\
+\midrule
+1. file existence / hash & which bytes this run actually consumed \\
+2. metadata / entry verification & rejection of duplicate nodes, wrong domains, unauthorized
+entries, and unjustified budget addition \\
+3. exact arithmetic replay & recomputation of the necessary conditions and certificates for a
+\emph{given} domain \\
+4. analytic / geometric bridge & that every genuine covering configuration falls into that domain,
+i.e.\ that the necessary constraints really hold \\
+5. global coverage & that all branches, graphs and labellings are enumerated or enclosed \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{\texttt{PASS} means ``passed within the scope field''}
+
+A stored \texttt{PASS} asserts exactly what the certificate's \texttt{scope} field says, no more.
+Three concrete incidents from this programme make the point:
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{An independent script copied the same error.} In stage 45/46 a boundary-annulus
+certificate used a wrong inner-face filter, producing an empty pending set; the ``globally
+no-gain'' acceptance was voided. The corrected run actually checked $32$ boundary-owning faces,
+$4776$ configurations and $152\,832$ exact annulus comparisons, and added $0$ exclusions. The
+lesson recorded in the state file is that the independent script had duplicated the same filter
+error, so \emph{exit code 0 is not sufficient evidence that the mathematical coverage domain is
+right}.
+\item \textbf{A \texttt{PASS} on a different radius.} The $B31$ certificate was established at
+$R=2831/25000$; it is usable at a smaller radius only through radius monotonicity, and the combiner
+must record that inheritance explicitly. A \texttt{PASS} at one radius is not a \texttt{PASS} at
+another.
+\item \textbf{A \texttt{PASS\_\allowbreak{}PREMISES}.} The $B35$ diagnostic certificate returns
+\texttt{status = PASS\_\allowbreak{}PREMISES} with \texttt{B35\_\allowbreak{}closed = false}: all the premises were verified
+and the branch was \emph{not} closed. This state word exists so that such a run can never be read
+as a closure.
+\end{itemize}
+
+\subsection{Negative controls are part of the certificate}
+
+Almost every certificate script ships destruction tests that must be rejected: a target disk scaled
+up, an explicit uncovered point for an enlarged-disk variant, a shrunk covering radius, an enlarged
+covering radius, a wrong metric, a rotated or inflated Voronoi hexagon, a truncated neighbour
+search, a misattributed neighbour, removed tangency centres, a removed interior centre, a
+$97$-centre configuration submitted as a $100$-point claim, a broken edge pairing, a broken face
+permutation, a support declared inactive, an assertion disabled with \texttt{python -\allowbreak{}O}, and
+several deliberately corrupted rational payloads. A run whose negative controls are not all
+rejected is not accepted. Two entry points additionally refuse to run under \texttt{python -\allowbreak{}O} and
+report \emph{Assertions must remain enabled}.
+
+\subsection{State words}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+\toprule
+State & Meaning \\
+\midrule
+\texttt{PASS} & the asserted checks passed inside the declared scope \\
+\texttt{PASS\_\allowbreak{}PREMISES} & premises verified, closure \emph{not} claimed \\
+\texttt{NOT\_\allowbreak{}CLOSED} & the branch or target is open \\
+\texttt{EXCLUDED} & the declared domain is empty (a genuine exclusion) \\
+\texttt{NOT\_\allowbreak{}EXCLUDED} / \texttt{UNDECIDED} & non-empty or unresolved; never counted as excluded \\
+\texttt{capped} & propagation hit its round limit without a fixed point; retained, not decided \\
+\texttt{diagnostic} & a recorded failure or bottleneck, not a certificate \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{What must never be inferred}
+
+The evidence ledger states the prohibitions explicitly, and they are the reason this document
+keeps its failures visible:
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item a passed local box is not a global lower bound;
+\item an unblocked obstruction point is not a closed branch;
+\item an existing configuration is not an optimality proof;
+\item a numerical ``passed'' print is not a proof;
+\item checking finitely many sample points, the boundary, or a numerical image is not a proof that
+the whole closed unit disk is covered.
+\end{itemize}

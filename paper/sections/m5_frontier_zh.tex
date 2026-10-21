@@ -1,0 +1,187 @@
+\part*{第五部分 当前前沿：界如何移动，以及它停在哪里}
+\addcontentsline{toc}{part}{第五部分 当前前沿：界如何移动，以及它停在哪里}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{公认区间及其历史}
+
+当前公认、可机器重放的陈述是
+\[
+\boxed{\ 0.113235\ <\ \rD(100)\ \le\ 0.1154469548855829\ }
+\]
+其中下端点由第四部分的六分支（branch）链在 $R_\star=22647/200000$ 处建立，上端点由第二部分的被重放显式构型（configuration）给出。相对间隙 $(U_\star-R_\star)/U_\star$ 约为 $1.92\%$（显示值）。
+
+\subsection{下界轨迹}
+
+\begin{center}
+\footnotesize
+% 第 1 列必须容纳 $554570693/5000000000$，第 3 列必须容纳最长的
+% \texttt{verify/out/...} 路径。宽度须为两个内部间隔留出 \tabcolsep（4\tabcolsep = 24pt）；
+% 原先的 0.16/0.24/0.46 溢出 17–21pt。
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{\dimexpr0.60\textwidth-4\tabcolsep\relax}@{}}
+\toprule
+下界（lower bound）（精确） & 十进制（显示） & 路线（route） / 证据 \\
+\midrule
+$1/10$ & $0.100000$ & 仅面积；\texttt{verify/\allowbreak{}out/\allowbreak{}lowerbound\_\allowbreak{}n100.json} (L01--L20) \\
+$554570693/5000000000$ & $0.1109141386$ & 修复的整数边路线；\texttt{verify/\allowbreak{}out/\allowbreak{}strengthened-\allowbreak{}lowerbound-\allowbreak{}n100.json} \\
+$1111720153/10^{10}$ & $0.1111720153$ & 加细的包络；\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}algebraic-\allowbreak{}bounds-\allowbreak{}bundle.json} \\
+$2787/25000$ & $0.11148$ & 长弦二次亏量；\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}longchord-\allowbreak{}bundle-\allowbreak{}frozen.json} \\
+$11323/100000$ & $0.11323$ & 外部六分支重放；\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}bounds-\allowbreak{}67ebf1c.json} \\
+$1132301/10^{7}$ & $0.1132301$ & 同一骨架，半径推进；\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}new-\allowbreak{}lower-\allowbreak{}bound-\allowbreak{}143.json} \\
+$22647/200000$ & $\mathbf{0.113235}$ & 六个分支，尾部在候选半径处重放；\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}complete-\allowbreak{}225.json} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+最后两项与前四项性质不同。无构型（configuration-free）的界是单条解析不等式；$0.11323$ 及其后的值来自矛盾引擎（contradiction engine），它们的改进以 $10^{-7}$ 到 $10^{-5}$ 为单位度量，因为每一次推进都要求在新半径处重新闭合每一个分支。
+
+\subsection{上界轨迹}
+
+\begin{center}
+\footnotesize
+% \mathbf{0.1154469548855829} 是第 2 列最宽的一项，故其框宽于第 1 列；
+% 第 3 列取扣除 4\tabcolsep 之后的余量。
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{\dimexpr0.54\textwidth-4\tabcolsep\relax}@{}}
+\toprule
+上界（upper bound） & 十进制（显示） & 路线 / 证据 \\
+\midrule
+$153/1250$ & $0.1224$ & 历史构型的 stage-1 严格证书（certificate）；\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}n100.json} \\
+$1223433/10^{7}$ & $0.1223433$ & stage-2 服务器搜索，六个候选；\texttt{verify/\allowbreak{}out/\allowbreak{}pilot\_\allowbreak{}n100\_\allowbreak{}stage2\_\allowbreak{}summary.json} \\
+$1/\sqrt{67}$ & $0.1221694443563052$ & 三角格 $97{+}3$；\texttt{verify/\allowbreak{}out/\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json} \\
+$18761/156250$ & $0.1200704$ & 协作第 1 轮；\texttt{n100-\allowbreak{}cooperative-\allowbreak{}anchor-\allowbreak{}tight/\allowbreak{}replay.json} \\
+$119891/10^{6}$ & $0.119891$ & 精化；\texttt{n100-\allowbreak{}cooperative-\allowbreak{}refine-\allowbreak{}tight/\allowbreak{}replay.json} \\
+$119877/10^{6}$ & $0.119877$ & 微调；\texttt{n100-\allowbreak{}cooperative-\allowbreak{}polish-\allowbreak{}tight/\allowbreak{}replay.json} \\
+$1154469548855829/10^{16}$ & $\mathbf{0.1154469548855829}$ & 吸收的外部构型；\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}margin-\allowbreak{}67ebf1c.\allowbreak{}json} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+余量证书值得仔细阅读，因为它表明这一改进是精确的而非表面上的。被冻结的 $100$ 中心有理构型经检验覆盖整个闭单位圆盘，其
+\[
+\text{covering squared radius}\ \le\
+\tfrac{1332799939235381342323027277241}{10^{33}}
+=0.013327999392353813\ldots=U_\star^2 ,
+\]
+由检查 $128\,436$ 个内部三元组、$9\,900$ 对边界对、$100$ 对对径点对与 $1$ 个例外情形（共 $138\,437$ 个对象，精确整数算术）得到。证书记录了一个\emph{参考}界 $115446954885583/10^{15}=0.115446954885583$ 与本项目的局部界 $1154469548855829/10^{16}$；两者之差恰好为 $1/10^{16}$。所以公认的上端点是对参考值的 $10^{-16}$ 的严格改进，而不是对它的重述。
+
+\section{从 $0.11323$ 到 $0.1132301$：移植与第一次推进}
+
+Stage 139 把计划从接口（interface）整合切回半径推进。它在一个隔离的工作副本内重放了吸收来的六分支骨架（退出码 $0$，绑定 $626$ 个文件，运行后源与副本的哈希不变），并产生了一个六端点有理半径扫描（$0.11323$，$0.113231$，$0.113235$，$0.11324$，$0.11325$，$0.1133$），对每个端点记录计数桥（counting bridge）、$B31$ 固定费用行与尾部的条件总预算。浮现出两个事实：
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item 在 $R=0.11324$ 处，$99$ 圆盘排除仍然成立，$100$ 个圆盘的必要边界计数仍为 $31..39$，并且 $B31$ 末行、耳（ear）/坏面（bad face）符号、度数预算与 fan 必要限制全部通过。在 $R=0.11325$ 处，$B31$ 的 fan 前提（precondition）不再闭合，因此整个分支在那里失败，尽管其最终面积余量仍为正。
+\item 在旧尾部常数下，总预算只允许半径达到某个阈值，该阈值位于
+\[
+\Bigl[\frac{11323679462887}{10^{14}},\ \frac{113236794628871}{10^{15}}\Bigr),
+\]
+之中；并且在 $R=0.11324$ 处旧尾部预算约为 $-0.000160907$。在固定 $\mu$ 与 $\lambda$ 的情况下，截距（intercept）必须降到约 $0.007505530351154887$ 以下。
+\end{itemize}
+
+随后在 $R=11324/100000$ 处显式重放了 $B31$ 的算术
+（\texttt{n100-\allowbreak{}B31-\allowbreak{}at-\allowbreak{}11324.json}，退出码 $0$，$40$ 个面支持与 $32$ 个顶点支持，最小面积余量 $3205113070935301276991/10^{24}\approx0.003205113$），其中固定的无量纲费用/势/支持系数保持不变，只调整了半径（以及提案中的半径元数据）。证书把几何转移义务与算术重放分开列出，这是记录「算术仍然闭合」不等于「几何仍然适用」的诚实方式。
+
+Stage 143 随后把半径推进到 $1132301/10^{7}$，并在原始系数未改动的情况下重新闭合了全部六个分支。同半径的精确余量为
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+分支 & 在 $R=1132301/10^{7}$ 处的最小面积余量 \\
+\midrule
+$B31$ & $3791306959813284956819/10^{24}$ \\
+$B32$ & $40052428178643350631/125000000000000000000000$ \\
+$B33$ & $141216899554184842489/10^{24}$ \\
+$B34$ & $57252253086154121097/250000000000000000000000$ \\
+$B35$ & $37566017111533099749/500000000000000000000000$ \\
+$B\ge36$ & $33605092614133890926309778967931605940457120574226219/10^{56}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+其中尾部访问 $3\,397\,109$ 个盒并接受 $1\,694\,095$ 个，且每增加一个 $B$ 的余量严格为正。新的归一化中心范数平方上界为 $98717894445399/10^{14}$；同一半径处的计数桥排除了所有 $m\le99$，对 $m=100$ 只留下 $B31$--$39$。改进恰好是 $1/10^{7}$，并且该阶段明确说明它既没有使用 stage-141 的 $M24$ 强化，也没有对铰链斜率（slope）、费用系数或支持行作任何改动。
+
+\section{在 $0.11324$ 处逐个闭合分支}
+
+在 stage 144 到 211 之间，六个分支在更困难的目标 $R=2831/25000=0.11324$ 处被逐个重新闭合，失败也保留在记录中。
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.46\textwidth}@{}}
+\toprule
+阶段 & 分支 & 结果 \\
+\midrule
+144--149 & $B32$ & 完成：$M\le25$（$81=73+8$ 个 profile）与 $M\ge26$；发现并修复了两处真实失败（发现层（discovery layer）字段中一个被弄混的 $K$，已以勘误撤回；以及一个被标记为低的排除，它必须被新的分类取代而不能被接受） \\
+150--168 & $B33$ & 完成：低 $M$、相干的 deep-$5$ 星以及 $108$ 个带标号环模型；第一个均匀环势以约 $-0.00067010$ 的预测余量失败，未被接受 \\
+169--185 & $B34$ & 完成：低 $M$（孤立五星）与高 $M$（$23$ 个无弦 $+$ $47$ 个单弦模型）；两个负端点必须先由诊断（diagnostic）暴露出来才能修复 \\
+186--211 & $B35$ & 完成：低 $M$、$M25$（$8$ 个环模型）、$M26$（$3$ 个无弦 $+$ $5$ 个单弦）、$M\ge27$ \\
+209--211 & $B\ge37$ & 在 $R=2831/25000$、截距 $19/2500$ 下完成：访问 $93\,257$，接受 $46\,038$，对称跳过 $591$，待处理 $0$ \\
+206--229 & $B=36$ & \textbf{未闭合}：精确障碍，随后是一个在更小半径处确实闭合的保守候选 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+正是在这里，公认界成为 $0.113235$ 而不是 $0.11324$：六个分支中有五个在更困难的半径处可用，但尾部不可用，而一条链的强度只等于它最弱的分支。
+
+\section{$B=36$ 的障碍，以及为什么显而易见的修复都失败}
+
+\subsection{精确障碍}
+
+在 $R=2831/25000$ 与冻结常数（$\lambda=3/50$，$\mu=92531/10^{7}$，标记常数 $K=973/3125$，旧截距 $L=1501/200000$）下，有理点
+\[
+x=y=\frac{9921033}{12500000}
+\]
+的一个 pair 松弛的区间为
+$[3754996055077/5\cdot10^{14},\,3754996055079/5\cdot10^{14}]$。其下端点超出旧截距 $2496055077/5\cdot10^{14}\approx4.99211\times10^{-6}$，并超出 $B=36$ 面积允许的最大截距
+$16062333091071696817530221032068394059542879425773781/(36\cdot10^{55})$。因此障碍证书返回 \texttt{PASS\_\allowbreak{}OBSTRUCTION\_\allowbreak{}TO\_\allowbreak{}OLD\_\allowbreak{}RELAXATION}，伴随
+\texttt{full\_\allowbreak{}B36plus\_\allowbreak{}closed = false} 与 \texttt{global\_\allowbreak{}bound\_\allowbreak{}improved = false}，其 scope 字符串声明：这不是一个覆盖构型，也不是目标下界的反例。
+
+\subsection{四种无效的修复}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{更多盒。} 障碍是一个精确有理点上的逐点不等式；该点处的 pair 值就是它本身，所以细分无法把它降低。后来的一次精确诊断确认两个支持项在障碍点处都消失
+（\texttt{n100-\allowbreak{}tail-\allowbreak{}point-\allowbreak{}branch-\allowbreak{}212.json}，
+\texttt{n100-\allowbreak{}tail-\allowbreak{}direct-\allowbreak{}components-\allowbreak{}216.json}），因此细化支持盒在数学上是不够的。
+\item \textbf{更高的截距。} 提高 $L$ 会使 $B=36$ 预算为负，因为该预算在旧截距处已经失败。
+\item \textbf{复用 $B\ge37$ 的截距。} $B\ge37$ 证书在 $L=19/2500$ 处闭合；把它用在 $B=36$ 上会使该预算为负。
+\item \textbf{斜率与罚系数（penalty coefficient）的同步重调。} 在直接 pair/角族上做更广的发现层搜索得到了最优值
+\[
+\lambda=0.05944697773645484,\quad \mu=0.010360567875057177,\quad
+K\approx0.31268174443157726,
+\]
+其局部峰值约为 $0.00739518789840696$，而 $B=36$ 允许的截距约为 $0.007391936425058569$：每胞亏量约为 $-3.25147334839\times10^{-6}$，$B=36$ 总亏量约为 $-1.17053040542\times10^{-4}$。这与同一族中的一次独立搜索一致。因此在冻结的直接 pair/角松弛内，简单的同步重调无法闭合 $B=36$。
+\end{enumerate}
+
+\subsection{实际尝试过并中止的工作}
+
+两个有理候选被启动但没有跑完：
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item $R=113237/10^{6}$ 配 $L=75097/10^{7}$：标量预算为正（余量 $4.906445222464608\times10^{-7}$，增益 $5.1549192230158705\times10^{-3}$），并且在 $1132301/10^{7}$ 与 $2831/25000$ 之间的 $101$ 点有理扫描表明，已知的障碍点（obstruction point）直到精确样本 $R=11323703/100000000=0.11323703$ 仍在预算内，而从精确样本 $R=113237129/1000000000$ 起严格超出（$101$ 个样本中有 $30$ 个被该单点阻塞）。该扫描自身的 scope 字段写明它只是诊断：未被该点阻塞的样本并不是全局 $B36$ 证书。预算边缘附近的全 pair 域重放细分过久，被中止。
+\item $R=113236/10^{6}$ 配 $L=0.007511$，以及更保守的 $L=0.00751$：两者因同样的原因被中止。
+\end{itemize}
+
+两者都没有被报告为失败，也都不是证书。保守候选 $R=22647/200000=0.113235$ 配 $L=7512/1000000=939/125000$ 拥有宽得多的预算余量，并且确实跑完了：访问 $1\,841\,089$ 个盒，接受 $917\,297$ 个，三个 $q$-支持以 $3761/104/35$ 个盒通过，$B=36$ 余量与每 $B$ 增益都严格为正。这就是被接受的候选，也是前沿停在 $0.113235$ 的原因。
+
+\begin{remark}[精确陈述的未决窗口]
+可验证的未决窗口是 $(0.113235,\,0.11324]$。在它内部，固定旧参数的单点扫描表明，从 $113237129/1000000000$ 起，仅那个特定的障碍点就阻塞了旧松弛——但这是一个关于单点处单个松弛的陈述，\emph{不是}对所有新路线的数学上界。
+\end{remark}
+
+\section{路线目录所尊重的三条硬边界}
+
+第六部分的系统目录明确了三条边界，值得在目录本身之前先说明：
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item 递归的内圆盘计数（先 $\ge56$，然后 $\ge58$ 个内圆盘，于是 $k\le44$，再 $k\le42$ 个服务边界的圆盘）是计数论证的推论，\emph{不是}新的全局半径界。在所有这些阶段中，全局区间始终未变。
+\item 进展 $0.11516023\to0.11521651$ 是条件分支 $k\ge55$ \emph{内部}的阈值推进。互补分支 $k\le54$ 从未沿这条线被排除，某个阶段甚至给出了聚合松弛的一个显式整数可行点（$34$ 个近端 $+$ $20$ 个尾端 $+$ $46$ 个非服务 $=100$ 个圆盘，其中 $54$ 个服务），这禁止该松弛的任何逻辑推论为空。
+\item 接口/契约阶段中的每一个 \texttt{PASS} 都意味着契约登记、重放一致性或计时采样——绝不是几何闭合。全部 $174$ 个 legacy 源都是 \texttt{PRECONDITION\_\allowbreak{}MISSING}，依赖门是 \texttt{UNDECIDED}。
+\end{enumerate}
+
+\section{一次真正的推进需要什么}
+
+前沿不是被算力阻塞的，而是被一条不等式的强度阻塞的。证书与诊断指向同一个结论：
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{$B=36$ 的一条新几何不等式}：一个共同端点透镜（lens）约束，或一个真正耦合的多边平均不等式，用以取代直接 pair/角松弛。仅仅重新表达 pair 表达式中已有某一项的改写不会增加信息——这一点已被显式测试（把粗糙的 $4\lambda R^2$ 距离帽替换为精确中心距不会带来任何新东西，因为该项已经在原表达式中）。
+\item \textbf{一个可续跑的 pair 盒队列（resumable queue）}：逐轮持久化待处理盒，以哈希绑定参数，缓存（caching）反三角与局部支持区间，并用多进程把域分片（sharding）为对角与非对角区域。在 $0.113236$ 与 $0.113237$ 处被中止的运行失败于墙钟时间，而不是数学；没有队列，每个新候选都要从根重新开始。
+\item \textbf{一个更锐的普适界}（若要绕过引擎）：无构型最佳值是 $0.11148$，比公认的引擎界低 $1.55\%$，因此它不是近期的替代品。
+\item \textbf{精确值路线}：完整枚举内部映射族，处理 $m<100$、退化构型，并把两个界闭合到同一个代数数上，随后做不可约性与根隔离。从第三方材料吸收的平方松弛 / 实量词消去理论是唯一已知能终止并给出精确值的路线，但它没有可用的 $n=100$ 后端：被编译的多项式系统的零点集处处奇异，所以正则 Krawczyk 盒无法替代完整的 QE 后端，而变量预算（$605$ 个几何 $+$ $1318$ 个松弛 $=1923$，其中 $1922$ 个被消去）是预算，不是运行时间。
+\end{itemize}

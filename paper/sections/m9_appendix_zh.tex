@@ -1,0 +1,272 @@
+\appendix
+\part*{附录：证据台账、词汇与精确算术}
+\addcontentsline{toc}{part}{附录：证据台账、词汇与精确算术}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{证据台账（evidence ledger）：断言 $\leftrightarrow$ 产物（artifact）}
+
+{\footnotesize
+\begin{longtable}{@{}@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.40\textwidth}@{}}
+\toprule
+断言 & 状态 & 产物 \\
+\midrule
+\endfirsthead
+\toprule
+断言 & 状态 & 产物 \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+半径 $\le0.1154469548855829$ 的 $100$ 圆盘构型 & 已重放 &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}bounds-\allowbreak{}67ebf1c.json}} \\
+该构型相对参考界的严格裕量 & 已重放 &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}margin-\allowbreak{}67ebf1c.json}} \\
+$115447/10^{6}$ 处的独立四叉树交叉核对 & 已重放 &
+\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}local-\allowbreak{}quadtree/\allowbreak{}replay.json}（父仓库） \\
+孤立的 KKT 根，模旋转的严格局部极小性 & 已重放 &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}strict-\allowbreak{}local-\allowbreak{}67ebf1c.json}}（父仓库） \\
+晶格候选满足 $\alpha^2=1/67$ & 独立重放 &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json}} \\
+$B31$ 排除 & \texttt{PASS} & \texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B31-\allowbreak{}at-\allowbreak{}11324.json} \\
+$B32$ 排除（$M\le25$ 与 $M\ge26$） & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B32-\allowbreak{}complete-\allowbreak{}149.json} \\
+$B33$ 排除（低 $M$、相干 deep-$5$、$108$ 个环模型） & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B33-\allowbreak{}complete-\allowbreak{}167-\allowbreak{}v2.json} \\
+$B34$ 排除（$23$ 个无弦 $+$ $47$ 个单弦） & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B34-\allowbreak{}complete-\allowbreak{}180.json} \\
+$B35$ 排除（低 $M$、$M25$、$M26$、$M\ge27$） & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}B35-\allowbreak{}complete-\allowbreak{}203.json} \\
+$R_\star$ 处的 $B\ge36$ & \texttt{PASS} & \texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}tail-\allowbreak{}candidate-\allowbreak{}224.json} \\
+$R=2831/25000$ 处的 $B\ge37$ & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}tail-\allowbreak{}B37plus-\allowbreak{}210-\allowbreak{}a.json} \\
+候选标量预算守恒 & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}budget-\allowbreak{}222.json} \\
+$R_\star$ 处六分支（branch）闭合 & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}complete-\allowbreak{}225.json} \\
+无待定分支的六分支台账 & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}six-\allowbreak{}branch-\allowbreak{}ledger-\allowbreak{}226.json} \\
+$0.11324$ 已证明 & \textbf{未证明} &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}tail-\allowbreak{}support-\allowbreak{}obstruction-\allowbreak{}206.json}} \\
+$0.113236$ / $0.113237$ 已证明 & \textbf{未证明} &
+{\footnotesize\texttt{docs/\allowbreak{}result-\allowbreak{}n100-\allowbreak{}stage229-\allowbreak{}current-\allowbreak{}best.md}} \\
+整数边计数界 $554570693/5000000000$ & 已接受（解析 $+$ 算术） &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}strengthened\_\allowbreak{}lowerbound\_\allowbreak{}n100.json}} \\
+加强包络界 $1111720153/10^{10}$ & 已接受 &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}algebraic-\allowbreak{}bounds-\allowbreak{}bundle.json} \\
+长弦界 $2787/25000$ & 已接受 &
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}longchord-\allowbreak{}bundle-\allowbreak{}frozen.json} \\
+面积界 $1/10$ & 已接受 & \texttt{verify/\allowbreak{}out/\allowbreak{}lowerbound\_\allowbreak{}n100.json} \\
+$R=153/1250$ 处的连续覆盖 & \texttt{PASS} &
+\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}n100.json} \\
+独立连续覆盖重放 & 已验证 &
+\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}coverage\_\allowbreak{}n100.json} \\
+覆盖对照电池 & $12/12$ 通过 &
+\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}controls\_\allowbreak{}n100.json} \\
+角能量路线不可用 & 反例 & {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}obstruction-\allowbreak{}audit.json}} \\
+全局 Dirichlet 能量转移失败 & \texttt{H0\_\allowbreak{}PSD = false} &
+\texttt{runtime/\allowbreak{}n100-\allowbreak{}vonequinox-\allowbreak{}transfer/\allowbreak{}certificate.json} \\
+一致见证对偶无法达到 $>100$ & 已反驳 &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}witness-\allowbreak{}dual-\allowbreak{}obstruction.json}} \\
+边界归属连通性剪枝 & 已反驳（反例） &
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}disconnected-\allowbreak{}boundary-\allowbreak{}owner-\allowbreak{}counterexample.json}} \\
+\end{longtable}}
+
+
+\section{证书词汇}
+
+{\footnotesize
+\begin{longtable}{@{}@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
+\toprule
+字段 & 含义 \\
+\midrule
+\endfirsthead
+\toprule
+字段 & 含义 \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{status} & \texttt{PASS}, \texttt{PASS\_\allowbreak{}PREMISES}, \texttt{NOT\_\allowbreak{}CLOSED},
+\texttt{PASS\_\allowbreak{}OBSTRUCTION\_\allowbreak{}TO\_\allowbreak{}OLD\_\allowbreak{}RELAXATION}, \texttt{PASS\_\allowbreak{}REDUCTION} \\
+\texttt{scope} & 状态在其中成立的确切定义域；一个 \texttt{PASS} 在其之外不作出任何断言 \\
+\texttt{radius} & 证书得以建立时所处的候选半径 \\
+\texttt{required\_\allowbreak{}center\_\allowbreak{}norm\_\allowbreak{}squared\_\allowbreak{}upper} & $1-R^2$ 的向外有理包络 \\
+\texttt{minimum\_\allowbreak{}area\_\allowbreak{}margin} / \texttt{minimum\_\allowbreak{}reported\_\allowbreak{}positive\_\allowbreak{}margin} & 该分支中最小的精确
+有理裕量 \\
+\texttt{physical\_\allowbreak{}edge\_\allowbreak{}pairs} & 反向半边缘项相消的共享物理边的数目 \\
+\texttt{hinge\_\allowbreak{}payment}, \texttt{variance\_\allowbreak{}payment} & 该分支是否花掉其唯一的铰链预算或
+方差预算 \\
+\texttt{geometric\_\allowbreak{}dependencies} & 该分支所继承的散文层面的解析引理 \\
+\texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry} & 此处每份证书中都是 \texttt{false}：有限算术经机器检查，几何归约则不然 \\
+\texttt{global\_\allowbreak{}optimality}, \texttt{global\_\allowbreak{}bound\_\allowbreak{}improved} & 每份分支
+证书中都是 \texttt{false}；仅在装配证书中为 \texttt{true} \\
+\texttt{bindings} & 源码/输入 SHA-256 映射 \\
+\texttt{not\_\allowbreak{}claimed} & 该产物不作断言的显式列表 \\
+\end{longtable}}
+
+
+\section{$B=36$ 障碍与标量预算，精确地}
+\label{app:budget}
+\label{sec:budget-recheck}
+
+\subsection{障碍}
+
+在 $R=2831/25000$ 处，取 $\lambda=3/50$、$\mu=92531/10^{7}$、被标记常数 $K=973/3125$ 与旧
+截距 $L=1501/200000$，点 $x=y=9921033/12500000$ 满足
+\[
+\frac{3754996055077}{500000000000000}\ \le\ \text{pair}\ \le\
+\frac{3754996055079}{500000000000000},
+\]
+故
+\[
+\text{pair}-L\ \ge\ \frac{2496055077}{500000000000000}\approx4.99211\times10^{-6},
+\]
+而 $B=36$ 的面积预算最多允许
+\[
+L_{\max}=\frac{27019909263463328303182469778967931605940457120574226219}
+{3600000000000000000000000000000000000000000000000000000000},
+\]
+给出超出量
+\[
+\frac{16062333091071696817530221032068394059542879425773781}
+{3600000000000000000000000000000000000000000000000000000000}>0 .
+\]
+同一点处的直接项分解是
+\[
+\lambda\text{-distance}\in\Bigl[\frac{1666193587123}{10^{15}},\frac{416548396781}{250000000000000}\Bigr],
+\quad
+\tfrac12H\in\Bigl[\frac{3338279809719}{500000000000000},\frac{83456995243}{12500000000000}\Bigr],
+\]
+\[
+\mu\text{-angle penalty}\in\Bigl[\frac{416380548203}{500000000000000},\frac{832761096407}{10^{15}}\Bigr],
+\qquad
+\frac{\text{distance}}{R^2}=\frac{27769893118719}{12823297600000}.
+\]
+
+\subsection{所实现的预算，以及一次独立复核}
+
+候选脚本所使用的标量预算是
+\[
+\text{margin}=(1-\mu)\pi_{\text{lo}}-\bigl((2m-2-B)A+BK\bigr)R^2-BL,
+\qquad
+\text{gain}=(A-K)R^2-L,
+\]
+其中 $m=100$、$A=129903810568/10^{11}$。代入冻结常数：
+{\footnotesize
+\begin{longtable}{@{}llll@{}}
+\toprule
+候选 & $R$ & $L$ & 裕量 / 增益（十进制） \\
+\midrule
+\endfirsthead
+\toprule
+候选 & $R$ & $L$ & 裕量 / 增益（十进制） \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+stage 221/222 & $113237/10^{6}$ & $75097/10^{7}$ &
+$4.906445222464608\times10^{-7}$ \;/\; $5.1549192230158705\times10^{-3}$ \\
+candidate 224 & $22647/200000$ & $939/125000$ &
+$1.8087101250224213\times10^{-5}$ \;/\; $5.152171860143971\times10^{-3}$ \\
+\end{longtable}}
+
+两者都精确重现了所存储的证书值，公式正是以此被检查的。所存储的精确裕量是
+\[
+\text{candidate 222: }\quad \frac{49064452224646078469778967931605940457120574226219}{10^{56}},
+\]
+\[
+\text{candidate 224: }\quad \frac{1808710125022421182469778967931605940457120574226219}{10^{56}},
+\]
+而所存储的每胞增益是 $64436490287698376249/12500000000000000000000$ 与
+$2576085930071985489/500000000000000000000$。
+
+\section{合并的分支裕量}
+
+裕量按半径分别列出；它们在各自半径上计算，不得跨半径比较或相加。
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item $B31$：在 $R=1132301/10^{7}$ 处为
+$\frac{3791306959813284956819}{10^{24}}$；在 $R=2831/25000$ 处为
+$\frac{3205113070935301276991}{10^{24}}$；在 $R_\star$ 处为继承。
+\item $B32$：在 $R=1132301/10^{7}$ 处为
+$\frac{40052428178643350631}{125000000000000000000000}$；在 $R=2831/25000$ 处为正，其中 $73$
+个原始行至少为 $0.00007800$，$8$ 个新行大于 $0.00012768$；在 $R_\star$ 处为
+继承。
+\item $B33$：在 $R=1132301/10^{7}$ 处为
+$\frac{141216899554184842489}{10^{24}}$；在 $R=2831/25000$ 处至少为
+$\frac{1471448836581788939}{500000000000000000000000}$；在 $R_\star$ 处为继承。
+\item $B34$：在 $R=1132301/10^{7}$ 处为
+$\frac{57252253086154121097}{250000000000000000000000}$；在 $R=2831/25000$ 处至少为
+$\frac{190482881108285619519923}{292968750000000000000000000}$；在 $R_\star$ 处为继承。
+\item $B35$：在 $R=1132301/10^{7}$ 处为
+$\frac{37566017111533099749}{500000000000000000000000}$；在 $R=2831/25000$ 处至少为
+$\frac{169690032082888672651865333931}{625000000000000000000000000000000}$；在 $R_\star$ 处为继承。
+\item $B\ge36$：在 $R=1132301/10^{7}$ 处为
+$\frac{33605092614133890926309778967931605940457120574226219}{10^{56}}$；在 $R=2831/25000$ 处，
+$B=36$ 受阻，而 $B\ge37$ 给出
+$\frac{166438291677217339982469778967931605940457120574226219}{10^{56}}$；在 $R_\star$ 处，$B=36$
+给出
+$\frac{1808710125022421182469778967931605940457120574226219}{10^{56}}$。
+\end{itemize}
+
+$B31$ 在 $R=11323/100000$ 处的裕量为 $\frac{3797228001573004612011}{10^{24}}$。
+
+
+\section{术语表（glossary）}
+
+{\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+\toprule
+术语 & 含义 \\
+\midrule
+\endfirsthead
+\toprule
+术语 & 含义 \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+边界弧（boundary arc） & $\partial D$ 的极大正测度连通段，其归属者几乎处处（a.e.\ ）为常数；
+其计数为 $B$ \\
+capped & 传播达到其轮次上限而未达到不动点；被保留，未被判定 \\
+capped-pair 松弛 & 用于尾部分支 $B\ge36$ 的局部对损失 \\
+证书（certificate） & 一份带有状态、scope、计数与哈希的结构化机器产物 \\
+核心（core） & 剥离外边界带之后剩下的诱导圆盘 \\
+深层 / 环顶点（deep / ring vertex） & 严格位于核心内部的顶点，或分别地位于其边界上的顶点 \\
+耳（ear） & 可在保持星形性质的同时被删除的核心面块 \\
+坏面（bad face）($q1$) & 被计为亏缺的那一类被标记面 \\
+铰链 / 方差预算（hinge / variance budget） & 分支可以花费一次的那个单一标量预算 \\
+单调性继承（monotonicity inheritance） & 把在较大半径处证明的排除用于较小半径 \\
+障碍点（obstruction point） & 松弛超过其允许预算的精确有理点 \\
+向外舍入（outward rounding） & 区间端点朝远离真值的方向舍入 \\
+见证（witness） & 用于导出一个必要条件的一个点或一个点集 \\
+\end{longtable}}
+
+
+\section{本文档的审计（audit）记录}
+
+在准备本专著期间执行了以下检查，其结果在正文中报告，而不仅在本附录中：
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \texttt{python reproduce.py} --- 退出码 $0$；被接受的界 $0.113235$；$0.11324$ 作为
+未闭合被保留；打印四个证书哈希（第七部分，入口点子节）。
+\item \textbf{产物覆盖审计} --- 镜像（mirror）自身文档引用的 $100$ 条路径中，
+$19$ 条存在于镜像中，$81$ 条不存在；这 $81$ 条中有 $80$ 条存在于父仓库；
+\texttt{n100-\allowbreak{}public/\allowbreak{}proofs/\allowbreak{}} 缺失，而被引用的证明存在于父仓库，
+其 SHA-256 与证书的 \texttt{proof\_\allowbreak{}sha256} 相符（第七部分，产物覆盖子节）。
+\item \textbf{绑定（binding）审计} --- 独立晶格回执绑定了一个过期的输入与证明
+（\texttt{7e732e18\ldots} 与 \texttt{a0454013\ldots}），而其检查器绑定
+（\texttt{9655d038\ldots}）与当前脚本相符（第七部分，绑定审计子节）。
+\item \textbf{数值重新推导} --- 标量预算公式在两个候选半径上以精确有理
+算术重新求值，并精确重现所存储的裕量与增益
+（附录~\ref{app:budget}）。
+\item \textbf{分数位数审计} --- $B=36$ 的裕量是 $52$ 位分子除以 $10^{56}$；
+障碍的面积允许截距是 $56$ 位分子除以 $36\cdot10^{55}$；
+覆盖平方半径界是 $31$ 位分子除以 $10^{33}$，等于 $U_\star^2$。
+\item \textbf{移植包检查} --- 分支证书所引用的四个源码存在于父仓库的移植包中，
+且不在镜像中。
+\end{enumerate}
+
+\begin{remark}
+本附录有意把失败与被撤回的条目与已接受的条目并列。一份只会自我确认的记录从未受过检验；上面这份清单的价值在于它显示了该计划自身的机器在何处出错，以及是什么取代了它。
+\end{remark}

@@ -1,0 +1,202 @@
+\part*{第 I 部分 问题、约定与证据纪律}
+\addcontentsline{toc}{part}{第 I 部分 问题、约定与证据纪律}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{问题的陈述}
+
+\begin{definition}[覆盖半径（covering radius）与极值量]
+令 $D=\{x\in\R^2:\|x\|_2\le1\}$。对中心元组 $C=(c_1,\dots,c_{100})\in(\R^2)^{100}$，置
+\[
+R_D(C)=\max_{x\in D}\ \min_{1\le i\le 100}\|x-c_i\|_2,
+\qquad
+\rD(100)=\inf_{C\in(\R^2)^{100}}R_D(C).
+\]
+覆盖圆盘是\emph{闭}的；它们可以重叠，也可以伸出 $D$ 之外；中心不受限于 $D$。
+本纲领的任务是确定 $\rD(100)$，并给出它的一个显式极小多项式、一个达到它的
+显式构型、一个覆盖性证明与一个全局最优性证明，全部由可复现的计算机辅助材料支撑。
+\end{definition}
+
+五项形式化要求如下，按其约束工作的顺序排列：
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item \textbf{极小多项式与隔离。} 列出最优半径的本原整系数多项式 $P$ 的每一个系数，
+证明其在 $\Q$ 上不可约，并给出有理数 $a<b$，使 $P(a)P(b)\ne0$
+且 $P$ 在 $(a,b)$ 内恰有一个根。
+\item \textbf{显式构型。} 由精确代数数据给出的一个确定的有序 $100$ 元中心组。
+\item \textbf{覆盖性。} 严格证明每个 $x\in D$ 都落在某个中心的 $\alpha$ 邻域内；若把连续命题
+归约为有限多次检查，则该归约本身必须被证明是充分的。
+\item \textbf{全局最优性。} 对\emph{每个} $C$ 都有 $R_D(C)\ge\alpha$，不得对对称性、接触结构或
+组合类型施加未经证明的限制，并且必须显式处理退化情形（中心重合、圆盘冗余、
+中心共线、相切接触）。
+\item \textbf{计算机辅助证明。} 完整的代码、输入、证书、环境与实际验证结果，
+并解释这些结果为何蕴含相应的数学陈述。
+\end{enumerate}
+
+\section{问题为何困难}
+
+\subsection{连续、非凸、组合不稳定}
+
+目标函数 $C\mapsto R_D(C)$ 是距离的极小值的极大值：连续、分段光滑且非凸。
+其极小化点不由单一光滑系统刻画，因为诱导分解的组合类型随 $r$ 改变：
+哪个中心占有一条边界弧（boundary arc）、哪三个中心在某个 Voronoi 顶点相交、
+边界上承载多少条弧，全都是构型的函数。因此数值优化器永远只能给出上界。
+下界必须排除\emph{所有}构型，而做到这一点的标准途径是转到可能分解的有限
+组合目录，再用精确不等式排除目录中的每一项。
+
+\subsection{对称性不是最优性的必要条件}
+
+经典反例是 $n=5$：完全对称的排布给出
+$r=\varphi-1=0.6180340\ldots$，而真正的最优值是 $0.6093829\ldots$，
+由一个只有单条镜像轴的构型达到。这就是 Connelly 问题（最优覆盖构型是否必须
+具有 $n$ 重旋转对称性？），Csik\'os 对 $n=5$ 给出否定回答，对 $n=3$ 给出肯定回答。
+对本纲领而言，实际推论很直白：\emph{不}可以把范围限制在对称族内，
+然后把结果称为 $\rD(100)$。
+
+\subsection{在 $n=100$ 处枚举不可行}
+
+严格的计算机辅助最优性证明的成熟范式是\emph{组合分类加上区间 Newton /
+分支定界}。Nurmela 与 \"Osterg{\aa}rd 把正方形内等圆\emph{装填}的严格最优性
+推进到 $n\le27$；他们自己的记述表明，初始组合计数增长极快，
+$23\le n\le26$ 花费了以 CPU 月计的时间，而 $n=27$ 需要更换算法。
+本纲领对 $n=100$ 的估计与此一致：覆盖构型的轨道数是天文数字。
+因此这里的枚举与分类只作为分支内部的\emph{局部}手段使用，绝不作为全局方法。
+
+\subsection{文献中已知的内容（2026 年十月快照）}
+
+单位换算：文献通常用 $\rho(n)$ 表示 $n$ 个单位圆盘能够覆盖一个圆盘时的
+最大半径；于是 $\rD(n)=1/\rho(n)$。
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.46\textwidth}@{}}
+\toprule
+$n$ & 状态 & 来源 \\
+\midrule
+$1$--$4$, $7$ & 精确闭式，最优性平凡 & --- \\
+$5$, $6$ & 精确闭式，最优性已证明 & K. Bezdek 1979/1983 \\
+$8$, $9$, $10$ & $\rD(n)=1/(1+2\cos\frac{2\pi}{n-1})$，最优性已证明 &
+G.~Fejes T\'oth 1996/2005 \\
+$11$--$20$ & 已找到构型；某一研究组声称最优，但仍被一个经过整理的数据库
+列为未知 & Melissen 1997 / Tan 2018；Friedman 的
+\texttt{circovcir} 页面 vs.\ \texttt{leapsinbounds} \\
+$21$--$25$ & 已找到构型，未声称最优性证明 & Tan 2018 \\
+$26$--$99$ & 没有系统的公开表格 & --- \\
+$100$ & 除格点型构造外没有公开数据 & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+那份快照中的三个事实塑造了下面的一切。第一，渐近密度陈述是严格的，但它是渐近的：
+$\lim_{\eps\to0^+}\eps^2N(\eps)=2\pi/(3\sqrt3)$，即覆盖密度
+$\delta=2\pi/(3\sqrt3)=1.2091996\ldots$（Kershner 1939；Verblunsky 1949）。
+要把渐近陈述转成有限 $n$ 的界，需要一个边界修正项，而困难恰恰就在这个修正项上。
+第二，唯一成功的「强制对称」范式（Fejes T\'oth 对 $n=8,9,10$ 的证明）只在
+「一个中心圆盘加一个环」的结构中有效；$n=25$（中心加三个八边形环）与
+$n=100$（许多环）都没有这样的定理。第三，L.~Fejes T\'oth 带周长项的覆盖密度不等式，
+及其装填对偶（Oler/Thue--Groemer，$\frac{1}{2\sqrt3}A(C)+\frac14P(C)+1\ge n$），
+是「逐胞加边界修正」路线的文献原型 --- 第 III 部分表明它在这里\emph{不够}强，
+第 IV 部分则用一个计数加预算的引擎取代它。
+
+\section{约定与规范化}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{一切都是闭的。} 圆盘、单位圆盘以及所有有理区间都是闭的。
+用作外包围的闭区间 $[a,b]$ 意味着真值落在 $[a,b]$ 内；半径相等的闭情形
+被保留而不是丢弃。
+\item \textbf{判定层。} 每一条被接受的不等式都由整数、\texttt{Fraction}，或由向外舍入
+（outward rounding）的有理区间算术（rational interval arithmetic）判定。浮点只出现在发现层：
+Newton 根、候选构型、因子筛、LLL/PSLQ 候选关系。发现层的结果必须被精确地
+重新判定之后，才能进入证书。
+\item \textbf{投影。} 若 $c\notin D$，令 $\Pi(c)$ 为其到凸集 $D$ 上的投影。由于 $\Pi$ 是非扩张的，
+$B(\Pi(c),r)\supseteq B(c,r)\cap D$；把每个中心替换为其投影，既保持覆盖性也保持半径。
+因此可以假设 $\|c_i\|\le1$。这\emph{不}把中心置于第 III 部分所用的内接多边形 $P$ 之内，
+而那里的几何引理之一正是为了去掉这个更早的假设。
+\item \textbf{去重。} 若 $i\ne j$ 时 $c_i=c_j$，删去一个圆盘：覆盖性与半径不变，
+而中心集缩小。去重之后所有中心互异，且每个 Voronoi 胞具有正面积。
+\item \textbf{输出不覆盖。} 证书脚本拒绝覆盖已存在的 JSON 目标。因此重跑一个阶段
+需要一个新的输出路径，仓库正是以此区分「这份证书由本次运行产生」与
+「存在一个同名的文件」。
+\end{enumerate}
+
+\section{证据纪律}
+
+\subsection{绝不能混为一谈的五个层次}
+
+本纲领自己的综合报告区分了五个验证层次，并坚持较早的层次绝不替代较晚的层次：
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+\toprule
+层次 & 它所确立的内容 \\
+\midrule
+1. 文件存在性 / 哈希 & 本次运行实际消费了哪些字节 \\
+2. 元数据 / 条目验证 & 拒绝重复节点、错误定义域、未授权
+条目，以及无依据的预算添加 \\
+3. 精确算术重放 & 对\emph{给定}定义域重新计算必要条件与证书 \\
+4. 解析 / 几何桥 & 每个真正的覆盖构型都落入该定义域，
+即那些必要约束确实成立 \\
+5. 全局覆盖 & 所有分支、图与标号都被枚举或包围 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{\texttt{PASS} 意味着「在 scope 字段范围内通过」}
+
+一条存储的 \texttt{PASS} 恰好断言该证书 \texttt{scope} 字段所说的内容，不多不少。
+本纲领中的三个具体事件说明了这一点：
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{一个独立脚本复制了同一个错误。} 在阶段 45/46 中，一份边界环带
+证书使用了错误的内面过滤器，产生了空的待处理集合；「全局无增益」的接受被判无效。
+修正后的运行实际检查了 $32$ 个拥有边界的面、$4776$ 个构型与 $152\,832$ 次精确
+环带比较，并新增 $0$ 条排除。状态文件中记录的教训是：那个独立脚本重复了
+同一个过滤器错误，因此\emph{退出码 0 不足以证明数学覆盖定义域是正确的}。
+\item \textbf{一个位于不同半径的 \texttt{PASS}。} $B31$ 证书是在 $R=2831/25000$ 处建立的；
+它只有在借助半径单调性的情况下才能用于更小的半径，而组合器必须显式记录
+这一继承。一个半径处的 \texttt{PASS} 不是另一个半径处的 \texttt{PASS}。
+\item \textbf{一个 \texttt{PASS\_\allowbreak{}PREMISES}。} $B35$ 诊断证书返回
+\texttt{status = PASS\_\allowbreak{}PREMISES} 与 \texttt{B35\_\allowbreak{}closed = false}：所有前提（premises）都被验证，
+而该分支\emph{没有}闭合。这个状态词的存在，使得这样一次运行
+永远不会被读作闭合。
+\end{itemize}
+
+\subsection{负控制是证书的一部分}
+
+几乎每个证书脚本都附带必须被拒绝的破坏性测试：放大的目标圆盘、针对放大圆盘变体的
+一个显式未覆盖点、缩小的覆盖半径、放大的覆盖半径、错误的度量、旋转或膨胀的
+Voronoi 六边形、被截断的邻居搜索、错误归属的邻居、被移除的相切中心、
+被移除的内部中心、把 $97$ 中心构型当作 $100$ 点断言提交、断开的边配对、
+破损的面置换、被声明为不活跃的支撑、用 \texttt{python -\allowbreak{}O} 禁用的断言，
+以及若干刻意损坏的有理载荷。负控制没有被全部拒绝的运行不被接受。另外两个入口点
+还拒绝在 \texttt{python -\allowbreak{}O} 下运行，并报告 \emph{Assertions must remain enabled}。
+
+\subsection{状态词}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+\toprule
+状态 & 含义 \\
+\midrule
+\texttt{PASS} & 所断言的检查在声明的 scope 内通过 \\
+\texttt{PASS\_\allowbreak{}PREMISES} & 前提已验证，\emph{未}声称闭合 \\
+\texttt{NOT\_\allowbreak{}CLOSED} & 该分支或目标仍开放 \\
+\texttt{EXCLUDED} & 声明的定义域为空（一次真正的排除） \\
+\texttt{NOT\_\allowbreak{}EXCLUDED} / \texttt{UNDECIDED} & 非空或未解决；绝不计为已排除 \\
+\texttt{capped} & 传播在未达到不动点的情况下触及轮次上限；予以保留，不做判定 \\
+\texttt{diagnostic} & 被记录的失败或瓶颈，不是证书 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{绝不能推断出的内容}
+
+证据账本明确陈述了这些禁令，它们正是本文档保留其失败记录可见的原因：
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item 一个通过的局部盒不是全局下界；
+\item 一个未被阻塞的障碍点（obstruction point）不是已闭合的分支；
+\item 一个存在的构型不是最优性证明；
+\item 一次数值上的「通过」打印不是证明；
+\item 检查有限多个采样点、检查边界或检查一幅数值图像，都不是对整个闭单位圆盘
+已被覆盖的证明。
+\end{itemize}

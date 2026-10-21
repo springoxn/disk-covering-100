@@ -1,0 +1,91 @@
+\part*{Part VI. The route catalogue: every family, its construction and its status}
+\addcontentsline{toc}{part}{Part VI. The route catalogue: every family, its construction and its status}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\noindent
+This Part is the systematic inventory the rest of the document prepares for. Each row gives the
+route, its construction, its status and its evidence. Status vocabulary:
+\textbf{closed} (a strict certificate exists inside its declared domain --- possibly a conditional
+sub-branch), \textbf{partial} (genuine strict exclusions covering only part of the declared domain),
+\textbf{diagnostic} (measurement, audit or bottleneck only), \textbf{falsified} (the claim or its
+premise was explicitly refuted or a counterexample exists), \textbf{undecided} (ran to completion
+with zero new exclusions), \textbf{interface} (\texttt{PASS} means contract registration or replay
+consistency, \emph{not} geometric closure), \textbf{configuration} (an upper-bound construction).
+Unless stated otherwise, every route in this Part carries
+\texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry = false} and \texttt{global\_\allowbreak{}optimality = false}, and the global
+interval quoted by the reports of that era is $11323/100000<\rD(100)\le1154469548855829/10^{16}$.
+Artifact paths are given relative to the repository root; see Part VII for which of them live in the
+published mirror.
+
+\section{Combinatorial and topological routes}
+
+The purpose of these routes is to turn a continuous covering into a finite combinatorial object: a
+planar map, a dart map, a triangulation with a fixed face catalogue, or a boundary word.
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{Planar / dart-map compiler.} vertices with independent edge identities, face permutations, ordered
+four-axis markings; half-edge code $(\alpha,\phi)$ keeps multiple-edge identity; bounds
+$V\le2m+2$, $E\le3m+1$; model budget $k_M=19m+22$ ($1922$ at $n=100$) \emph{Status: diagnostic.} Evidence: \texttt{verify/\allowbreak{}n100\_\allowbreak{}generic\_\allowbreak{}map\_\allowbreak{}compiler.py}, \texttt{n100\_\allowbreak{}dart\_\allowbreak{}map\_\allowbreak{}canonicalization.py},
+\texttt{n100\_\allowbreak{}raw\_\allowbreak{}dart\_\allowbreak{}model\_\allowbreak{}adapter.py} \\
+Map canonicalization
+\end{itemize}
+
+
+\section{Boundary-circle, axis and box-pruning routes}
+
+This family attacks the configuration space directly: propagate interval constraints on centre
+coordinates, split boxes, and count how many disks can serve the boundary.
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{Capacity frontier.} capacity / Hall-type necessary conditions on boundary service; box-aware
+pruning; the non-separated three-point capacity cut \emph{Status: partial.} Evidence: {\footnotesize\texttt{docs/\allowbreak{}result-\allowbreak{}n100-\allowbreak{}stage25-\allowbreak{}capacity-\allowbreak{}frontier.md}} \\
+Box-aware common-centre pruning
+\end{itemize}
+
+
+\section{Arc-pair, nogood and learning routes}
+
+This family works on one fixed core and one narrowed parent domain, learns necessary relations
+between boundary-tile labels, and asks how much support remains.
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{Arc-pair consistency and cycle support.} necessary pair relations between arc tiles sharing a centre
+(vertex-box minimum distance $\le2U$); $289\,530/277\,368$ pairs reduced to $1866/2312$ labels;
+exact support of the inherited finite pairwise model via an independent-set DP on the $32$-vertex
+cycle \emph{Status: undecided.} Evidence: \texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}arc-\allowbreak{}pair-\allowbreak{}consistency.json},
+\texttt{n100-\allowbreak{}arc-\allowbreak{}cycle-\allowbreak{}support.json} \\
+Ordered and monotone cycles
+\end{itemize}
+
+
+\section{Lens, duality, recursive-count and interface routes}
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{Refined lens upper bound.} unified enclosure of the intersection lens at $d_0=1-r$, with a per-strip
+upper Darboux sum of $\min(2rb-b^2,\ s^2-(1-2r+a)^2)$: $256$ strips give $0.11521249$, $4096$ strips
+give $11521651/10^{8}$ ($\delta=101/10000$), raising the certified $k\ge55$ radius from
+$0.11516023$ to $0.11521651$ \emph{Status: closed (conditional branch).} Evidence: {\footnotesize\texttt{docs/\allowbreak{}result-\allowbreak{}n100-\allowbreak{}stage94-\allowbreak{}refined-\allowbreak{}lens.md}} \\
+Joint support (superseded)
+\end{itemize}
+
+
+\section{Energy, force and local-exclusion routes}
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{Fixed-stress harmonic angular energy.} $E(q)=\sum c_{ij}\|q_i-q_j\|^2$ with
+$v^{\mathsf T}H_{\text{ang}}v=2\sum c_{ij}(q_i\cdot q_j)(v_i-v_j)^2$; a Loewner bound was hoped to
+give convexity on the angular domain \emph{Status: falsified.} Evidence: {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}independent.json}},
+\texttt{n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}negative-\allowbreak{}witness.json} \\
+Angular energy, two exact obstructions
+\end{itemize}
+
+
+\section{Radius-scanning and engineering routes}
+
+\begin{itemize}[leftmargin=1.2em,itemsep=3pt]
+\item \textbf{Six-endpoint radius scan.} exact rational scan at $0.11323$, $0.113231$, $0.113235$, $0.11324$,
+$0.11325$, $0.1133$ recording the counting bridge, the $B31$ fixed-fee rows and the tail's
+conditional total budget; at $0.11325$ the $B31$ fan premise already fails \emph{Status: diagnostic.} Evidence: {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}lower-\allowbreak{}radius-\allowbreak{}bottleneck-\allowbreak{}firstpass.json}} \\
+$101$-point rational scan
+\end{itemize}
+

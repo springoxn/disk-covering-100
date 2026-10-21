@@ -1,0 +1,618 @@
+\part*{Part IV. The six-branch engine: a contradiction at a fixed radius}
+\addcontentsline{toc}{part}{Part IV. The six-branch engine: a contradiction at a fixed radius}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{The logical skeleton}
+
+Everything in this Part has the following shape.
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item Fix a rational \emph{candidate radius} $R$ and suppose, for contradiction, that $100$ closed
+disks of radius $R$ cover $D$.
+\item \textbf{Normalize} every centre at that radius (same-radius normalization) and rebuild the
+ownership relation, the number of effectively used disks, and the common triangulation. Nothing from
+a previous radius may be reused.
+\item \textbf{Count.} Derive necessary conditions that exclude all configurations with at most
+$m-1$ effectively used disks, and, for $m=100$, restrict the number $B$ of boundary arcs to a finite
+list.
+\item \textbf{Split into branches.} The surviving $(m,B)$ pairs are partitioned into six mutually
+exclusive branches $B31$, $B32$, $B33$, $B34$, $B35$, $B{\ge}36$.
+\item \textbf{Close each branch} by an area/curvature budget: an exact rational inequality that
+contradicts coverage.
+\item \textbf{Combine.} A combiner checks that every branch is closed at the same radius, that
+budgets are spent once, and that any branch closed at a \emph{larger} radius is inherited through
+radius monotonicity.
+\end{enumerate}
+
+The last point is a theorem, not a convention:
+
+\begin{lemma}[Radius monotonicity]\label{lem:monotone}
+If no covering by $100$ disks of radius $R'$ exists, then no covering by $100$ disks of radius $R<R'$
+exists.
+\end{lemma}
+\begin{proof}
+A covering at radius $R$ is a covering at radius $R'$ after enlarging every disk, since
+$B(c,R)\subseteq B(c,R')$.
+\end{proof}
+
+Hence a branch certificate established at $R'=2831/25000$ is available at any $R\le R'$, provided
+the combiner records the inheritance explicitly (grade D evidence). The tail branch is \emph{not}
+inherited in this way in the current chain: it is replayed directly at $R_\star=22647/200000$.
+
+\section{Normalization at a fixed radius}
+
+\subsection{The radial map}
+
+For a candidate radius $R$, define the radial map
+\[
+d'=\frac{1-R^2}{d},
+\]
+where $d$ is the distance from the origin to a centre, and let $u$ be the unit vector of that centre.
+The identity
+\begin{equation}\label{eq:radial-identity}
+\|z-d'u\|^2-R^2=\frac{d'}{d}\bigl(\|z-du\|^2-R^2\bigr)+\Bigl(1-\frac{d'}{d}\Bigr)\bigl(\|z\|^2-1\bigr)
+\end{equation}
+is asserted exactly by CAS in the certificates. Since $d'/d\le1$ and $\|z\|^2-1\le0$ for
+$z\in D$, every point already covered at radius $R$ remains covered after the map. The normalization
+is applied to \emph{all} centres \emph{before} the counting branch is taken; ownership, the number of
+effective disks and the common triangulation are rebuilt from scratch. This is the reason the
+engine cannot be reused at a new radius by editing one constant: the diagram itself changes.
+
+\subsection{The common counting bridge}
+
+At $R=11323/100000$ the counting bridge excludes every configuration with at most $99$ effectively
+used disks: $n=99$, $96$ cases, tightest $B=34$, with the exact minimum area margin
+\[
+\resizebox{\textwidth}{!}{$\displaystyle \frac{93591732347747920006153107439494216107661633777884476873367781737690463949606826459158012299304439}{17\cdot10^{100}}>0$}
+\]
+(stored in the external replay certificate). For $m=100$ the surviving boundary counts are exactly
+\[
+B\in\{31,32,33,34,35,36,37,38,39\}
+\]
+(\texttt{complete\_\allowbreak{}surviving\_\allowbreak{}boundary\_\allowbreak{}counts}). The six branches partition this list, and they are
+mutually exclusive by definition of $B$.
+
+The same bridge was re-derived at $R=2831/25000$: all $m\le99$ are excluded, and for $m=100$ only
+$B31$--$39$ survive. The normalized centre-norm-squared upper bound, i.e.\ an outward rational
+enclosure of $1-R^2$, is
+\[
+1-R^2\ \le\ \frac{9871789671}{10^{10}}\quad(R=11323/100000),\qquad
+1-R^2\ =\ \frac{616985439}{625000000}\quad(R=2831/25000),
+\]
+and at the accepted radius $R_\star=22647/200000$ one has
+$1-R_\star^2=0.987177834775\ldots$; the accepted certificates use the valid outward bound
+$98717894445399/10^{14}$ for the smaller radius $1132301/10^7$. These are the same quantity at
+different radii, and each is quoted with its own radius.
+
+\subsection{Branch vocabulary}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}lp{0.66\textwidth}@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$B$ & number of boundary arcs served (equivalently boundary vertices of the common diagram) \\
+$m$ & number of effectively used disks \\
+$k$ & number of distinct boundary-serving disks \\
+$M$ & number of interior faces of the normalized common triangulation \\
+$e$, $b$ & number of ears, resp.\ bad faces (``$e0$'', ``$b0$'' mean zero) \\
+$q$ & number of marked faces of a vertex; $q1$ is a ``bad $q1$'' \\
+$h$ & total degree excess of strictly deep vertices \\
+$C$ & number of chords of the core boundary \\
+$a$ & $C-f_3$, where $f_3$ is the number of empty core-boundary triangles \\
+DDD, DDR, DRR, BRR, RRR & face types by the degrees (deep/ring) of their three vertices \\
+core $P/F$ & number of boundary vertices / faces of the induced core disk \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The recurring mechanism in every branch is a \emph{budget}: the boundary arc length available at
+radius $R$ must pay for interior area, for boundary ``marked'' triangles, for ear and bad-face
+deficits, and for one hinge or variance payment. Two structural rules are enforced throughout:
+(i) a physical edge shared by two faces is paid \emph{once}, and opposite half-edge terms cancel
+exactly; (ii) a scalar deficit or a local gain may not be spent in two different rows. The
+certificates record these as explicit fields (\texttt{physical\_\allowbreak{}edge\_\allowbreak{}pairs},
+\texttt{hinge\_\allowbreak{}payment = 0}, \texttt{variance\_\allowbreak{}payment = 0}, budget-review strings).
+
+\section{Branch B31}
+
+$B31$ is the smallest boundary count. Its certificate is the ``global full-face curvature'' row:
+$40$ face supports and $32$ vertex supports, a degree window, in-place charges, ear and bad-face
+coefficients, and two $M$-intervals ($M\le23$ and $M\ge24$). Structural fields worth noting: all
+twenty face-label multisets are allowed, no deep-label assumption is made
+(\texttt{deep\_\allowbreak{}label\_\allowbreak{}assumption = false}), no reflected-centre hypothesis is used, the squared edge
+penalty and the half-side multiplier are both $0$, and arbitrary ears and bad faces are allowed. The
+branch also carries an $n=99$ exclusion with $96$ cases and tightest $B=34$, whose margin equals the
+counting bridge's.
+
+The geometric skeleton transferred to a new radius is written out as obligations in the certificate
+itself: same-radius whole-cover normalization and diagram rebuild; the unconditional full-star
+degree-loss inequality and its budget comparison; whole-disk $/6$ and induced-core $/5$
+isoperimetry; identical full-face labels with signed edge cancellation and a single budget use; and
+a closed-endpoint finite-type continuity argument.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.32\textwidth}@{}}
+\toprule
+Radius & minimum area margin & source \\
+\midrule
+$11323/100000$ & $3797228001573004612011/10^{24}$ & external replay certificate \\
+$11324/100000$ & $3205113070935301276991/10^{24}$ & \texttt{n100-\allowbreak{}B31-\allowbreak{}at-\allowbreak{}11324.json} \\
+$1132301/10^{7}$ & $3791306959813284956819/10^{24}$ & stage 143 margin table \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Branch B32}
+
+$B32$ splits into $M\le25$ and $M\ge26$.
+
+\subsection{Low $M$: $81=73+8$ integer profiles}
+
+The enhanced low-$M$ reduction excludes $M\le24$, leaving $M25$ reduced to a unique deep degree-$5$
+point, at most two high-degree points, and four cyclic star patterns. The original $M25$ fee row was
+then evaluated on all $81$ integer profiles: $73$ rows strictly positive, $8$ negative. The $8$
+residuals are all of type $e0$ with two degree-$7$ high points, $p\in\{0,2\}$ and central star type
+$2$ or $3$; the worst original gap is about $0.00012804$, which is why looking only at the first
+failure (about $0.00002125$) would have been misleading.
+
+For this fixed integer domain the half-side multiplier, area ratio and perimeter penalty were
+retuned to
+\[
+K=\frac{78619}{283293},\qquad \epsilon=\frac{499143}{911596},\qquad
+\tau=\frac{930249}{710647},
+\]
+with the FAN payment strictly $0$ because these rows have no $p3$, and with the normalized boundary
+envelope and the zero-slope hinge rechecked exactly at the new $K$ (no payment is carried over from
+the old $K$). The exact receipts are
+\[
+\min_{73\ \text{original rows}}=\frac{15600046212127187429}{200000000000000000000000}>0.00007800,
+\]
+\[
+\min_{8\ \text{new rows}}=\frac{1596099436623121073}{12500000000000000000000}>0.00012768 .
+\]
+An independent \texttt{Fraction} ledger recomposes all $81$ rows and recomputes $9$ ordinary face
+classes, $18$ outside face classes and the residual central faces; all strict lower endpoints are
+positive. The discovery-stage sentinel and $K$-objective errors were corrected, and a
+\texttt{baseline\_\allowbreak{}numeric\_\allowbreak{}area\_\allowbreak{}margin} field that mixed up $K$ was formally withdrawn by an
+erratum (\texttt{n100-\allowbreak{}discovery-\allowbreak{}erratum-\allowbreak{}145.json}); acceptance rests only on the exact certificate.
+
+\subsection{High $M$: the marked degree-$5$ point}
+
+The high-$M$ diagnostic showed that the original face/vertex supports, the double-positive-curvature
+exclusion and the $M$/ear/bad-face shift checks all pass, while the marked-low-point exclusion alone
+still has margin
+\[
+-\frac{490979625631490392613}{10^{24}} .
+\]
+The response was to change the exhaustive classification rather than to accept the failing
+assertion. With all original shift inequalities retained, the Euler identity and the
+double-curvature exclusion leave only two possibilities:
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item $M26/e0/b0$ with all $68$ interior points of degree $6$;
+\item $M26/e0/b0$ with a unique degree-$5$ point, a unique degree-$7$ point, and $66$ points of
+degree $6$; the marked count $p$ of the degree-$5$ point is allowed to be $0,1,2,3$.
+\end{enumerate}
+The unique degree-$5$ point is then classified by whether it owns an original boundary neighbour:
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \emph{No original-boundary neighbour}: then $p=0$, the original direct star support applies, and
+the $4$ height-marking counts times $2$ high-neighbour star types give $8$ rows with minimum margin
+\[
+\frac{78693035940218423479}{500000000000000000000000}>0.00015738 .
+\]
+\item \emph{Has an original-boundary neighbour}: then the degree-$5$ point cannot lie in the strict
+interior of any induced core face block, so planar separation and the $/6$ isoperimetric argument
+still apply. The core remains $68$ vertices, $108$ faces, a $26$-edge chordless boundary and $42$
+deep points. Deep degree excess $h$ is $0$ or $1$, and the four-face metric covers both cases with
+minimum margin
+\[
+\frac{225914348193616561751}{500000000000000000000000}>0.00045182 .
+\]
+\end{itemize}
+The key angular ledger does not depend on $p$: with $\Gamma$ the total marked interior angle sum, the
+ring-point occurrence count is $(72-h)+52=124-h$, the ring-point centred angle sum is
+$(32+h)\pi/3-\Gamma$, and the original-boundary centred angle sum is $\Gamma-2\pi-26\pi/3$; CAS
+asserts both identities and the merged linear-potential identity. The face counts
+\[
+\mathrm{DDD}=62+h,\qquad \mathrm{DDR}=20-h,\qquad \mathrm{DRR}=\mathrm{BRR}=26
+\]
+also depend only on $h$. The $26$ physical DRR/BRR half-edge pairs cancel, so no additional budget
+is spent.
+
+\section{Branch B33}
+
+\subsection{The real residual: a unique degree-$5$ point}
+
+For $M\ge26$, if a degree-$5$ point exists it is unique, of type $M26/e0/b0$, and the total high
+curvature is $2$; hence the high points are either two degree-$7$ points or one degree-$8$ point.
+The classification is again by whether the degree-$5$ point has an original boundary neighbour ---
+and the report is careful that $p=0$ does \emph{not} imply the absence of a boundary neighbour, so
+the two cases must be split by the neighbour, not by $p$.
+
+\subsection{No original-boundary neighbour: one coherent star replacement}
+
+Keeping the valid $K=11/25$ and hinge slope $3/100$ and all face fees, the five central faces of the
+unique deep degree-$5$ point are replaced \emph{once} by a coherent polygon support with
+\[
+\epsilon=\frac{26304223}{69960624},\qquad \tau=\frac{110526397}{84434654},
+\]
+and a re-optimized central potential. With at most two high points the neighbour binary $5$-cycle
+has only $4$ counting types, checked by machine; the original $20$ face supports, $18$ outside
+supports and $8$ central supports are recomputed exactly; no face contains three distinct high
+points. Every cyclic normalization gain is strictly greater than $9/100$, so the old negative
+degree-$5$ row plus $R^2\cdot9/100$ gives the conservative positive margin
+\[
+\frac{185371504379126342167}{250000000000000000000000}\approx0.000741486 .
+\]
+The five selected physical edges cancel opposite half-edge payments; no second hinge is spent.
+
+\subsection{Has an original-boundary neighbour: the labelled ring metric}
+
+Here the core is a simple chordless disk with $I67/P26/F106$ and $41$ deep points. Since
+$P26>3$, every ring point has at least one deep neighbour and at least two core faces; a ring point
+also has exactly two outer-band BRR faces and $p$ marked faces, so its original degree $d$ satisfies
+$d-p-2\ge2$, i.e.\ $p\le d-4$. This is a consequence of \emph{this} core topology and imposes
+nothing on arbitrary interior points. The unique ring degree-$5$ point therefore has $p\in\{0,1\}$;
+ring degree $7$ needs only $p\le3$ and ring degree $8$ only $p\le4$.
+
+With deep excess $h\in\{0,1,2\}$ the region face counts follow from
+\[
+\mathrm{DDD}+\mathrm{DDR}+26=106,\qquad 3\,\mathrm{DDD}+2\,\mathrm{DDR}+26=246+h,
+\]
+giving $\mathrm{DDD}=60+h$ and $\mathrm{DDR}=20-h$. The $26$ core ring edges pair with the $26$ outer
+BRR faces physical-edge by physical-edge. Enumerating the positions of $0$, $1$ or $2$ high points
+around the $26$-cycle and aggregating the five edge types RR/RH/HH/RL/HL together with ring degrees
+$7$/$8$ and marked counts produces exactly $108$ counting models. The selected rational parameters
+are
+\[
+LR=-\frac{2217213}{59317159},\quad LH=-\frac{47596282}{80611277},\quad
+LL=\frac{20620389}{94559174},\quad LB=-\frac{5596292}{14123693},
+\]
+\[
+\tau=\frac{11510567}{31711524},\qquad K=\frac{17082939}{31059893},
+\]
+and $14$ full-simplex supports (DDD, three DDR classes, five DRR, five BRR) are recomputed with
+every angular degeneracy bound and localization guard. All $108$ rows are positive with minimum
+margin
+\[
+\frac{147611772341741487969}{200000000000000000000000}\approx0.0007380589 .
+\]
+The branch spends no hinge and no variance.
+
+\subsection{The no-degree-$5$ components}
+
+Three fresh subprocesses replay the $M26$ seven-face metric, the $M27$ with-chord metric and the
+one-ear metric. The old ``$b1/e0$ impossible'' and ``$M26$ degree-$7$ cannot be deep'' claims are
+re-examined through core connectivity/empty-side ear generation and the general $/6$ inner frontier
+inequality
+\[
+26+19+\frac{19^2}{6}<106 .
+\]
+The final independent composition entry re-enumerates $M/e/b/$degree-$5$ counts, solves the
+DDD/DDR identities with CAS, matches all $26$-cycle signatures to the $108$ models, recomposes the
+$108$ final area upper bounds from $14$ signed supports with an independent \texttt{Fraction}
+ledger, and then accepts. It refuses to run under \texttt{python -\allowbreak{}O} and its negative control exits
+$1$ with \emph{Assertions must remain enabled}. The overall minimum reported positive margin of the
+whole branch is still set by the low-$M$ part, about $0.00000294$.
+
+An earlier attempt at a uniform ring potential failed honestly: the optimal $LR$ tended to $0$ and
+the first two rationalizations left no strict lower bound; the recorded minimum predicted margin was
+about $-0.00067010$, and it was \emph{not} accepted. Only the $14$-face structure distinguishing low,
+high and ordinary ring points produced the exact positive certificate.
+
+\section{Branch B34}
+
+\subsection{Low $M$: an isolated five-star}
+
+Two original endpoints were negative ($M24..25$ and $M\ge26$); the diagnostic stage released only
+the $M24$ assertion to expose the second failure, keeping all $48$ face classes, $1455$ vertex
+classes, shift inequalities, normalized boundary, $q4$ payment and core premises actually passing.
+The low-$M$ closure then uses the original vertex reduced costs and the negative $M$/ear/bad-face
+coefficients: $M22..23$ is positive; $M25$, or $M24$ with at least one ear or bad face, is positive;
+selecting one guaranteed deep low-degree point, any additional global degree-$3/4/5$ point's neutral
+vertex margin covers the negative area, and if the selected deep point is itself of degree $3$ or $4$
+its own vertex margin also covers it. What remains is
+\[
+M24/e0/b0,\quad\text{exactly one global degree-}5\text{ point}
+\]
+\[
+\text{selected as the deep witness},\quad\text{all other interior degrees}\ge6 .
+\]
+Two peels then show the induced core of $I66/M24$ must be a simple $P24/F106$ disk ($/5$ excludes
+multiple components, bridges and multiple blocks), that the degree-$5$ point's neighbours are all
+strictly interior core points, and that if it were adjacent to a high point the high point would have
+to be the unique deep degree-$7$ point and the core would have to be a chordless simple $P18/F64$
+disk --- which the inequalities $18+12+12^2/5<64$ and, after one more peel,
+$18+13+13^2/6<64$ both contradict. Hence all five neighbours of the degree-$5$ point have original
+degree $6$, and the five central faces have potential type $(P,0,0)$. Replacing those five faces
+\emph{once} by the complete five-star cap
+\[
+\mathrm{cap}_5=\sqrt{\frac{25\,(25+11\sqrt5)}{32}}
+\]
+(with positive central angle sum $2\pi$, giving angular potential term $P\pi/3$) yields the exact
+normalized gain
+\[
+\frac{70784489700959821434439}{10^{24}}>0.07078448,
+\]
+and a final area margin
+\[
+\frac{448474306824206627004168866279}{625000000000000000000000000000000}>0.00071755 .
+\]
+An independent recomputation with $\sqrt3$ bounded below by $1732050807/10^9$, $\sqrt5$ bounded
+above by $2236067978/10^9$ and $\mathrm{cap}_5<6.23$ reproduces a positive margin
+\[
+\frac{190482881108285619519923}{292968750000000000000000000}>0.00065018 .
+\]
+
+\subsection{High $M$: three topology slots}
+
+The $M26$ row's positive neutral low-degree vertex margins exclude any degree $3/4/5$; the negative
+$M$ slope and the ear/bad-face shift fees exclude $M\ge27$, at least one ear, and at least one bad
+$q1$. What remains is
+\[
+M26/e0/b0,\quad\text{all original interior degrees}\ge6,\quad\text{positive degree excess }2,
+\]
+with the high points being two degree-$7$ or one degree-$8$ --- and no assumption that they lie on
+the core ring. The core is $I66/P26/F104$ with $40$ deep points; $/6$ excludes multiple components,
+bridges and multiple loops, leaving a simple disk, but $P26/F104$ permits one chord, so the
+chordless conclusion of $B33$ cannot be copied. With $C$ chords, $f_3$ empty core-boundary
+triangles, $a=C-f_3\ge0$ and deep excess $h$, the chord-aware first peel gives
+\[
+b=20-h-C-3a,\qquad \text{deleted faces}=46-h-C-a,
+\]
+and $/6$ gives
+\[
+104\ \le\ 46-h-C-a+\frac{(20-h-C-3a)^2}{6}.
+\]
+Machine exhaustion over $0\le h\le2$, $0\le C\le23$, $0\le a\le C$ with non-negative frontier leaves
+exactly three slots:
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+core chords $C$ & deep excess $h$ & $a$ & inner frontier & inner faces \\
+\midrule
+$0$ & $0$ & $0$ & $20$ & $58$ \\
+$0$ & $1$ & $0$ & $19$ & $59$ \\
+$1$ & $0$ & $0$ & $19$ & $59$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The one-chord slot has exactly one empty core-boundary triangle, all deep points of original degree
+$6$, and total high curvature $2$ on the ring. The chordless $h=1$ slot has one deep degree-$7$ and
+one ring degree-$7$; the chordless $h=0$ slot has all high curvature on the ring. CAS caught that the
+general DDD formula had omitted $+a$; the failing original script is kept and the corrected counts
+are
+\[
+\mathrm{DDD}=58+C+h+a,\qquad \mathrm{DDR}=20-C-h-3a .
+\]
+All three surviving slots have $a=0$, so the correction does not change them. The one-chord support
+must retain $\mathrm{DDD}=59$, $\mathrm{DDR}=19$, $\mathrm{DRR}=25$, paired $\mathrm{BRR}=24$,
+unpaired $\mathrm{BRR}=2$ and $\mathrm{RRR}=1$; it is \emph{not} legitimate to treat it as $26$ fully
+paired DRR/BRR pairs.
+
+The branch then closes with $23$ chordless models and $47$ one-chord models, both refined to a
+global boundary envelope of $10\,000$ interval boxes. The chordless models use $9$ signed face
+supports with $26$ physical edge pairs and zero hinge/variance payment; the one-chord models
+additionally distinguish $24$ paired outer DRR/BRR edges, one chord edge, one RRR triangle and two
+unpaid BRR faces. Independent \texttt{Fraction} recomposition and CAS centred-angle identities pass.
+A uniform ring-potential discovery run for this branch recorded an optimal predicted margin of about
+$-0.00103852$; it was a discovery only and accepted no exclusion.
+
+\section{Branch B35}
+
+The diagnostic kept all faces, vertices, $q4$ payments, normalized boundary and topology premises,
+and showed negative area endpoints for the original $M\le24$ flagged rows and for restricted $M25$
+and $M26$, while the $M\ge27$, ear, bad-$q1$ and additional-low-degree shift margins remained
+positive. The strict residual was therefore
+\[
+M\le24\ \text{flagged low-}M;\qquad M25\ \text{with all interior degrees}\ge6\ (\approx-0.0004727668);
+\]
+\[
+M26\ \text{with all interior degrees}\ge6\ (\approx-0.0002967289).
+\]
+It returned \texttt{status = PASS\_\allowbreak{}PREMISES} with \texttt{B35\_\allowbreak{}closed = false} --- the state word
+that prevents a premise check from being read as a closure.
+
+The closure then proceeded exactly as in $B34$: the low-$M$ part is closed by the $/5$ contradiction
+between the unique unmarked degree-$5$ point and the number of core ears (at most one core ear is
+allowed); $M25$ is closed by $8$ ring models (core $P25/F103$, $40$ deep vertices, $25$ physical edge
+pairs, four ring-$7$ points with $pH\in\{11,12\}$); $M26$ is closed by $3$ chordless models plus $5$
+one-chord models (core $P26/F102$, $39$ deep vertices, $\mathrm{DDD}=56$,
+$\mathrm{DDR}=[20,0]$). Each new metric has its own complete boundary-$K$ and face sum with exact
+physical edge cancellation, and no scalar deficit is paid across two rows. The combined independent
+certificate reports \texttt{M25\_\allowbreak{}closed = true}, \texttt{M26\_\allowbreak{}closed = true},
+\texttt{M\_\allowbreak{}ge27\_\allowbreak{}closed = true}, with model counts $\{M25:8,\ M26_{\text{chordless}}:3,\
+M26_{\text{onechord}}:5\}$.
+
+\section{The tail branch $B\ge36$}
+
+\subsection{The capped-pair relaxation}
+
+For the high boundary counts the engine changes character. Instead of a global face ledger it
+constructs a \emph{local pair loss} for each adjacent pair of boundary cells. In the absorbed
+formulation a pair term has the shape
+\[
+\Phi(a,b)=\lambda\,\|c_a-c_b\|^2+\frac{H(a)+H(b)}{2}-\frac{\mu\,(\arcsin s_a+\arcsin s_b)}{2},
+\]
+where $a,b$ are adjacent half-arc angles, $c_a,c_b$ the corresponding centres, $H$ a geometric loss
+built from the arc segment and the distance from the centre to the arc chord, and
+$\lambda,\mu$ penalty and slope coefficients. When the local terms are summed around the ring, the
+exact identity
+\[
+\sum_i\frac{a_i+a_{i+1}}2=\sum_i a_i=\pi
+\]
+is used --- not a Jensen-type ``equal arcs'' conjecture. Each local pair upper bound is then fed into
+a total area budget, and two scalar checks are performed: the margin at $B=36$ must be strictly
+positive, and the gain per additional boundary cell must be strictly positive, which extends the
+exclusion to every $B\ge36$.
+
+The scalar budget actually implemented by the certificate scripts is
+\begin{equation}\label{eq:scalar-budget}
+\underbrace{(1-\mu)\,\pi_{\mathrm{lo}}}_{\text{available arc budget}}
+\;-\;\underbrace{\bigl((2m-2-B)\,A+B\,K\bigr)R^2}_{\text{interior and marked triangle area}}
+\;-\;\underbrace{B\,L}_{\text{intercept}}\;>\;0,
+\qquad
+\underbrace{(A-K)R^2-L}_{\text{gain per boundary cell}}\;>\;0,
+\end{equation}
+with $m=100$, $A=129903810568/10^{11}$ (an outward rational enclosure of $3\sqrt3/4$) and $K$ the
+marked-triangle constant. Substituting the frozen constants reproduces the stored margins exactly,
+which is how the two certificate fields below were checked:
+\[
+\text{at }R=\tfrac{113237}{10^6},\ L=\tfrac{75097}{10^7}:\quad
+\text{margin}=4.906445222464608\times10^{-7},
+\]
+\[
+\text{gain}=5.1549192230158705\times10^{-3},
+\]
+\[
+\text{at }R=\tfrac{22647}{200000},\ L=\tfrac{939}{125000}:\quad
+\text{margin}=1.8087101250224213\times10^{-5},
+\]
+\[
+\text{gain}=5.152171860143971\times10^{-3}.
+\]
+The underlying geometric derivation of \eqref{eq:scalar-budget} lives in the absorbed third-party
+package; what this project certifies is the exact arithmetic of the budget, the completeness of the
+rational square-domain subdivision described next, and the negative controls.
+
+\subsection{Rational square-domain subdivision}
+
+The pair domain is a two-dimensional rational square. It is covered by recursive rational box
+subdivision; for each box the local pair loss is bounded outward and compared with the budget. Boxes
+on the diagonal are skipped by symmetry and counted separately. Three ``$q$-marked-side'' triangle
+supports are verified independently. The accepted counts are
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Certificate & radius & visited boxes & accepted boxes & symmetry-skipped \\
+\midrule
+$B=36$ at $R_\star=22647/200000$, $L=939/125000$ & $0.113235$ & $1\,841\,089$ & $917\,297$ & --- \\
+$B\ge37$ at $R=2831/25000$, $L=19/2500$ & $0.11324$ & $93\,257$ & $46\,038$ & $591$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+with $q$-support box counts $3761$, $104$ and $35$ for $1$, $2$ and $3$ marked sides, and
+\texttt{pending\_\allowbreak{}boxes} empty for $B\ge37$. The exact margins are
+\[
+B=36:\ \frac{1808710125022421182469778967931605940457120574226219}{10^{56}}
+\approx1.8087\times10^{-5},
+\]
+\[
+\text{per cell}:\ \frac{2576085930071985489}{5\cdot10^{20}}\approx5.1522\times10^{-3},
+\]
+\[
+B=37:\ \frac{166438291677217339982469778967931605940457120574226219}{10^{56}}
+\approx1.6644\times10^{-5},
+\]
+\[
+\text{per cell}:\ \frac{39572580329210081}{7812500000000000000}\approx5.065\times10^{-3}.
+\]
+The full run for $B=36$ took $130.04$ s of reported time; the tail is the most expensive part of the
+whole engine.
+
+\subsection{Why the tail does not extend to $0.11324$}
+
+At $R=2831/25000$ the \emph{old} fixed coefficients give a total budget of about $-0.000160907$: the
+tail cannot close at $0.11324$ even if its local supports remain valid. Holding $\mu$ and $\lambda$
+fixed, the intercept would have to be strictly below about $0.007505530351154887$; the trial
+$L=0.007505$ gave a conditional budget of about $+0.0000190926$, but the complete two-dimensional
+local support was never verified (a $250\,000$-box run accepted $124\,491$ leaves, left $17$ pending
+stack items and returned \texttt{UNDECIDED}).
+
+The obstruction is exact, not numerical. With the old constants, at the rational point
+\[
+x=y=\frac{9921033}{12500000}
+\]
+the pair relaxation satisfies
+\[
+\frac{3754996055077}{500000000000000}\ \le\ \text{pair}\ \le\ \frac{3754996055079}{500000000000000},
+\]
+so its lower endpoint exceeds the old intercept $1501/200000$ by
+\[
+\frac{2496055077}{500000000000000}\approx4.99211\times10^{-6},
+\]
+and it also exceeds the largest intercept that the $B=36$ area budget can pay for,
+\[
+\frac{27019909263463328303182469778967931605940457120574226219}
+{3600000000000000000000000000000000000000000000000000000000},
+\]
+by
+\[
+\frac{16062333091071696817530221032068394059542879425773781}
+{3600000000000000000000000000000000000000000000000000000000}.
+\]
+Consequently the deficit cannot be repaired by increasing a box budget or by raising the intercept:
+the latter makes the $B=36$ budget negative. A later exact diagnostic showed that both support terms
+vanish at the obstruction point, so refining the support boxes alone is mathematically insufficient
+as well. The obstruction certificate carries
+\texttt{status = PASS\_\allowbreak{}OBSTRUCTION\_\allowbreak{}TO\_\allowbreak{}OLD\_\allowbreak{}RELAXATION},
+\texttt{full\_\allowbreak{}B36plus\_\allowbreak{}closed = false}, \texttt{global\_\allowbreak{}bound\_\allowbreak{}improved = false}, and its scope
+string states explicitly that this is not a covering configuration and not a counterexample to the
+target lower bound.
+
+\section{The combiner}
+
+The final assembly is deliberately thin, because everything of substance is inside a branch
+certificate.
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}complete-\allowbreak{}225.json} (schema
+\texttt{n100-\allowbreak{}candidate-\allowbreak{}complete/\allowbreak{}v1}, \texttt{status = PASS}) records
+\texttt{candidate\_\allowbreak{}radius = 22647/\allowbreak{}200000}, \texttt{previous\_\allowbreak{}target\_\allowbreak{}radius = 2831/\allowbreak{}25000},
+\texttt{closed\_\allowbreak{}branches = [B31,\dots,B35,B36plus]}, \texttt{all\_\allowbreak{}six\_\allowbreak{}closed = true},
+\texttt{global\_\allowbreak{}bound\_\allowbreak{}improved = true}, the monotonicity justification in prose, and for each of
+$B31$--$B35$ the source radius $2831/25000$, the inherited radius $22647/200000$ and the SHA-256 of
+the source certificate. The tail entry carries its own radius and hash.
+\item \texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}six-\allowbreak{}branch-\allowbreak{}ledger-\allowbreak{}226.json} (schema
+\texttt{n100-\allowbreak{}six-\allowbreak{}branch-\allowbreak{}ledger/\allowbreak{}v11}) records \texttt{closed\_\allowbreak{}branches}, \texttt{pending\_\allowbreak{}branches =
+[]}, \texttt{all\_\allowbreak{}six\_\allowbreak{}closed = true}, and a \texttt{scope} string that says in words that only the
+candidate radius is covered and that $R=0.11324$ remains unproved because its $B36$ direct
+obstruction persists.
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}small-\allowbreak{}advance-\allowbreak{}controls-\allowbreak{}143.json}} rejects two destruction cases: one
+that disables assertions, and one that mismatches the old radius.
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}radius-\allowbreak{}dependency-\allowbreak{}audit-\allowbreak{}143.json}} traces $20$ processes and $28$
+\texttt{sys.modules}-registered sources, records the radius seen by every verification function, and
+confirms that no other global $R$ exists; anonymously loaded backends are bound by the full
+$626$-file hash list.
+\end{itemize}
+
+\section{Branch certificates at a glance}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+\toprule
+Branch & complete coverage range & established at & certificate \\
+\midrule
+$B31$ & $M\le23$ and $M\ge24$, arbitrary ears/bad faces &
+$11324/100000$ & \texttt{n100-\allowbreak{}B31-\allowbreak{}at-\allowbreak{}11324.json} \\
+$B32$ & $M\le25$ ($81=73+8$ profiles) and $M\ge26$ &
+$2831/25000$ & \texttt{n100-\allowbreak{}B32-\allowbreak{}complete-\allowbreak{}149.json} \\
+$B33$ & low $M$; $M25$ coherent replacement; all high-$M$ Euler residues &
+$2831/25000$ & \texttt{n100-\allowbreak{}B33-\allowbreak{}complete-\allowbreak{}167-\allowbreak{}v2.json} \\
+$B34$ & $M22..23$, $M24..25$, $M\ge26$ ($23$ chordless $+$ $47$ one-chord) &
+$2831/25000$ & \texttt{n100-\allowbreak{}B34-\allowbreak{}complete-\allowbreak{}180.json} \\
+$B35$ & low $M$, $M25$, $M26$, $M\ge27$ &
+$2831/25000$ & \texttt{n100-\allowbreak{}B35-\allowbreak{}complete-\allowbreak{}203.json} \\
+$B\ge36$ & $B=36$ and $B=37..99$ &
+$22647/200000$ (tail), $2831/25000$ ($B\ge37$) &
+\texttt{n100-\allowbreak{}tail-\allowbreak{}candidate-\allowbreak{}224.json}, \texttt{n100-\allowbreak{}tail-\allowbreak{}B37plus-\allowbreak{}210-\allowbreak{}a.json} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+All branches share the same analytic dependencies, stated in every certificate and never hidden:
+common normalized centre triangulation; planar separation of an original-boundary neighbour from a
+strict core-block interior; general $/6$ disk isoperimetry and the induced-core $/5$ isoperimetry;
+core/outer-band decomposition; the complete-star/perimeter lemma; full-simplex signed face supports;
+and the once-only physical edge cancellation. The certificates contain integer exhaustion, CAS
+identities and exact rational interval arithmetic --- they do \emph{not} contain a formal planar
+embedding kernel, and every one of them says so.

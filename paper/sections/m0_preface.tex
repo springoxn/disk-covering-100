@@ -1,0 +1,143 @@
+\section*{Preface: what this document is, and how to read it}
+\addcontentsline{toc}{section}{Preface}
+
+This monograph is not a single theorem with a proof. It is the map of a research programme.
+Covering the unit disk with $100$ equal disks is a continuous, non-convex problem whose
+combinatorial type changes with the radius, and no known method solves it in one step. What exists
+instead is a set of \emph{routes}: constructions that produce upper bounds, relaxations that produce
+lower bounds, and a large number of variants that were tried and either closed a sub-case, produced
+a diagnostic, or were falsified. The purpose of this document is to present those routes
+systematically, so that a reader can see (i) what the current frontier is, (ii) which inequality
+carries which part of it, and (iii) exactly where the remaining gap lives.
+
+\subsection*{The one-page state of the art}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
+\toprule
+Item & Value / status \\
+\midrule
+Accepted strict interval &
+$0.113235<\rD(100)\le 0.1154469548855829$ \\[1mm]
+Accepted lower bound (exact rational) &
+$R_\star=22647/200000=0.113235$ \\[1mm]
+Accepted upper bound (exact rational) &
+$U_\star=1154469548855829/10^{16}$ \\[1mm]
+Relative gap $(U_\star-R_\star)/U_\star$ &
+approximately $1.92\%$ (display only) \\[1mm]
+Lower-bound engine &
+six mutually exclusive boundary-count branches
+$B31,B32,B33,B34,B35,B{\ge}36$; $B31$--$B35$ inherited from $R=2831/25000$ by radius
+monotonicity, $B{\ge}36$ replayed at $R_\star$ \\[1mm]
+Weakest branch &
+$B\ge 36$, specifically the single value $B=36$ \\[1mm]
+Target not reached &
+$0.11324$; the frozen capped-pair relaxation has an exact obstruction point at
+$x=y=9921033/12500000$ \\[1mm]
+Undecided window &
+$(0.113235,\,0.11324]$; the rational candidates $0.113236$ and $0.113237$ were started and
+stopped without producing a certificate \\[1mm]
+Exact optimum, minimal polynomial &
+not obtained; \texttt{global\_\allowbreak{}optimality\_\allowbreak{}proved = false} \\[1mm]
+Best universal (configuration-free) lower bound &
+$2787/25000=0.11148$ (long-chord bundle), with the older
+$554570693/5000000000=0.1109141386$ and
+$1111720153/10^{10}=0.1111720153$ still valid and dominated \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{How the parts fit together}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{Part I} fixes the problem, the conventions (closed disks, centres unrestricted,
+rational decision layer) and the evidence discipline. Read this first: the words
+\emph{certificate}, \emph{diagnostic}, \emph{analytic} and \emph{inherited} have precise meanings
+here.
+\item \textbf{Part II} collects the upper-bound routes: how a finite check replaces a continuous
+coverage statement, the triangular-lattice $97{+}3$ configuration with $\alpha=1/\sqrt{67}$, the
+replayed external $100$-centre configuration, the cooperative search track, and the local
+algebraic (KKT) route.
+\item \textbf{Part III} collects the configuration-free analytic lower bounds: the area bound
+$1/10$, the integer-edge-count route with its four geometric lemmas, the sharpened envelope, the
+long-chord quadratic-loss bound, and the refutation of the perimeter-defect ($\lambda$) law.
+\item \textbf{Part IV} is the technical core: the six-branch engine. It explains the same-radius
+normalization, the counting bridge, and then each branch $B31$--$B35$ and the tail $B\ge36$,
+including the capped-pair relaxation and its rational square-domain subdivision.
+\item \textbf{Part V} is the frontier: how the accepted bound moved from $0.11323$ to $0.1132301$
+to $0.113235$, why $0.11324$ is blocked, and what a genuinely new inequality would have to do.
+\item \textbf{Part VI} is the route catalogue: every route family with its construction, its
+status and its evidence path, including the falsified and zero-yield ones.
+\item \textbf{Part VII} gives reproduction commands, external dependencies and the boundary of
+what was absorbed from third-party material.
+\item \textbf{Part VIII} lists the open obligations without softening them.
+\item \textbf{The Appendix} is the evidence ledger: assertion $\leftrightarrow$ artifact, plus the
+JSON field vocabulary and the exact arithmetic of the $B=36$ obstruction.
+\end{itemize}
+
+\subsection*{Evidence grades used throughout}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}c>{\raggedright\arraybackslash}p{0.50\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+\toprule
+Grade & Meaning & Trust \\
+\midrule
+A & structured machine artifact: JSON certificate with status, counts, hashes, exit code &
+strongest \\
+B & independent replay: a different script or stage rechecks the same sub-assertion & strong \\
+C & discovery material: floating-point search, candidate ranking, failed experiment &
+guides the next step only \\
+D & inheritance reasoning, e.g. exclusion at a larger radius used at a smaller radius &
+valid only if recorded explicitly by the combiner \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three further qualifiers appear constantly and must not be confused with grades:
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \emph{analytic} --- proved in prose, human-checkable, but not formalized in a proof
+assistant. Every ``universal'' statement in this document is analytic plus exact finite arithmetic;
+none is a kernel-verified theorem.
+\item \emph{\texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry = false}} --- the finite rational/interval
+inequalities were machine-checked; the reduction from geometry to those inequalities was not.
+\item \emph{diagnostic} --- the computation deliberately reports a failure, a bottleneck or a
+zero-yield result and is \emph{not} a certificate that a branch is closed.
+\end{itemize}
+
+\subsection*{Notation}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$D$ & closed unit disk $\{x\in\R^2:\|x\|\le 1\}$ \\
+$B(c,r)$ & closed disk of radius $r$ about $c$ \\
+$\rD(n)$ & $\inf\{r: D\subseteq\bigcup_{i=1}^{n}B(c_i,r)\}$ \\
+$R$ & a fixed rational \emph{candidate} radius used for a contradiction argument \\
+$U$ & a certified upper bound (radius of an explicit covering configuration) \\
+$B$ & number of boundary arcs (equivalently boundary vertices) served by the covering \\
+$M$ & number of interior faces of the normalized common triangulation \\
+$N$, $m$ & number of distinct centres, resp.\ number of effectively used disks \\
+$k$ & number of distinct boundary-serving disks \\
+$e_i$ & $m_i+a_i$, the nominal side count of the clipped cell $Q_i$ \\
+$\Gamma$ & total marked interior angle sum used in the angular ledgers \\
+$h$ & total degree excess of strictly deep vertices \\
+$C$ & number of chords of a core boundary \\
+$\lambda,\mu,L,K$ & penalty coefficient, slope, intercept, marked constant of the tail relaxation \\
+$\Phi$ & local pair loss of the capped-pair relaxation \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{A warning about reading the numbers}
+
+Every rational number in this document is quoted as it appears in a certificate or a report. Where
+a decimal is shown for orientation it is marked as display. Where two stages give slightly
+different auxiliary constants (for example the normalized centre-norm-squared bound at different
+radii), both are quoted with their own source rather than silently reconciled. Where a run was
+started and stopped, it is reported as stopped --- not as a failure and not as a proof.

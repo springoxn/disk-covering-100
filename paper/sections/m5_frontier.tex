@@ -1,0 +1,297 @@
+\part*{Part V. The current frontier: how the bound moved, and where it stops}
+\addcontentsline{toc}{part}{Part V. The current frontier: how the bound moved, and where it stops}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{The accepted interval and its history}
+
+The currently accepted, machine-replayable statement is
+\[
+\boxed{\ 0.113235\ <\ \rD(100)\ \le\ 0.1154469548855829\ }
+\]
+with the lower endpoint established by the six-branch chain of Part IV at $R_\star=22647/200000$,
+and the upper endpoint by the replayed explicit configuration of Part II. The relative gap
+$(U_\star-R_\star)/U_\star$ is about $1.92\%$ (display value).
+
+\subsection{The lower-bound track}
+
+\begin{center}
+\footnotesize
+% Column 1 must hold $554570693/5000000000$ and column 3 the longest
+% \texttt{verify/out/...} path. Widths must leave \tabcolsep for the two internal gaps
+% (4\tabcolsep = 24pt); the earlier 0.16/0.24/0.46 overflowed by 17-21pt.
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{\dimexpr0.60\textwidth-4\tabcolsep\relax}@{}}
+\toprule
+Lower bound (exact) & decimal (display) & route / evidence \\
+\midrule
+$1/10$ & $0.100000$ & area only; \texttt{verify/\allowbreak{}out/\allowbreak{}lowerbound\_\allowbreak{}n100.json} (L01--L20) \\
+$554570693/5000000000$ & $0.1109141386$ & repaired integer-edge route;
+\texttt{verify/\allowbreak{}out/\allowbreak{}strengthened-\allowbreak{}lowerbound-\allowbreak{}n100.json} \\
+$1111720153/10^{10}$ & $0.1111720153$ & sharpened envelope;
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}algebraic-\allowbreak{}bounds-\allowbreak{}bundle.json} \\
+$2787/25000$ & $0.11148$ & long-chord quadratic deficit;
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}longchord-\allowbreak{}bundle-\allowbreak{}frozen.json} \\
+$11323/100000$ & $0.11323$ & external six-branch replay;
+\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}bounds-\allowbreak{}67ebf1c.json} \\
+$1132301/10^{7}$ & $0.1132301$ & same skeleton, radius advanced;
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}new-\allowbreak{}lower-\allowbreak{}bound-\allowbreak{}143.json} \\
+$22647/200000$ & $\mathbf{0.113235}$ & six branches, tail replayed at the candidate radius;
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}complete-\allowbreak{}225.json} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The last two entries are different in kind from the first four. The configuration-free bounds are
+single analytic inequalities; the $0.11323$ and later values come from the contradiction engine, and
+their improvement is measured in units of $10^{-7}$ to $10^{-5}$ because each advance requires
+re-closing every branch at the new radius.
+
+\subsection{The upper-bound track}
+
+\begin{center}
+\footnotesize
+% \mathbf{0.1154469548855829} is the widest entry in column 2, so it gets a wider box than
+% column 1; column 3 takes the remainder after 4\tabcolsep.
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{\dimexpr0.54\textwidth-4\tabcolsep\relax}@{}}
+\toprule
+Upper bound & decimal (display) & route / evidence \\
+\midrule
+$153/1250$ & $0.1224$ & stage-1 strict certificate of the historical configuration;
+\texttt{verify/\allowbreak{}out/\allowbreak{}coverage\_\allowbreak{}n100.json} \\
+$1223433/10^{7}$ & $0.1223433$ & stage-2 server search, six candidates;
+\texttt{verify/\allowbreak{}out/\allowbreak{}pilot\_\allowbreak{}n100\_\allowbreak{}stage2\_\allowbreak{}summary.json} \\
+$1/\sqrt{67}$ & $0.1221694443563052$ & triangular lattice $97{+}3$;
+\texttt{verify/\allowbreak{}out/\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json} \\
+$18761/156250$ & $0.1200704$ & cooperative round 1;
+\texttt{n100-\allowbreak{}cooperative-\allowbreak{}anchor-\allowbreak{}tight/\allowbreak{}replay.json} \\
+$119891/10^{6}$ & $0.119891$ & refine; \texttt{n100-\allowbreak{}cooperative-\allowbreak{}refine-\allowbreak{}tight/\allowbreak{}replay.json} \\
+$119877/10^{6}$ & $0.119877$ & polish; \texttt{n100-\allowbreak{}cooperative-\allowbreak{}polish-\allowbreak{}tight/\allowbreak{}replay.json} \\
+$1154469548855829/10^{16}$ & $\mathbf{0.1154469548855829}$ & absorbed external configuration;
+\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}margin-\allowbreak{}67ebf1c.\allowbreak{}json} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The margin certificate is worth reading carefully, because it shows the improvement is exact rather
+than cosmetic. The frozen $100$-centre rational configuration is verified to cover the whole closed
+unit disk with
+\[
+\text{covering squared radius}\ \le\
+\tfrac{1332799939235381342323027277241}{10^{33}}
+=0.013327999392353813\ldots=U_\star^2 ,
+\]
+by checking $128\,436$ interior triples, $9\,900$ boundary pairs, $100$ antipodal pairs and $1$
+exceptional case ($138\,437$ objects in total, exact integer arithmetic). The certificate records a
+\emph{reference} bound $115446954885583/10^{15}=0.115446954885583$ and this project's local bound
+$1154469548855829/10^{16}$; the difference is exactly $1/10^{16}$. So the accepted upper endpoint is
+a strict improvement of $10^{-16}$ over the reference value, not a restatement of it.
+
+\section{From $0.11323$ to $0.1132301$: the transplant and the first advance}
+
+Stage 139 switched the programme from interface consolidation back to radius advancement. It
+replayed the absorbed six-branch skeleton inside an isolated working copy (exit $0$, $626$ files
+bound, source and copy hashes unchanged after the run), and produced a six-endpoint rational radius
+scan ($0.11323$, $0.113231$, $0.113235$, $0.11324$, $0.11325$, $0.1133$) recording, for each
+endpoint, the counting bridge, the $B31$ fixed-fee rows and the tail's conditional total budget.
+Two facts emerged:
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item At $R=0.11324$ the $99$-disk exclusion still holds, the necessary boundary counts for $100$
+disks are still $31..39$, and the $B31$ final row, ear/bad-face signs, degree budget and fan
+necessary restrictions all pass. At $R=0.11325$ the $B31$ fan premise no longer closes, so the whole
+branch fails there even though its final area margin is still positive.
+\item With the old tail constants the total budget allows radii only up to a threshold in
+\[
+\Bigl[\frac{11323679462887}{10^{14}},\ \frac{113236794628871}{10^{15}}\Bigr),
+\]
+and at $R=0.11324$ the old tail budget is about $-0.000160907$. Holding $\mu$ and $\lambda$ fixed,
+the intercept would have to drop below about $0.007505530351154887$.
+\end{itemize}
+
+The $B31$ arithmetic was then replayed explicitly at $R=11324/100000$
+(\texttt{n100-\allowbreak{}B31-\allowbreak{}at-\allowbreak{}11324.json}, exit $0$, $40$ face supports and $32$ vertex supports, minimum
+area margin $3205113070935301276991/10^{24}\approx0.003205113$), with the fixed dimensionless
+fees/potentials/support coefficients left unchanged and only the radius (and the radius metadata in
+the proposal) adapted. The certificate lists the geometric transfer obligations separately from the
+arithmetic replay, which is the honest way to record that ``the arithmetic still closes'' is not the
+same as ``the geometry still applies''.
+
+Stage 143 then advanced the radius to $1132301/10^{7}$ and re-closed all six branches with the
+original coefficients untouched. The exact same-radius margins were
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+Branch & minimum area margin at $R=1132301/10^{7}$ \\
+\midrule
+$B31$ & $3791306959813284956819/10^{24}$ \\
+$B32$ & $40052428178643350631/125000000000000000000000$ \\
+$B33$ & $141216899554184842489/10^{24}$ \\
+$B34$ & $57252253086154121097/250000000000000000000000$ \\
+$B35$ & $37566017111533099749/500000000000000000000000$ \\
+$B\ge36$ & $33605092614133890926309778967931605940457120574226219/10^{56}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+with the tail visiting $3\,397\,109$ boxes and accepting $1\,694\,095$, and with the per-additional-$B$
+margin strictly positive. The new normalized centre-norm-squared upper bound was
+$98717894445399/10^{14}$; the counting bridge at the same radius excluded all $m\le99$ and left only
+$B31$--$39$ for $m=100$. The improvement is exactly $1/10^{7}$, and the stage is explicit that it
+used neither the stage-141 $M24$ reinforcement nor any change to the hinge slope, fee coefficients
+or support rows.
+
+\section{Closing the branches at $0.11324$, one by one}
+
+Between stages 144 and 211 the six branches were re-closed at the harder target
+$R=2831/25000=0.11324$, one at a time, with the failures kept on the record.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.46\textwidth}@{}}
+\toprule
+Stage(s) & Branch & Outcome \\
+\midrule
+144--149 & $B32$ & complete: $M\le25$ ($81=73+8$ profiles) and $M\ge26$; two genuine failures
+found and repaired (a mixed-up $K$ in a discovery field, withdrawn by erratum; and a marked-low
+exclusion that had to be replaced by a new classification rather than accepted) \\
+150--168 & $B33$ & complete: low $M$, the coherent deep-$5$ star, and $108$ labelled ring models;
+the first uniform ring potential failed with a predicted margin of about $-0.00067010$ and was not
+accepted \\
+169--185 & $B34$ & complete: low $M$ (isolated five-star) and high $M$ ($23$ chordless $+$ $47$
+one-chord models); two negative endpoints had to be exposed by diagnosis before they could be fixed \\
+186--211 & $B35$ & complete: low $M$, $M25$ ($8$ ring models), $M26$ ($3$ chordless $+$ $5$
+one-chord), $M\ge27$ \\
+209--211 & $B\ge37$ & complete at $R=2831/25000$ with intercept $19/2500$: $93\,257$ visited,
+$46\,038$ accepted, $591$ symmetry-skipped, $0$ pending \\
+206--229 & $B=36$ & \textbf{not closed}: exact obstruction, then a conservative candidate that
+does close at a smaller radius \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This is the point at which the accepted bound became $0.113235$ rather than $0.11324$: five of the
+six branches are available at the harder radius, but the tail is not, and a chain is only as strong
+as its weakest branch.
+
+\section{The $B=36$ obstruction, and why the obvious repairs fail}
+
+\subsection{The exact obstruction}
+
+At $R=2831/25000$ with the frozen constants ($\lambda=3/50$, $\mu=92531/10^{7}$, marked constant
+$K=973/3125$, old intercept $L=1501/200000$) the rational point
+\[
+x=y=\frac{9921033}{12500000}
+\]
+has a pair relaxation whose interval is
+$[3754996055077/5\cdot10^{14},\,3754996055079/5\cdot10^{14}]$. Its lower endpoint exceeds the old
+intercept by $2496055077/5\cdot10^{14}\approx4.99211\times10^{-6}$ and exceeds the $B=36$
+area-allowed maximum intercept by
+$16062333091071696817530221032068394059542879425773781/(36\cdot10^{55})$. The obstruction certificate
+therefore returns \texttt{PASS\_\allowbreak{}OBSTRUCTION\_\allowbreak{}TO\_\allowbreak{}OLD\_\allowbreak{}RELAXATION} with
+\texttt{full\_\allowbreak{}B36plus\_\allowbreak{}closed = false} and \texttt{global\_\allowbreak{}bound\_\allowbreak{}improved = false}, and its scope
+string states that this is not a covering configuration and not a counterexample to the target
+lower bound.
+
+\subsection{Four repairs that do not work}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{More boxes.} The obstruction is a point-wise inequality at an exact rational point; the
+pair value there is what it is, so subdivision cannot lower it. A later exact diagnostic confirmed
+that both support terms vanish at the obstruction point
+(\texttt{n100-\allowbreak{}tail-\allowbreak{}point-\allowbreak{}branch-\allowbreak{}212.json},
+\texttt{n100-\allowbreak{}tail-\allowbreak{}direct-\allowbreak{}components-\allowbreak{}216.json}), so refining the support boxes is mathematically
+insufficient.
+\item \textbf{A higher intercept.} Raising $L$ makes the $B=36$ budget negative, because the budget
+already fails at the old intercept.
+\item \textbf{Reusing the $B\ge37$ intercept.} The $B\ge37$ certificate closes with $L=19/2500$; using
+it at $B=36$ makes that budget negative.
+\item \textbf{Synchronized retuning of slope and penalty.} A broader discovery search over the
+direct pair/angle family produced the optimum
+\[
+\lambda=0.05944697773645484,\quad \mu=0.010360567875057177,\quad
+K\approx0.31268174443157726,
+\]
+with a local peak of about $0.00739518789840696$ against a $B=36$ allowed intercept of about
+$0.007391936425058569$: a per-cell deficit of about $-3.25147334839\times10^{-6}$ and a total $B=36$
+deficit of about $-1.17053040542\times10^{-4}$. This agrees with an independent search in the same
+family. So within the frozen direct pair/angle relaxation, simple synchronized retuning cannot close
+$B=36$.
+\end{enumerate}
+
+\subsection{What was actually tried and stopped}
+
+Two rational candidates were started and did not finish:
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item $R=113237/10^{6}$ with $L=75097/10^{7}$: the scalar budget is positive
+(margin $4.906445222464608\times10^{-7}$, gain $5.1549192230158705\times10^{-3}$), and a
+$101$-point rational scan between $1132301/10^{7}$ and $2831/25000$ showed that the known
+obstruction point stays within budget up to the exact sample
+$R=11323703/100000000=0.11323703$ and strictly exceeds it from the exact sample
+$R=113237129/1000000000$ onwards ($30$ of the $101$ samples are obstructed by that one point). The
+scan's own scope string says it is diagnostic only: a sample not obstructed by this point is not a
+global $B36$ certificate. The full pair-domain replay near the budget edge subdivided for too long
+and was stopped.
+\item $R=113236/10^{6}$ with $L=0.007511$ and, more conservatively, $L=0.00751$: both stopped for the
+same reason.
+\end{itemize}
+
+Neither is reported as a failure and neither is a certificate. The conservative candidate
+$R=22647/200000=0.113235$ with $L=7512/1000000=939/125000$ has a much wider budget margin and did
+complete: $1\,841\,089$ boxes visited, $917\,297$ accepted, the three $q$-supports passing with
+$3761/104/35$ boxes, and both the $B=36$ margin and the per-$B$ gain strictly positive. That is the
+candidate which was accepted, and it is the reason the frontier sits at $0.113235$.
+
+\begin{remark}[The undecided window, stated precisely]
+The verifiable undecided window is $(0.113235,\,0.11324]$. Inside it, the fixed-old-parameter
+single-point scan indicates that from $113237129/1000000000$ onwards that particular obstruction
+point alone blocks the old relaxation --- but this is a statement about one relaxation at one point,
+\emph{not} a mathematical upper bound on all new routes.
+\end{remark}
+
+\section{Three hard boundaries that the route catalogue respects}
+
+The systematic catalogue of Parts VI makes three boundaries explicit, and they are worth stating
+before the catalogue itself:
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item The recursive inner-disk counts ($\ge56$, then $\ge58$ inner disks, hence $k\le44$ and then
+$k\le42$ boundary-serving disks) are consequences of a counting argument, \emph{not} new global
+radius bounds. Throughout all of those stages the global interval was unchanged.
+\item The progression $0.11516023\to0.11521651$ is a threshold advance \emph{inside} the conditional
+branch $k\ge55$. The complementary branch $k\le54$ was never excluded along that line, and one stage
+even produced an explicit integer feasible point of the aggregate relaxation
+($34$ near-end $+$ $20$ tail-end $+$ $46$ non-serving $=100$ disks with $54$ serving), which
+forbids any logical consequence of that relaxation from being empty.
+\item Every \texttt{PASS} in the interface/contract stages means contract registration, replay
+consistency or a timing sample --- never a geometric closure. All $174$ legacy sources are
+\texttt{PRECONDITION\_\allowbreak{}MISSING}, and the dependency gate is \texttt{UNDECIDED}.
+\end{enumerate}
+
+\section{What a genuine advance would require}
+
+The frontier is not blocked by compute; it is blocked by the strength of one inequality. The
+certificates and diagnostics point to the same conclusion:
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{A new geometric inequality for $B=36$}: a common-endpoint lens constraint, or a
+genuinely coupled multi-edge averaging inequality, replacing the direct pair/angle relaxation. A
+rewrite that merely re-expresses a term already present in the pair expression adds no information
+--- this was tested explicitly (replacing a coarse $4\lambda R^2$ distance cap by the exact centre
+distance gives nothing new, because that term is already in the original expression).
+\item \textbf{A resumable pair-box queue}: persist the pending boxes per round, bind parameters by
+hash, cache inverse-trigonometric and local-support intervals, and shard the domain into diagonal and
+off-diagonal regions with multiple processes. The stopped runs at $0.113236$ and $0.113237$ failed on
+wall-clock, not on mathematics; without a queue, each new candidate restarts from the root.
+\item \textbf{A sharper universal bound}, if the engine is to be bypassed: the configuration-free
+best is $0.11148$, which is $1.55\%$ below the accepted engine bound, so this is not a near-term
+substitute.
+\item \textbf{The exact-value route}: a complete enumeration of the internal map family, a treatment
+of $m<100$, degenerate configurations, and a closure of both bounds onto the same algebraic number,
+followed by irreducibility and root isolation. The square-relaxation / real-quantifier-elimination
+theory absorbed from the third-party material is the only known terminating route to an exact value,
+but it has no working $n=100$ backend: the zero set of the compiled polynomial system is singular
+everywhere, so a regular Krawczyk box cannot replace a full QE backend, and the variable budget
+($605$ geometric $+$ $1318$ relaxation $=1923$, with $1922$ eliminated) is a budget, not a runtime.
+\end{itemize}

@@ -1,0 +1,139 @@
+\part*{Part VIII. Open obligations, stated without softening}
+\addcontentsline{toc}{part}{Part VIII. Open obligations, stated without softening}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{What is established, precisely}
+
+For the avoidance of doubt, the strongest statements this dossier can support are:
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{An upper bound.} There is an explicit $100$-centre rational configuration whose
+covering radius is at most $U_\star=1154469548855829/10^{16}=0.1154469548855829$, certified by
+$138\,437$ exact integer objects ($128\,436$ interior triples, $9\,900$ boundary pairs, $100$
+antipodal pairs, $1$ exceptional case), with the exact covering squared-radius bound
+$1332799939235381342323027277241/10^{33}=U_\star^2$, improving the reference value
+$115446954885583/10^{15}$ by exactly $1/10^{16}$.
+\item \textbf{A lower bound.} $B31$--$B35$ are excluded at $R=2831/25000$ by exact certificates;
+$B\ge37$ is excluded at $R=2831/25000$ with intercept $19/2500$; $B=36$ is excluded at
+$R_\star=22647/200000$ with intercept $939/125000$ over $1\,841\,089$ rational boxes. Radius
+monotonicity then gives $B31$--$B35$ and $B\ge37$ at $R_\star$ as well, so
+\[
+\rD(100)>22647/200000=0.113235 .
+\]
+\item \textbf{Configuration-free bounds.} $\rD(100)\ge2787/25000=0.11148$ (long chord), with
+$\ge1111720153/10^{10}$ (sharpened envelope) and $\ge554570693/5000000000$ (integer edge counting)
+also valid.
+\item \textbf{An exact obstruction.} With the frozen capped-pair constants, the $B=36$ relaxation at
+$R=2831/25000$ exceeds both the old intercept and the area-allowed maximum intercept at the rational
+point $x=y=9921033/12500000$. This is a statement about a relaxation, not about coverings.
+\end{enumerate}
+
+Everything else is either conditional, diagnostic, interface-level, or open.
+
+\section{The open obligations}
+
+{\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.58\textwidth}@{}}
+\toprule
+Obligation & Precise statement of what is missing \\
+\midrule
+\endfirsthead
+\toprule
+Obligation & Precise statement of what is missing \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Exact value of $\rD(100)$ & not obtained. The accepted interval has width about $0.0022$; no
+argument closes it. \texttt{global\_\allowbreak{}optimality\_\allowbreak{}proved = false} \\
+Minimal polynomial of $\rD(100)$ & not obtained: not the coefficients, not the degree, not the
+irreducibility, not a rational root-isolating interval. What exists is the minimal polynomial
+$67t^2-1$ of \emph{one configuration's} covering radius, which is a different object and is
+explicitly scoped as such \\
+Closure onto one algebraic number & the two endpoints are different numbers; nothing identifies the
+ideal envelope's zero with the optimal radius, and the envelope's zero is explicitly a statement
+about the method's limit, not about $\rD(100)$ \\
+Complete internal map enumeration & the only known necessary count domain is $87$ $(m,B)$ pairs with
+$m=96..100$ ($96:B32..35$; $97:B29..42$; $98:B28..46$; $99:B28..50$; $100:B28..54$), obtained under
+the accepted normalized-geometry reduction. It is not a complete topology enumeration, and the
+surviving families still contain infeasible graphs \\
+$m<100$ and other graphs & the counting bridge excludes $m\le99$ at the radii where it was replayed,
+but the general treatment of $m<100$, of other graph families, and of degeneracies is not closed \\
+Degeneracies & coincident centres and redundant disks are handled by normalization; the remaining
+degeneracy catalogue (tangential contacts, collinear centres, boundary multi-activity) is handled
+inside individual branches by explicit arguments, not by a single uniform machine-checked treatment \\
+The $B=36$ inequality & the direct pair/angle relaxation cannot close $0.11324$; a common-endpoint
+lens constraint or a genuinely coupled multi-edge averaging inequality has been identified as the
+missing ingredient but has no passing global certificate \\
+Resumable tail infrastructure & the $0.113236$ and $0.113237$ attempts stopped on wall-clock, not on
+mathematics; a resumable box queue with cached inverse-trigonometric and support intervals and
+diagonal/off-diagonal sharding is designed but not delivered \\
+An exact-value backend & the absorbed square-relaxation / real-quantifier-elimination theory is the
+only known terminating route to an exact value, but it has no $n=100$ backend; the compiled system's
+zero set is singular everywhere, so a regular Krawczyk box cannot replace a full QE backend, and the
+variable budget ($605$ geometric $+$ $1318$ relaxation, $1922$ eliminated) is a budget rather than a
+runtime \\
+Legacy source activation & all $174$ legacy conditional sources return
+\texttt{PRECONDITION\_\allowbreak{}MISSING}; the dependency gate is \texttt{UNDECIDED}. ``Every historical variant
+is directly callable and individually re-timed'' is \emph{not} achieved \\
+Output isolation debt & the timing, composition/scaling and shared-support entry points still lack a
+uniform repeatable-output wrapper; the integrated report lists this as owed work \\
+Geometric formalization & no Lean/Coq kernel verification exists. Every universal statement is
+analytic prose plus exact finite arithmetic; the analytic/geometric bridge is a human-reviewed
+dependency, recorded as \texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry = false} in every certificate \\
+Unpublished constants & at least one tail constant is imported from a package that is not part of the
+mirror; its value is re-expressed locally and reproduced numerically (Appendix~\ref{app:budget}), but
+the identification of that constant with an outward enclosure of $3\sqrt3/4$ is an inference \\
+Notation debt & the reports do not give a self-contained definition of the counting parameter $M$;
+it appears only through integer excess identities and surviving profiles. A reader must reconstruct
+it from the certificates, and this monograph flags that rather than inventing a definition \\
+\end{longtable}}
+
+
+\section{Claims that were withdrawn or corrected}
+
+A research record is only credible if it keeps its retractions. The following claims were made and
+then withdrawn or corrected, and the corrections are part of the record:
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{The $4\arcsin(r/2)$ arc bound.} Wrong; the correct maximum angular measure of
+$\partial D\cap B(c_i,r)$ is $2\arcsin r$, attained at $\|c_i\|=\sqrt{1-r^2}$. The wrong constant
+cannot imply $<\!\pi$ near $r=1$ and is unusable.
+\item \textbf{The boundary-annulus ``global no-gain'' acceptance.} Voided: a wrong inner-face filter
+made the pending set empty, and the independent script had duplicated the same error. Exit code $0$
+is not evidence that the coverage domain is right.
+\item \textbf{The stage-47 v2 exclusion of all $4776$ configurations.} Rejected.
+\item \textbf{The angular-energy inertia claim $+25/-6$.} Retracted: CAS on the real data gives one
+negative direction in the $32\times32$ angle coordinates (plus one zero = global rotation), and one
+negative after projection to the $31$-dimensional gap coordinates. No inertia claim is made any more.
+\item \textbf{``The radial-shell LP gives a certified covering-number bound near $92.56$.''}
+Corrected: the sampled solution is infeasible on a $4001$-point fine grid (coverage $0.99903<1$,
+dual $1.00317>1$); the only certified statement is the coarse bracket
+$[1/r^2,\ \pi/\mathrm{lens}(1,r)]=[80.911,\,165.734]$ at $r=L$. The stronger phrasing ``the route is
+closed / a certificate is impossible'' was also withdrawn.
+\item \textbf{``The configuration side still has $5$--$6\%$ of room.''} Withdrawn: the small-$n$
+optima are ring-type families while the best $n=100$ configuration is a lattice-type family, so they
+are not comparable; the lattice-family ratio $c(n)$ is $2.13$ ($n=40$), $1.92$ ($50$), $1.35$ ($70$),
+$1.14$ ($100$), $1.12$ ($140$), $0.82$ ($200$).
+\item \textbf{Stage-142 discovery numbers} (an ear approximation of $1.332634$ against a true
+$1.42016417919847$, and a $K$-objective erratum) must not be quoted as certificate values.
+\item \textbf{The stage-44 first version} ($4496$ contractions / $597$ incidences) is superseded by
+$2248/562$; \textbf{stage-45/46} used the wrong outer-dart owner; and a historical script hash
+mismatch in the dependency audit was \emph{diagnosed}, not silently repaired.
+\end{itemize}
+
+\section{The honest reading of the gap}
+
+Two numbers frame the situation. The configuration-free best lower bound is $0.11148$, which is
+$1.55\%$ below the engine's accepted bound $0.113235$; and the accepted interval is
+$[0.113235,\,0.1154469548855829]$, a relative width of about $1.92\%$. The engine is therefore much
+stronger than any single analytic inequality available, and the remaining work is not a matter of
+more precision or more boxes: it is one inequality for one branch, at one radius, plus --- for the
+exact value --- an enumeration and an elimination backend that do not yet exist at $n=100$.
+
+It is equally important to say what the current bound is \emph{not} sensitive to. Adding boxes,
+raising an intercept, reusing the $B\ge37$ intercept, or synchronously retuning the slope and penalty
+within the frozen family all fail for provable reasons (Part V). The bound is also not limited by
+compute: the $B=36$ candidate run takes $130$ s of reported time, and the largest single cost in the
+whole engine is the tail subdivision. What limits it is that the current local pair expression, at
+the obstruction point, is genuinely larger than what the $B=36$ area budget can pay.

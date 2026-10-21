@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+% Geometry and microtypography are aligned with the reference manuscript
+% (AImath/paper/completion/main.tex): 11pt body, Computer Modern, microtype, 1in margins.
+% The reference gains its wider measure from amsart's own layout; for `article` the
+% equivalent is a measure of ~547pt, which is what \textwidth below sets explicitly.
+% Keep every edge inside the 1in margin box so artifact_qc.py stays meaningful.
+\usepackage[letterpaper,left=72pt,right=72pt,textheight=648pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{enumitem,graphicx,array,longtable}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=blue!60!black,urlcolor=blue!60!black}
+% Line breaking. The earlier settings (\tolerance=3000, \emergencystretch=3em) left 75 loose
+% lines, 18 of them at the worst possible badness 10000, because \tolerance caps how hard TeX
+% will try and so \emergencystretch never gets to act. Raising the tolerance to 9999 lets TeX
+% accept a slightly loose line rather than a very loose one, and the stretch below absorbs the
+% remainder; \hbadness then suppresses reporting of lines that are merely a little loose.
+\tolerance=9999
+\emergencystretch=3em
+\hbadness=2500
+\hyphenpenalty=50
+% microtype's protrusion is what the reference manuscript relies on. Font expansion is
+% deliberately NOT enabled: tectonic compiles with XeTeX, where microtype rejects it.
+\microtypesetup{protrusion=true}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{construction}{Construction}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Bd}{\partial}
+\newcommand{\area}{\operatorname{area}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\rD}{r_{D}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\half}{\tfrac12}
+% Each part restarts section numbering, so hyperref destinations would otherwise collide.
+% A dedicated part anchor counter keeps every \label unique; the same counter prefixes the printed
+% section numbers, so a citation such as "Part IV, section 4.1" is unambiguous.
+\newcounter{partanchor}
+\renewcommand{\thesection}{\thepartanchor.\arabic{section}}
+\renewcommand{\theHsection}{p\thepartanchor.\arabic{section}}
+% The three-level section numbers ("1.4.5") plus a two-digit page number do not fit the
+% default \@pnumwidth, which made one TOC line overfull by 5.96pt. Widen the box and give
+% the leader a little slack; this changes only the TOC, not the body measure.
+\makeatletter
+\renewcommand{\@pnumwidth}{2.2em}
+\renewcommand{\@tocrmarg}{3.2em}
+\makeatother
+\title{\bf Covering the Unit Disk with 100 Equal Disks\\[2mm]
+\large A Systematic Account of All Routes, with the Current Upper and Lower Bounds}
+\author{Open computational research dossier\\\small \texttt{springoxn/disk-covering-100}}
+\date{October 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+We study $r_{D}(100)$, the least radius $r$ such that $100$ congruent closed disks of radius $r$
+cover the closed unit disk $D$. This monograph is a systematic, route-by-route account of the
+whole research programme: every construction that was tried, every relaxation that was closed,
+and every route that was falsified or left undecided. The currently accepted, machine-replayable
+statement is
+\[
+\boxed{\;0.113235\;<\;\rD(100)\;\le\;0.1154469548855829\;}
+\]
+The lower bound is a six-branch exclusion certificate at the rational radius
+$R=22647/200000$: $B31$--$B35$ are inherited by radius monotonicity from certificates at
+$R=2831/25000=0.11324$, while the tail branch $B\ge 36$ is replayed directly at $R$ over
+$1\,841\,089$ rational boxes. The upper bound is an explicitly replayed $100$-centre
+configuration. Neither statement identifies the exact optimum. The nearby target
+$0.11324$ remains open: with the frozen capped-pair constants the branch $B=36$ carries an
+exact rational obstruction point at which the local pair relaxation exceeds the intercept that
+the $B=36$ area budget can pay for. We explain why that obstruction cannot be removed by
+increasing a box budget or raising an intercept, and we record the undecided window
+$(0.113235,\,0.11324]$.
+
+Every quantitative claim below is tied to a machine-readable artifact in \texttt{verify/out/}.
+The document deliberately keeps its failures: a research record that only contains successes
+cannot tell the next reader which relaxations are too weak.
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/m0_preface}
+\input{sections/m1_problem}
+\input{sections/m2_upper}
+\input{sections/m3_universal}
+\input{sections/m4_sixbranch}
+\input{sections/m5_frontier}
+\input{sections/m6_catalogue}
+\input{sections/m7_reproduce}
+\input{sections/m8_open}
+\input{sections/m9_appendix}
+
+\end{document}

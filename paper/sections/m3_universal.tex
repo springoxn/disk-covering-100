@@ -1,0 +1,437 @@
+\part*{Part III. Universal analytic lower bounds (configuration-free routes)}
+\addcontentsline{toc}{part}{Part III. Universal analytic lower bounds (configuration-free routes)}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{Two kinds of lower bound}
+
+A lower bound on $\rD(100)$ can be obtained in two essentially different ways.
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{Universal (configuration-free) bounds.} A single analytic inequality, valid for every
+covering by $100$ disks of any radius $r$ in a range, contradicts coverage below some threshold
+$L$. No combinatorics of the specific configuration enters; the price is that such bounds are
+comparatively weak.
+\item \textbf{Candidate-radius contradiction.} Fix a rational $R$ and assume a covering at radius
+$R$ exists; then derive a finite, exhaustive combinatorial classification of all possible
+configurations and exclude each class by exact inequalities. This is the engine of Part IV, and it
+is what currently carries the bound $0.113235$.
+\end{enumerate}
+
+Part III is the first kind. It matters for three reasons: it gives a floor that needs no
+combinatorial catalogue, it calibrates how much of the gap each ingredient can possibly close, and
+it produced two instructive refutations (the perimeter-defect law, and simple global energies) that
+redirected the programme towards Part IV.
+
+\section{The area bound and its immediate sharpening}
+
+The crudest bound is exact and trivial:
+\[
+\pi=\area(D)\le\sum_{i=1}^{100}\area\bigl(B(c_i,r)\cap D\bigr)\le100\pi r^2
+\quad\Longrightarrow\quad r\ge\frac1{10}.
+\]
+The asymptotic density statement $\delta=2\pi/(3\sqrt3)=1.2091996\ldots$ replaces $1$ by
+$\delta$ in the limit $\eps\to0$, giving $\sqrt{\delta/100}=0.109964$ for a hypothetical
+large-$n$ configuration with negligible boundary. Both numbers are far below the truth, and the
+gap between them and the accepted upper bound $0.11544\ldots$ is the ``boundary correction'' that
+every serious route must earn.
+
+\section{Route: integer edge counting, the repaired Euler route}
+\label{sec:integer-edge}
+
+This is the most completely written analytic route in the programme. It proves the exact statement
+\[
+\rD(100)\ \ge\ L_1:=\frac{554570693}{5000000000}=0.1109141386 ,
+\]
+and its interest is that it repairs, rather than discards, the historical ``Euler + boundary cell''
+chain whose audit had downgraded it to \emph{unproved} with ten explicit obligations O1--O10.
+
+\subsection{Setup: Voronoi cells, arcs, and the inscribed polygon}
+
+Assume $100$ disks $B(c_i,r)$ with $r<1$ cover $D$ (if $r\ge1$ the conclusion is trivial), and
+apply the projection and deduplication normalizations of Part I so that $\|c_i\|\le1$ and the
+$c_i$ are distinct. Define the closed convex Voronoi cells
+\[
+V_i=\{x\in D:\|x-c_i\|\le\|x-c_j\|\ \ \forall j\}.
+\]
+Three facts are used constantly:
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item $\bigcup_iV_i=D$ and $\operatorname{int}V_i\cap\operatorname{int}V_j=\emptyset$ for $i\ne j$;
+\item $V_i\subseteq B(c_i,r)$: for $x\in V_i$, $\|x-c_i\|=\min_j\|x-c_j\|\le r$ by coverage;
+\item after projection and deduplication every $V_i$ has positive area, so there is no ``empty
+cell'' bookkeeping problem.
+\end{itemize}
+Let the \emph{arcs} $A_1,\dots,A_{B_{\mathrm{arc}}}$ be the maximal positive-measure connected
+segments of $\partial D$ on which the ownership (smallest index attaining the minimum distance) is
+a.e.\ constant; isolated zero-measure ties do not cut an arc. Let the \emph{boundary vertices} be
+the endpoints of the arcs, and let
+\[
+P:=\conv(\text{all boundary vertices})
+\]
+be the inscribed polygon.
+
+\begin{lemma}[Arc length bound; and an erratum]\label{lem:arc}
+For $r<1$ every arc has angular measure $\le2\arcsin r<\pi$. Consequently
+$B_{\mathrm{arc}}\ge\pi/\arcsin r$, and no arc wraps around the whole circle.
+\end{lemma}
+\begin{proof}
+If an arc had measure $\psi\ge\pi$ it would contain a sub-arc of measure $\pi$ whose two endpoints
+are antipodal, hence at distance $2$; both lie in $V_i\subseteq B(c_i,r)$, so $2r\ge2$, i.e.\
+$r\ge1$, contradiction. For $\psi<\pi$ the chord formula applies: with chord length
+$\ell\le2r$, $\psi=2\arcsin(\ell/2)\le2\arcsin r<\pi$. Summing over arcs gives
+$2\pi\le B_{\mathrm{arc}}\cdot2\arcsin r$.
+\end{proof}
+
+\begin{remark}[A corrected constant, kept on the record]
+An early draft used $4\arcsin(r/2)$ as the upper bound for the angular measure of
+$\partial D\cap B(c_i,r)$. That is wrong: it is only the value at $\|c_i\|=1$, which is
+\emph{smaller} than the true maximum. With $Q(\rho)=(1+\rho^2-r^2)/(2\rho)$, the measure is
+$2\arccos Q(\rho)$, and $Q$ is minimised at $\rho_\ast=\sqrt{1-r^2}$, giving the maximum
+$2\arccos\sqrt{1-r^2}=2\arcsin r$. The wrong constant cannot imply $<\pi$ for $r$ near $1$ and is
+therefore unusable; the erratum is retained in the source.
+\end{remark}
+
+\begin{lemma}[Lemma A: area of a convex polygon inside a disk, centre unrestricted]\label{lem:A}
+Let $K\subset\R^2$ be convex and compact with $K\subseteq B(c,r)$, where $c$ need not belong to
+$K$, and let $k$ be the number of extreme points of $K$. Then
+\[
+\area(K)\le r^2f(k),\qquad
+f(k)=\tfrac k2\sin\tfrac{2\pi}k\ \ (k\ge3),\qquad f(0)=f(1)=f(2):=0 .
+\]
+\end{lemma}
+\begin{proof}[Sketch of the five steps]
+Let $B(o,R)$ be the minimal enclosing circle of $K$, so $R\le r$. The contact set
+$S=K\cap\partial B(o,R)$ consists of vertices and is non-empty. A finite separation argument shows
+$o\in\conv(S)$: if not, translating $o$ slightly towards $\conv(S)$ strictly decreases the distance
+to every contact vertex and, by finiteness, to every other vertex as well, contradicting minimality.
+Hence $o\in K$. Since $o\in K$, the triangles $(o,v_j,v_{j+1})$ over the extreme points
+$v_1,\dots,v_m$ exactly partition $K$ (with the boundary and vertex positions of $o$ treated
+separately; the case ``$o$ is an extreme point'' is excluded because a non-negative combination
+$\sum_s\lambda_su_s=0$ inside a convex cone of opening $<\pi$ is impossible). Therefore
+$\area(K)\le\frac{R^2}2\sum_j\sin\alpha_j$ with $\alpha_j\in[0,\pi]$ and $\sum_j\alpha_j=2\pi$.
+Jensen's inequality for the concave sine gives $\sum_j\sin\alpha_j\le m\sin(2\pi/m)$, and
+$M\mapsto M\sin(2\pi/M)$ is increasing for $M\ge3$ because $x\mapsto\sin x/x$ is strictly
+decreasing on $(0,\pi)$. Finally $m\le k$ and $f$ is increasing on the integers $\ge3$, while
+$m\le2$ gives area $0$.
+\end{proof}
+
+\begin{remark}
+Lemma~\ref{lem:A} removes the historical hypothesis $c_i\in V_i\cap P$. The sector decomposition is
+taken from the minimal enclosing circle's centre $o$, and $o\in K$ is \emph{proved}, not assumed.
+The bound is optimal: equality holds for a regular $k$-gon inscribed in the circle of radius $r$.
+\end{remark}
+
+\begin{lemma}[Lemma B: the caps belong to their own cell; $Q_i=V_i\cap P$ exactly]\label{lem:B}
+For each arc $A$ let $C(A)=\conv(A)$ be the circular segment cut off by its chord, and let
+$H_A^{\mathrm{in}}$ be the closed half-plane bounded by the chord that contains the origin.
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item If the arc $A$ belongs to cell $V_i$ (i.e.\ $A\subseteq V_i$), then $C(A)\subseteq V_i$.
+\item For $i\ne j$ and an arc $A$ of cell $j$, $V_i\subseteq H_A^{\mathrm{in}}$.
+\item Consequently, with $Q_i:=V_i\cap P$,
+\[
+Q_i=V_i\cap\bigcap_{A\ \text{of cell}\ i}H_A^{\mathrm{in}}
+\quad\text{(exact identity)},
+\]
+\[
+\bigcup_iQ_i=P,\quad \operatorname{int}Q_i\ \text{pairwise disjoint},\quad Q_i\subseteq B(c_i,r).
+\]
+\item $\#\text{sides}(Q_i)\le m_i+a_i=:e_i$, where $m_i$ is the number of maximal straight edges
+of $V_i$ and $a_i$ the number of arcs owned by cell $i$; and $\sum_ia_i=B_{\mathrm{arc}}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}[Sketch]
+(1) $C(A)=\conv(A)$ by a two-line convexity argument, and $V_i$ is convex. (2) If
+$x\in V_i\cap\operatorname{int}C(A)$ then, since $\operatorname{int}C(A)\subseteq
+\operatorname{int}V_j$ and interiors of distinct cells are disjoint, we get a contradiction; the
+boundary case follows by a limiting argument along a segment from an interior point of $V_i$.
+(3) Intersecting all half-planes and deleting the redundant ones by (2). (4) Each owned chord
+half-plane adds at most one straight side and cannot split an existing straight side; degenerate
+$Q_i$ (point or segment) has area $0$.
+\end{proof}
+
+\begin{remark}[The risk point, answered]
+The natural worry is that $V_i\cap P$ might acquire edges coming from \emph{other} cells' chords.
+Lemma~\ref{lem:B}(2) shows it cannot: every cap is contained in the convex hull of its own cell, so
+$V_i\cap P$ differs from $V_i$ exactly by its own caps. This holds for any number of arcs, any
+degeneracies and any $r$.
+\end{remark}
+
+\begin{lemma}[Lemma C: lower bound for the area of $P$]\label{lem:C}
+If $g_1,\dots,g_B\ge0$, $\sum_kg_k=2\pi$ and $g_k\le\gamma\in(0,\pi]$, then
+\[
+A:=\tfrac12\sum_k\sin g_k\ \ge\ \pi\frac{\sin\gamma}{\gamma}\ \ge\ \pi\Bigl(1-\frac{\gamma^2}6\Bigr)
+\qquad(\gamma<1).
+\]
+\end{lemma}
+\begin{proof}
+$\sin g_k=g_k\,s(g_k)\ge g_k\,s(\gamma)$ because $s(t)=\sin t/t$ decreases on $(0,\pi]$; sum. The
+second inequality is the alternating-series bound for $\sin\gamma/\gamma$.
+\end{proof}
+
+\begin{lemma}[Lemma D: planar-graph edge accounting, no general position]\label{lem:D}
+Build the boundary Voronoi complex: vertices are the interior Voronoi vertices (where $\ge3$ cells
+meet in a positive wedge) together with the $B_{\mathrm{arc}}$ boundary vertices; edges are the
+bisector segments, \emph{cut at every graph vertex}, together with the $B_{\mathrm{arc}}$ arc edges;
+faces are the $N$ cells plus the outer face. Then every vertex has degree $\ge3$, and
+\[
+\sum_{i=1}^{N}e_i\ \le\ 6N-6-B_{\mathrm{arc}} .
+\]
+\end{lemma}
+\begin{proof}[Sketch]
+Degrees: at an interior vertex the cells meeting there fill a full $2\pi$ of wedges separated by
+positive-length bisector rays, so at least three; at a boundary vertex the arc ends from the two
+sides plus at least one bisector ray entering $\operatorname{int}D$ give degree $\ge3$ (the
+bisector meets $\partial D$ transversally because the sign of
+$\varphi(\theta)=\|u(\theta)-c_k\|^2-\|u(\theta)-c_i\|^2$ changes there, so $\varphi'\ne0$).
+Euler without assuming connectivity, with $K\ge1$ components, reads
+$E_s=V_{\mathrm{int}}+N-K\le V_{\mathrm{int}}+N-1$. Double counting gives
+$\sum_im_i\le2E_s$, and $\sum_ia_i=B_{\mathrm{arc}}$. Hence
+$2E_s\ge3V_{\mathrm{int}}+B_{\mathrm{arc}}$ yields $V_{\mathrm{int}}\le2N-2K-B_{\mathrm{arc}}$,
+$2E_s\le6N-6K-2B_{\mathrm{arc}}\le6N-6-2B_{\mathrm{arc}}$, and finally
+$\sum_ie_i\le6N-6-B_{\mathrm{arc}}$.
+\end{proof}
+
+\begin{remark}[Exact counterexamples showing the hypotheses cannot be dropped]
+(i) $n=1$, $c_1=0$, $r=1$: the single arc wraps the circle, the two endpoints coincide, the
+identity $\#\text{boundary vertices}=B_{\mathrm{arc}}$ fails, and $\sum m_i=0$ violates
+$6N-6-2B_{\mathrm{arc}}=-2<0$. This degeneration is impossible for $r<1$ by Lemma~\ref{lem:arc}.
+(ii) The three-centre configuration $c_1=0$, $c_2=(a,0)$, $c_3=(-a,0)$ with $0<a<2$ has
+$V_1=D\cap\{|x_1|\le a/2\}$ owning \emph{two} arcs, $V_2,V_3$ being cap-only cells with $e=2$, so
+$B_{\mathrm{arc}}=4$ while the number of boundary-touching cells is $3$; and
+$\sum_ie_i=8=6N-6-B_{\mathrm{arc}}$ is tight. Reading $B$ as the number of boundary cells loses one
+unit of strength; assuming ``one arc per boundary cell'' would record $e_1$ as $3$ instead of $4$
+and is simply false.
+\end{remark}
+
+\subsection{The seven-step aggregation}
+
+Assume a covering at radius $r\le L_1$ exists, with $r<1$.
+
+\begin{enumerate}[leftmargin=1.8em,itemsep=3pt]
+\item[(1)] \emph{Boundary structure.} By Lemma~\ref{lem:arc}, $B_{\mathrm{arc}}\ge\pi/\arcsin r$;
+since $\pi/\arcsin L_1=28.2663>28$ and $B_{\mathrm{arc}}$ is an integer, $B_{\mathrm{arc}}\ge29$.
+Also $B_{\mathrm{arc}}\ge3$, so $P$ is a genuine polygon.
+\item[(2)] \emph{Partition and area identity.} By Lemma~\ref{lem:B},
+$\area(P)=\sum_i\area(Q_i)$ with $N\le100$, each $Q_i\subseteq B(c_i,r)$ convex and
+$\#\text{sides}(Q_i)\le e_i$.
+\item[(3)] \emph{Per-cell area bound.} By Lemma~\ref{lem:A} and monotonicity of $f$ on integers
+$\ge3$, $\area(Q_i)\le r^2f(e_i)$; cells with $k_i\le2$ contribute $0=r^2f(e_i)$.
+Hence $\area(P)\le r^2\sum_if(e_i)$.
+\item[(4)] \emph{Edge accounting.} Lemma~\ref{lem:D} gives
+$\sum_ie_i\le6N-6-B_{\mathrm{arc}}\le600-6-29=565$.
+\item[(5)] \emph{Affine secant accounting.} Put
+\[
+a:=f(6)-f(5)=0.2204349206\ldots>0,\qquad
+b:=6f(5)-5f(6)=1.2754666876\ldots>0,
+\]
+and let $\varphi(e)=ae+b$ be the secant through $(5,f(5))$ and $(6,f(6))$. For integers $e\ge3$
+one has $f(e)\le\varphi(e)$: for $e\ge6$ this follows from concavity of $f$ on $[3,\infty)$
+($f''(M)=-2\pi^2\sin(2\pi/M)/M^3<0$), and $e=3,4$ are checked exactly,
+\[
+\varphi(3)-f(3)=\tfrac{15}4\bigl(2\sin72^\circ-\sqrt3\bigr)>0,\qquad
+\varphi(4)-f(4)=5\sin72^\circ-\tfrac32\sqrt3-2=0.1568\ldots>0 .
+\]
+Cells with $e\le2$ are deleted (they contribute $0$). Hence
+\[
+\sum_if(e_i)\le a\sum_ie_i+bN\le565a+100b=65f(6)+35f(5),
+\]
+the last step being the algebraic identity
+$565(f_6-f_5)+100(6f_5-5f_6)=65f_6+35f_5$. Numerically $565a+100b=252.0923989138\ldots$
+This device replaces ``integer concavity plus $92$ separate sign checks'' by two finite
+inequalities and, crucially, is \emph{strict}: the continuous relaxation would give
+$100f(5.65)=253.2941376702\ldots$, so the discrete bookkeeping buys $1.2017387564$ ($\approx0.48\%$).
+\item[(6)] \emph{Area lower bound.} By Lemmas~\ref{lem:C} and~\ref{lem:arc} with
+$\gamma=2\arcsin r$, $\area(P)\ge\pi(1-\gamma^2/6)$.
+\item[(7)] \emph{Closing.} Combining (3)--(5) with (6),
+\[
+\pi\bigl(1-\tfrac16(2\arcsin r)^2\bigr)\ \le\ r^2\bigl(65f(6)+35f(5)\bigr)
+\qquad\text{for all }r\le L_1 .
+\]
+The left side decreases and the right side increases in $r$, so it suffices to refute the inequality
+at $r=L_1$. Exactly,
+\[
+65f(6)+35f(5)=\frac{195\sqrt3}{2}+\frac{175}{8}\sqrt{10+2\sqrt5},
+\]
+\[
+\pi\bigl(1-\tfrac16(2\arcsin L_1)^2\bigr)=3.1157211653\ldots
+\ >\ L_1^2\cdot252.0923989138\ldots=3.1012271140\ldots,
+\]
+a margin of $0.0144940513$ ($0.467\%$ in relative terms). The final step is a finite
+algebraic/rational inequality, closed by the arithmetic agent with $15$ exact checks using rational
+enclosures of $\pi$ and $\arcsin L_1$. Therefore no covering at radius $\le L_1$ exists:
+\[
+\rD(100)\ \ge\ L_1=\frac{554570693}{5000000000}=0.1109141386 .
+\]
+\end{enumerate}
+
+\begin{remark}[What the repair consisted of]
+The historical chain used the exact extremum of $\area(P)_{\min}(r,B)$ and a continuous fixed point
+whose root lies $7.6\times10^{-12}$ below $L_1$. The repaired route deliberately uses the
+\emph{coarser} lower bound $\pi(1-\gamma^2/6)$, giving up about $0.46\%$ of accuracy, and in exchange
+eliminates every question about the value of $B$ and the distribution of $P$'s vertices --- which is
+what makes the final inequality strict and finite. The $0.467\%$ net margin comes entirely from the
+strict discrete secant bookkeeping of step (5).
+\end{remark}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
+\toprule
+Historical obligation & Status after the repair \\
+\midrule
+O1 degenerate degree-$\ge4$ vertices & absorbed: only degree $\ge3$ plus the inequality
+$\sum_im_i\le2E_s$ is needed \\
+O2 degenerate boundary vertex changes $b$ & $B$ is defined as the arc count; each arc
+$<\!\pi$ for $r<1$ \\
+O3 well-definedness of $b$, multi-arc cells & solved: $e_i=m_i+a_i$, with an exact counterexample \\
+O4 sector decomposition needs $c_i\in V_i\cap P$ & removed: Lemma~\ref{lem:A} uses the minimal
+enclosing circle centre \\
+O4$'$ cap term bound & removed: caps are owned by their cell (Lemma~\ref{lem:B}) \\
+O5 centres outside $D$ & projection normalization; $c_i\in P$ no longer needed \\
+O6 coincident centres & deduplication; every cell has positive area \\
+O7 collinear triples / parallel bisectors & solved: only Euler, degree $\ge3$, and the
+$\le$ direction \\
+O8 redundant disks / empty cells & no empty cells after projection and deduplication \\
+O9 boundary degeneracies (tangency, single-point arcs) & zero-measure contacts create no arc; a
+full-circle arc is excluded \\
+O10 fixed point / monotonicity upgrade & removed: replaced by one finite inequality at $r=L_1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{What remains open in this route}
+
+The geometric part depends on one finite inequality whose exact arithmetic is delegated; and the
+step ``cells meeting at a boundary vertex fill a half-neighbourhood'' is a geometric argument
+without a machine certificate. The route does not assume general position, so no perturbation or
+limit argument is needed; if one is used anyway, the correct form is to take
+$\eps<(L-r)/2$ and enlarge the radius to $r+\eps<L$ \emph{with} $r+\eps\le L$ re-established by the
+choice of $\eps$ --- the mistake to avoid is to perturb past $L$ and keep using $r+\eps\le L$.
+
+\section{Route: the sharpened envelope}
+
+The same skeleton --- projection, convex Voronoi cells, multi-arc Euler accounting, integer edge
+counting --- was then pushed with re-certified parameters
+\[
+\arcsin L<T,\qquad 28T<\pi,
+\]
+which force $B\ge29$ and $\sum_ie_i\le565$, while the area upper-bound coefficient keeps its exact
+form $G=65f_6+35f_5$ and the area lower bound keeps the sharper
+$\pi\sin(2\arcsin r)/(2\arcsin r)$ (instead of the truncated series). An alternating rational
+polynomial lower bound then excludes every $0<r\le L$ at once. The result is
+\[
+\rD(100)\ \ge\ L_2:=\frac{1111720153}{10^{10}}=0.1111720153 ,
+\]
+an improvement of exactly $2578767/10^{10}=0.0002578767$ over the previous value, with a positive
+margin of about $2.5235222738557335\times10^{-9}$ stored as an exact fraction in the certificate.
+The main arithmetic performs $16$ exact checks; the independent arithmetic uses $\arctan$ and
+square-root envelopes, shares no series implementation with the main one, and passes $40$ checks
+plus $9$ negative controls. The ideal envelope of this route has a unique zero isolated in
+$(1111720153/10^{10},\,1111720154/10^{10})$ --- a statement about the \emph{method's limit}, not an
+interval for $\rD(100)$. Higher precision cannot close the gap to the upper bound along this route.
+Sources: \texttt{proofs/\allowbreak{}n100-\allowbreak{}sharp-\allowbreak{}envelope-\allowbreak{}lowerbound.md},
+\texttt{docs/\allowbreak{}review-\allowbreak{}sharp-\allowbreak{}envelope-\allowbreak{}n100.md},
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}algebraic-\allowbreak{}bounds-\allowbreak{}bundle.json}.
+
+\section{Route: long-chord quadratic loss}
+
+A different universal bound comes from a quadratic deficit associated with long chords of the
+boundary arcs. After three rounds of independent review the geometric draft was frozen at SHA-256
+{\footnotesize{\footnotesize\texttt{658863d2a36118be915fda66f10596f05073aadd51738da55bcf35f967d8cf73}}}, and the main and
+independent rational-arithmetic checkers replay through
+\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}longchord-\allowbreak{}bundle-\allowbreak{}frozen.json}: unified exit $0$, sub-exit codes $[0,0]$,
+\texttt{all\_\allowbreak{}passed = true}, \texttt{universal\_\allowbreak{}lower\_\allowbreak{}bound\_\allowbreak{}accepted = true}, all $566$ arc counts
+enumerated with positive margin, worst case $B=42$, and $6/6$ negative controls rejected. This
+yields
+\[
+\rD(100)\ \ge\ L_3:=\frac{2787}{25000}=0.11148 ,
+\]
+which dominates both $L_1$ and $L_2$ and is the strongest configuration-free bound currently
+accepted. The geometry is analytic proof plus review
+(\texttt{machine\_\allowbreak{}verified\_\allowbreak{}geometry = false}); it is not a formalized proof.
+
+\begin{remark}[Layering inside the frozen bundle, kept visible]
+The same bundle is more conservative in its own sub-blocks than at the top level, and the
+distinction matters. The top-level fields report \texttt{universal\_\allowbreak{}lower\_\allowbreak{}bound\_\allowbreak{}accepted = true}
+and the primary and independent arithmetic rows agree on a minimum margin of about
+$4.4799\times10^{-4}$ over $566$ rows. Inside the geometry sub-block, however,
+\texttt{all\_\allowbreak{}geometric\_\allowbreak{}premises\_\allowbreak{}closed = true} while
+\texttt{combined\_\allowbreak{}universal\_\allowbreak{}lower\_\allowbreak{}bound\_\allowbreak{}accepted = false}, and the arithmetic is marked
+\texttt{reported\_\allowbreak{}exit\_\allowbreak{}0\_\allowbreak{}by\_\allowbreak{}parent\_\allowbreak{}agent\_\allowbreak{}not\_\allowbreak{}recomputed\_\allowbreak{}and\_\allowbreak{}not\_\allowbreak{}accepted\_\allowbreak{}here}: for a numeric
+threshold claim the chain additionally needs the premises (P1) and (P2) certified by exact rational
+arithmetic \emph{and} an independent check, and that extra step lives in the separate arithmetic
+certificates rather than inside the frozen geometry block. Quoting the top-level acceptance without
+this qualifier would overstate what the geometry block itself certifies.
+\end{remark}
+
+\section{Refuted universal routes}
+
+\subsection{The perimeter-defect ($\lambda$) law is impossible}
+
+An early programme plan proposed to prove a law of the form
+\[
+n r^2\ \ge\ \delta\,(1+\lambda r),\qquad \delta=\frac{2\pi}{3\sqrt3}=1.2091996\ldots,
+\]
+and to tune $\lambda$ so that $n=100$ is pinned to within $0.4\%$. That plan is dead, and the
+reason is a two-line computation. If such a law holds for some $n$, then at that $n$'s proved
+optimal value $r_n$ it forces
+\[
+\lambda\ \le\ \frac{n\,r_n^2/\delta-1}{r_n},
+\]
+and the proved values give $0.697$ ($n=8$), $\mathbf{0.669}$ ($n=9$), $0.734$ ($n=10$), $0.752$
+($n=19$), $0.763$ ($n=25$). So a global law with $\lambda\approx0.87$ cannot hold --- $n=9$ alone
+refutes it --- and the largest admissible constant, $\lambda^\ast=0.6688$, gives at most
+$\rD(100)\ge0.114081$, i.e.\ $6.75\%$ below the best known configuration. Worse, the
+area--perimeter implementation that was supposed to supply the perimeter layer is never binding
+cell-by-cell ($0/25$ cases), and its aggregate upper bound is only $0.1540$. The original
+calibration table (display values) was $0.114655$ for $\lambda=0.76$, $0.115096$ for $\lambda=0.83$
+and $0.115286$ for $\lambda=0.86$ --- all of them unreachable, since the $n=9$ ceiling is
+$0.669$.
+
+The route was formally downgraded after a calibration on $n=25$, where the same method closes with
+effective universal bound $0.2235441655$ (that is $-6.52\%$ from the exact value, or $-5.75\%$ on
+the most favourable reading); on $n=100$ the same route is $-9.34\%$, and its perimeter-defect
+constant is $\lambda\approx0.15$ against a threshold of $\approx1.01$. The three lemmas used there
+were the boundary Euler accounting $\sum(6-m_i)=6+2b$, ``boundary cell = one extra side''
+$\max_\Theta g=f(m+1)$, and the arc-covering bound $b\ge\pi/\arcsin r$; the first of these is
+precisely what Lemma~\ref{lem:D} later replaced by the safer inequality
+$\sum_ie_i\le6N-6-B_{\mathrm{arc}}$. In other words, the modern universal bound of
+\S\ref{sec:integer-edge} is the repaired descendant of a route that was abandoned in its original
+form.
+
+\subsection{Witness calibration: correct but too weak}
+
+A finite-witness route was fully certified and then shelved. With $21$ rational witness points,
+$32$ maximal patterns, $53$ feasible non-empty subsets and $506$ enumeration events, total weight
+$21/2$, it excludes $n=8,9,10$ at $r=7/25$. The independent checker passes $74$ checks with $0$
+failures. But the bound is weaker than the known area bound for $n=8,9,10$ and does not improve the
+$n=100$ interval: on this grid the dual optimum at $r=7/25$ is exactly $12$, and for $r\ge3/10$
+eight disks already cover the witness set. The construction therefore cannot become a route past
+the area bound, and the analytic completeness of the finite reduction depends on a planar
+Helly / minimum-enclosing-circle support bound that is not formalized.
+
+\subsection{Simple global energies fail on the candidate graph}
+
+An angular/harmonic energy route was proposed to transfer the stress structure of an absorbed
+$n=19$ proof to $n=100$. Two certificates settle the matter. First, the true harmonic-extension
+stress energy has a quadratic form whose interval upper bound is strictly below $-1/100000$ at the
+candidate root in the candidate angular domain
+({\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}independent.json}}, exit $0$). Second, a rational rotation
+counterexample shows that inside the allowed angular domain the energy can \emph{decrease} by more
+than $10^{-12}$
+({\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}harmonic-\allowbreak{}energy-\allowbreak{}relaxation-\allowbreak{}counterexample.json}}, exit $0$). Hence the
+fixed-stress global convex-energy route is unavailable and must be replaced by per-rod force and
+constraint branching with quantitative isolation
+({\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}angular-\allowbreak{}energy-\allowbreak{}obstruction-\allowbreak{}audit.json}}). This is a statement about one
+candidate contact graph; it is not a covering counterexample and it does not contradict the local
+second-order condition.
+
+\subsection{Two more numerical routes that were not promoted}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item A per-cell equal-arc / edge-count-$5,6$ sampling family found $0.1118772$, but completeness of
+the adversary family was never proved, so it cannot serve as a universal bound.
+\item A radial-shell LP reported a value near $92.56$; a fine-grid recheck found the sampled
+solution infeasible, so it is not a certified bound on the covering number. The report was corrected
+under independent challenge. This does not prove that finite-witness routes are impossible --- only
+that the tested relaxations did not deliver.
+\end{itemize}

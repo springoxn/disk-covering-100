@@ -1,0 +1,422 @@
+\part*{第四部分：六分支引擎，固定半径下的矛盾}
+\addcontentsline{toc}{part}{第四部分：六分支引擎，固定半径下的矛盾}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{逻辑骨架}
+
+本部分的全部内容都具有如下形态。
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item 固定一个有理的\emph{候选半径} $R$，并反设 $100$ 个半径为 $R$ 的闭圆盘覆盖 $D$。
+\item \textbf{规范化（normalization）}该半径下的每个圆心（同半径规范化），并重建归属关系、有效使用的圆盘数与公共三角剖分。先前半径的任何东西都不得复用。
+\item \textbf{计数。}导出必要条件，排除所有至多使用 $m-1$ 个有效圆盘的构型；并对 $m=100$ 把边界弧（boundary arc）数 $B$ 限制为一张有限清单。
+\item \textbf{分裂为分支（branch）。}存活的 $(m,B)$ 对划分为六个互斥分支 $B31$、$B32$、$B33$、$B34$、$B35$、$B{\ge}36$。
+\item \textbf{闭合每个分支}：用一个面积/曲率预算，即一条与覆盖性相矛盾的精确有理不等式。
+\item \textbf{合并。}合并器检查：每个分支都在同一半径下闭合；预算只被花费一次；任何在\emph{更大}半径下闭合的分支都通过半径单调性（monotonicity inheritance）被继承。
+\end{enumerate}
+
+最后一点是一条定理，而非一项约定：
+
+\begin{lemma}[半径单调性]\label{lem:monotone}
+若不存在用 $100$ 个半径为 $R'$ 的圆盘作出的覆盖，则不存在用 $100$ 个半径为 $R<R'$ 的圆盘作出的覆盖。
+\end{lemma}
+\begin{proof}
+半径 $R$ 下的覆盖在把每个圆盘放大之后即为半径 $R'$ 下的覆盖，因为 $B(c,R)\subseteq B(c,R')$。
+\end{proof}
+
+因此，在 $R'=2831/25000$ 处建立的分支证书（certificate）对任意 $R\le R'$ 都可用，前提是合并器显式记录该继承（D 级证据）。在当前证书链中，尾部分支\emph{不}以这种方式继承：它在 $R_\star=22647/200000$ 处被直接重放。
+
+\section{固定半径下的规范化}
+
+\subsection{径向映射}
+
+对候选半径 $R$，定义径向映射
+\[
+d'=\frac{1-R^2}{d},
+\]
+其中 $d$ 是原点到某圆心的距离，并令 $u$ 为该圆心的单位向量。恒等式
+\begin{equation}\label{eq:radial-identity}
+\|z-d'u\|^2-R^2=\frac{d'}{d}\bigl(\|z-du\|^2-R^2\bigr)+\Bigl(1-\frac{d'}{d}\Bigr)\bigl(\|z\|^2-1\bigr)
+\end{equation}
+在证书中由 CAS 精确断言。由于 $d'/d\le1$，且对 $z\in D$ 有 $\|z\|^2-1\le0$，每个在半径 $R$ 下已被覆盖的点在该映射之后仍被覆盖。规范化在进入计数分支\emph{之前}施加于\emph{全部}圆心；归属关系、有效圆盘数与公共三角剖分都从头重建。这正是引擎无法通过修改一个常数就在新半径下复用的原因：图本身发生了变化。
+
+\subsection{公共计数桥（counting bridge）}
+
+在 $R=11323/100000$ 处，计数桥排除所有至多使用 $99$ 个有效圆盘的构型：$n=99$，$96$ 个情形，最紧的 $B=34$，其精确最小面积余量为
+\[
+\resizebox{\textwidth}{!}{$\displaystyle \frac{93591732347747920006153107439494216107661633777884476873367781737690463949606826459158012299304439}{17\cdot10^{100}}>0$}
+\]
+（存放在外部重放证书中）。对 $m=100$，存活的边界计数恰好是
+\[
+B\in\{31,32,33,34,35,36,37,38,39\}
+\]
+（\texttt{complete\_\allowbreak{}surviving\_\allowbreak{}boundary\_\allowbreak{}counts}）。六个分支划分这张清单，并且按 $B$ 的定义它们互斥。
+
+同一条计数桥在 $R=2831/25000$ 处被重新导出：全部 $m\le99$ 都被排除，而对 $m=100$ 只有 $B31$--$39$ 存活。规范化的圆心范数平方上界，即 $1-R^2$ 的一个向外有理包围，是
+\[
+1-R^2\ \le\ \frac{9871789671}{10^{10}}\quad(R=11323/100000),\qquad
+1-R^2\ =\ \frac{616985439}{625000000}\quad(R=2831/25000),
+\]
+而在被接受的半径 $R_\star=22647/200000$ 处有 $1-R_\star^2=0.987177834775\ldots$；被接受的证书对更小的半径 $1132301/10^7$ 使用有效的外向界 $98717894445399/10^{14}$。这些是同一个量在不同半径下的取值，每一个都与它自己的半径一起给出。
+
+\subsection{分支词汇}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}lp{0.66\textwidth}@{}}
+\toprule
+符号 & 含义 \\
+\midrule
+$B$ & 所服务的边界弧数（等价地，公共图的边界顶点数） \\
+$m$ & 有效使用的圆盘数 \\
+$k$ & 不同的边界服务圆盘数 \\
+$M$ & 规范化的公共三角剖分的内部面数 \\
+$e$、$b$ & 耳（ear）数，相应地坏面（bad face）数（「$e0$」「$b0$」表示为零） \\
+$q$ & 一个顶点的标记面（marked face）数；$q1$ 即「坏 $q1$」 \\
+$h$ & 严格深点（deep vertex）的总度超出量 \\
+$C$ & 核心（core）边界的弦数 \\
+$a$ & $C-f_3$，其中 $f_3$ 是空的核心边界三角形数 \\
+DDD, DDR, DRR, BRR, RRR & 按其三个顶点的度（深点/环点（ring vertex））划分的面类型 \\
+核心 $P/F$ & 诱导核心圆盘的边界顶点数 / 面数 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+每个分支中反复出现的机制是一个\emph{预算}：半径 $R$ 处可用的边界弧长必须为内部面积、边界「标记」三角形、耳与坏面亏空，以及一次铰链（hinge）预算或方差（variance）预算支付买单。全程强制两条结构规则：(i) 由两个面共享的一条物理边（physical edge）只被支付\emph{一次}，相反的半边项精确抵消；(ii) 一个标量亏空或一项局部增益不得在两行中重复花费。证书把这些记为显式字段（\texttt{physical\_\allowbreak{}edge\_\allowbreak{}pairs}、\texttt{hinge\_\allowbreak{}payment = 0}、\texttt{variance\_\allowbreak{}payment = 0}、budget-review 字符串）。
+
+\section{分支 B31}
+
+$B31$ 是最小的边界计数。它的证书是「全局全面曲率」行：$40$ 个面支撑与 $32$ 个顶点支撑、一个度窗口、就地收费、耳与坏面系数，以及两个 $M$-区间（$M\le23$ 与 $M\ge24$）。值得注意的结构字段：全部二十个面标签多重集都被允许，不假设任何深点标签（\texttt{deep\_\allowbreak{}label\_\allowbreak{}assumption = false}），不使用反射圆心假设，平方边罚与半侧乘子都为 $0$，并且允许任意的耳与坏面。该分支还带有一个 $n=99$ 排除，含 $96$ 个情形、最紧的 $B=34$，其余量等于计数桥的余量。
+
+转移到新半径的几何骨架在证书本身中被逐条写为义务：同半径的整覆盖规范化与图重建；无条件的全星形度损失不等式及其预算比较；整圆盘 $/6$ 与诱导核心 $/5$ 的等周（isoperimetry）；相同的全面标签配以带符号的边抵消与一次性预算（one-shot budget）使用；以及一个闭端点有限型连续性论证。
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.32\textwidth}@{}}
+\toprule
+半径 & 最小面积余量 & 来源 \\
+\midrule
+$11323/100000$ & $3797228001573004612011/10^{24}$ & 外部重放证书 \\
+$11324/100000$ & $3205113070935301276991/10^{24}$ & \texttt{n100-\allowbreak{}B31-\allowbreak{}at-\allowbreak{}11324.json} \\
+$1132301/10^{7}$ & $3791306959813284956819/10^{24}$ & 第 143 阶段余量表 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{分支 B32}
+
+$B32$ 分为 $M\le25$ 与 $M\ge26$。
+
+\subsection{低 $M$：$81=73+8$ 个整数剖面}
+
+增强的低 $M$ 归约排除 $M\le24$，把 $M25$ 约化为一个唯一的度数为 $5$ 的深点、至多两个高次点，以及四个循环星形模式。随后在全部 $81$ 个整数剖面上评估原始的 $M25$ 费用行：$73$ 行严格为正，$8$ 行为负。这 $8$ 个残差全为 $e0$ 型，带两个度数为 $7$ 的高点、$p\in\{0,2\}$ 以及中心星形类型 $2$ 或 $3$；最差的原始间隙约为 $0.00012804$，这就是为什么只看第一个失败（约 $0.00002125$）会产生误导。
+
+对这个固定的整数域，半侧乘子、面积比与周长罚被重新调为
+\[
+K=\frac{78619}{283293},\qquad \epsilon=\frac{499143}{911596},\qquad
+\tau=\frac{930249}{710647},
+\]
+其中 FAN 支付严格为 $0$，因为这些行没有 $p3$；并且规范化的边界包络与零斜率铰链在新的 $K$ 下被精确复核（没有任何支付从旧的 $K$ 结转）。精确收据为
+\[
+\min_{73\ \text{original rows}}=\frac{15600046212127187429}{200000000000000000000000}>0.00007800,
+\]
+\[
+\min_{8\ \text{new rows}}=\frac{1596099436623121073}{12500000000000000000000}>0.00012768 .
+\]
+一份独立的 \texttt{Fraction} 台账重新合成全部 $81$ 行，并重算 $9$ 个普通面类、$18$ 个外部面类与残余的中心面；所有严格下端点都为正。发现阶段的哨兵与 $K$ 目标错误已被更正，一个把 $K$ 弄混的 \texttt{baseline\_\allowbreak{}numeric\_\allowbreak{}area\_\allowbreak{}margin} 字段通过一份勘误（\texttt{n100-\allowbreak{}discovery-\allowbreak{}erratum-\allowbreak{}145.json}）被正式撤回；接受仅依据精确证书。
+
+\subsection{高 $M$：标记的度数为 $5$ 的点}
+
+高 $M$ 诊断（diagnostic）显示，原始的面/顶点支撑、双正曲率排除以及 $M$/耳/坏面平移检查全部通过，而仅标记低点排除仍有余量
+\[
+-\frac{490979625631490392613}{10^{24}} .
+\]
+应对方式是修改穷尽分类，而不是接受这条失败的断言。在保留全部原始平移不等式的前提下，Euler 恒等式与双曲率排除只留下两种可能：
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item $M26/e0/b0$，全部 $68$ 个内部点的度数为 $6$；
+\item $M26/e0/b0$，带一个唯一的度数为 $5$ 的点、一个唯一的度数为 $7$ 的点，以及 $66$ 个度数为 $6$ 的点；度数为 $5$ 的点的标记计数 $p$ 允许取 $0,1,2,3$。
+\end{enumerate}
+随后按唯一的度数为 $5$ 的点是否拥有一个原始边界邻居来分类：
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \emph{无原始边界邻居}：此时 $p=0$，原始直接星形支撑适用，$4$ 个高度标记计数乘以 $2$ 个高邻居星形类型给出 $8$ 行，最小余量为
+\[
+\frac{78693035940218423479}{500000000000000000000000}>0.00015738 .
+\]
+\item \emph{有原始边界邻居}：此时度数为 $5$ 的点不可能落在任何诱导核心面块的严格内部，因此平面分离与 $/6$ 等周论证仍然适用。核心仍为 $68$ 个顶点、$108$ 个面、一条 $26$ 条边的无弦边界与 $42$ 个深点。深点度超出量 $h$ 为 $0$ 或 $1$，四面度量以最小余量覆盖这两种情形
+\[
+\frac{225914348193616561751}{500000000000000000000000}>0.00045182 .
+\]
+\end{itemize}
+关键的角台账不依赖于 $p$：设 $\Gamma$ 为标记内部角总和，则环点出现次数为 $(72-h)+52=124-h$，环点圆心角总和为 $(32+h)\pi/3-\Gamma$，原始边界圆心角总和为 $\Gamma-2\pi-26\pi/3$；CAS 断言这两个恒等式以及合并的线性位势恒等式。面计数
+\[
+\mathrm{DDD}=62+h,\qquad \mathrm{DDR}=20-h,\qquad \mathrm{DRR}=\mathrm{BRR}=26
+\]
+也只依赖于 $h$。$26$ 对物理 DRR/BRR 半边相互抵消，因此不花费额外预算。
+
+\section{分支 B33}
+
+\subsection{真正的残差：一个唯一的度数为 $5$ 的点}
+
+对 $M\ge26$，若存在度数为 $5$ 的点，则它唯一、类型为 $M26/e0/b0$，且总高曲率为 $2$；因此高点要么是两个度数为 $7$ 的点，要么是一个度数为 $8$ 的点。分类同样依据度数为 $5$ 的点是否有一个原始边界邻居 —— 而报告谨慎地指出 $p=0$ \emph{不}蕴含不存在边界邻居，所以两种情形必须按邻居而非按 $p$ 来划分。
+
+\subsection{无原始边界邻居：一次相干星形替换（coherent star replacement）}
+
+保持有效的 $K=11/25$ 与铰链斜率 $3/100$ 以及全部面费用，唯一的度数为 $5$ 的深点的五个中心面被\emph{一次}替换为一个相干多边形支撑，其中
+\[
+\epsilon=\frac{26304223}{69960624},\qquad \tau=\frac{110526397}{84434654},
+\]
+以及一个重新优化的中心位势。在至多两个高点的情形下，邻居二元 $5$-循环只有 $4$ 种计数类型，已由机器检查；原始的 $20$ 个面支撑、$18$ 个外部支撑与 $8$ 个中心支撑被精确重算；没有任何面包含三个不同的高点。每一项循环规范化增益都严格大于 $9/100$，所以旧的负度数为 $5$ 的行加上 $R^2\cdot9/100$ 给出保守的正余量
+\[
+\frac{185371504379126342167}{250000000000000000000000}\approx0.000741486 .
+\]
+五个被选中的物理边抵消相反的半边支付；不花费第二个铰链。
+
+\subsection{有原始边界邻居：带标签的环度量}
+
+这里的核心是一个简单的无弦圆盘，$I67/P26/F106$，含 $41$ 个深点。由于 $P26>3$，每个环点至少有一个深邻居、至少有两个核心面；环点还恰好有两个外带 BRR 面与 $p$ 个标记面，因此其原始度数 $d$ 满足 $d-p-2\ge2$，即 $p\le d-4$。这是\emph{这个}核心拓扑的推论，对任意内部点不施加任何约束。因此唯一的环点度数为 $5$ 的点有 $p\in\{0,1\}$；环点度数 $7$ 只需 $p\le3$，环点度数 $8$ 只需 $p\le4$。
+
+在深点超出量 $h\in\{0,1,2\}$ 下，区域面计数由
+\[
+\mathrm{DDD}+\mathrm{DDR}+26=106,\qquad 3\,\mathrm{DDD}+2\,\mathrm{DDR}+26=246+h,
+\]
+给出 $\mathrm{DDD}=60+h$ 与 $\mathrm{DDR}=20-h$。$26$ 条核心环边与 $26$ 个外带 BRR 面逐条物理边配对。枚举 $0$、$1$ 或 $2$ 个高点在 $26$-循环上的位置，并聚合五种边类型 RR/RH/HH/RL/HL 连同环点度数 $7$/$8$ 与标记计数，恰好产生 $108$ 个计数模型。选定的有理参数为
+\[
+LR=-\frac{2217213}{59317159},\quad LH=-\frac{47596282}{80611277},\quad
+LL=\frac{20620389}{94559174},\quad LB=-\frac{5596292}{14123693},
+\]
+\[
+\tau=\frac{11510567}{31711524},\qquad K=\frac{17082939}{31059893},
+\]
+而 $14$ 个全单纯形支撑（DDD、三个 DDR 类、五个 DRR、五个 BRR）在每一项角退化界与定位护栏下被重算。全部 $108$ 行都为正，最小余量
+\[
+\frac{147611772341741487969}{200000000000000000000000}\approx0.0007380589 .
+\]
+该分支不花费铰链，也不花费方差。
+
+\subsection{不含度数为 $5$ 的点的组件}
+
+三个全新的子进程重放 $M26$ 七面度量、$M27$ 带弦度量与单耳度量。旧的「$b1/e0$ 不可能」与「$M26$ 中度数为 $7$ 的点不能是深点」两条断言，通过核心连通性/空侧耳生成以及一般的 $/6$ 内部前沿不等式
+\[
+26+19+\frac{19^2}{6}<106 .
+\]
+被重新审查。最终独立合成条目重新枚举 $M/e/b/$degree-$5$ 计数，用 CAS 求解 DDD/DDR 恒等式，把全部 $26$-循环签名匹配到 $108$ 个模型，用一份独立的 \texttt{Fraction} 台账从 $14$ 个带符号支撑重新合成 $108$ 个最终面积上界，然后接受。它拒绝在 \texttt{python -\allowbreak{}O} 下运行，其负对照以 $1$ 退出并给出\emph{Assertions must remain enabled}。整个分支报告的总最小正余量仍由低 $M$ 部分决定，约为 $0.00000294$。
+
+早先对统一环位势的一次尝试诚实地失败了：最优 $LR$ 趋于 $0$，前两次有理化都没有留下严格下界；记录的最小预测余量约为 $-0.00067010$，它\emph{未}被接受。只有区分低、高与普通环点的 $14$ 面结构才产生了精确的正证书。
+
+\section{分支 B34}
+
+\subsection{低 $M$：一个孤立的五角星}
+
+两个原始端点曾为负（$M24..25$ 与 $M\ge26$）；诊断阶段只放开 $M24$ 断言以暴露第二个失败，同时让全部 $48$ 个面类、$1455$ 个顶点类、平移不等式、规范化边界、$q4$ 支付与核心前提（precondition）实际通过。低 $M$ 闭合随后使用原始顶点缩减成本与负的 $M$/耳/坏面系数：$M22..23$ 为正；$M25$，或带至少一个耳或坏面的 $M24$，为正；选定一个保证存在的低度数深点后，任何额外的全局度数 $3/4/5$ 点的中性顶点余量覆盖负面积；而若所选深点本身的度数为 $3$ 或 $4$，它自己的顶点余量也覆盖之。剩下的情形是
+\[
+M24/e0/b0,\quad\text{exactly one global degree-}5\text{ point}
+\]
+\[
+\text{selected as the deep witness},\quad\text{all other interior degrees}\ge6 .
+\]
+两次剥离随后表明：$I66/M24$ 的诱导核心必是一个简单的 $P24/F106$ 圆盘（$/5$ 排除多个组件、桥与多个块）；度数为 $5$ 的点的邻居全是严格内部核心点；而若它与某个高点相邻，该高点就必须是唯一的度数为 $7$ 的深点，且核心必须是一个无弦简单 $P18/F64$ 圆盘 —— 这与不等式 $18+12+12^2/5<64$ 以及再剥离一次后的 $18+13+13^2/6<64$ 都矛盾。因此度数为 $5$ 的点的全部五个邻居的原始度数为 $6$，五个中心面的位势类型为 $(P,0,0)$。把这五个面\emph{一次}替换为完整的五角星帽
+\[
+\mathrm{cap}_5=\sqrt{\frac{25\,(25+11\sqrt5)}{32}}
+\]
+（其中心角和为正 $2\pi$，给出角位势项 $P\pi/3$）产生精确的规范化增益
+\[
+\frac{70784489700959821434439}{10^{24}}>0.07078448,
+\]
+以及最终面积余量
+\[
+\frac{448474306824206627004168866279}{625000000000000000000000000000000}>0.00071755 .
+\]
+用下界 $1732050807/10^9$ 约束 $\sqrt3$、用上界 $2236067978/10^9$ 约束 $\sqrt5$，并取 $\mathrm{cap}_5<6.23$，一次独立重算复现出正余量
+\[
+\frac{190482881108285619519923}{292968750000000000000000000}>0.00065018 .
+\]
+
+\subsection{高 $M$：三个拓扑槽}
+
+$M26$ 行的正中性低度数顶点余量排除任何度数 $3/4/5$；负的 $M$ 斜率与耳/坏面平移费用排除 $M\ge27$、至少一个耳，以及至少一个坏 $q1$。剩下的情形是
+\[
+M26/e0/b0,\quad\text{all original interior degrees}\ge6,\quad\text{positive degree excess }2,
+\]
+其中高点为两个度数为 $7$ 的点或一个度数为 $8$ 的点 —— 并且不假设它们位于核心环上。核心为 $I66/P26/F104$，含 $40$ 个深点；$/6$ 排除多个组件、桥与多个环，留下一个简单圆盘，但 $P26/F104$ 允许一条弦，所以 $B33$ 的无弦结论不能被照搬。设弦数为 $C$、空核心边界三角形数为 $f_3$、$a=C-f_3\ge0$、深点超出量为 $h$，则带弦感知的首次剥离给出
+\[
+b=20-h-C-3a,\qquad \text{deleted faces}=46-h-C-a,
+\]
+而 $/6$ 给出
+\[
+104\ \le\ 46-h-C-a+\frac{(20-h-C-3a)^2}{6}.
+\]
+在 $0\le h\le2$、$0\le C\le23$、$0\le a\le C$ 上做机器穷举，且前沿非负，恰好留下三个槽：
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+核心弦数 $C$ & 深点超出量 $h$ & $a$ & 内部前沿 & 内部面数 \\
+\midrule
+$0$ & $0$ & $0$ & $20$ & $58$ \\
+$0$ & $1$ & $0$ & $19$ & $59$ \\
+$1$ & $0$ & $0$ & $19$ & $59$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+单弦槽恰好有一个空的核心边界三角形、全部深点的原始度数为 $6$，且环上的总高曲率为 $2$。无弦 $h=1$ 槽有一个度数为 $7$ 的深点与一个度数为 $7$ 的环点；无弦 $h=0$ 槽的全部高曲率都在环上。CAS 发现一般的 DDD 公式漏掉了 $+a$；失败的原脚本被保留，更正后的计数为
+\[
+\mathrm{DDD}=58+C+h+a,\qquad \mathrm{DDR}=20-C-h-3a .
+\]
+三个存活槽都有 $a=0$，所以该更正不改变它们。单弦支撑必须保留 $\mathrm{DDD}=59$、$\mathrm{DDR}=19$、$\mathrm{DRR}=25$、配对的 $\mathrm{BRR}=24$、未配对的 $\mathrm{BRR}=2$ 与 $\mathrm{RRR}=1$；把它当作 $26$ 对完全配对的 DRR/BRR 是\emph{不}合法的。
+
+该分支随后以 $23$ 个无弦模型与 $47$ 个单弦模型闭合，二者都被细化到一个由 $10\,000$ 个区间箱组成的全局边界包络。无弦模型使用 $9$ 个带符号面支撑、$26$ 对物理边，铰链/方差支付为零；单弦模型额外区分 $24$ 条配对外部 DRR/BRR 边、一条弦边、一个 RRR 三角形与两个未支付的 BRR 面。独立的 \texttt{Fraction} 重合成与 CAS 圆心角恒等式均通过。该分支的一次统一环位势发现运行记录了约 $-0.00103852$ 的最优预测余量；它只是发现，未接受任何排除。
+
+\section{分支 B35}
+
+诊断保留了全部面、顶点、$q4$ 支付、规范化边界与拓扑前提，并显示原始 $M\le24$ 标记行以及受限的 $M25$ 与 $M26$ 的面积端点为负，而 $M\ge27$、耳、坏 $q1$ 与额外低度数平移余量仍为正。因此严格残差为
+\[
+M\le24\ \text{flagged low-}M;\qquad M25\ \text{with all interior degrees}\ge6\ (\approx-0.0004727668);
+\]
+\[
+M26\ \text{with all interior degrees}\ge6\ (\approx-0.0002967289).
+\]
+它返回 \texttt{status = PASS\_\allowbreak{}PREMISES} 与 \texttt{B35\_\allowbreak{}closed = false} —— 正是这个状态词防止把一次前提检查读成一次闭合。
+
+闭合随后完全按 $B34$ 的方式进行：低 $M$ 部分由唯一的未标记度数为 $5$ 的点与核心耳数之间的 $/5$ 矛盾闭合（至多允许一个核心耳）；$M25$ 由 $8$ 个环模型闭合（核心 $P25/F103$、$40$ 个深顶点、$25$ 对物理边、四个度数为 $7$ 的环点且 $pH\in\{11,12\}$）；$M26$ 由 $3$ 个无弦模型加 $5$ 个单弦模型闭合（核心 $P26/F102$、$39$ 个深顶点、$\mathrm{DDD}=56$、$\mathrm{DDR}=[20,0]$）。每个新度量都有自己的完整边界 $K$ 与面求和，并带精确的物理边抵消，且没有任何标量亏空被跨两行支付。合并后的独立证书报告 \texttt{M25\_\allowbreak{}closed = true}、\texttt{M26\_\allowbreak{}closed = true}、\texttt{M\_\allowbreak{}ge27\_\allowbreak{}closed = true}，模型计数为 $\{M25:8,\ M26_{\text{chordless}}:3,\
+M26_{\text{onechord}}:5\}$。
+
+\section{尾部分支 $B\ge36$}
+
+\subsection{capped-pair 松弛（capped-pair relaxation）}
+
+对高边界计数，引擎改变了性质。它不再使用全局面台账，而是为每一对相邻的边界胞（boundary cell）构造一个\emph{局部对损失}。在吸收形式中，一个对项具有形状
+\[
+\Phi(a,b)=\lambda\,\|c_a-c_b\|^2+\frac{H(a)+H(b)}{2}-\frac{\mu\,(\arcsin s_a+\arcsin s_b)}{2},
+\]
+其中 $a,b$ 是相邻的半弧角，$c_a,c_b$ 是相应的圆心，$H$ 是由弧段与圆心到弧弦的距离构造的几何损失，$\lambda,\mu$ 为罚系数（penalty coefficient）与斜率系数（slope coefficient）。当局部项沿环求和时，使用的是精确恒等式
+\[
+\sum_i\frac{a_i+a_{i+1}}2=\sum_i a_i=\pi
+\]
+—— 而不是 Jensen 型的「等弧」猜想。每个局部对的上界随后被送入一个总面积预算，并执行两项标量检查：$B=36$ 处的余量必须严格为正，且每增加一个边界胞的增益必须严格为正，从而把排除扩展到每个 $B\ge36$。
+
+证书脚本实际实现的标量预算是
+\begin{equation}\label{eq:scalar-budget}
+\underbrace{(1-\mu)\,\pi_{\mathrm{lo}}}_{\text{available arc budget}}
+\;-\;\underbrace{\bigl((2m-2-B)\,A+B\,K\bigr)R^2}_{\text{interior and marked triangle area}}
+\;-\;\underbrace{B\,L}_{\text{intercept}}\;>\;0,
+\qquad
+\underbrace{(A-K)R^2-L}_{\text{gain per boundary cell}}\;>\;0,
+\end{equation}
+其中 $m=100$，$A=129903810568/10^{11}$（$3\sqrt3/4$ 的一个向外有理包围），$K$ 为标记三角形常数。代入冻结常数可精确复现存档的余量，下面两个证书字段正是这样被检查的：
+\[
+\text{at }R=\tfrac{113237}{10^6},\ L=\tfrac{75097}{10^7}:\quad
+\text{margin}=4.906445222464608\times10^{-7},
+\]
+\[
+\text{gain}=5.1549192230158705\times10^{-3},
+\]
+\[
+\text{at }R=\tfrac{22647}{200000},\ L=\tfrac{939}{125000}:\quad
+\text{margin}=1.8087101250224213\times10^{-5},
+\]
+\[
+\text{gain}=5.152171860143971\times10^{-3}.
+\]
+\eqref{eq:scalar-budget} 的底层几何推导位于被吸收的第三方包中；本项目所证明的是该预算的精确算术、下一小节所述有理方形域细分的完备性，以及负对照。
+
+\subsection{有理方形域细分}
+
+对域是一个二维有理方形。它由递归的有理箱细分覆盖；对每个箱，局部对损失被向外界定并与预算比较。对角线上的箱因对称性被跳过并单独计数。三个「$q$-标记侧」三角形支撑被独立验证。被接受的计数为
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+证书 & 半径 & 访问箱数 & 接受箱数 & 对称跳过 \\
+\midrule
+在 $R_\star=22647/200000$、$L=939/125000$ 处的 $B=36$ & $0.113235$ & $1\,841\,089$ & $917\,297$ & --- \\
+在 $R=2831/25000$、$L=19/2500$ 处的 $B\ge37$ & $0.11324$ & $93\,257$ & $46\,038$ & $591$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+其中对 $1$、$2$、$3$ 个标记侧的 $q$-支撑箱数分别为 $3761$、$104$ 与 $35$，且对 $B\ge37$ 有 \texttt{pending\_\allowbreak{}boxes} 为空。精确余量为
+\[
+B=36:\ \frac{1808710125022421182469778967931605940457120574226219}{10^{56}}
+\approx1.8087\times10^{-5},
+\]
+\[
+\text{per cell}:\ \frac{2576085930071985489}{5\cdot10^{20}}\approx5.1522\times10^{-3},
+\]
+\[
+B=37:\ \frac{166438291677217339982469778967931605940457120574226219}{10^{56}}
+\approx1.6644\times10^{-5},
+\]
+\[
+\text{per cell}:\ \frac{39572580329210081}{7812500000000000000}\approx5.065\times10^{-3}.
+\]
+$B=36$ 的完整运行耗用 $130.04$ 秒的报告时间；尾部是整个引擎中最昂贵的部分。
+
+\subsection{尾部为何不能延伸到 $0.11324$}
+
+在 $R=2831/25000$ 处，\emph{旧的}固定系数给出的总预算约为 $-0.000160907$：即使其局部支撑仍然有效，尾部也无法在 $0.11324$ 处闭合。固定 $\mu$ 与 $\lambda$ 时，截距（intercept）必须严格低于约 $0.007505530351154887$；试取 $L=0.007505$ 给出约 $+0.0000190926$ 的条件预算，但完整的二维局部支撑从未被验证（一次 $250\,000$ 箱的运行接受了 $124\,491$ 个叶子，留下 $17$ 个待处理栈项，并返回 \texttt{UNDECIDED}）。
+
+这个障碍是精确的，而非数值的。在旧常数下，于有理点
+\[
+x=y=\frac{9921033}{12500000}
+\]
+处，对松弛满足
+\[
+\frac{3754996055077}{500000000000000}\ \le\ \text{pair}\ \le\ \frac{3754996055079}{500000000000000},
+\]
+因此它的下端点超出旧截距 $1501/200000$ 达
+\[
+\frac{2496055077}{500000000000000}\approx4.99211\times10^{-6},
+\]
+并且它也超出 $B=36$ 面积预算所能支付的最大截距
+\[
+\frac{27019909263463328303182469778967931605940457120574226219}
+{3600000000000000000000000000000000000000000000000000000000},
+\]
+达
+\[
+\frac{16062333091071696817530221032068394059542879425773781}
+{3600000000000000000000000000000000000000000000000000000000}.
+\]
+因此这个亏空既不能通过提高某个箱预算来修补，也不能通过抬高截距来修补：后者会使 $B=36$ 预算变为负。后来的一次精确诊断表明，在障碍点（obstruction point）处两个支撑项都消失，所以仅仅细化支撑箱在数学上同样不够。障碍证书带有 \texttt{status = PASS\_\allowbreak{}OBSTRUCTION\_\allowbreak{}TO\_\allowbreak{}OLD\_\allowbreak{}RELAXATION}、\texttt{full\_\allowbreak{}B36plus\_\allowbreak{}closed = false}、\texttt{global\_\allowbreak{}bound\_\allowbreak{}improved = false}，并且其 scope 字符串明确声明：这不是一个覆盖构型，也不是对目标下界的反例。
+
+\section{合并器}
+
+最终装配刻意保持单薄，因为一切实质内容都在某个分支证书之内。
+
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}complete-\allowbreak{}225.json}（模式 \texttt{n100-\allowbreak{}candidate-\allowbreak{}complete/\allowbreak{}v1}，\texttt{status = PASS}）记录 \texttt{candidate\_\allowbreak{}radius = 22647/\allowbreak{}200000}、\texttt{previous\_\allowbreak{}target\_\allowbreak{}radius = 2831/\allowbreak{}25000}、\texttt{closed\_\allowbreak{}branches = [B31,\dots,B35,B36plus]}、\texttt{all\_\allowbreak{}six\_\allowbreak{}closed = true}、\texttt{global\_\allowbreak{}bound\_\allowbreak{}improved = true}，以散文形式记录单调性论证，并对 $B31$--$B35$ 中的每一个记录源半径 $2831/25000$、继承半径 $22647/200000$ 以及源证书的 SHA-256。尾条目带有它自己的半径与哈希。
+\item \texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}six-\allowbreak{}branch-\allowbreak{}ledger-\allowbreak{}226.json}（模式 \texttt{n100-\allowbreak{}six-\allowbreak{}branch-\allowbreak{}ledger/\allowbreak{}v11}）记录 \texttt{closed\_\allowbreak{}branches}、\texttt{pending\_\allowbreak{}branches =
+[]}、\texttt{all\_\allowbreak{}six\_\allowbreak{}closed = true}，以及一个 \texttt{scope} 字符串，它用文字说明：只有候选半径被覆盖，且 $R=0.11324$ 仍未被证明，因为它的 $B36$ 直接障碍依然存在。
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}small-\allowbreak{}advance-\allowbreak{}controls-\allowbreak{}143.json}} 拒绝两个破坏性情形：一个禁用断言，另一个错配旧半径。
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}radius-\allowbreak{}dependency-\allowbreak{}audit-\allowbreak{}143.json}} 追踪 $20$ 个进程与 $28$ 个 \texttt{sys.modules} 注册的源，记录每个验证函数所见的半径，并确认不存在其他全局 $R$；匿名加载的后端由完整的 $626$ 文件哈希清单绑定。
+\end{itemize}
+
+\section{分支证书一览}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+\toprule
+分支 & 完整覆盖范围 & 建立于 & 证书 \\
+\midrule
+$B31$ & $M\le23$ 与 $M\ge24$，任意耳/坏面 &
+$11324/100000$ & \texttt{n100-\allowbreak{}B31-\allowbreak{}at-\allowbreak{}11324.json} \\
+$B32$ & $M\le25$（$81=73+8$ 剖面）与 $M\ge26$ &
+$2831/25000$ & \texttt{n100-\allowbreak{}B32-\allowbreak{}complete-\allowbreak{}149.json} \\
+$B33$ & 低 $M$；$M25$ 相干替换；全部高 $M$ Euler 残差 &
+$2831/25000$ & \texttt{n100-\allowbreak{}B33-\allowbreak{}complete-\allowbreak{}167-\allowbreak{}v2.json} \\
+$B34$ & $M22..23$、$M24..25$、$M\ge26$（$23$ 无弦 $+$ $47$ 单弦） &
+$2831/25000$ & \texttt{n100-\allowbreak{}B34-\allowbreak{}complete-\allowbreak{}180.json} \\
+$B35$ & 低 $M$、$M25$、$M26$、$M\ge27$ &
+$2831/25000$ & \texttt{n100-\allowbreak{}B35-\allowbreak{}complete-\allowbreak{}203.json} \\
+$B\ge36$ & $B=36$ 与 $B=37..99$ &
+$22647/200000$（尾部）、$2831/25000$（$B\ge37$） &
+\texttt{n100-\allowbreak{}tail-\allowbreak{}candidate-\allowbreak{}224.json}、\texttt{n100-\allowbreak{}tail-\allowbreak{}B37plus-\allowbreak{}210-\allowbreak{}a.json} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+所有分支共享相同的解析（analytic）依赖，这一点在每个证书中都被陈述，从不隐藏：公共规范化圆心三角剖分；原始边界邻居与严格核心块内部之间的平面分离；一般的 $/6$ 圆盘等周与诱导核心 $/5$ 等周；核心/外带分解；完整星形/周长引理；全单纯形带符号面支撑；以及仅花费一次的物理边抵消（physical edge cancellation）。证书包含整数穷举、CAS 恒等式与精确有理区间算术 —— 它们\emph{不}包含形式化的平面嵌入内核，并且每一个证书都这么说明。

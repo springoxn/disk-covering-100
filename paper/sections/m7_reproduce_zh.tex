@@ -1,0 +1,151 @@
+\part*{第七部分：复现、产物与依赖}
+\addcontentsline{toc}{part}{第七部分：复现、产物与依赖}
+\stepcounter{partanchor}\setcounter{section}{0}
+
+\section{入口点}
+
+\subsection{发表一致性检查}
+
+最便宜的单一入口点是
+\begin{verbatim}
+python reproduce.py          # from the repository root
+\end{verbatim}
+它加载四份核心证书（certificate），要求它们的状态，要求
+\texttt{candidate\_\allowbreak{}radius = 22647/\allowbreak{}200000}、\texttt{accepted\_\allowbreak{}global\_\allowbreak{}lower\_\allowbreak{}bound = 22647/\allowbreak{}200000}、
+\texttt{all\_\allowbreak{}six\_\allowbreak{}closed = true} 以及 \texttt{pending\_\allowbreak{}branches = []}，要求字符串
+「0.11324」仍然出现在 README 的证据边界一节中，并为每份证书打印 SHA-256。它\emph{不}重新运行历史重算，并且它明确说明这一点。
+
+它在本次审计（audit）中的输出是
+\begin{verbatim}
+n=100 publication consistency: PASS
+accepted bound: r_D(100) > 0.113235
+0.11324: not closed; B36 residual retained
+\end{verbatim}
+其后每份证书一行。证书名称及其 SHA-256 摘要（digest）按打印原样（此处仅为页面宽度而折行）为：
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}complete-\allowbreak{}225.json}}\\
+{\footnotesize\texttt{c58c71562ed014c0f716f02137dcf473d98fd73e6888f89aa9d06f08a41707a5}}
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}tail-\allowbreak{}candidate-\allowbreak{}224.json}}\\
+{\footnotesize\texttt{b5ca9c60be73136356c5c77a3b13a9d9c22a07d265299cb3acda2262a5715fee}}
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}n100-\allowbreak{}candidate-\allowbreak{}budget-\allowbreak{}222.json}}\\
+{\footnotesize\texttt{41c0106a015c31c7a323639368cd9ff241c5d745c8a4f842356647dd4922d0e2}}
+\item {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json}}\\
+{\footnotesize\texttt{c9f07ee0be9705cea9349fba2023af3a70824ee791373910809c802b2b1b4f4d}}
+\end{itemize}
+
+\subsection{重新运行各条路线}
+
+每条路线都有自己的入口点，而每个入口点都拒绝覆盖已存在的输出目标，因此真正的重跑需要一条新路径。报告所记录的代表性命令如下：
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.42\textwidth}>{\raggedright\arraybackslash}p{0.44\textwidth}@{}}
+\toprule
+命令 & 路线 \\
+\midrule
+\texttt{python verify/\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.py} & 三角晶格上界 \\
+{\footnotesize\texttt{python verify/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.py}} & 独立上界重放 \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}algebraic\_\allowbreak{}bounds\_\allowbreak{}n100.py --out <fresh>} & 加强包络 + 晶格候选 \\
+{\footnotesize\texttt{python verify/\allowbreak{}run\_\allowbreak{}strengthened\_\allowbreak{}lowerbound\_\allowbreak{}n100.py --out <fresh>}} & 整数边计数界 \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}longchord\_\allowbreak{}n100.py --out <fresh>} & 长弦界 \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}delivery\_\allowbreak{}audit.py --run-\allowbreak{}dir <fresh>} & 封存与快速重放 \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}interface\_\allowbreak{}suite.py --run-\allowbreak{}dir <fresh>} & 九批接口重放 \\
+{\footnotesize\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}boundary\_\allowbreak{}line\_\allowbreak{}replay.py --run-\allowbreak{}dir <fresh>}} & $m99$ 边界线 \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}full\_\allowbreak{}revalidation.py --run-\allowbreak{}dir <fresh>} & 全部 $4776$ 个构型 \\
+\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}interface\_\allowbreak{}timing.py --run-\allowbreak{}dir <fresh>} & 计时校准 \\
+{\footnotesize\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}composition\_\allowbreak{}scaling.py --run-\allowbreak{}dir <fresh>}} & 组合与缩放 \\
+{\footnotesize\texttt{python verify/\allowbreak{}run\_\allowbreak{}n100\_\allowbreak{}shared\_\allowbreak{}support\_\allowbreak{}timing.py --run-\allowbreak{}dir <fresh>}} & 共享支撑会话 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+其中三条（计时、组合/缩放与共享支撑）写入不可覆盖的最终目标，因而\emph{未}被统一地做输出隔离；整合报告把这记录为一项尚欠的包装器债务，而不是把它藏起来。分支（branch）层面的重放由
+\texttt{verify/\allowbreak{}n100\_\allowbreak{}B31\_\allowbreak{}new\_\allowbreak{}radius.py}、\texttt{n100\_\allowbreak{}B32\_\allowbreak{}complete\_\allowbreak{}149.py}、
+\texttt{n100\_\allowbreak{}B33\_\allowbreak{}complete\_\allowbreak{}167\_\allowbreak{}v2.py}、\texttt{n100\_\allowbreak{}B34\_\allowbreak{}complete\_\allowbreak{}180.py}、
+\texttt{n100\_\allowbreak{}B35\_\allowbreak{}complete\_\allowbreak{}203.py}、\texttt{n100\_\allowbreak{}tail\_\allowbreak{}B37plus\_\allowbreak{}resumable\_\allowbreak{}210.py}、
+\texttt{n100\_\allowbreak{}tail\_\allowbreak{}candidate\_\allowbreak{}224.py}、\texttt{n100\_\allowbreak{}candidate\_\allowbreak{}complete\_\allowbreak{}225.py} 以及
+\texttt{n100\_\allowbreak{}candidate\_\allowbreak{}ledger\_\allowbreak{}226.py} 驱动。$B33$ 与 $B34$ 的入口点要求断言处于启用状态：它们拒绝 \texttt{python -\allowbreak{}O} 并报告\emph{断言必须保持启用}。
+
+\section{产物覆盖：已发布镜像中实际有什么}
+
+本文档是针对工作仓库撰写的。由于一项可复现性声明的价值只取决于它所指向的字节，我们为本专著运行了一次显式的产物（artifact）覆盖审计，其结果属于论文的一部分。
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
+\toprule
+发现 & 细节 \\
+\midrule
+镜像（mirror）是一个子集 & 在镜像自身的 README、状态文件与阶段报告所引用的 $100$ 条产物路径中，只有 $19$ 条存在于已发布镜像 \texttt{n100-\allowbreak{}public/\allowbreak{}} 之下；$81$ 条在那里缺失，而这 $81$ 条中有 $80$ 条确实存在于父工作仓库中（有一条探测路径是凭空编造的名字，不计入该计数） \\
+\texttt{proofs/\allowbreak{}} 缺失 & \texttt{n100-\allowbreak{}public/\allowbreak{}proofs/\allowbreak{}} 不存在，尽管两份晶格证书都引用了
+\texttt{proofs/\allowbreak{}n100-\allowbreak{}lattice97-\allowbreak{}algebraic-\allowbreak{}upperbound.\allowbreak{}md}。
+该文件存在于父仓库中，其 SHA-256
+\texttt{73d39456b70fdcae\allowbreak{}41ede5718a608d13\allowbreak{}9661a6c7f2a6\allowbreak{}26cf95b4e348be19\allowbreak{}600b}
+与主晶格证书所记录的 \texttt{proof\_\allowbreak{}sha256} 字段相符 \\
+移植包 & \texttt{runtime/\allowbreak{}disk100-\allowbreak{}release-\allowbreak{}lf-\allowbreak{}67ebf1c/\allowbreak{}} 不在镜像中，但存在于父仓库中，其中包括分支证书所引用的全部四个源码
+(\texttt{verify\_\allowbreak{}B31\_\allowbreak{}global\_\allowbreak{}low\_\allowbreak{}degree\_\allowbreak{}0p11323.py},
+\texttt{verify\_\allowbreak{}capped\_\allowbreak{}pair\_\allowbreak{}B36plus\_\allowbreak{}0p11323.py},
+{\footnotesize\texttt{pair\_\allowbreak{}bound\_\allowbreak{}certificate\_\allowbreak{}20261004/\allowbreak{}verify\_\allowbreak{}pair\_\allowbreak{}bound.py}},
+\texttt{threshold\_\allowbreak{}11305\_\allowbreak{}components/\allowbreak{}verify\_\allowbreak{}remaining\_\allowbreak{}cases.py})。因此仅从镜像出发的重放无法执行分支检查器 \\
+中间证书 & 镜像保留了最终的组合证书与尾部证书，但许多中间子证书（例如 $B32$/$B33$/$B34$/$B35$ 的分量回执与 stage-143 的装配回执）缺失；它们的数字此后只能从阶段报告中引用，而不能从 JSON 中重新读取 \\
+仅根目录产物 & \texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}local-\allowbreak{}quadtree/\allowbreak{}replay.json} 与
+{\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}external-\allowbreak{}disk100-\allowbreak{}strict-\allowbreak{}local-\allowbreak{}67ebf1c.json}} 被镜像的状态文件引用，但只存在于父仓库中 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}[对本文档的后果]
+第二至第六部分中的每一条定量断言都是对照存在于父仓库中的产物核对的，而不是对照镜像核对的。若某个数字只能取自阶段报告，因为其底层证书不在镜像中，正文会说明这一点或引用该报告。这正是该计划对其自身各阶段所施加的同一条纪律，被施加到发表层上。
+\end{remark}
+
+\section{本次审计发现的绑定不一致}
+
+发现了三处绑定问题，它们被记录在此，而不是被悄悄修复。
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{独立晶格回执绑定了更早的一代。} 独立重放证书 {\footnotesize\texttt{verify/\allowbreak{}out/\allowbreak{}independent\_\allowbreak{}lattice97\_\allowbreak{}upperbound\_\allowbreak{}n100.json}} 记录了
+{\footnotesize\texttt{input\_\allowbreak{}sha256 = 7e732e189a0d69e30184dbd053ae2eda6ee588f0418d49553d71004e5f4ff475}} 与
+{\footnotesize\texttt{proof\_\allowbreak{}sha256 = a0454013448a2612475975b539d64fa722ab9e69434ca0d1d913bfba03d57d4b}}，而当前的主证书文件哈希为
+{\footnotesize\texttt{7a98772a8fb4c608ca32ffe6489bf1f09006dd3c59a4322125beca8c1e72cd7d}}，当前的证明文件哈希为
+{\footnotesize\texttt{73d39456b70fdcae41ede5718a608d139661a6c7f2a626cf95b4e348be19600b}}。它的
+{\footnotesize\texttt{checker\_\allowbreak{}sha256 = 9655d038a2194ebf2f849ad550ccc645f10c5f7516270d7dfe47267cb23ac878}} \emph{确实}
+与当前的独立脚本相符。所以检查器绑定（binding）是当前的，而输入与证明绑定是过期的：独立重放是针对更早的一对证书/证明做的。这并不使对\emph{断言}的独立重放失效（在当前输入上重跑时那 $17$ 项检查通过），但按所存储的样子，该回执不是同代绑定，并且不得被当作同代绑定来呈现。
+\item \textbf{一条被引用的证书路径不在镜像中}（见第七部分的产物覆盖子节）。
+\item \textbf{一个被记录的常数不在已发布的树中。} 尾部预算使用了一个从被吸收包中导入的量；该预算在
+\texttt{verify/\allowbreak{}n100\_\allowbreak{}candidate\_\allowbreak{}budget\_\allowbreak{}222.py} 中的本地重新表述使用
+$A=129903810568/10^{11}$，把它连同冻结的斜率（slope）、罚系数（penalty coefficient）与被标记常数一起代入，恰好重现两个存储裕量（见附录中的预算复核）。该常数与 $3\sqrt3/4$ 的一个向外有理包络相同，这一点是从算术得出的\emph{推断}，而不是对该包的引用。
+\end{enumerate}
+
+\section{外部材料与吸收边界}
+
+\begin{center}
+\footnotesize
+% 第 1 列需容纳 56 字符的 \texttt 仓库路径加 40 位十六进制 SHA，0.38\textwidth 不够；
+% 下面的宽度为唯一的间隔留出 2\tabcolsep = 12pt。
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{\dimexpr0.55\textwidth-2\tabcolsep\relax}@{}}
+\toprule
+来源 & 角色与边界 \\
+\midrule
+\texttt{cjt42554-\allowbreak{}crypto/\allowbreak{}disk100-\allowbreak{}covering-\allowbreak{}certificates}
+@ \texttt{67ebf1c5776f72a7b7786a8655eed5463429ae55} &
+提供被重放的 $100$ 中心构型与六分支骨架；$625$ 个文件，
+$7\,269\,413$ 字节；完整性块自身的 scope 是「仅发布完整性；数学结果需要重放」。它的 \texttt{not\_\allowbreak{}claimed} 列表是明确的：全局最优、$\rD(100)$ 的极小多项式、形式化证明助手的几何 \\
+\texttt{VonEquinox/\allowbreak{}DiskCoveringSolve} @ \texttt{0895849} &
+读取、重放并独立交叉核对：$n=19$ 双链与 $n=20$ 链在隔离副本中重跑，退出码 $0$；$n=11..18$ \emph{未}被重放；本项目不重新分发任何第三方源码 \\
+\texttt{VonEquinox/\allowbreak{}DiskCover} & HTTP 请求返回 $404$，Git 报告「Repository not found」；其中没有任何内容被归属或采纳 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+吸收报告陈述了每个可复用成分的转移条件 --- 完整的拓扑剥离与安全剪枝；精确的力、Farkas 与能量证书；带连续域证明树的候选锚隔离；线性规模的半代数覆盖模型；带实量词消去的单四次平方松弛；以及带隔离的精确端点多项式。在每种情形下，条件都是 $n=100$ 必须重新证明族范围、必要条件与递归完备性：$n=19/20$ 的证书不能当作 $n=100$ 的证书复用。
+
+\section{负对照（negative control）清单}
+
+这里只有在某份证书的破坏性测试被拒绝时，该证书才被接受。正在使用的电池组跨各条路线包括：一个被放大的目标圆盘（仅作前提（precondition），明确不是对所交付断言的未覆盖见证（witness））；一个针对放大圆盘变体的显式未覆盖点；一个缩小与一个放大的覆盖半径（covering radius）；一个错误的度量（六边形内积中缺失的因子 $3$）；一个旋转过的与一个膨胀过的六边形；一次被截断的邻居搜索；一个被错误归属的邻居；两个被移除的相切中心；一个被移除的内部中心；把 $97$ 中心构型当作 $100$ 点断言提交；移除单个壳层中心（覆盖仍然成立 --- 只有基数被拒绝）；一个被破坏的 dart 配对；一个被破坏的面置换；一个被声明为不活跃的支撑；一次断言被禁用的运行；一个不匹配的旧半径；十个被破坏的有理载荷；以及对本地 Krawczyk 见证的 $8$ 项篡改测试（零逆矩阵行、零 Cholesky 变换、重复的主元列、非二进制的逆分母、错误的见证维数、取负的拉格朗日 Hessian、见证源 SHA 不匹配、被改动的几何多项式源码）。此外还有两个入口点拒绝在 \texttt{python -\allowbreak{}O} 下运行。
+
+\section{环境}
+
+已发布的运行使用 Windows 11 与 Anaconda Python 3.13.5（\texttt{sympy} 1.13.3、
+\texttt{mpmath} 1.3.0、\texttt{gmpy2} 2.2.1、\texttt{python-\allowbreak{}flint} 0.9.0），文档构建使用 \texttt{tectonic}。判定层只需要标准库：\texttt{fractions}、
+\texttt{decimal}、\texttt{math}、\texttt{json}、\texttt{hashlib}、\texttt{pathlib}、
+\texttt{itertools}。符号工作使用 \texttt{sympy} 做恒等式检查与因式分解，从不把它当作数值证书的替代品。服务器端的发现层在一个 \texttt{crystalx} 环境中运行，未做任何环境安装；六候选服务器搜索在 $15.746$ s 内完成 $916$ 次目标函数求值，并取回 $25$ 个文件，其 SHA-256 全部验证通过。唯一一次外部项目重放只需要一个 Windows 兼容层（路径分隔符、可执行文件名、LF 输出）；数学条件、常数、区间与计数均未改变。

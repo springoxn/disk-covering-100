@@ -5,3 +5,8 @@ __pycache__/
 *.npy
 *.zip
 .env
+
+# 专著构建派生物：量化核查用的 PNG 渲染与 TeX 警告清单不入库
+paper/build/qc/
+paper/build/warnings.txt
+paper/build/warnings_zh.txt

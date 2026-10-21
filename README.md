@@ -187,10 +187,18 @@ python reproduce.py
 
 ### 查看所有线路
 
+- **系统专著（推荐入口）**：`paper/monograph.tex` → `paper/build/monograph.pdf`（英文）与
+  `paper/monograph_zh.tex` → `paper/build/monograph_zh.pdf`（中文）。它按部分讲解问题与证据纪律、
+  上界、普适解析下界、六分支引擎、当前前沿、**全部路线的总目录**、复现与依赖、未完成义务，
+  附录给出证据台账、JSON 字段表、B=36 障碍的精确算术与本文档自身的审计记录。构建：
+  `paper\build_monograph.ps1`（含结构门禁、产物新鲜度与四层版本校验）。
+  短文版本仍保留在 `paper/paper.pdf` 与 `paper/paper_zh.pdf`，仅覆盖六节，属早期版本。
 - 人读索引：`ROUTE_INDEX.md`
 - 机器索引：`route_manifest.json`
 - 最终证书：`verify/out/`
 - 阶段叙述：`docs/`；主要断言与证书的逐项对应见[`docs/EVIDENCE_LEDGER.md`](docs/EVIDENCE_LEDGER.md)。
+- 撰写专著时执行的审计（产物覆盖率、绑定一致性、预算公式复算、路径与分母位数核对）记录在
+  专著附录 A.6，以及 `paper/` 下的 `_audit_*.py` 脚本。
 
 大型历史重放可能需要更长时间、额外内存和可选依赖。所有路线的状态都应以对应JSON中的`status`、`scope`、`machine_verified_geometry`和源文件哈希为准。
 

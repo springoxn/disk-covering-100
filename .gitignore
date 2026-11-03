@@ -10,3 +10,4 @@ __pycache__/
 paper/build/qc/
 paper/build/warnings.txt
 paper/build/warnings_zh.txt
+paper/tectonic-cache/

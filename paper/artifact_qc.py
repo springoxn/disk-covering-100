@@ -62,7 +62,7 @@ def census(pdf: Path) -> tuple[int, int]:
 
 def main() -> int:
     status = 0
-    for pdf in ('monograph.pdf', 'monograph_zh.pdf'):
+    for pdf in ('monograph.pdf',):
         p = BUILD / pdf
         if not p.is_file():
             print(f'report: {pdf} not built yet')

@@ -60,7 +60,7 @@ for $n=3$ by Csik\'os. For the present programme the practical consequence is bl
 
 The mature paradigm for rigorous computer-assisted optimality proofs is
 \emph{combinatorial classification plus interval Newton / branch-and-bound}. Nurmela and
-\"Osterg{\aa}rd pushed the rigorous optimality of equal-circle \emph{packings} in a square to
+\"Osterg{\aa}rd~\cite{nurmela1999} pushed the rigorous optimality of equal-circle \emph{packings} in a square to
 $n\le27$; their own account records that the initial combinatorial count grows rapidly, that
 $23\le n\le26$ cost CPU-months, and that $n=27$ required a change of algorithm. The present
 programme's estimate for $n=100$ is consistent with this: the orbit count of covering
@@ -79,13 +79,13 @@ that can cover a disk; then $\rD(n)=1/\rho(n)$.
 $n$ & status & source \\
 \midrule
 $1$--$4$, $7$ & exact closed form, trivial optimality & --- \\
-$5$, $6$ & exact closed form, optimality proved & K. Bezdek 1979/1983 \\
+$5$, $6$ & exact closed form, optimality proved & K. Bezdek 1979/1983~\cite{bezdek1983} \\
 $8$, $9$, $10$ & $\rD(n)=1/(1+2\cos\frac{2\pi}{n-1})$, optimality proved &
-G.~Fejes T\'oth 1996/2005 \\
+G.~Fejes T\'oth 1996/2005~\cite{fejesthesg2005} \\
 $11$--$20$ & configurations found; optimality claimed by one group but still
-listed as unknown by a curated database & Melissen 1997 / Tan 2018; Friedman's
-\texttt{circovcir} page vs.\ \texttt{leapsinbounds} \\
-$21$--$25$ & configurations found, no optimality proof claim & Tan 2018 \\
+listed as unknown by a curated database & Melissen 1997 / Tan 2018, reported
+in~\cite{friedman-circovcir}; \texttt{leapsinbounds}~\cite{leapsinbounds} \\
+$21$--$25$ & configurations found, no optimality proof claim & Tan 2018~\cite{friedman-circovcir} \\
 $26$--$99$ & no systematic public table & --- \\
 $100$ & no public data beyond lattice-type constructions & --- \\
 \bottomrule
@@ -94,15 +94,38 @@ $100$ & no public data beyond lattice-type constructions & --- \\
 
 Three facts from that snapshot shape everything below. First, the asymptotic density statement is
 rigorous but asymptotic: $\lim_{\eps\to0^+}\eps^2N(\eps)=2\pi/(3\sqrt3)$, i.e.\ covering density
-$\delta=2\pi/(3\sqrt3)=1.2091996\ldots$ (Kershner 1939; Verblunsky 1949). Converting an asymptotic
+$\delta=2\pi/(3\sqrt3)=1.2091996\ldots$ (Kershner 1939; Verblunsky
+1949)~\cite{kershner1939,verblunsky1949}. Converting an asymptotic
 statement into a finite-$n$ bound requires a boundary correction term, and that correction is
 precisely where the difficulty sits. Second, the unique successful ``symmetry-forcing'' paradigm
-(Fejes T\'oth's proof for $n=8,9,10$) works only in the structure ``one central disk plus one
+(Fejes T\'oth's proof for $n=8,9,10$~\cite{fejesthesg2005}) works only in the structure ``one central disk plus one
 ring''; $n=25$ (centre plus three octagonal rings) and $n=100$ (many rings) have no such theorem.
-Third, the covering-density inequality of L.~Fejes T\'oth with a perimeter term, and its packing
+Third, the covering-density inequality of L.~Fejes T\'oth~\cite{fejesthesl1950} with a perimeter term, and its packing
 dual (Oler/Thue--Groemer, $\frac{1}{2\sqrt3}A(C)+\frac14P(C)+1\ge n$), are the literature
 prototypes of the ``cell-by-cell plus boundary correction'' route --- which Part III shows is
 \emph{not} strong enough here, and Part IV replaces by a counting-plus-budget engine.
+
+\subsection{Position of the result against this record}
+
+The published record contains no certified bound for $n=100$: the tabulated literature stops at
+$n\le25$~\cite{friedman-circovcir,leapsinbounds}, and the most recent systematic table of certified
+lower bounds covers $3\le n\le21$~\cite{barria2026}. Two starting points therefore exist for this
+$n$, and both are used below. The first is elementary: $\pi\le100\pi r^{2}$ gives
+$\rD(100)\ge1/10$. The second is an external public certificate package at a frozen
+commit~\cite{external67ebf1c}, which supplies a six-branch lower-bound skeleton at $0.11323$ and a
+$100$-centre configuration whose covering radius is $0.115446954885583$; this paper replays both and
+keeps the replay distinguishable from its own computations (\S\ref{sec:external} and Part~V).
+
+Measured against those two references, the accepted interval of this paper,
+\[
+0.113235<\rD(100)\le0.1154469548855829 ,
+\]
+moves the lower endpoint from $0.11323$ to $0.113235$, a step of $5\times10^{-6}$, and the upper
+endpoint $10^{-16}$ below the external reference value. Both steps are small and both are exact: the
+lower endpoint moves because each of the six branches is re-closed at the new radius rather than
+inherited, the upper endpoint because the margin certificate is carried out in integer arithmetic to
+a fixed number of digits. Nothing here identifies the optimum, exceeds any unpublished computation,
+or narrows the interval to something close: the relative width is about $1.92\%$ (Part~VIII).
 
 \section{Conventions and normalizations}
 

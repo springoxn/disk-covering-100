@@ -23,8 +23,11 @@
 \hbadness=2500
 \hyphenpenalty=50
 % microtype's protrusion is what the reference manuscript relies on. Font expansion is
-% deliberately NOT enabled: tectonic compiles with XeTeX, where microtype rejects it.
-\microtypesetup{protrusion=true}
+% deliberately NOT enabled: tectonic compiles with XeTeX, where microtype rejects it, and an
+% arXiv-style pdfLaTeX run on a T1-encoded Computer Modern (which is not scalable) aborts with
+% "auto expansion is only possible with scalable fonts". Stating expansion=false makes the
+% setting independent of the engine and of the font set the engine happens to find.
+\microtypesetup{protrusion=true,expansion=false}
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{lemma}{Lemma}
@@ -60,7 +63,7 @@
 \makeatother
 \title{\bf Covering the Unit Disk with 100 Equal Disks\\[2mm]
 \large A Systematic Account of All Routes, with the Current Upper and Lower Bounds}
-\author{Open computational research dossier\\\small \texttt{springoxn/disk-covering-100}}
+\author{Yj Zheng}
 \date{October 2026}
 \begin{document}
 \maketitle
@@ -103,5 +106,7 @@ cannot tell the next reader which relaxations are too weak.
 \input{sections/m7_reproduce}
 \input{sections/m8_open}
 \input{sections/m9_appendix}
+
+\input{sections/m10_references}
 
 \end{document}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "radius": "113231/1000000",
+  "B": 35,
+  "historical_sources_unchanged": 12,
+  "historical_rational_row_equality": "PASS",
+  "fresh_process_envelope_and_complete_branch": "PASS",
+  "failed_source_direct_M26_margin_disclosed": "PASS",
+  "complete_M_case_split": "PASS",
+  "minimum_area_margin": "10083273211437482109/125000000000000000000000",
+  "entry_sha256": "7f368aa930afc7a3dc38b97981354ae19c10165de086f99bdc5c99b4cdf81d1a",
+  "proof_sha256": "6edaba113906612af14de71133228af7257b9d5ad0157c2a490965ffab5a7039"
+}

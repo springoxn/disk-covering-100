@@ -1,0 +1,17 @@
+{
+  "pid": 55364,
+  "argv": [
+    "-c",
+    "from fractions import Fraction as F\nimport importlib.util,json\nassert __debug__\nspec=importlib.util.spec_from_file_location('component','E:\\\\study\\\\ADB\\\\runtime\\\\lower-small-advance-direct-113231-fresh\\\\package\\\\working\\\\verify_B33_hinge_metric_complete_0p11323.py')\nc=importlib.util.module_from_spec(spec)\nspec.loader.exec_module(c)\nresult=c.verify()\n\nassert result['radius']=='113231/1000000' and result['B']==33 and result['m_maximum']==100\nassert F(result['required_center_norm_squared_upper'])==1-F(113231,1000000)**2\nassert result['graph_catalog_dependency'] is result['quadratic_radial_bootstrap_dependency'] is False\nassert len(result['components'])==6\nassert F(result['M25_coherent_area_margin'])>0 and F(result['minimum_reported_area_margin'])>0\n\nassert result['status']=='PASS'\nprint(json.dumps(result),flush=True)\n"
+  ],
+  "verifier_entries": [
+    {
+      "source": "working/verify_B33_hinge_metric_complete_0p11323.py",
+      "function": "verify",
+      "parameters": {
+        "R": "113231/1000000"
+      }
+    }
+  ],
+  "loaded_package_modules": {}
+}

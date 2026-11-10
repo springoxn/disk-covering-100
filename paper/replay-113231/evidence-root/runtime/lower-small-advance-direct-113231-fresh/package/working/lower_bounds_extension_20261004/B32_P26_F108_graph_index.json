@@ -1,0 +1,390 @@
+{
+  "status": "PASS",
+  "families_count": 16,
+  "core_catalog_sha256": "6bc2f1e934d36d6ee35a2aeb6ee7ee68f2eac8d3faa473975fceb2447ebb5742",
+  "families": [
+    {
+      "family_id": "B32_P26_F108_000",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 26,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 6,
+          "4": 26
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_001",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 26,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 6,
+          "4": 26
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_002",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_003",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_004",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_005",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_006",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_007",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_008",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_009",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_010",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_011",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_012",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_013",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_014",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    },
+    {
+      "family_id": "B32_P26_F108_015",
+      "verification": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      }
+    }
+  ],
+  "scope": "Complete conditional reduced B32 family only; all16 graphs still need metric exclusion"
+}

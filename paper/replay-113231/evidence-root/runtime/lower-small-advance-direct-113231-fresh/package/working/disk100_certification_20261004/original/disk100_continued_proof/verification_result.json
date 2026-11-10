@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "lower": [
+    11297473,
+    100000000
+  ],
+  "upper": [
+    11563027143,
+    100000000000
+  ],
+  "critical_candidates": {
+    "T": 128398,
+    "B": 9900,
+    "A": 100,
+    "E": 1
+  },
+  "quadtree": {
+    "status": "PASS",
+    "node_counts": {
+      "split": 10881,
+      "outside": 3200,
+      "covered": 29444
+    },
+    "total_nodes": 43525,
+    "max_depth": 38,
+    "scope": "Every point of the entire closed unit disk is covered."
+  },
+  "necessary_count_pairs": {
+    "96": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38
+    ],
+    "97": [
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "98": [
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "99": [
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41
+    ],
+    "100": [
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42
+    ]
+  },
+  "exact_optimum_proved": false,
+  "scope": "A rigorous interval and necessary count restrictions, not the exact optimal value."
+}

@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "date_utc": "2026-10-05",
+  "scope": "Independent complete relocated mathematical replay of the curated release; file/ZIP integrity is a separate check",
+  "lower": {
+    "command": "python -B -S working/verify_all_11323.py",
+    "result_file": "portable_final_release_lower_result.json",
+    "sha256": "99c877082fdb6b002ba2050a131aa9927e3fc77ed8737d7088e8ccbd806233a7",
+    "bytes": 102056,
+    "status": "PASS",
+    "all_six_fresh_components": true,
+    "complete_capped_pair_boxes": 3371339,
+    "mathematical_JSON_equal_to_original_after_removing_timing_fields": true
+  },
+  "upper": {
+    "command": "python -B -S working/upper_configuration/verify_cover.py working/upper_configuration/centers.csv 0.1154469548855829",
+    "result_file": "portable_final_release_upper_result.json",
+    "sha256": "fc8137e0a6413e30502a6f4804d5d8d657bbf3ca7c793191bd8753f1c92f34d7",
+    "bytes": 1734,
+    "status": "PASS",
+    "input_centers": 100,
+    "distinct_centers": 100,
+    "centers_sha256": "d7a94c26b45ce3538d336b8445a351b194035b7d57a3af114ad6bac664742c0a",
+    "verifier_sha256": "06806070a7c185bc0c710629561d4c2d713eaf231efaadb9f7b9924a05ecb514"
+  },
+  "source_integrity": {
+    "all_copied_original_source_files_checked": 715,
+    "byte_identical_common_files_from_initial_portable_snapshot": 660,
+    "any_acceptance_source_or_input_mutated": false,
+    "normalization_and_branch_radii_checked_by_fresh_universal_entry": true
+  },
+  "optimized_mode_rejection": "Independently verified and recorded in working/GLOBAL_11323_INDEPENDENT_COMPOSITION_RECEIPT.json",
+  "interval": "0.11323 < r_D(100) <= 0.1154469548855829",
+  "gap_exact": "22169548855829/10000000000000000",
+  "exact_optimality_claimed": false,
+  "evidence_precision": "The two complete mathematical outputs are retained verbatim with exact integer tokens. The convenience wrapper is syntax-checked and uses these same independently replayed commands; it is not described as a separately timed full wrapper replay."
+}

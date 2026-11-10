@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "reviewer_scope": "Independent parent exact replay and written mathematical audit of B35 closure",
+  "radius": "113231/1000000",
+  "B": 35,
+  "python_version": "3.12.14",
+  "entry_sha256": "7f368aa930afc7a3dc38b97981354ae19c10165de086f99bdc5c99b4cdf81d1a",
+  "proof_sha256": "e2ff4865060eb14828c84ca13788ea47b41e5cb469ea036dc453cf867d641060",
+  "audit_entry_sha256": "4200de535435b1eed4fba0597fbb7f04f5a3e54da7b57b7beda792c14409dd8f",
+  "complete_stdout_sha256": "f1bbc6e4ed12b86c29636d42cb29d31262d20ec5e00299f6ea96a9426f4b9074",
+  "complete_minimum_area_margin": "10083273211437482109/125000000000000000000000",
+  "face_checks": 80,
+  "vertex_checks": 2382,
+  "fresh_process_source_audit": {
+    "status": "PASS",
+    "radius": "113231/1000000",
+    "B": 35,
+    "historical_sources_unchanged": 12,
+    "historical_rational_row_equality": "PASS",
+    "fresh_process_envelope_and_complete_branch": "PASS",
+    "failed_source_direct_M26_margin_disclosed": "PASS",
+    "complete_M_case_split": "PASS",
+    "minimum_area_margin": "10083273211437482109/125000000000000000000000",
+    "entry_sha256": "7f368aa930afc7a3dc38b97981354ae19c10165de086f99bdc5c99b4cdf81d1a",
+    "proof_sha256": "e2ff4865060eb14828c84ca13788ea47b41e5cb469ea036dc453cf867d641060"
+  },
+  "optimized_python_rejection": "PASS",
+  "mathematical_checks": {
+    "fresh_radius_dependent_normalization": "PASS",
+    "q4_variance_single_budget_and_cycle_endpoint_union": "PASS",
+    "full_face_corner_potential_coherence": "PASS",
+    "M26_failed_source_row_not_accepted": "PASS",
+    "M26_low_degree_ear_bad_alternative_reductions": "PASS",
+    "induced_core_connected_simple_P26_F102": "PASS",
+    "two_core_ear_deletion_keeps_strict_interior_degrees": "PASS",
+    "positive_sigma_paid_for_at_most_one_exception": "PASS",
+    "all_integer_M_cases_exhaustive": "PASS"
+  },
+  "scope_limit": "Complete normalized B35 branch; no global all-B or exact-optimum theorem"
+}

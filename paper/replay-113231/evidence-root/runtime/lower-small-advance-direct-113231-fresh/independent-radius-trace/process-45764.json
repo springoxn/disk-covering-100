@@ -1,0 +1,40 @@
+{
+  "pid": 45764,
+  "argv": [
+    "-c",
+    "from fractions import Fraction as F\nimport importlib.util,json\nassert __debug__\nspec=importlib.util.spec_from_file_location('component','E:\\\\study\\\\ADB\\\\runtime\\\\lower-small-advance-direct-113231-fresh\\\\package\\\\working\\\\verify_capped_pair_B36plus_0p11323.py')\nc=importlib.util.module_from_spec(spec)\nspec.loader.exec_module(c)\nresult=c.verify()\n\nassert result['radius']=='113231/1000000' and result['m_at_most']==100 and result['boundary_counts']=='36 through 99'\nassert result['complete_capped_pair']['status']=='PASS'\nassert F(result['minimum_area_margin_at_B36'])>0 and F(result['additional_margin_per_boundary_cell'])>0\n\nassert result['status']=='PASS'\nprint(json.dumps(result),flush=True)\n"
+  ],
+  "verifier_entries": [
+    {
+      "source": "working/verify_capped_pair_B36plus_0p11323.py",
+      "function": "verify",
+      "parameters": {
+        "R": "113231/1000000",
+        "K": "973/3125",
+        "LAM": "3/50"
+      }
+    },
+    {
+      "source": "working/threshold_11305_components/verify_remaining_cases.py",
+      "function": "triangle_checks_34",
+      "parameters": {
+        "R": "113231/1000000",
+        "LAMBDA34": "3/50"
+      }
+    },
+    {
+      "source": "working/threshold_11305_components/verify_remaining_cases.py",
+      "function": "pair_replay",
+      "parameters": {
+        "R": "113231/1000000",
+        "LAMBDA34": "3/50",
+        "argument_B": "36",
+        "argument_lam": "3/50",
+        "argument_mu": "92531/10000000"
+      }
+    }
+  ],
+  "loaded_package_modules": {
+    "working/threshold_11305_components/verify_remaining_cases.py": "04200e031fff37aabb5c9994435e81bb6c4310e0c0a638ee8d62470adcaab236"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "lower_bound": "11297473/100000000",
+  "upper_bound": "11573102001/100000000000",
+  "lower_strict": true,
+  "upper_inclusive": true,
+  "lower_counts": {
+    "all_B": 97,
+    "arc_excluded": 25,
+    "area_excluded": 72
+  },
+  "tightest_lower_case": 34,
+  "upper_verification": {
+    "candidate_counts": {
+      "T": 128706,
+      "B": 9900,
+      "A": 100,
+      "E": 1
+    },
+    "total": 138707,
+    "exact_radius_squared": null,
+    "upper_squared": "133936689925550204001/10000000000000000000000",
+    "unique_worst_candidate": null
+  },
+  "exact_optimum_proved": false
+}

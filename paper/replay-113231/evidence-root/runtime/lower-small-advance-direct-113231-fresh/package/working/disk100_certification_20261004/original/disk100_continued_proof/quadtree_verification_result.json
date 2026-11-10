@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "node_counts": {
+    "split": 10881,
+    "outside": 3200,
+    "covered": 29444
+  },
+  "total_nodes": 43525,
+  "max_depth": 38,
+  "scope": "Every point of the entire closed unit disk is covered."
+}

@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "radius": "113231/1000000",
+  "B": 31,
+  "m": 100,
+  "scope": "Complete B31 branch after unit-disk projection before classification; other counts and exact optimality remain separate",
+  "required_center_norm_squared_upper": "1",
+  "center_projection_precedes_classification": true,
+  "n99_exclusion": {
+    "n": 99,
+    "radius": "113231/1000000",
+    "cases": 96,
+    "tightest_B": 34,
+    "minimum_area_margin": "93591732347747920006153107439494216107661633777884476873367781737690463949606826459158012299304439/170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "ordinary_marked_incidence_upper": 3,
+  "footprint": {
+    "B": 31,
+    "consecutive_arcs": 5,
+    "angle_upper": "6933/10000",
+    "containing_radius_factor": 3,
+    "certified_margin_greater_than": "1/1000",
+    "margin_interval": [
+      "447167015406521143/20000000000000000000",
+      "558958769258151429/25000000000000000000"
+    ]
+  },
+  "degree_window": [
+    5,
+    8
+  ],
+  "old_normalized_loss_upper": "240229335019222357310317631684751147278206417445464723393/765434800000000000000000000000000000000000000000000000000",
+  "global_degree_five_requirement": 1,
+  "degree_five_requirement_for_M_le23": 2,
+  "all_twenty_face_label_multisets_allowed": true,
+  "deep_label_assumption": false,
+  "reflected_center_hypothesis": false,
+  "squared_edge_penalty": "0",
+  "halfside_multiplier": "0",
+  "arbitrary_ears_and_bad_faces_allowed": true,
+  "face_supports": 40,
+  "vertex_supports": 32,
+  "minimum_area_margin": "3797228001573004612011/1000000000000000000000000",
+  "branches": [
+    {
+      "M_endpoint": 23,
+      "required_degree_five_count": 2,
+      "M_slope_lower": "1377688362666098474777/500000000000000000000000",
+      "M_slope_upper": "551075345066439389911/200000000000000000000000",
+      "shifted_ear_upper": "-24972047795769166663187/200000000000000000000000",
+      "bad_q1_upper": "-36694854585770726072011/200000000000000000000000",
+      "minimum_face_slack": "74999999999999987/500000000000000000000000",
+      "minimum_vertex_slack": "197/10000000",
+      "area_margin": "3580654119964419631097/500000000000000000000000"
+    },
+    {
+      "M_endpoint": 24,
+      "required_degree_five_count": 1,
+      "M_slope_lower": "-2245544926140198203727/100000000000000000000000",
+      "M_slope_upper": "-22455449261401982037269/1000000000000000000000000",
+      "shifted_ear_upper": "-142049392692111654329113/1000000000000000000000000",
+      "bad_q1_upper": "-41633881325770726072011/200000000000000000000000",
+      "minimum_face_slack": "74984794709764029/500000000000000000000000",
+      "minimum_vertex_slack": "197/10000000",
+      "area_margin": "3797228001573004612011/1000000000000000000000000"
+    }
+  ]
+}

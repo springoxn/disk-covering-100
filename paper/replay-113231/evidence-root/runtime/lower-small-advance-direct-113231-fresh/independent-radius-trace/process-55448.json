@@ -1,0 +1,22 @@
+{
+  "pid": 55448,
+  "argv": [
+    "E:\\study\\ADB\\runtime\\lower-small-advance-direct-113231-fresh\\package\\working\\verify_B33_M25_coherent_five.py"
+  ],
+  "verifier_entries": [
+    {
+      "source": "working/verify_B33_M25_coherent_five.py",
+      "function": "verify",
+      "parameters": {}
+    }
+  ],
+  "loaded_package_modules": {
+    "working/verify_star_lp_duals.py": "23568fed518e451d3d6b7f11603e080546bb74afa020ef0fd8fbb1a3b02be6d7",
+    "working/signed_edge_metric_20261004/exact_signed_conjugates.py": "cbf8cbb7ec769cd504077631be5df971caed8d24996515cce5df9dc389cbab70",
+    "working/exact_signed_sine_full_face_support.py": "9771385657022f006daf986057165db0514e296b0538a7e81d99808a772487e3",
+    "working/verify_potential_star_duals.py": "d4609b4441dae93c105966dd28f72b2e9d84342f012dd519dca25f2515e3e2c3",
+    "working/exact_angle_conjugates.py": "cee5e03352e7b6c94ecbe5dbf0cd43f97342c9c23492b6820e7fc935fc8d1cb9",
+    "working/exact_range_one_face_support.py": "a33023537a5f20e406e2fac79dc16f6ce79ac152798e08563a7097e48a1414ef",
+    "working/polygon_star_perimeter_support.py": "426c5eb338326931ce581d24697e1463815ed826ebfd24e926a1b12f9fa01a94"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "status": "PASS_TRANSFORMATION_AND_NEGATIVE_CONTROLS",
+  "radius": "113231/1000000",
+  "snapshot_files": 626,
+  "python_sources_parsed": 158,
+  "assertions_preserved": 1662,
+  "all_changes_reconstructed_from_exact_radius_rule": true,
+  "source_and_copy_hashes_match": true,
+  "controls": [
+    {
+      "name": "assertions_disabled",
+      "expected_rejection": true,
+      "exit_code": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"E:\\study\\ADB\\runtime\\lower-small-advance-direct-113231-fresh\\package\\working\\verify_all_11323.py\", line 73, in <module>\n    if __name__=='__main__':print(json.dumps(verify(),indent=2),flush=True)\n                                             ~~~~~~^^\n  File \"E:\\study\\ADB\\runtime\\lower-small-advance-direct-113231-fresh\\package\\working\\verify_all_11323.py\", line 16, in verify\n    if not __debug__:raise RuntimeError('Assertions must remain enabled')\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Assertions must remain enabled\n"
+    },
+    {
+      "name": "wrong_radius",
+      "expected_rejection": true,
+      "exit_code": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n    m.verify()\n    ~~~~~~~~^^\n  File \"E:\\study\\ADB\\runtime\\lower-small-advance-direct-113231-fresh\\package\\working\\verify_B31_global_low_degree_0p11323.py\", line 34, in verify\n    assert rows['radius']==str(R) and rows['B']==B\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ],
+  "new_lower_bound_entry": "working/verify_all_11323.py",
+  "unused_original_combined_wrapper_is_not_a_new_radius_entry": true,
+  "geometry_independently_reproved": false,
+  "bindings": {
+    "verify/n100_direct_113231_controls.py": "c4765deb9b46de1d4cfe9a7ffeacb7654f5da637d28cb3d248a632398c6e27dd",
+    "runtime/lower-small-advance-direct-113231-fresh/transformation.json": "bade03e518d0ca88189f16d1fe6af2baf555f9b78a095bf8792be6cd242d581d"
+  }
+}

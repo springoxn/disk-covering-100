@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "radius": "11329/100000",
+  "B": 32,
+  "m": 100,
+  "scope": "Conditional all-six simple chordless P26/F108 core with the standard26-face annulus. No catalog completeness or universal radius theorem is asserted.",
+  "required_center_norm_squared_upper": "9871653759/10000000000",
+  "halfside_multiplier": "11/25",
+  "core_vertices": 68,
+  "core_boundary": 26,
+  "core_faces": 108,
+  "deep_vertices": 42,
+  "shared_edge_pairs": 26,
+  "shared_edge_multiplier": "3311595567/5000000000",
+  "corner_potentials": [
+    "0",
+    "-161430227/781250000",
+    "-36496519489/50000000000"
+  ],
+  "face_supports": 4,
+  "face_cases": [
+    {
+      "pattern": "DDD",
+      "multiplicity": 62,
+      "guard": "1",
+      "support_upper": "1299038105676657970145709/1000000000000000000000000"
+    },
+    {
+      "pattern": "DDR",
+      "multiplicity": 20,
+      "guard": "619819773/781250000",
+      "support_upper": "653572753239334039900721/500000000000000000000000"
+    },
+    {
+      "pattern": "DRR",
+      "multiplicity": 26,
+      "guard": "23110487637/50000000000",
+      "support_upper": "729218602661084871763751/1000000000000000000000000"
+    },
+    {
+      "pattern": "BRR",
+      "multiplicity": 26,
+      "guard": "23835015039/50000000000",
+      "support_upper": "1878405186522247217724761/1000000000000000000000000"
+    }
+  ],
+  "normalized_boundary_envelope": {
+    "status": "PASS",
+    "radius": "11329/100000",
+    "B": 32,
+    "halfside_multiplier": "11/25",
+    "scope": "Conditional exact-lens normalized boundary envelope only",
+    "required_center_norm_squared_upper": "9871653759/10000000000",
+    "variance_coefficient": "0",
+    "bad_arc_boxes": 1000,
+    "root_tangent_proposals": 436,
+    "endpoint_tangent_proposals": 564,
+    "minimum_bad_arc_margin": "1392887274053938607199/1000000000000000000000000",
+    "good_arc_curvature_margin": "29028760208760715343151/50000000000000000000000",
+    "zero_arc_penalty_interval": [
+      "7520411953822008452317/1000000000000000000000000",
+      "3760205976911004226159/500000000000000000000000"
+    ],
+    "floating_acceptance": false
+  },
+  "normalized_center_upper": "217867978735212872053355817/1000000000000000000000000",
+  "outer_boundary_upper": "1347836827215334525643/3906250000000000000000",
+  "area_margin": "292815329416953611817/1000000000000000000000000",
+  "graph_catalog_used": false,
+  "boundary_turn_window_used": false
+}

@@ -1,0 +1,15 @@
+{
+  "scope": "Fresh B35 .11323 staging package, historical sources unchanged; v2 is canonical complete entry",
+  "sha256": {
+    "B35_COMPLETE_0p11323_PROOF.md": "6edaba113906612af14de71133228af7257b9d5ad0157c2a490965ffab5a7039",
+    "B35_complete_0p11323_result.json": "f1bbc6e4ed12b86c29636d42cb29d31262d20ec5e00299f6ea96a9426f4b9074",
+    "B35_fresh_process_audit_0p11323_result.json": "db9cdd2327dc3d9e9973fd4ffb701c427b6a14d35d56c436d467efb1e6c8d85f",
+    "M26_rational_support_0p11323.json": "12f683a045b7146291ab74174e53bad7f66475bcdcccc49387926ea844e62cf3",
+    "check_B35_complete_0p11323.py": "b7a6ed1539a0084b8bd1c204915670193018d94862540e5ee71b81a36ee0d88e",
+    "check_B35_complete_0p11323_v2.py": "7f368aa930afc7a3dc38b97981354ae19c10165de086f99bdc5c99b4cdf81d1a",
+    "normalized_boundary_0p11323_result.json": "f4610ed3e5713bf21426ea0e34c35bb3d11f3c1762e0a004bc92b418724702ac",
+    "replay_B35_0p11323.py": "0a69a495827ce789499bcad806bae7434bf2809d4303be66102919fd71608562",
+    "source_manifest.json": "799ebde092d771ebaacc4894ce4238fec384d3c6961ffdc9ce6ed40f11ef90ec",
+    "verify_normalized_boundary_penalty_0p11323.py": "b13ae7d4b64162122e178567366ffd2f3b1653e087039feef9606c0440c0af65"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "radius": "113231/1000000",
+  "scope": "Independent B31 branch audit only; no universal radius or exact-optimum claim",
+  "minimum_area_margin": "3797228001573004612011/1000000000000000000000000",
+  "fresh_output_equal_to_saved_result": true,
+  "full_branch_result": {
+    "status": "PASS",
+    "radius": "113231/1000000",
+    "B": 31,
+    "m": 100,
+    "scope": "Complete B31 branch after unit-disk projection before classification; other counts and exact optimality remain separate",
+    "required_center_norm_squared_upper": "1",
+    "center_projection_precedes_classification": true,
+    "n99_exclusion": {
+      "n": 99,
+      "radius": "113231/1000000",
+      "cases": 96,
+      "tightest_B": 34,
+      "minimum_area_margin": "93591732347747920006153107439494216107661633777884476873367781737690463949606826459158012299304439/170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "ordinary_marked_incidence_upper": 3,
+    "footprint": {
+      "B": 31,
+      "consecutive_arcs": 5,
+      "angle_upper": "6933/10000",
+      "containing_radius_factor": 3,
+      "certified_margin_greater_than": "1/1000",
+      "margin_interval": [
+        "447167015406521143/20000000000000000000",
+        "558958769258151429/25000000000000000000"
+      ]
+    },
+    "degree_window": [
+      5,
+      8
+    ],
+    "old_normalized_loss_upper": "240229335019222357310317631684751147278206417445464723393/765434800000000000000000000000000000000000000000000000000",
+    "global_degree_five_requirement": 1,
+    "degree_five_requirement_for_M_le23": 2,
+    "all_twenty_face_label_multisets_allowed": true,
+    "deep_label_assumption": false,
+    "reflected_center_hypothesis": false,
+    "squared_edge_penalty": "0",
+    "halfside_multiplier": "0",
+    "arbitrary_ears_and_bad_faces_allowed": true,
+    "face_supports": 40,
+    "vertex_supports": 32,
+    "minimum_area_margin": "3797228001573004612011/1000000000000000000000000",
+    "branches": [
+      {
+        "M_endpoint": 23,
+        "required_degree_five_count": 2,
+        "M_slope_lower": "1377688362666098474777/500000000000000000000000",
+        "M_slope_upper": "551075345066439389911/200000000000000000000000",
+        "shifted_ear_upper": "-24972047795769166663187/200000000000000000000000",
+        "bad_q1_upper": "-36694854585770726072011/200000000000000000000000",
+        "minimum_face_slack": "74999999999999987/500000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "area_margin": "3580654119964419631097/500000000000000000000000"
+      },
+      {
+        "M_endpoint": 24,
+        "required_degree_five_count": 1,
+        "M_slope_lower": "-2245544926140198203727/100000000000000000000000",
+        "M_slope_upper": "-22455449261401982037269/1000000000000000000000000",
+        "shifted_ear_upper": "-142049392692111654329113/1000000000000000000000000",
+        "bad_q1_upper": "-41633881325770726072011/200000000000000000000000",
+        "minimum_face_slack": "74984794709764029/500000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "area_margin": "3797228001573004612011/1000000000000000000000000"
+      }
+    ]
+  },
+  "source_sha256": {
+    "B31_GLOBAL_LOW_DEGREE_0p11323.md": "ddb15f48c489f1b97bda94cfb75d02243be3f5ee0d9531213fb403a5e0a11362",
+    "verify_B31_global_low_degree_0p11323.py": "ee9d5bc6925e00a161a9688825f152105299bd2d17e38fc234aec35246790edf",
+    "B31_global_low_degree_0p11323_proposals.json": "91ac8d82f93578b69e73fa61293ec4f3295431a54b998a00fec79e5130766e94",
+    "ONE_POSITIVE_CURVATURE_ISOPERIMETRY.md": "2f293c5ebb259b078bf47d6be8552062c6a81c0bcd2932940df322836922352d",
+    "verify_one_positive_curvature_isoperimetry.py": "f16a50aa3c9abefcf35d5c6fdc7d16a031afff1da3b1322d3fdafd8aa882a275",
+    "UNMARKED_LOW_DEGREE_CORE_OBSTRUCTION.md": "79372435a76d0b935a41ce3b003d4a96d39f44b172bdccb5c2f426dc0039ae5e",
+    "lower_bounds_extension_20261004/GENERAL_DISK_ISOPERIMETRY.md": "3dd646f173e5b840370d725260d98500d7c2e1b6b7ce87feecbfaf7e8a92de38",
+    "FULL_FACE_RANGE_ONE_SUPPORT.md": "72680706132cc5c53996caed9081532c4912b22b16ff6e81d3c9d6a10afaceea",
+    "exact_range_one_face_support.py": "a33023537a5f20e406e2fac79dc16f6ce79ac152798e08563a7097e48a1414ef",
+    "QUADRATIC_MARKED_CONJUGATE.md": "c03b881d967d4c4dcf547ab05466621fd9e15fe09c349f00f519e52f4cdb77fa",
+    "exact_quadratic_marked_conjugate.py": "a54af21d3b405b468e74f93ec53cab24714c5bb0fb4c66a61bd16987edfdfb6d",
+    "verify_global_star_anchor_degree_window.py": "897cdd069b86df8db907c4f58b4e584b15ffefb905c7c778661b97a2bcc6b1af",
+    "GLOBAL_STAR_ANCHOR_DEGREE_WINDOW.md": "9429409c6fb6f2c014392f05a5b0a3be1ee29963128f88201fba3dd25441ac88",
+    "FACE_LABEL_INTERFACE_CHARGES.md": "3dfdf146347ed46f9159251a92e84e8ece823d005917f767a9aea94e2be06ef7",
+    "JENSEN_SLAB_EAR_SUPPORT.md": "a8ab214fcfda4aee12bbc7af0f23a3777cef89095df78f8dd18c2d282d2b4fd2",
+    "verify_jensen_slab_ear_support.py": "1c8d46f5e08714519e1545199fdd6edebe7b1defec0df3b693649be0ad6c4e4b",
+    "lower_bounds_extension_20261004/verify_extension.py": "489947e87ba99acdd342b238129fad35c5cb3b1ba7906d29543383a2c7261b61"
+  }
+}

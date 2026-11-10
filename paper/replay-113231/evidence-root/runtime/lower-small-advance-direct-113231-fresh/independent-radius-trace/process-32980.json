@@ -1,0 +1,971 @@
+{
+  "pid": 32980,
+  "argv": [
+    "-c",
+    "from fractions import Fraction as F\nimport importlib.util,json\nassert __debug__\nspec=importlib.util.spec_from_file_location('component','E:\\\\study\\\\ADB\\\\runtime\\\\lower-small-advance-direct-113231-fresh\\\\package\\\\lower_staging\\\\B34_0p11323\\\\verify_hinge_B34_complete_0p11323.py')\nc=importlib.util.module_from_spec(spec)\nspec.loader.exec_module(c)\nresult=c.verify()\n\nassert result['radius']=='113231/1000000' and (result['B'],result['m'])==(34,100)\nassert (result['face_supports'],result['vertex_supports'],result['integer_ranges'])==(48,1455,3)\nassert result['arbitrary_ears'] is result['arbitrary_bad_q1'] is result['arbitrary_all_boundary_q0'] is True\nassert result['geometry']['minimum_M']==22 and result['geometry']['remaining_boundary_counts']==list(range(31,40))\nassert F(result['halfside_multiplier'])==F(1,2)\nassert F(result['normalized_boundary_envelope']['required_center_norm_squared_upper'])==1-F(113231,1000000)**2\nassert result['normalized_boundary_envelope']['variance_coefficient']=='0'\nassert F(result['q4_hinge_allocation']['paid_q4_charge'])==F(1,50)\nassert result['no_second_deficit_spend'] is True and F(result['minimum_area_margin'])>0\n\nassert result['status']=='PASS'\nprint(json.dumps(result),flush=True)\n"
+  ],
+  "verifier_entries": [
+    {
+      "source": "lower_staging/B34_0p11323/verify_hinge_B34_complete_0p11323.py",
+      "function": "verify",
+      "parameters": {
+        "R": "113231/1000000",
+        "B": "34",
+        "K": "1/2"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "exclude_all",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "3"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "4"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "5"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "6"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "7"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "8"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "9"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "10"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "11"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "12"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "13"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "14"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "15"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "16"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "17"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "18"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "19"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "20"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "21"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "22"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "23"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "24"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "25"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "26"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "27"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "28"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "29"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "30"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "31"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "32"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "33"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "34"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "35"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "36"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "37"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "38"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "39"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "40"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "41"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "42"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "43"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "44"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "45"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "46"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "47"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "48"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "49"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "50"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "51"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "52"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "53"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "54"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "55"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "56"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "57"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "58"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "59"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "60"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "61"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "62"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "63"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "64"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "65"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "66"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "67"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "68"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "69"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "70"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "71"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "72"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "73"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "74"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "75"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "76"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "77"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "78"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "79"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "80"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "81"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "82"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "83"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "84"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "85"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "86"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "87"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "88"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "89"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "90"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "91"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "92"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "93"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "94"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "95"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "96"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "97"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "98"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "classify",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_radius": "113231/1000000",
+        "argument_B": "99"
+      }
+    },
+    {
+      "source": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "function": "cluster_exclusion",
+      "parameters": {
+        "R": "113231/1000000",
+        "argument_B": "34"
+      }
+    },
+    {
+      "source": "working/verify_exact_lens_boundary_0p11322.py",
+      "function": "verify",
+      "parameters": {
+        "R": "113231/1000000",
+        "B": "34",
+        "K": "1/2",
+        "CURVATURE": "0"
+      }
+    },
+    {
+      "source": "working/exact_linear_halfside_marked_conjugate.py",
+      "function": "verify",
+      "parameters": {}
+    },
+    {
+      "source": "working/exact_range_one_face_support.py",
+      "function": "verify",
+      "parameters": {}
+    },
+    {
+      "source": "working/verify_unmarked_low_degree_core_obstruction.py",
+      "function": "verify",
+      "parameters": {}
+    },
+    {
+      "source": "working/verify_one_positive_curvature_isoperimetry.py",
+      "function": "verify",
+      "parameters": {}
+    },
+    {
+      "source": "lower_staging/B34_0p11323/verify_B34_q4_hinge_charge_0p11323.py",
+      "function": "verify",
+      "parameters": {
+        "R": "113231/1000000",
+        "B": "34",
+        "K": "1/2"
+      }
+    },
+    {
+      "source": "working/verify_exact_lens_hinge_deficit.py",
+      "function": "verify",
+      "parameters": {
+        "R": "113231/1000000",
+        "B": "34",
+        "K": "1/2",
+        "CURVATURE": "0"
+      }
+    }
+  ],
+  "loaded_package_modules": {
+    "working/verify_star_lp_duals.py": "23568fed518e451d3d6b7f11603e080546bb74afa020ef0fd8fbb1a3b02be6d7",
+    "working/verify_potential_star_duals.py": "d4609b4441dae93c105966dd28f72b2e9d84342f012dd519dca25f2515e3e2c3",
+    "working/exact_linear_halfside_marked_conjugate.py": "12308a08e76ead613dc36555bc16026bfaf0ea928dda6f18d18b1f4e8ccc23e4",
+    "working/exact_angle_conjugates.py": "cee5e03352e7b6c94ecbe5dbf0cd43f97342c9c23492b6820e7fc935fc8d1cb9",
+    "working/exact_range_one_face_support.py": "a33023537a5f20e406e2fac79dc16f6ce79ac152798e08563a7097e48a1414ef",
+    "working/verify_jensen_slab_ear_support.py": "e184f396e7b74c8c1404d6f20499393ae3f130300348fbfe31c9699904429df5",
+    "working/verify_unmarked_low_degree_core_obstruction.py": "ea4639cd3bb6955d4df1a12b473a65053200e335c899c844d104078880fa45bb",
+    "working/verify_one_positive_curvature_isoperimetry.py": "f16a50aa3c9abefcf35d5c6fdc7d16a031afff1da3b1322d3fdafd8aa882a275",
+    "working/lower_bounds_extension_20261004/verify_extension.py": "489947e87ba99acdd342b238129fad35c5cb3b1ba7906d29543383a2c7261b61",
+    "working/verify_exact_lens_boundary_0p11322.py": "3c6e6a762c5681a70d06606c27e755743e5c851fe92055495207924e7a6737b1",
+    "working/verify_exact_lens_hinge_deficit.py": "02832e72682ac7c2578dbc71550711d9624e51ad6bb1b63255fd27bb0adc7951",
+    "lower_staging/B34_0p11323/verify_B34_q4_hinge_charge_0p11323.py": "ec881a2f2cebccaa67715fe297bf5d2a623d19e54d187fbc66e20c8329f813db",
+    "working/exact_quadratic_marked_conjugate.py": "a54af21d3b405b468e74f93ec53cab24714c5bb0fb4c66a61bd16987edfdfb6d"
+  }
+}

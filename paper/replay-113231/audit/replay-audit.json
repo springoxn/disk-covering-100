@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "radius": "113231/1000000",
+  "complete_replays": 2,
+  "branches": [
+    "B31",
+    "B32",
+    "B33",
+    "B34",
+    "B35",
+    "B36plus"
+  ],
+  "count_bridge_cases": 96,
+  "source_files": 626,
+  "transformed_files": 60,
+  "python_files_parsed": 158,
+  "assertions_preserved": 1662,
+  "trace_processes": 20,
+  "loaded_sources": 28,
+  "no_other_global_radius_entries": true,
+  "negative_controls_rejected": true,
+  "higher_radius_pass_inherited": false,
+  "geometric_premises_formalized": false
+}\n

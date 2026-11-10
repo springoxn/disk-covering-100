@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "scope": "Parent mathematical research receipt; independent audit is a separate obligation",
+  "radius": "113231/1000000",
+  "B": 34,
+  "python_version": "3.12.14",
+  "verifier": "lower_staging/B34_0p11323/verify_hinge_B34_complete_0p11323.py",
+  "result": "lower_staging/B34_0p11323/hinge_B34_complete_0p11323_result.json",
+  "result_sha256": "cf16ebf6bb661875c3420c1fbf2e2c66acbbf08c0ac70db193280c66350ad0ba",
+  "minimum_area_margin": "234527127568630562727/1000000000000000000000000",
+  "dependency_bindings": [
+    {
+      "path": "lower_staging/B34_0p11323/PROOF_B34_11323.md",
+      "sha256": "ac1e7f2b6d4b3b254f6d26e1a419f9983e473cb2095e8e3f85d17403d2f20334",
+      "bytes": 7484
+    },
+    {
+      "path": "lower_staging/B34_0p11323/hinge_B34_0p11323_proposals.json",
+      "sha256": "0f3eca6c85c03fb01686df5c59481ac752a650e62e1efb24b155944beed95037",
+      "bytes": 8178
+    },
+    {
+      "path": "lower_staging/B34_0p11323/verify_B34_q4_hinge_charge_0p11323.py",
+      "sha256": "680805ab121764c384700995452912608d8f4c67f37449308a9e13cf8d9c7397",
+      "bytes": 2404
+    },
+    {
+      "path": "lower_staging/B34_0p11323/verify_hinge_B34_complete_0p11323.py",
+      "sha256": "04add9f7fe6ee82529c5bf2c03f56dfd0d6e012a60919fc685222c185ee77cc1",
+      "bytes": 7419
+    },
+    {
+      "path": "working/exact_angle_conjugates.py",
+      "sha256": "cee5e03352e7b6c94ecbe5dbf0cd43f97342c9c23492b6820e7fc935fc8d1cb9",
+      "bytes": 2811
+    },
+    {
+      "path": "working/exact_linear_halfside_marked_conjugate.py",
+      "sha256": "12308a08e76ead613dc36555bc16026bfaf0ea928dda6f18d18b1f4e8ccc23e4",
+      "bytes": 2657
+    },
+    {
+      "path": "working/exact_quadratic_marked_conjugate.py",
+      "sha256": "a54af21d3b405b468e74f93ec53cab24714c5bb0fb4c66a61bd16987edfdfb6d",
+      "bytes": 3470
+    },
+    {
+      "path": "working/exact_range_one_face_support.py",
+      "sha256": "a33023537a5f20e406e2fac79dc16f6ce79ac152798e08563a7097e48a1414ef",
+      "bytes": 2364
+    },
+    {
+      "path": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "sha256": "489947e87ba99acdd342b238129fad35c5cb3b1ba7906d29543383a2c7261b61",
+      "bytes": 8650
+    },
+    {
+      "path": "working/verify_exact_lens_boundary_0p11322.py",
+      "sha256": "3c6e6a762c5681a70d06606c27e755743e5c851fe92055495207924e7a6737b1",
+      "bytes": 3554
+    },
+    {
+      "path": "working/verify_exact_lens_hinge_deficit.py",
+      "sha256": "02832e72682ac7c2578dbc71550711d9624e51ad6bb1b63255fd27bb0adc7951",
+      "bytes": 3767
+    },
+    {
+      "path": "working/verify_jensen_slab_ear_support.py",
+      "sha256": "1c8d46f5e08714519e1545199fdd6edebe7b1defec0df3b693649be0ad6c4e4b",
+      "bytes": 2158
+    },
+    {
+      "path": "working/verify_one_positive_curvature_isoperimetry.py",
+      "sha256": "f16a50aa3c9abefcf35d5c6fdc7d16a031afff1da3b1322d3fdafd8aa882a275",
+      "bytes": 1090
+    },
+    {
+      "path": "working/verify_potential_star_duals.py",
+      "sha256": "d4609b4441dae93c105966dd28f72b2e9d84342f012dd519dca25f2515e3e2c3",
+      "bytes": 6721
+    },
+    {
+      "path": "working/verify_star_lp_duals.py",
+      "sha256": "23568fed518e451d3d6b7f11603e080546bb74afa020ef0fd8fbb1a3b02be6d7",
+      "bytes": 7565
+    },
+    {
+      "path": "working/verify_unmarked_low_degree_core_obstruction.py",
+      "sha256": "ea4639cd3bb6955d4df1a12b473a65053200e335c899c844d104078880fa45bb",
+      "bytes": 1160
+    }
+  ],
+  "local_import_graph": {
+    "lower_staging/B34_0p11323/verify_hinge_B34_complete_0p11323.py": [
+      "lower_staging/B34_0p11323/verify_B34_q4_hinge_charge_0p11323.py",
+      "working/exact_linear_halfside_marked_conjugate.py",
+      "working/exact_range_one_face_support.py",
+      "working/lower_bounds_extension_20261004/verify_extension.py",
+      "working/verify_exact_lens_boundary_0p11322.py",
+      "working/verify_jensen_slab_ear_support.py",
+      "working/verify_one_positive_curvature_isoperimetry.py",
+      "working/verify_potential_star_duals.py",
+      "working/verify_star_lp_duals.py",
+      "working/verify_unmarked_low_degree_core_obstruction.py"
+    ],
+    "lower_staging/B34_0p11323/verify_B34_q4_hinge_charge_0p11323.py": [
+      "working/verify_exact_lens_boundary_0p11322.py",
+      "working/verify_exact_lens_hinge_deficit.py",
+      "working/verify_potential_star_duals.py",
+      "working/verify_star_lp_duals.py"
+    ],
+    "working/verify_potential_star_duals.py": [
+      "working/verify_star_lp_duals.py"
+    ],
+    "working/verify_star_lp_duals.py": [],
+    "working/verify_exact_lens_hinge_deficit.py": [
+      "working/exact_angle_conjugates.py",
+      "working/verify_potential_star_duals.py",
+      "working/verify_star_lp_duals.py"
+    ],
+    "working/exact_angle_conjugates.py": [
+      "working/verify_potential_star_duals.py"
+    ],
+    "working/verify_exact_lens_boundary_0p11322.py": [
+      "working/exact_angle_conjugates.py",
+      "working/verify_potential_star_duals.py",
+      "working/verify_star_lp_duals.py"
+    ],
+    "working/lower_bounds_extension_20261004/verify_extension.py": [],
+    "working/verify_one_positive_curvature_isoperimetry.py": [],
+    "working/verify_unmarked_low_degree_core_obstruction.py": [],
+    "working/verify_jensen_slab_ear_support.py": [
+      "working/verify_star_lp_duals.py"
+    ],
+    "working/exact_range_one_face_support.py": [
+      "working/exact_angle_conjugates.py",
+      "working/verify_star_lp_duals.py"
+    ],
+    "working/exact_linear_halfside_marked_conjugate.py": [
+      "working/exact_quadratic_marked_conjugate.py",
+      "working/verify_potential_star_duals.py",
+      "working/verify_star_lp_duals.py"
+    ],
+    "working/exact_quadratic_marked_conjugate.py": [
+      "working/verify_potential_star_duals.py",
+      "working/verify_star_lp_duals.py"
+    ]
+  },
+  "historical_source_mutation": "None",
+  "numerical_optimizer_on_acceptance_path": false
+}

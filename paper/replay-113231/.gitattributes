@@ -1,0 +1,2 @@
+# Preserve certificate bytes across Git checkouts; hashes bind raw file content.
+evidence-root/** -text

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "pdf": "build\\paper.pdf",
+  "pages": 6,
+  "text_characters": 14462,
+  "unique_fonts": [
+    "AKHCZK+LMMathItalic10-Regular",
+    "BZIVMZ+LMRoman17-Regular",
+    "CAFSZL+LMRoman10-Regular",
+    "DDIEWW+LMRoman7-Regular",
+    "DZGKAF+LMMathSymbols8-Regular",
+    "FKPJSN+LMRoman12-Bold",
+    "FZDNHS+LMRoman10-Italic",
+    "GJMHKB+LMRoman10-Regular",
+    "IHAIZV+LMRoman17-Regular",
+    "IXFAWU+LMMathItalic12-Regular",
+    "JAGKKY+LMMathSymbols10-Regular",
+    "KPXLOM+LMMathItalic8-Regular",
+    "NITCSQ+LMMono10-Regular",
+    "NOMARO+LMRoman8-Regular",
+    "PVTTLK+MSBM10",
+    "TQTHRL+LMRoman10-Bold",
+    "UTACNV+LMMathExtension10-Regular",
+    "VDVGTR+LMMathItalic7-Regular",
+    "YEUUOC+LMRoman10-Regular"
+  ],
+  "required_markers_checked": 14,
+  "all_pages_have_text": true
+}

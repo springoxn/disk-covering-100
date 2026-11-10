@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "radius": "113231/1000000",
+  "B": 35,
+  "halfside_multiplier": "33/100",
+  "scope": "Conditional globally normalized boundary envelope; no full covering exclusion",
+  "required_center_norm_squared_upper": "9871789671/10000000000",
+  "reflection_polynomial_identity": "PASS",
+  "displacement_factor_interval": [
+    "673468840624344052568231/500000000000000000000000",
+    "269387536249737621027293/200000000000000000000000"
+  ],
+  "penalty_numerator_derivative_lower": "245937061751919/50000000000000",
+  "penalty_numerator_endpoint_upper": "-11930958363877/1250000000000000",
+  "variance_coefficient": "1/20",
+  "good_arc_curvature_margin": "351094214730180764397117/1000000000000000000000000",
+  "bad_arc_subintervals": 14,
+  "endpoint_comparisons": 28,
+  "minimum_bad_arc_margin": "10952494364811146157/1000000000000000000000000"
+}

@@ -1,0 +1,570 @@
+{
+  "status": "PASS",
+  "scope": "All sixteen supplied B32 graph families are excluded at .11318; the complete same-radius reduction and catalog theorem remain separate premises",
+  "radius": "5659/50000",
+  "source_radius": "2829/25000",
+  "graph_count": 16,
+  "catalog_sha256": "6bc2f1e934d36d6ee35a2aeb6ee7ee68f2eac8d3faa473975fceb2447ebb5742",
+  "minimum_area_margin": "161731994484994196963/500000000000000000000000",
+  "minimum_margin_family": "B32_P26_F108_001",
+  "rows": [
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_000",
+      "radius": "5659/50000",
+      "graph_sha256": "5048b5764b729f1f12433a9a25154ae59e961a7b39570f4cb762eb2038be1415",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 26,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 6,
+          "4": 26
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 175,
+      "normalized_center_upper": "229796396325725986544755593/1000000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "162108991128404502227/500000000000000000000000",
+      "seconds_reporting_only": 0.10395484000036959
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_001",
+      "radius": "5659/50000",
+      "graph_sha256": "f7a214c5178b6856e88c11dfe796e70522de08771c2bc370128e5ed00c9a3f95",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 26,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 6,
+          "4": 26
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 175,
+      "normalized_center_upper": "114898227593394424275095997/500000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "161731994484994196963/500000000000000000000000",
+      "seconds_reporting_only": 0.02951687500171829
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_002",
+      "radius": "5659/50000",
+      "graph_sha256": "1eac31e2b8840c4c30099d35c7d34d80aba0261945e2b285bd496706ef2162bc",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 176,
+      "normalized_center_upper": "1436226430012387359295233/6250000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "163181956618868127129/500000000000000000000000",
+      "seconds_reporting_only": 0.033029740006895736
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_003",
+      "radius": "5659/50000",
+      "graph_sha256": "eb291b8394b2c51ec07bcd2e6cd4544bb0e676c282161d8fbd3122c222ec403f",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 176,
+      "normalized_center_upper": "229796198173643310134272713/1000000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "81689063361838711251/250000000000000000000000",
+      "seconds_reporting_only": 0.034544738999102265
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_004",
+      "radius": "5659/50000",
+      "graph_sha256": "2211974ab2c7c2231a416f3c37db6d2c5879369ecf7d03a0789d2e8cd8c8903c",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 176,
+      "normalized_center_upper": "229796198173642947021688851/1000000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "81689063363001553193/250000000000000000000000",
+      "seconds_reporting_only": 0.03468410900677554
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_005",
+      "radius": "5659/50000",
+      "graph_sha256": "ff57b284c107a933e7d0438ba625d76370d522fa7676627e74c9c54042f149d2",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 176,
+      "normalized_center_upper": "11489809908682127479360811/50000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "20422265841068577129/62500000000000000000000",
+      "seconds_reporting_only": 0.03557600699423347
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_006",
+      "radius": "5659/50000",
+      "graph_sha256": "c5b4345dc8dc7961dbfd5e5f84d85e51b6fabb42317e57c25943a647507bf1fb",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 176,
+      "normalized_center_upper": "1838369830415855819897903/8000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "326363913237736254251/1000000000000000000000000",
+      "seconds_reporting_only": 0.01769726100610569
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_007",
+      "radius": "5659/50000",
+      "graph_sha256": "6341b943d5d66818fc3a333069b0a597d4d4d2556dc37f36f3e31651ae0387b2",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 176,
+      "normalized_center_upper": "5744904249597850944356961/25000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "1635586778859838189/5000000000000000000000",
+      "seconds_reporting_only": 0.04086199100129306
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_008",
+      "radius": "5659/50000",
+      "graph_sha256": "6fa613d81e4401c29654a3aa6d4de6ec0b41a3276dc7d5a5dbd769260d0906a9",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 177,
+      "normalized_center_upper": "45959156751939020178628723/200000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "33206477693846371889/100000000000000000000000",
+      "seconds_reporting_only": 0.037329144004615955
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_009",
+      "radius": "5659/50000",
+      "graph_sha256": "e3b07f36a2e3ec89cef2c2f2ddc24afb2267bc678e3827e6976149bf6407f1d6",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 176,
+      "normalized_center_upper": "229796139398276831039174881/1000000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "327509148988156653819/1000000000000000000000000",
+      "seconds_reporting_only": 0.039247352004167624
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_010",
+      "radius": "5659/50000",
+      "graph_sha256": "c1312bf903e31175d9b33f0ce4504ca5ac6669da81f24f8b03b15730eef02fac",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 177,
+      "normalized_center_upper": "229795765582423350276797213/1000000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "33229762256180575881/100000000000000000000000",
+      "seconds_reporting_only": 0.039547864987980574
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_011",
+      "radius": "5659/50000",
+      "graph_sha256": "ffb836bcf0fb579ae4d1fed838f46727d02e6c446efc5c7c5673f082500fe0dd",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 177,
+      "normalized_center_upper": "28724472969961937841496891/125000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "332064776933316279027/1000000000000000000000000",
+      "seconds_reporting_only": 0.03264424699591473
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_012",
+      "radius": "5659/50000",
+      "graph_sha256": "2bb6e462c75f15e57d43caeade9e4da601cb6e50660ed30e7c1ccad73b667f6e",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 176,
+      "normalized_center_upper": "114898069699138415519587823/500000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "327509148988156653809/1000000000000000000000000",
+      "seconds_reporting_only": 0.017731874002492987
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_013",
+      "radius": "5659/50000",
+      "graph_sha256": "d2d65fba8316fb65f5749afca23d57e6eb789ee068d7ab92e338fa2eaabc1703",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 177,
+      "normalized_center_upper": "22979578375969486448327057/100000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "83016194235373015343/250000000000000000000000",
+      "seconds_reporting_only": 0.028362541008391418
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_014",
+      "radius": "5659/50000",
+      "graph_sha256": "d296baf3760efddeca2a32210f804cc6d3aff54b72ae66a2882539afebd8f2d8",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 177,
+      "normalized_center_upper": "57448945939923713974019251/250000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "83016194235400515213/250000000000000000000000",
+      "seconds_reporting_only": 0.026171550998697057
+    },
+    {
+      "status": "PASS",
+      "scope": "This supplied B32 graph is excluded with unrestricted actual center coordinates; catalog and universal branch reduction are separate premises",
+      "family_id": "B32_P26_F108_015",
+      "radius": "5659/50000",
+      "graph_sha256": "21aa19ecc9d170b8ed8944c5bbb284186af1c1ea47c194a4acf4fa34dd612130",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "q0_supports": 134,
+      "q1_supports": 32,
+      "cancelled_edges": 177,
+      "normalized_center_upper": "22979578375969487306909931/100000000000000000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "531303643106211327/1600000000000000000000",
+      "seconds_reporting_only": 0.02597679699829314
+    }
+  ]
+}

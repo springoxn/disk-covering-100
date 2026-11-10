@@ -1,0 +1,37 @@
+{
+  "pid": 53684,
+  "argv": [
+    "-c",
+    "import json,importlib;from fractions import Fraction;v=importlib.import_module('verify_N27_metric_chord_cases_0p11322');v.R=Fraction('113231/1000000');print(json.dumps(v.verify()))"
+  ],
+  "verifier_entries": [
+    {
+      "source": "working/verify_N27_metric_chord_cases_0p11322.py",
+      "function": "verify",
+      "parameters": {
+        "R": "113231/1000000",
+        "K": "11/25"
+      }
+    },
+    {
+      "source": "working/verify_exact_lens_boundary_0p11322.py",
+      "function": "verify",
+      "parameters": {
+        "R": "113231/1000000",
+        "B": "33",
+        "K": "11/25",
+        "CURVATURE": "0"
+      }
+    }
+  ],
+  "loaded_package_modules": {
+    "working/verify_star_lp_duals.py": "23568fed518e451d3d6b7f11603e080546bb74afa020ef0fd8fbb1a3b02be6d7",
+    "working/verify_potential_star_duals.py": "d4609b4441dae93c105966dd28f72b2e9d84342f012dd519dca25f2515e3e2c3",
+    "working/signed_edge_metric_20261004/exact_signed_conjugates.py": "cbf8cbb7ec769cd504077631be5df971caed8d24996515cce5df9dc389cbab70",
+    "working/exact_signed_sine_full_face_support.py": "9771385657022f006daf986057165db0514e296b0538a7e81d99808a772487e3",
+    "working/exact_linear_halfside_marked_conjugate.py": "12308a08e76ead613dc36555bc16026bfaf0ea928dda6f18d18b1f4e8ccc23e4",
+    "working/exact_angle_conjugates.py": "cee5e03352e7b6c94ecbe5dbf0cd43f97342c9c23492b6820e7fc935fc8d1cb9",
+    "working/verify_exact_lens_boundary_0p11322.py": "3c6e6a762c5681a70d06606c27e755743e5c851fe92055495207924e7a6737b1",
+    "working/verify_N27_metric_chord_cases_0p11322.py": "e4c6e4c6697480e969b9a4d477db0712da507b02e7a98dca07f5f42cc347fac8"
+  }
+}

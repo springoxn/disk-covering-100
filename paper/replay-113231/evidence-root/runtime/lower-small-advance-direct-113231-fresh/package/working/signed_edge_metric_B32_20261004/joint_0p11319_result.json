@@ -1,0 +1,649 @@
+{
+  "status": "PASS",
+  "radius": "11319/100000",
+  "scope": "All sixteen specified B32 graph families only; a same-radius complete topology reduction is a separate obligation",
+  "graph_count": 16,
+  "minimum_area_margin": "45596357936827904183/40000000000000000000000",
+  "minimum_margin_family": "B32_P26_F108_001",
+  "maximum_pure_center_bound": "114898227593394424275095997/500000000000000000000000",
+  "rows": [
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_000",
+      "radius": "11319/100000",
+      "graph_sha256": "5048b5764b729f1f12433a9a25154ae59e961a7b39570f4cb762eb2038be1415",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 26,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 6,
+          "4": 26
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "229796396325725986544755593/1000000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 175,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "228140524753640791271/200000000000000000000000",
+      "area_margin_approx": 0.001140702623768204,
+      "seconds_reporting_only": 0.13398841200978495
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_001",
+      "radius": "11319/100000",
+      "graph_sha256": "f7a214c5178b6856e88c11dfe796e70522de08771c2bc370128e5ed00c9a3f95",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 26,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 6,
+          "4": 26
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "114898227593394424275095997/500000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 175,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "45596357936827904183/40000000000000000000000",
+      "area_margin_approx": 0.0011399089484206977,
+      "seconds_reporting_only": 0.045491739991120994
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_002",
+      "radius": "11319/100000",
+      "graph_sha256": "1eac31e2b8840c4c30099d35c7d34d80aba0261945e2b285bd496706ef2162bc",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "1436226430012387359295233/6250000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 176,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "343103706332295233047/250000000000000000000000",
+      "area_margin_approx": 0.0013724148253291808,
+      "seconds_reporting_only": 0.056999391003046185
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_003",
+      "radius": "11319/100000",
+      "graph_sha256": "eb291b8394b2c51ec07bcd2e6cd4544bb0e676c282161d8fbd3122c222ec403f",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "229796198173643310134272713/1000000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 176,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "5362603377544579971/3906250000000000000000",
+      "area_margin_approx": 0.0013728264646514126,
+      "seconds_reporting_only": 0.06746067199856043
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_004",
+      "radius": "11319/100000",
+      "graph_sha256": "2211974ab2c7c2231a416f3c37db6d2c5879369ecf7d03a0789d2e8cd8c8903c",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "229796198173642947021688851/1000000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 176,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "1372826464651413162213/1000000000000000000000000",
+      "area_margin_approx": 0.0013728264646514132,
+      "seconds_reporting_only": 0.05154869299440179
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_005",
+      "radius": "11319/100000",
+      "graph_sha256": "ff57b284c107a933e7d0438ba625d76370d522fa7676627e74c9c54042f149d2",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "11489809908682127479360811/50000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 176,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "1372826464651413259779/1000000000000000000000000",
+      "area_margin_approx": 0.0013728264646514132,
+      "seconds_reporting_only": 0.04622249300882686
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_006",
+      "radius": "11319/100000",
+      "graph_sha256": "c5b4345dc8dc7961dbfd5e5f84d85e51b6fabb42317e57c25943a647507bf1fb",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "1838369830415855819897903/8000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 176,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "68620741266459046609/50000000000000000000000",
+      "area_margin_approx": 0.0013724148253291808,
+      "seconds_reporting_only": 0.03159500799665693
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_007",
+      "radius": "11319/100000",
+      "graph_sha256": "6341b943d5d66818fc3a333069b0a597d4d4d2556dc37f36f3e31651ae0387b2",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "5744904249597850944356961/25000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 176,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "1374114540865103002821/1000000000000000000000000",
+      "area_margin_approx": 0.001374114540865103,
+      "seconds_reporting_only": 0.06190596798842307
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_008",
+      "radius": "11319/100000",
+      "graph_sha256": "6fa613d81e4401c29654a3aa6d4de6ec0b41a3276dc7d5a5dbd769260d0906a9",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "45959156751939020178628723/200000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 177,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "1607315422779302396939/1000000000000000000000000",
+      "area_margin_approx": 0.0016073154227793025,
+      "seconds_reporting_only": 0.05944022600306198
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_009",
+      "radius": "11319/100000",
+      "graph_sha256": "e3b07f36a2e3ec89cef2c2f2ddc24afb2267bc678e3827e6976149bf6407f1d6",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "229796139398276831039174881/1000000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 176,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "1374526105971956511779/1000000000000000000000000",
+      "area_margin_approx": 0.0013745261059719565,
+      "seconds_reporting_only": 0.05730184700223617
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_010",
+      "radius": "11319/100000",
+      "graph_sha256": "c1312bf903e31175d9b33f0ce4504ca5ac6669da81f24f8b03b15730eef02fac",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "229795765582423350276797213/1000000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 177,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "64302370503518455187/40000000000000000000000",
+      "area_margin_approx": 0.0016075592625879613,
+      "seconds_reporting_only": 0.05540218000533059
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_011",
+      "radius": "11319/100000",
+      "graph_sha256": "ffb836bcf0fb579ae4d1fed838f46727d02e6c446efc5c7c5673f082500fe0dd",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "28724472969961937841496891/125000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 177,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "803657711389651209941/500000000000000000000000",
+      "area_margin_approx": 0.0016073154227793025,
+      "seconds_reporting_only": 0.048008789992309175
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_012",
+      "radius": "11319/100000",
+      "graph_sha256": "2bb6e462c75f15e57d43caeade9e4da601cb6e50660ed30e7c1ccad73b667f6e",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 25,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 7,
+          "4": 24,
+          "5": 1
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "114898069699138415519587823/500000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 176,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "1374526105971956511769/1000000000000000000000000",
+      "area_margin_approx": 0.0013745261059719565,
+      "seconds_reporting_only": 0.02858043200103566
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_013",
+      "radius": "11319/100000",
+      "graph_sha256": "d2d65fba8316fb65f5749afca23d57e6eb789ee068d7ab92e338fa2eaabc1703",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "22979578375969486448327057/100000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 177,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "401828855694825594529/250000000000000000000000",
+      "area_margin_approx": 0.0016073154227793025,
+      "seconds_reporting_only": 0.04171270599181298
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_014",
+      "radius": "11319/100000",
+      "graph_sha256": "d296baf3760efddeca2a32210f804cc6d3aff54b72ae66a2882539afebd8f2d8",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "57448945939923713974019251/250000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 177,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "160731542277930239199/100000000000000000000000",
+      "area_margin_approx": 0.0016073154227793025,
+      "seconds_reporting_only": 0.038341496998327784
+    },
+    {
+      "status": "PASS",
+      "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+      "family_id": "B32_P26_F108_015",
+      "radius": "11319/100000",
+      "graph_sha256": "21aa19ecc9d170b8ed8944c5bbb284186af1c1ea47c194a4acf4fa34dd612130",
+      "graph_check": {
+        "vertices": 100,
+        "edges": 265,
+        "faces": 166,
+        "B": 32,
+        "I": 68,
+        "N": 26,
+        "marked_apex_count_K": 24,
+        "interior_degree_histogram": {
+          "6": 68
+        },
+        "max_marked_fan_size": 2,
+        "outer_degree_histogram": {
+          "3": 8,
+          "4": 22,
+          "5": 2
+        },
+        "oriented_edge_check": "PASS",
+        "all_vertex_links_check": "PASS",
+        "connected": "PASS"
+      },
+      "geometry_status": "PASS",
+      "pure_normalized_center_upper": "22979578375969487306909931/100000000000000000000000",
+      "q0_face_supports": 134,
+      "q1_unequal_base_supports": 32,
+      "cancelled_shared_edges": 177,
+      "boundary_arc_supports": 32,
+      "retained_quadratic_roots": 32,
+      "maximum_neighbor_weight_difference": "99999999/4000000000",
+      "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+      "area_margin": "50228606961853199429/31250000000000000000000",
+      "area_margin_approx": 0.0016073154227793025,
+      "seconds_reporting_only": 0.03750394300732296
+    }
+  ]
+}

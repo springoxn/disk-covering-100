@@ -1,0 +1,1945 @@
+{
+  "status": "PASS",
+  "date_utc": "2026-10-05T02:58:42.974396+00:00",
+  "finished_utc": "2026-10-05T02:58:58.920623+00:00",
+  "audit_scope": "Independent catalog-free B32 high-M structural, coherent-charge and exact replay audit; full B32 v2 compositor replay included. No universal or optimal-radius theorem follows from this receipt alone.",
+  "radius": "113231/1000000",
+  "required_center_norm_squared_upper": "9871789671/10000000000",
+  "B": 32,
+  "m": 100,
+  "M_domain": "M>=26",
+  "minimum_high_M_area_margin": "739858192019342675093/1000000000000000000000000",
+  "minimum_complete_B32_area_margin": "163122365904541981619/500000000000000000000000",
+  "assertions_enabled": true,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "numerical_optimizer_used": false,
+  "historical_sources_modified": false,
+  "source_sha256": {
+    "lower_staging/B32_COMPLETE_0p11323_PROOF.md": "58da5a1400d26e038f0a8b296b803f370f0314ecf704560fd918426c52807767",
+    "lower_staging/B32_HIGHM_CATALOG_FREE_COMPLETE_0p11323.md": "bce25e990661a24cc1b3beb41917707ffd106e197869bfef6fe695774c27d70e",
+    "lower_staging/B32_M25_direct_interface_0p11323_proposal.json": "f148978b9dfb29b50b4a0388c7694c747c0beeec1c734530ed693b4adafae9ac",
+    "lower_staging/refresh_B32_low_core_0p11323.py": "76d5c0ce022458af16840c1d5530eba2147c800600e85ed9d11acd544527f9b1",
+    "lower_staging/verify_B32_M25_direct_interface_0p11323.py": "8893b84771771a8c6353ea7029fe490df0b35b68a4d0fe2c9199cfdc2947410b",
+    "lower_staging/verify_B32_complete_0p11323_v2.py": "145f74060b64bd6e80c3ffd6096da8a9a9d4f095819f7cc0509bebf3a7cad260",
+    "lower_staging/verify_B32_highM_complete_0p11323.py": "3a2dc869379d688a0dee7379eeb2849fffaafe25c868d293cc144fc127015154",
+    "lower_staging/verify_exact_lens_boundary_0p11322.py": "3c6e6a762c5681a70d06606c27e755743e5c851fe92055495207924e7a6737b1",
+    "lower_staging/verify_normalized_boundary_B32_0p11322.py": "3ef9ad5972d1917332adcb5ca4316b52fd09ac02da7ada507e84f40a084c9e7e",
+    "working/POLYGON_STAR_AREA_PERIMETER.md": "d4e6fb8830c36a7be1f45175507b4d67e2553ff9302e40f7db20276c8021fab1",
+    "working/PROOF_11322.md": "ba9d7415a59ea2e8c451329023d4e27729b7c8be2896b1e0fb3f896e6f94007e",
+    "working/SIGNED_SINE_FULL_FACE_LOCALIZATION.md": "6393c6f64784f2abe671817d9976ca01bedad63d893db6e9d84f48c71f177ba7",
+    "working/UNMARKED_LOW_DEGREE_CORE_OBSTRUCTION.md": "79372435a76d0b935a41ce3b003d4a96d39f44b172bdccb5c2f426dc0039ae5e",
+    "working/direct_M25_metric_20261004/exact_proposals.json": "628f9c5db6ee9e73880f6dc27b32544034aad659d9448d4688a490b81ca9e011",
+    "working/exact_angle_conjugates.py": "cee5e03352e7b6c94ecbe5dbf0cd43f97342c9c23492b6820e7fc935fc8d1cb9",
+    "working/exact_linear_halfside_marked_conjugate.py": "12308a08e76ead613dc36555bc16026bfaf0ea928dda6f18d18b1f4e8ccc23e4",
+    "working/exact_quadratic_marked_conjugate.py": "a54af21d3b405b468e74f93ec53cab24714c5bb0fb4c66a61bd16987edfdfb6d",
+    "working/exact_range_one_face_support.py": "a33023537a5f20e406e2fac79dc16f6ce79ac152798e08563a7097e48a1414ef",
+    "working/exact_signed_sine_full_face_support.py": "9771385657022f006daf986057165db0514e296b0538a7e81d99808a772487e3",
+    "working/lower_bounds_extension_20261004/GENERAL_DISK_ISOPERIMETRY.md": "3dd646f173e5b840370d725260d98500d7c2e1b6b7ce87feecbfaf7e8a92de38",
+    "working/lower_bounds_extension_20261004/reduce_B32_flat_core_0p11318.py": "5946334e52d1be517d7a5837572dcb69bd579f76d184134f044ba77e3af4ae46",
+    "working/lower_bounds_extension_20261004/reduce_B32_high_core_0p11322.py": "4f3fafad244c9c69db3ee62980dd9fd7002fcab90d7662692b0c5abf5b28126c",
+    "working/lower_bounds_extension_20261004/verify_extension.py": "489947e87ba99acdd342b238129fad35c5cb3b1ba7906d29543383a2c7261b61",
+    "working/polygon_star_perimeter_support.py": "426c5eb338326931ce581d24697e1463815ed826ebfd24e926a1b12f9fa01a94",
+    "working/signed_edge_metric_20261004/exact_signed_conjugates.py": "cbf8cbb7ec769cd504077631be5df971caed8d24996515cce5df9dc389cbab70",
+    "working/verify_complete_star_area_caps.py": "5b7adb2cc17e982ea0d65e494ee2c06a9501506e9dc81dcafa04c158240089bf",
+    "working/verify_exact_lens_hinge_deficit_tight.py": "3c8efdb77ddc9fbdee9e79f869bc1307e7467947f9d45dd03122b3fe2f9d437a",
+    "working/verify_global_star_anchor_degree_window.py": "897cdd069b86df8db907c4f58b4e584b15ffefb905c7c778661b97a2bcc6b1af",
+    "working/verify_jensen_slab_ear_support.py": "1c8d46f5e08714519e1545199fdd6edebe7b1defec0df3b693649be0ad6c4e4b",
+    "working/verify_one_positive_curvature_isoperimetry.py": "f16a50aa3c9abefcf35d5c6fdc7d16a031afff1da3b1322d3fdafd8aa882a275",
+    "working/verify_potential_star_duals.py": "d4609b4441dae93c105966dd28f72b2e9d84342f012dd519dca25f2515e3e2c3",
+    "working/verify_star_lp_duals.py": "23568fed518e451d3d6b7f11603e080546bb74afa020ef0fd8fbb1a3b02be6d7",
+    "working/verify_tight_hinges_B32_0p11323.py": "ee23b26fb39ac325fde7443ec6a62e59ecffe3e5264814a5508b37abb93db82a",
+    "working/verify_unmarked_low_degree_core_obstruction.py": "ea4639cd3bb6955d4df1a12b473a65053200e335c899c844d104078880fa45bb"
+  },
+  "runs": {
+    "high_M": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-S",
+        "/workspace/scratch/0876c32d02f5/disk100_recovery_20261004_2305/lower_staging/verify_B32_highM_complete_0p11323.py"
+      ],
+      "cwd": "/workspace/scratch/0876c32d02f5/disk100_recovery_20261004_2305/lower_staging",
+      "exit_code": 0,
+      "elapsed_seconds": 4.670945,
+      "stdout_sha256": "1c3df328872837909310eaea0edaadbd40d250de4f84387b486a08a8aa0bcc4f",
+      "stderr": "",
+      "replay_file": "working/independent_global_0p11323_20261005/B32_HIGHM_CATALOG_FREE_INDEPENDENT_AUDIT_0p11323_20261005_high_replay.json",
+      "result": {
+        "status": "PASS",
+        "radius": "113231/1000000",
+        "B": 32,
+        "m": 100,
+        "M_domain": "M>=26",
+        "scope": "Complete normalized-diagram B32 high-M branch only; low-M, other B branches, universal radius and exact optimality are separate",
+        "required_center_norm_squared_upper": "9871789671/10000000000",
+        "graph_catalog_used": false,
+        "profile_reduction": {
+          "status": "PASS",
+          "radius": "113231/1000000",
+          "B": 32,
+          "m": 100,
+          "M_domain": "M>=26",
+          "required_center_norm_squared_upper": "9871789671/10000000000",
+          "n99_exclusion": {
+            "n": 99,
+            "radius": "113231/1000000",
+            "cases": 96,
+            "tightest_B": 34,
+            "minimum_area_margin": "93591732347747920006153107439494216107661633777884476873367781737690463949606826459158012299304439/170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "remaining_boundary_counts": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39
+          ],
+          "geometry": {
+            "no_all_boundary_q0_q1": {
+              "B": 32,
+              "consecutive_arcs": 4,
+              "angle_upper": "457/1000",
+              "containing_radius_factor": 2,
+              "certified_margin_greater_than": "1/1000",
+              "margin_interval": [
+                "1266153548219142871/100000000000000000000",
+                "158269193527392859/12500000000000000000"
+              ]
+            },
+            "ordinary_marked_incidence_at_most_three": {
+              "B": 32,
+              "consecutive_arcs": 5,
+              "angle_upper": "1733/2500",
+              "containing_radius_factor": 3,
+              "certified_margin_greater_than": "1/1000",
+              "margin_interval": [
+                "129024405961933091/20000000000000000000",
+                "40320126863104091/6250000000000000000"
+              ]
+            }
+          },
+          "normalized_boundary_envelope": {
+            "status": "PASS",
+            "radius": "113231/1000000",
+            "B": 32,
+            "halfside_multiplier": "3/10",
+            "scope": "Conditional globally normalized boundary envelope; no full covering exclusion",
+            "required_center_norm_squared_upper": "9871789671/10000000000",
+            "reflection_polynomial_identity": "PASS",
+            "displacement_factor_interval": [
+              "269084710502000090391027/200000000000000000000000",
+              "672711776255000225977569/500000000000000000000000"
+            ],
+            "penalty_numerator_derivative_lower": "2644997768859/500000000000",
+            "penalty_numerator_endpoint_upper": "-84807583091/625000000000",
+            "variance_coefficient": "0",
+            "good_arc_curvature_margin": "380865224795704047910419/1000000000000000000000000",
+            "bad_arc_subintervals": 13,
+            "endpoint_comparisons": 26,
+            "minimum_bad_arc_margin": "1566448281218411804479/500000000000000000000000"
+          },
+          "range_one_face_status": "PASS",
+          "face_supports": 20,
+          "vertex_supports": 387,
+          "minimum_face_slack": "398818696064891/6250000000000000000000",
+          "minimum_vertex_slack": "97/20000000",
+          "weighted_low_curvature_cost": "2646107247288222682869/10000000000000000000000",
+          "raw_M26_margin": "-240448471552753531211/62500000000000000000000",
+          "one_low_diagnostic_margin": "-227296368701491309709/500000000000000000000000",
+          "two_curvature_margin": "2937990070038091260541/1000000000000000000000000",
+          "marked_low_margin": "80649223634259229541/1000000000000000000000000",
+          "M_slope_upper": "-38137561057446518268467/250000000000000000000000",
+          "shifted_ear_upper": "-93509546569279774624491/500000000000000000000000",
+          "bad_q1_upper": "-291844879773120188824571/1000000000000000000000000",
+          "low_case_shift_margins": {
+            "M_at_least_27": "1501258962770139783423/1000000000000000000000000",
+            "at_least_one_ear": "121449075540915851257/62500000000000000000000",
+            "at_least_one_bad_q1": "821790016966183964289/250000000000000000000000"
+          },
+          "remaining_profiles": [
+            {
+              "M": 26,
+              "ears": 0,
+              "bad_q1": 0,
+              "all_interior_degrees": 6
+            },
+            {
+              "M": 26,
+              "ears": 0,
+              "bad_q1": 0,
+              "unique_degree5_marked_incidence": 0,
+              "degree7_vertices": 1,
+              "other_interior_degrees": 6
+            }
+          ],
+          "source_sha256": "4f3fafad244c9c69db3ee62980dd9fd7002fcab90d7662692b0c5abf5b28126c"
+        },
+        "core_topology": {
+          "status": "PASS",
+          "core_vertices": 68,
+          "core_boundary": 26,
+          "core_faces": 108,
+          "deep_vertices": 42,
+          "scope": "General induced-core Euler identities and /6 block disk isoperimetry; no flat development or graph catalog"
+        },
+        "deep_five_local_closure": {
+          "status": "PASS",
+          "radius": "113231/1000000",
+          "B": 32,
+          "m": 100,
+          "M": 26,
+          "required_center_norm_squared_upper": "9871789671/10000000000",
+          "scope": "Conditional unique-degree5/no-original-boundary-neighbor local closure, one degree7 and other degrees6",
+          "proposal_sha256": "628f9c5db6ee9e73880f6dc27b32544034aad659d9448d4688a490b81ca9e011",
+          "ordinary_face_supports": 9,
+          "outside_face_supports": 18,
+          "central_face_supports": 8,
+          "integer_profile_cases": 8,
+          "minimum_ordinary_slack": "299999999998719319/1000000000000000000000000",
+          "minimum_outside_slack": "200000459324604227/500000000000000000000000",
+          "fan_charge": "0",
+          "variance_charge": "0",
+          "halfside_multiplier": "0",
+          "minimum_area_margin": "739858192019342675093/1000000000000000000000000",
+          "rows": [
+            {
+              "high_marked_incidence": 0,
+              "high_neighbors": 0,
+              "area_margin": "1572842711564779277309/1000000000000000000000000"
+            },
+            {
+              "high_marked_incidence": 0,
+              "high_neighbors": 1,
+              "area_margin": "199840291083480568713/200000000000000000000000"
+            },
+            {
+              "high_marked_incidence": 1,
+              "high_neighbors": 0,
+              "area_margin": "1486394957098759221151/1000000000000000000000000"
+            },
+            {
+              "high_marked_incidence": 1,
+              "high_neighbors": 1,
+              "area_margin": "57047106309461424213/62500000000000000000000"
+            },
+            {
+              "high_marked_incidence": 2,
+              "high_neighbors": 0,
+              "area_margin": "699973601316369582497/500000000000000000000000"
+            },
+            {
+              "high_marked_incidence": 2,
+              "high_neighbors": 1,
+              "area_margin": "132208951437658037/160000000000000000000"
+            },
+            {
+              "high_marked_incidence": 3,
+              "high_neighbors": 0,
+              "area_margin": "328374862041679777209/250000000000000000000000"
+            },
+            {
+              "high_marked_incidence": 3,
+              "high_neighbors": 1,
+              "area_margin": "739858192019342675093/1000000000000000000000000"
+            }
+          ]
+        },
+        "four_face_metric": {
+          "status": "PASS",
+          "radius": "113231/1000000",
+          "B": 32,
+          "scope": "Conditional simple chordless P26/F108 core; all42 deep degrees at least6 with total excess0 or1; ring degrees unrestricted",
+          "required_center_norm_squared_upper": "9871789671/10000000000",
+          "halfside_multiplier": "11/25",
+          "shared_edge_pairs": 26,
+          "shared_edge_multiplier": "3311595567/5000000000",
+          "face_supports": 4,
+          "face_support_rows": [
+            {
+              "pattern": "DDD",
+              "guard": "1",
+              "support_upper": "1299038105676657970145709/1000000000000000000000000"
+            },
+            {
+              "pattern": "DDR",
+              "guard": "619819773/781250000",
+              "support_upper": "653572753239334039900721/500000000000000000000000"
+            },
+            {
+              "pattern": "DRR",
+              "guard": "23110487637/50000000000",
+              "support_upper": "729218602661084871763751/1000000000000000000000000"
+            },
+            {
+              "pattern": "BRR",
+              "guard": "23835015039/50000000000",
+              "support_upper": "1878405186522247217724761/1000000000000000000000000"
+            }
+          ],
+          "normalized_boundary_envelope": {
+            "status": "PASS",
+            "radius": "113231/1000000",
+            "B": 32,
+            "halfside_multiplier": "11/25",
+            "scope": "Conditional exact-lens normalized boundary envelope only",
+            "required_center_norm_squared_upper": "9871789671/10000000000",
+            "variance_coefficient": "0",
+            "bad_arc_boxes": 1000,
+            "root_tangent_proposals": 436,
+            "endpoint_tangent_proposals": 564,
+            "minimum_bad_arc_margin": "1401501994384782893363/1000000000000000000000000",
+            "good_arc_curvature_margin": "36302415632323096156343/62500000000000000000000",
+            "zero_arc_penalty_interval": [
+              "7512702392201846426201/1000000000000000000000000",
+              "3756351196100923213101/500000000000000000000000"
+            ],
+            "floating_acceptance": false
+          },
+          "outer_boundary_upper": "269227845849631774603/781250000000000000000",
+          "graph_catalog_used": false,
+          "boundary_turn_window_used": false,
+          "minimum_area_margin": "1018177408390856135123/1000000000000000000000000",
+          "rows": [
+            {
+              "deep_degree_excess": 0,
+              "multiplicities": {
+                "DDD": 62,
+                "DDR": 20,
+                "DRR": 26,
+                "BRR": 26
+              },
+              "normalized_center_upper": "8714719149408514882134233/40000000000000000000000",
+              "area_margin": "3688487681599945871237/1000000000000000000000000"
+            },
+            {
+              "deep_degree_excess": 1,
+              "multiplicities": {
+                "DDD": 63,
+                "DDR": 19,
+                "DRR": 26,
+                "BRR": 26
+              },
+              "normalized_center_upper": "218076254487567355890310477/1000000000000000000000000",
+              "area_margin": "1018177408390856135123/1000000000000000000000000"
+            }
+          ]
+        },
+        "minimum_area_margin": "739858192019342675093/1000000000000000000000000",
+        "fresh_process_components": true
+      }
+    },
+    "complete_B32_v2": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-S",
+        "/workspace/scratch/0876c32d02f5/disk100_recovery_20261004_2305/lower_staging/verify_B32_complete_0p11323_v2.py"
+      ],
+      "cwd": "/workspace/scratch/0876c32d02f5/disk100_recovery_20261004_2305/lower_staging",
+      "exit_code": 0,
+      "elapsed_seconds": 11.273707,
+      "stdout_sha256": "e12c57fb31507080f30909608e72348993469277d5aeea7f0f5152041a4d48d3",
+      "stderr": "",
+      "replay_file": "working/independent_global_0p11323_20261005/B32_HIGHM_CATALOG_FREE_INDEPENDENT_AUDIT_0p11323_20261005_complete_v2_replay.json",
+      "result": {
+        "status": "PASS",
+        "radius": "113231/1000000",
+        "B": 32,
+        "m": 100,
+        "scope": "Complete B32 branch only, after whole-cover same-radius normalization; other boundary counts and the exact optimum remain separate",
+        "normalization": "Normalize ALL centers before classifying this diagram",
+        "required_center_norm_squared_upper": "9871789671/10000000000",
+        "same_radius_components": true,
+        "fresh_process_components": 2,
+        "low_M_domain": "M<=25",
+        "high_M_domain": "M>=26",
+        "direct_M25_cases": 81,
+        "low_M_minimum_area_margin": "163122365904541981619/500000000000000000000000",
+        "direct_M25_minimum_area_margin": "438410317278753918281/1000000000000000000000000",
+        "high_M_minimum_area_margin": "739858192019342675093/1000000000000000000000000",
+        "minimum_area_margin": "163122365904541981619/500000000000000000000000",
+        "graph_catalog_used": false,
+        "remaining_boundary_counts": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "source_sha256": {
+          "verify_B32_M25_direct_interface_0p11323.py": "8893b84771771a8c6353ea7029fe490df0b35b68a4d0fe2c9199cfdc2947410b",
+          "verify_B32_highM_complete_0p11323.py": "3a2dc869379d688a0dee7379eeb2849fffaafe25c868d293cc144fc127015154",
+          "refresh_B32_low_core_0p11323.py": "76d5c0ce022458af16840c1d5530eba2147c800600e85ed9d11acd544527f9b1",
+          "B32_M25_direct_interface_0p11323_proposal.json": "f148978b9dfb29b50b4a0388c7694c747c0beeec1c734530ed693b4adafae9ac"
+        },
+        "low_M": {
+          "status": "PASS",
+          "radius": "113231/1000000",
+          "B": 32,
+          "m": 100,
+          "M": 25,
+          "scope": "Complete remaining M25 branch under freshly replayed same-radius premises; high-M and other boundary counts are separate",
+          "proposal_sha256": "f148978b9dfb29b50b4a0388c7694c747c0beeec1c734530ed693b4adafae9ac",
+          "premises": {
+            "status": "PASS",
+            "radius": "113231/1000000",
+            "B": 32,
+            "m": 100,
+            "M_domain": "M<=25",
+            "scope": "All M<=24 excluded; M25 reduced to a unique deep degree5 witness. Its final metric/local-star exclusion is separate.",
+            "n99_exclusion": {
+              "n": 99,
+              "radius": "113231/1000000",
+              "cases": 96,
+              "tightest_B": 34,
+              "minimum_area_margin": "93591732347747920006153107439494216107661633777884476873367781737690463949606826459158012299304439/170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "remaining_boundary_counts": [
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39
+            ],
+            "geometry": {
+              "no_all_boundary_q0_q1": {
+                "B": 32,
+                "consecutive_arcs": 4,
+                "angle_upper": "457/1000",
+                "containing_radius_factor": 2,
+                "certified_margin_greater_than": "1/1000",
+                "margin_interval": [
+                  "1266153548219142871/100000000000000000000",
+                  "158269193527392859/12500000000000000000"
+                ]
+              },
+              "q_at_most_three": {
+                "B": 32,
+                "consecutive_arcs": 5,
+                "angle_upper": "1733/2500",
+                "containing_radius_factor": 3,
+                "certified_margin_greater_than": "1/1000",
+                "margin_interval": [
+                  "129024405961933091/20000000000000000000",
+                  "40320126863104091/6250000000000000000"
+                ]
+              }
+            },
+            "degree_window": {
+              "status": "PASS",
+              "required_interior_count": "greater than1",
+              "minimum_interior_degree": 5,
+              "maximum_interior_degree": 8,
+              "degree3_loss_lower": "113711455814373369402297/62500000000000000000000",
+              "degree4_loss_lower": "16868060729791123134099/15625000000000000000000",
+              "degree_at_least9_loss_lower": "290923869839032881813957/250000000000000000000000",
+              "large_degree_monotonic_margin_lower": "390505157530179442541787/500000000000000000000000",
+              "cases": [
+                {
+                  "radius": "5659/50000",
+                  "B": 33,
+                  "old_normalized_budget_upper": "2128601179431042969179009682823975918332016182936475787941/2561942480000000000000000000000000000000000000000000000000",
+                  "degree_window_margin_lower": "637158906256744543407164053209304081667983817063524212059/2561942480000000000000000000000000000000000000000000000000"
+                },
+                {
+                  "radius": "11319/100000",
+                  "B": 33,
+                  "old_normalized_budget_upper": "8976354159806343347390770937444606921792265884589910556221/10249580880000000000000000000000000000000000000000000000000",
+                  "degree_window_margin_lower": "2088641215473396945024383393891073078207734115410089443779/10249580880000000000000000000000000000000000000000000000000"
+                },
+                {
+                  "radius": "283/2500",
+                  "B": 33,
+                  "old_normalized_budget_upper": "5898956600175641278349922307065799369233779383801214629/6407120000000000000000000000000000000000000000000000000",
+                  "degree_window_margin_lower": "1017887512660153976366774325254200630766220616198785371/6407120000000000000000000000000000000000000000000000000"
+                },
+                {
+                  "radius": "113231/1000000",
+                  "B": 33,
+                  "old_normalized_budget_upper": "10824421599798032362216849723630626310011811105358194631269/10256826320000000000000000000000000000000000000000000000000",
+                  "degree_window_margin_lower": "248395632885487629091151088252893689988188894641805368731/10256826320000000000000000000000000000000000000000000000000"
+                }
+              ],
+              "scope": "Conditional global degree restriction only; no covering-radius exclusion"
+            },
+            "B32_old_budget_upper": "20572496147579653376166294570877680830040842245689277405919/25642065800000000000000000000000000000000000000000000000000",
+            "weighted_curvature_status": "PASS",
+            "core_obstruction_status": "PASS",
+            "range_one_face_support_status": "PASS",
+            "face_supports_checked": 43,
+            "vertex_supports_checked": 42,
+            "two_low_degree_margin": "283000144249487820229/200000000000000000000000",
+            "M24_margin": "163122365904541981619/500000000000000000000000",
+            "remaining_case": {
+              "M": 25,
+              "unique_low_degree": 5,
+              "low_marked_incidence": 0,
+              "low_has_no_original_boundary_neighbor": true,
+              "other_degrees": [
+                6,
+                7,
+                8
+              ],
+              "maximum_high_degree_vertices": 2,
+              "high_positive_face_pair_incidence_upper": 4,
+              "degree_ear_profiles": [
+                {
+                  "ears": 0,
+                  "degree7": 0,
+                  "degree8": 1
+                },
+                {
+                  "ears": 0,
+                  "degree7": 2,
+                  "degree8": 0
+                },
+                {
+                  "ears": 1,
+                  "degree7": 1,
+                  "degree8": 0
+                },
+                {
+                  "ears": 2,
+                  "degree7": 0,
+                  "degree8": 0
+                }
+              ]
+            },
+            "reference_LOW25_angular_margin": "-1554562588768260795859/1000000000000000000000000",
+            "additional_normalized_face_gain_needed_upper": "15156370404137454438821/125000000000000000000000",
+            "reference_rows": [
+              {
+                "M": 25,
+                "face_count": 20,
+                "vertex_count": 16,
+                "minimum_face_slack": "34499999999999987/500000000000000000000000",
+                "minimum_vertex_slack": "4931/500000000",
+                "M_slope": [
+                  "15069047370847199/500000000000000000000000",
+                  "30138094741694399/1000000000000000000000000"
+                ],
+                "shifted_ear_coefficient_upper": "-122240902553379076578089/1000000000000000000000000",
+                "two_low_degree_margin": "283000144249487820229/200000000000000000000000",
+                "ordinary_margin": "-5802791923701110553741/1000000000000000000000000",
+                "conclusion": "M<=25 has exactly one degree5 vertex; it is the deep p0 core witness"
+              },
+              {
+                "M": 24,
+                "face_count": 11,
+                "vertex_count": 13,
+                "minimum_face_slack": "37499999999999987/500000000000000000000000",
+                "minimum_vertex_slack": "239854424960638357/50000000000000000000000",
+                "M_slope": [
+                  "35413045574581652576999/1000000000000000000000000",
+                  "35413045574581652577/1000000000000000000000"
+                ],
+                "shifted_ear_coefficient_upper": "-92579983989865987460689/1000000000000000000000000",
+                "final_margin": "163122365904541981619/500000000000000000000000",
+                "positive_face_pattern": "Only (ordinary0,ordinary0,positive)"
+              },
+              {
+                "M": 25,
+                "face_count": 12,
+                "vertex_count": 13,
+                "minimum_face_slack": "37499999999999987/500000000000000000000000",
+                "minimum_vertex_slack": "97/20000000",
+                "M_slope": [
+                  "-39303017177156458129/10000000000000000000000",
+                  "-1965150858857822906449/500000000000000000000000"
+                ],
+                "shifted_ear_coefficient_upper": "-12327113569756868907079/100000000000000000000000",
+                "final_margin": "-1554562588768260795859/1000000000000000000000000",
+                "pair_incidence_multiplier": "5670161/250000000",
+                "pair_incidence_count_upper": 4,
+                "maximum_high_degree_vertices": 2
+              }
+            ]
+          },
+          "labels": [
+            "-227581178143/1000000000000",
+            "-139217964901/500000000000",
+            "0"
+          ],
+          "charges": [
+            "896906623/62500000000",
+            "9165631/625000000",
+            "1/10000000"
+          ],
+          "epsilon": "1/2",
+          "perimeter_penalty": "13/10",
+          "ordinary_face_supports": 9,
+          "outside_face_supports": 18,
+          "central_face_supports": 8,
+          "integer_profile_cases": 81,
+          "minimum_face_slack": "299999999998719319/1000000000000000000000000",
+          "minimum_outside_slack": "400000118309710793/1000000000000000000000000",
+          "boundary_dominates_in_supplied_rows": false,
+          "outside_total_allowance": "293344971757/100000000000",
+          "halfside_multiplier": "11/25",
+          "high_boundary_terminal_credit": "8033850329/500000000000",
+          "q3_hinge_charge": "624750/9862333",
+          "normalized_ear_cap_upper": "284032019397315040162457/200000000000000000000000",
+          "same_radius_boundary_scalar": {
+            "status": "PASS",
+            "case": 0,
+            "radius": "113231/1000000",
+            "B": 32,
+            "halfside_multiplier": "11/25",
+            "hinge_slope": "119/2000",
+            "hinge_zero": "187/2000",
+            "required_center_norm_squared_upper": "9871789671/10000000000",
+            "global_nonnegative_deficit": {
+              "status": "PASS",
+              "radius": "113231/1000000",
+              "B": 32,
+              "halfside_multiplier": "11/25",
+              "scope": "Conditional exact-lens normalized boundary envelope only",
+              "required_center_norm_squared_upper": "9871789671/10000000000",
+              "variance_coefficient": "0",
+              "bad_arc_boxes": 1000,
+              "root_tangent_proposals": 436,
+              "endpoint_tangent_proposals": 564,
+              "minimum_bad_arc_margin": "1401501994384782893363/1000000000000000000000000",
+              "good_arc_curvature_margin": "36302415632323096156343/62500000000000000000000",
+              "zero_arc_penalty_interval": [
+                "7512702392201846426201/1000000000000000000000000",
+                "3756351196100923213101/500000000000000000000000"
+              ],
+              "floating_acceptance": false
+            },
+            "local_positive_hinge": {
+              "status": "PASS",
+              "radius": "113231/1000000",
+              "B": 32,
+              "halfside_multiplier": "11/25",
+              "scope": "Affine deficit support on0<=t<=CUTOFF; combine with a separate global nonnegative-deficit certificate",
+              "affine_slope": "119/2000",
+              "hinge_zero": "187/2000",
+              "required_center_norm_squared_upper": "9871789671/10000000000",
+              "variance_coefficient": "0",
+              "bad_arc_boxes": 1000,
+              "root_tangent_proposals": 351,
+              "endpoint_tangent_proposals": 649,
+              "minimum_bad_arc_margin": "930318098179779509/200000000000000000000000",
+              "good_arc_curvature_margin": "36302415632323096156343/62500000000000000000000",
+              "zero_arc_penalty_interval": [
+                "7512702392201846426201/1000000000000000000000000",
+                "3756351196100923213101/500000000000000000000000"
+              ],
+              "floating_acceptance": false
+            },
+            "scope": "Conditional normalized scalar deficit >= c*(T-t)_+ only. No center-face, owner-allocation or universal radius exclusion is asserted; no variance is spent."
+          },
+          "required_center_norm_squared_upper": "9871789671/10000000000",
+          "minimum_area_margin": "438410317278753918281/1000000000000000000000000",
+          "rows": [
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                0
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "210324949851647602263/125000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                0
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "500256650226455888643/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                0
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "109036993269470319773/200000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                0
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "6850169220522512051/15625000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                1
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "944301994684039376529/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                1
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "15081471137597621403/12500000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                1
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "37559467845112476691/50000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                1
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "322207610334169353109/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                2
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "420649835598959347903/250000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                2
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "200102608807113670159/200000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                2
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "272592354965004086187/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                2
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "109602643424024336193/250000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                3
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "2288769695423596030167/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                3
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "1606683397063326989349/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                3
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "71959691434860425683/62500000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                0,
+                3
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "1044580926723855983327/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                0
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "944301994684039376529/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                0
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "15081471137597621403/12500000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                0
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "37559467845112476691/50000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                0
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "322207610334169353109/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                1
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "523652094980744172003/250000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                1
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "282504416312541529439/200000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                1
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "478596873728573734387/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                1
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "212604902805809160293/250000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                2
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "1888603732950735326567/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                2
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "1206517434590466285749/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                2
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "11737329695076657927/15625000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                2
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "644414964250995279727/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                3
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "2494774085978493965121/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                3
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "1812687787618224924303/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                3
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "1357359453512664745883/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                1,
+                3
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "1250585317278753918281/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                0
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "420649835598959347903/250000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                0
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "200102608807113670159/200000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                0
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "272592354965004086187/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                0
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "109602643424024336193/250000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                1
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "1888603732950735326567/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                1
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "1206517434590466285749/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                1
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "11737329695076657927/15625000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                1
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "644414964250995279727/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                2
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "1682599085978493965121/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                2
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "1000512787618224924303/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                2
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "545184453512664745883/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                2
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "438410317278753918281/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                3
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "91550777560250104147/40000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                3
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "803341570322991781429/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                3
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "1151354806540423384437/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                2,
+                3
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "208916134061302511367/200000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                0
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "2288769695423596030167/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                0
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "1606683397063326989349/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                0
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "71959691434860425683/62500000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                0
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "1044580926723855983327/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                1
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "2494774085978493965121/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                1
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "1812687787618224924303/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                1
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "1357359453512664745883/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                1
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "1250585317278753918281/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                2
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "91550777560250104147/40000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                2
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "803341570322991781429/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                2
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "1151354806540423384437/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                2
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "208916134061302511367/200000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                3
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "289493979203401124223/100000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                3
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "553213373418435550353/250000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                3
+              ],
+              "star_pattern": 2,
+              "area_margin_lower": "1757525159568182022991/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                7,
+                7
+              ],
+              "high_marked": [
+                3,
+                3
+              ],
+              "star_pattern": 3,
+              "area_margin_lower": "165075102333427119539/100000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                8
+              ],
+              "high_marked": [
+                0
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "348315220134710862663/125000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                8
+              ],
+              "high_marked": [
+                0
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "1052217731358708930243/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                8
+              ],
+              "high_marked": [
+                1
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "1496263075816292418129/500000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                8
+              ],
+              "high_marked": [
+                1
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "28880498165903947443/12500000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                8
+              ],
+              "high_marked": [
+                2
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "696630376165085868703/250000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                8
+              ],
+              "high_marked": [
+                2
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "420887041260014886799/200000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                8
+              ],
+              "high_marked": [
+                3
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "3392691857688102113367/1000000000000000000000000"
+            },
+            {
+              "ears": 0,
+              "high_degrees": [
+                8
+              ],
+              "high_marked": [
+                3
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "2710605559327833072549/1000000000000000000000000"
+            },
+            {
+              "ears": 1,
+              "high_degrees": [
+                7
+              ],
+              "high_marked": [
+                0
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "917790757792641143669/250000000000000000000000"
+            },
+            {
+              "ears": 1,
+              "high_degrees": [
+                7
+              ],
+              "high_marked": [
+                0
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "1494538366405147766929/500000000000000000000000"
+            },
+            {
+              "ears": 1,
+              "high_degrees": [
+                7
+              ],
+              "high_marked": [
+                1
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "387716742172546250963/100000000000000000000000"
+            },
+            {
+              "ears": 1,
+              "high_degrees": [
+                7
+              ],
+              "high_marked": [
+                1
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "3195081123365193468813/1000000000000000000000000"
+            },
+            {
+              "ears": 1,
+              "high_degrees": [
+                7
+              ],
+              "high_marked": [
+                2
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "734232554950644229637/200000000000000000000000"
+            },
+            {
+              "ears": 1,
+              "high_degrees": [
+                7
+              ],
+              "high_marked": [
+                2
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "2989076476392952107367/1000000000000000000000000"
+            },
+            {
+              "ears": 1,
+              "high_degrees": [
+                7
+              ],
+              "high_marked": [
+                3
+              ],
+              "star_pattern": 0,
+              "area_margin_lower": "4277333127780979786739/1000000000000000000000000"
+            },
+            {
+              "ears": 1,
+              "high_degrees": [
+                7
+              ],
+              "high_marked": [
+                3
+              ],
+              "star_pattern": 1,
+              "area_margin_lower": "3595246829420710745921/1000000000000000000000000"
+            },
+            {
+              "ears": 2,
+              "high_degrees": [],
+              "high_marked": [],
+              "star_pattern": 0,
+              "area_margin_lower": "5659726463527948331249/1000000000000000000000000"
+            }
+          ]
+        },
+        "high_M": {
+          "status": "PASS",
+          "radius": "113231/1000000",
+          "B": 32,
+          "m": 100,
+          "M_domain": "M>=26",
+          "scope": "Complete normalized-diagram B32 high-M branch only; low-M, other B branches, universal radius and exact optimality are separate",
+          "required_center_norm_squared_upper": "9871789671/10000000000",
+          "graph_catalog_used": false,
+          "profile_reduction": {
+            "status": "PASS",
+            "radius": "113231/1000000",
+            "B": 32,
+            "m": 100,
+            "M_domain": "M>=26",
+            "required_center_norm_squared_upper": "9871789671/10000000000",
+            "n99_exclusion": {
+              "n": 99,
+              "radius": "113231/1000000",
+              "cases": 96,
+              "tightest_B": 34,
+              "minimum_area_margin": "93591732347747920006153107439494216107661633777884476873367781737690463949606826459158012299304439/170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "remaining_boundary_counts": [
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39
+            ],
+            "geometry": {
+              "no_all_boundary_q0_q1": {
+                "B": 32,
+                "consecutive_arcs": 4,
+                "angle_upper": "457/1000",
+                "containing_radius_factor": 2,
+                "certified_margin_greater_than": "1/1000",
+                "margin_interval": [
+                  "1266153548219142871/100000000000000000000",
+                  "158269193527392859/12500000000000000000"
+                ]
+              },
+              "ordinary_marked_incidence_at_most_three": {
+                "B": 32,
+                "consecutive_arcs": 5,
+                "angle_upper": "1733/2500",
+                "containing_radius_factor": 3,
+                "certified_margin_greater_than": "1/1000",
+                "margin_interval": [
+                  "129024405961933091/20000000000000000000",
+                  "40320126863104091/6250000000000000000"
+                ]
+              }
+            },
+            "normalized_boundary_envelope": {
+              "status": "PASS",
+              "radius": "113231/1000000",
+              "B": 32,
+              "halfside_multiplier": "3/10",
+              "scope": "Conditional globally normalized boundary envelope; no full covering exclusion",
+              "required_center_norm_squared_upper": "9871789671/10000000000",
+              "reflection_polynomial_identity": "PASS",
+              "displacement_factor_interval": [
+                "269084710502000090391027/200000000000000000000000",
+                "672711776255000225977569/500000000000000000000000"
+              ],
+              "penalty_numerator_derivative_lower": "2644997768859/500000000000",
+              "penalty_numerator_endpoint_upper": "-84807583091/625000000000",
+              "variance_coefficient": "0",
+              "good_arc_curvature_margin": "380865224795704047910419/1000000000000000000000000",
+              "bad_arc_subintervals": 13,
+              "endpoint_comparisons": 26,
+              "minimum_bad_arc_margin": "1566448281218411804479/500000000000000000000000"
+            },
+            "range_one_face_status": "PASS",
+            "face_supports": 20,
+            "vertex_supports": 387,
+            "minimum_face_slack": "398818696064891/6250000000000000000000",
+            "minimum_vertex_slack": "97/20000000",
+            "weighted_low_curvature_cost": "2646107247288222682869/10000000000000000000000",
+            "raw_M26_margin": "-240448471552753531211/62500000000000000000000",
+            "one_low_diagnostic_margin": "-227296368701491309709/500000000000000000000000",
+            "two_curvature_margin": "2937990070038091260541/1000000000000000000000000",
+            "marked_low_margin": "80649223634259229541/1000000000000000000000000",
+            "M_slope_upper": "-38137561057446518268467/250000000000000000000000",
+            "shifted_ear_upper": "-93509546569279774624491/500000000000000000000000",
+            "bad_q1_upper": "-291844879773120188824571/1000000000000000000000000",
+            "low_case_shift_margins": {
+              "M_at_least_27": "1501258962770139783423/1000000000000000000000000",
+              "at_least_one_ear": "121449075540915851257/62500000000000000000000",
+              "at_least_one_bad_q1": "821790016966183964289/250000000000000000000000"
+            },
+            "remaining_profiles": [
+              {
+                "M": 26,
+                "ears": 0,
+                "bad_q1": 0,
+                "all_interior_degrees": 6
+              },
+              {
+                "M": 26,
+                "ears": 0,
+                "bad_q1": 0,
+                "unique_degree5_marked_incidence": 0,
+                "degree7_vertices": 1,
+                "other_interior_degrees": 6
+              }
+            ],
+            "source_sha256": "4f3fafad244c9c69db3ee62980dd9fd7002fcab90d7662692b0c5abf5b28126c"
+          },
+          "core_topology": {
+            "status": "PASS",
+            "core_vertices": 68,
+            "core_boundary": 26,
+            "core_faces": 108,
+            "deep_vertices": 42,
+            "scope": "General induced-core Euler identities and /6 block disk isoperimetry; no flat development or graph catalog"
+          },
+          "deep_five_local_closure": {
+            "status": "PASS",
+            "radius": "113231/1000000",
+            "B": 32,
+            "m": 100,
+            "M": 26,
+            "required_center_norm_squared_upper": "9871789671/10000000000",
+            "scope": "Conditional unique-degree5/no-original-boundary-neighbor local closure, one degree7 and other degrees6",
+            "proposal_sha256": "628f9c5db6ee9e73880f6dc27b32544034aad659d9448d4688a490b81ca9e011",
+            "ordinary_face_supports": 9,
+            "outside_face_supports": 18,
+            "central_face_supports": 8,
+            "integer_profile_cases": 8,
+            "minimum_ordinary_slack": "299999999998719319/1000000000000000000000000",
+            "minimum_outside_slack": "200000459324604227/500000000000000000000000",
+            "fan_charge": "0",
+            "variance_charge": "0",
+            "halfside_multiplier": "0",
+            "minimum_area_margin": "739858192019342675093/1000000000000000000000000",
+            "rows": [
+              {
+                "high_marked_incidence": 0,
+                "high_neighbors": 0,
+                "area_margin": "1572842711564779277309/1000000000000000000000000"
+              },
+              {
+                "high_marked_incidence": 0,
+                "high_neighbors": 1,
+                "area_margin": "199840291083480568713/200000000000000000000000"
+              },
+              {
+                "high_marked_incidence": 1,
+                "high_neighbors": 0,
+                "area_margin": "1486394957098759221151/1000000000000000000000000"
+              },
+              {
+                "high_marked_incidence": 1,
+                "high_neighbors": 1,
+                "area_margin": "57047106309461424213/62500000000000000000000"
+              },
+              {
+                "high_marked_incidence": 2,
+                "high_neighbors": 0,
+                "area_margin": "699973601316369582497/500000000000000000000000"
+              },
+              {
+                "high_marked_incidence": 2,
+                "high_neighbors": 1,
+                "area_margin": "132208951437658037/160000000000000000000"
+              },
+              {
+                "high_marked_incidence": 3,
+                "high_neighbors": 0,
+                "area_margin": "328374862041679777209/250000000000000000000000"
+              },
+              {
+                "high_marked_incidence": 3,
+                "high_neighbors": 1,
+                "area_margin": "739858192019342675093/1000000000000000000000000"
+              }
+            ]
+          },
+          "four_face_metric": {
+            "status": "PASS",
+            "radius": "113231/1000000",
+            "B": 32,
+            "scope": "Conditional simple chordless P26/F108 core; all42 deep degrees at least6 with total excess0 or1; ring degrees unrestricted",
+            "required_center_norm_squared_upper": "9871789671/10000000000",
+            "halfside_multiplier": "11/25",
+            "shared_edge_pairs": 26,
+            "shared_edge_multiplier": "3311595567/5000000000",
+            "face_supports": 4,
+            "face_support_rows": [
+              {
+                "pattern": "DDD",
+                "guard": "1",
+                "support_upper": "1299038105676657970145709/1000000000000000000000000"
+              },
+              {
+                "pattern": "DDR",
+                "guard": "619819773/781250000",
+                "support_upper": "653572753239334039900721/500000000000000000000000"
+              },
+              {
+                "pattern": "DRR",
+                "guard": "23110487637/50000000000",
+                "support_upper": "729218602661084871763751/1000000000000000000000000"
+              },
+              {
+                "pattern": "BRR",
+                "guard": "23835015039/50000000000",
+                "support_upper": "1878405186522247217724761/1000000000000000000000000"
+              }
+            ],
+            "normalized_boundary_envelope": {
+              "status": "PASS",
+              "radius": "113231/1000000",
+              "B": 32,
+              "halfside_multiplier": "11/25",
+              "scope": "Conditional exact-lens normalized boundary envelope only",
+              "required_center_norm_squared_upper": "9871789671/10000000000",
+              "variance_coefficient": "0",
+              "bad_arc_boxes": 1000,
+              "root_tangent_proposals": 436,
+              "endpoint_tangent_proposals": 564,
+              "minimum_bad_arc_margin": "1401501994384782893363/1000000000000000000000000",
+              "good_arc_curvature_margin": "36302415632323096156343/62500000000000000000000",
+              "zero_arc_penalty_interval": [
+                "7512702392201846426201/1000000000000000000000000",
+                "3756351196100923213101/500000000000000000000000"
+              ],
+              "floating_acceptance": false
+            },
+            "outer_boundary_upper": "269227845849631774603/781250000000000000000",
+            "graph_catalog_used": false,
+            "boundary_turn_window_used": false,
+            "minimum_area_margin": "1018177408390856135123/1000000000000000000000000",
+            "rows": [
+              {
+                "deep_degree_excess": 0,
+                "multiplicities": {
+                  "DDD": 62,
+                  "DDR": 20,
+                  "DRR": 26,
+                  "BRR": 26
+                },
+                "normalized_center_upper": "8714719149408514882134233/40000000000000000000000",
+                "area_margin": "3688487681599945871237/1000000000000000000000000"
+              },
+              {
+                "deep_degree_excess": 1,
+                "multiplicities": {
+                  "DDD": 63,
+                  "DDR": 19,
+                  "DRR": 26,
+                  "BRR": 26
+                },
+                "normalized_center_upper": "218076254487567355890310477/1000000000000000000000000",
+                "area_margin": "1018177408390856135123/1000000000000000000000000"
+              }
+            ]
+          },
+          "minimum_area_margin": "739858192019342675093/1000000000000000000000000",
+          "fresh_process_components": true
+        }
+      }
+    }
+  },
+  "structural_checks": {
+    "profile_reduction": "At most one positive curvature unit survives; marked low vertices do not. A survivor is M26/e0/b0, unique p0 degree5 and unique degree7, or all68 degrees6.",
+    "unique_five_split": "No original B neighbor uses full interior five-cycle and coherent star; original B neighbor prevents strict block-interior placement.",
+    "core_topology": "Filled induced-core bounded faces, c-component Euler identities and block /6 isoperimetry rule out c>=2, bridges, multiple face blocks and boundary chords. Core is one simple P26/F108 disk with42 deep vertices.",
+    "metric_counts": "Chordlessness yields26 distinct DRR and26 BRR faces; h0/1 deep excess gives DDD62+h,DDR20-h.",
+    "ring_angle_identity": "Ring q0 centered sum=(32+h)pi/3-Gamma; original B centered sum=Gamma-2pi-26pi/3.",
+    "cancellation": "Shared physical halfedges cancel once between DRR/BRR; selected five-star perimeter cancels once with outside q0 faces.",
+    "degeneracies": "Full-simplex signed/range-one supports retain all required boundary caps, rho0/1 endpoint reduction, and inherited enlarged-cover finite-type closed limits.",
+    "no_double_charge": "Direct star replaces all5 central allowances, retains corner potentials, and adds outside J. Fan, hinge and variance charges are zero in high-M terminal metric cases."
+  }
+}

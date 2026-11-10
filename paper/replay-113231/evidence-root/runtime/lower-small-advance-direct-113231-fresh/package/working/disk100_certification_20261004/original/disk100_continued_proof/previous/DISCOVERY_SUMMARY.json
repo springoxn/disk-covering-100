@@ -1,0 +1,35 @@
+{
+  "role": "Numerical discovery only; none of these trial counts proves global optimality.",
+  "counts": {
+    "gaussian_perturbations": 48,
+    "hexagonal_initializations": 48,
+    "targeted_relocations": 96,
+    "adaptive_basin_trials": 384
+  },
+  "adaptive_basin_completed": true,
+  "selected_source": "basin_best_g2_0.json",
+  "coordinate_rounding_denominator": 10000000000000,
+  "accepted_upper_radius": [
+    11573102001,
+    100000000000
+  ],
+  "acceptance": "Independent exhaustive exact critical-point verification, not numerical tolerances.",
+  "best_by_group": {
+    "gaussian_perturbations": {
+      "numerical_radius": 0.11577526640770087,
+      "file": "multi_001.json"
+    },
+    "hexagonal_initializations": {
+      "numerical_radius": 0.115910123857626,
+      "file": "hex_31_01.json"
+    },
+    "targeted_relocations": {
+      "numerical_radius": 0.11573462520967524,
+      "file": "relocate_015.json"
+    },
+    "adaptive_basin_trials": {
+      "numerical_radius": 0.11593459555192392,
+      "file": "basin_g0_010.json"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "candidate_counts": {
+    "T": 128398,
+    "B": 9900,
+    "A": 100,
+    "E": 1
+  },
+  "total": 138399,
+  "exact_radius_squared": null,
+  "upper_squared": "133703596709754742449/10000000000000000000000",
+  "unique_worst_candidate": null
+}

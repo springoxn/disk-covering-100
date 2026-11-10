@@ -1,0 +1,247 @@
+{
+  "status": "PASS",
+  "radius": "113231/1000000",
+  "B": 35,
+  "m": 100,
+  "scope": "Complete B35 branch for globally normalized diagrams; normalization must precede B/graph classification",
+  "required_center_norm_squared_upper": "9871789671/10000000000",
+  "normalization_warning": "Do not reflect a fixed graph or silently transfer this radius-dependent norm premise to another radius",
+  "n99_exclusion": {
+    "n": 99,
+    "radius": "113231/1000000",
+    "cases": 96,
+    "tightest_B": 34,
+    "minimum_area_margin": "93591732347747920006153107439494216107661633777884476873367781737690463949606826459158012299304439/170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "remaining_boundary_counts": [
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "q_at_most_four": {
+    "B": 35,
+    "consecutive_arcs": 6,
+    "angle_upper": "1733/2500",
+    "containing_radius_factor": 3,
+    "certified_margin_greater_than": "1/1000",
+    "margin_interval": [
+      "31657993082464661/20000000000000000000",
+      "79144982706161653/50000000000000000000"
+    ]
+  },
+  "normalized_boundary_envelope": {
+    "status": "PASS",
+    "radius": "113231/1000000",
+    "B": 35,
+    "halfside_multiplier": "33/100",
+    "scope": "Conditional globally normalized boundary envelope; no full covering exclusion",
+    "required_center_norm_squared_upper": "9871789671/10000000000",
+    "reflection_polynomial_identity": "PASS",
+    "displacement_factor_interval": [
+      "673468840624344052568231/500000000000000000000000",
+      "269387536249737621027293/200000000000000000000000"
+    ],
+    "penalty_numerator_derivative_lower": "245937061751919/50000000000000",
+    "penalty_numerator_endpoint_upper": "-11930958363877/1250000000000000",
+    "variance_coefficient": "1/20",
+    "good_arc_curvature_margin": "351094214730180764397117/1000000000000000000000000",
+    "bad_arc_subintervals": 14,
+    "endpoint_comparisons": 28,
+    "minimum_bad_arc_margin": "10952494364811146157/1000000000000000000000000"
+  },
+  "range_one_face_support_status": "PASS",
+  "global_marked_status": "PASS",
+  "ear_support_status": "PASS",
+  "core_obstruction_status": "PASS",
+  "halfside_multiplier": "33/100",
+  "paid_q4_charge": "1/500",
+  "fan_payment_checks": [
+    {
+      "q4_vertices": 1,
+      "payment_per_vertex_lower": "17059554960341530283945341561689711334511820457100627071636801777469499582975075587557922809016667/1794944606000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "q4_vertices": 2,
+      "payment_per_vertex_lower": "1609882318311790419714200321767686038535862056900490662407742831925088398662943367776575242591050081/420017037804000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "q4_vertices": 3,
+      "payment_per_vertex_lower": "1978207528967462807138348213910488178873796508577906301319858501177036288568363322891866864171450169/770031235974000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "q4_vertices": 4,
+      "payment_per_vertex_lower": "264938028221403548174260477061681641233576654368310438567678571229561793159932281601413230601938921/122056233208000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "q4_vertices": 5,
+      "payment_per_vertex_lower": "57726254967087710183758950218400526841245759165533746934193647991676488740327040864063915843450009/26924169090000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "q4_vertices": 6,
+      "payment_per_vertex_lower": "31343339618001991985286447482603184011648316572468499496511274156263306206658146524696854597929/12745168800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "q4_vertices": 7,
+      "payment_per_vertex_lower": "1276867838428373248964473885833380419710041201960762975246550294851849149282038569136213082383016947/364373755018000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "q4_vertices": 8,
+      "payment_per_vertex_lower": "4388476297788275829346810487152165658920352702857064599037431406992855137579571944551733817057451089/473865375984000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "total_face_supports": 80,
+  "total_vertex_supports": 2382,
+  "minimum_area_margin": "10083273211437482109/125000000000000000000000",
+  "M26_core_topology": {
+    "status": "PASS",
+    "core_vertices": 65,
+    "core_faces": 102,
+    "core_simple_boundary_length": 26,
+    "strict_interior_degrees_lower": 6,
+    "minimum_induced_core_degree": 2,
+    "degree_two_core_vertices_upper": 1,
+    "equality_local_types": [
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "integer_contradiction_margins": {
+      "disconnected_components": 140,
+      "bridge": 36,
+      "multiple_face_blocks": 74,
+      "two_core_degree_two_vertices": 24
+    },
+    "dependency": "Written induced-core topology plus GENERAL_DISK_ISOPERIMETRY.md"
+  },
+  "branches": [
+    {
+      "M": 24,
+      "restricted": false,
+      "faces": 20,
+      "vertices": 482,
+      "corner_labels": [
+        "-215378973/1000000000",
+        "-10931433/200000000",
+        "0",
+        "142310493/500000000"
+      ],
+      "minimum_face_slack": "37499999999999987/500000000000000000000000",
+      "minimum_vertex_slack": "397/20000000",
+      "M_slope": [
+        "3182832580477491/50000000000000000000000",
+        "31828325804774911/500000000000000000000000"
+      ],
+      "shifted_ear_upper": "-101082551383903405304723/1000000000000000000000000",
+      "bad_q1_upper": "-72527461878724287452073/500000000000000000000000",
+      "ordinary_margin": "-241398085483297326169/125000000000000000000000",
+      "M_le24_flagged_margin": "25000731805849220651/50000000000000000000000",
+      "branch": "All M<=24, compulsory unmarked degree<=5 witness"
+    },
+    {
+      "M": 25,
+      "restricted": false,
+      "faces": 20,
+      "vertices": 482,
+      "corner_labels": [
+        "-268555429/1000000000",
+        "-35522859/250000000",
+        "0",
+        "28930571/125000000"
+      ],
+      "minimum_face_slack": "37499999999999987/500000000000000000000000",
+      "minimum_vertex_slack": "97/20000000",
+      "M_slope": [
+        "-8506518478151011508177/125000000000000000000000",
+        "-13610429565041618413083/200000000000000000000000"
+      ],
+      "shifted_ear_upper": "-142516809902043703689487/1000000000000000000000000",
+      "bad_q1_upper": "-102355846878724287452073/500000000000000000000000",
+      "ordinary_margin": "-1389359085965241583841/1000000000000000000000000",
+      "any_low_degree_margin": "1208321067867090477421/1000000000000000000000000",
+      "branch": "M25 with any original interior degree<=5"
+    },
+    {
+      "M": 26,
+      "restricted": false,
+      "faces": 20,
+      "vertices": 482,
+      "corner_labels": [
+        "-143616537/500000000",
+        "-188419939/1000000000",
+        "0",
+        "116524419/500000000"
+      ],
+      "minimum_face_slack": "64346182548361419/1000000000000000000000000",
+      "minimum_vertex_slack": "97/20000000",
+      "M_slope": [
+        "-20367835543482464867583/200000000000000000000000",
+        "-50919588858706162168957/500000000000000000000000"
+      ],
+      "shifted_ear_upper": "-162447965009839471416989/1000000000000000000000000",
+      "bad_q1_upper": "-117960357878724287452073/500000000000000000000000",
+      "ordinary_margin": "-218243214146605345303/500000000000000000000000",
+      "source_ordinary_M26_status": "FAIL, diagnostic only; not used as an exclusion",
+      "M_ge27_margin": "173839403946135924519/200000000000000000000000",
+      "M26_low_degree_margin": "11529208197346649319/5000000000000000000000",
+      "M26_one_original_ear_margin": "1646264275635989996149/1000000000000000000000000",
+      "M26_one_bad_q1_margin": "1294130415112292954149/500000000000000000000000",
+      "branch": "All M>=27; M26 forces e=b=0 and every original interior degree>=6"
+    },
+    {
+      "M": 25,
+      "restricted": true,
+      "faces": 10,
+      "vertices": 467,
+      "corner_labels": [
+        "-151897829/500000000",
+        "-119535073/1000000000",
+        "0"
+      ],
+      "minimum_face_slack": "37499999999999987/500000000000000000000000",
+      "minimum_vertex_slack": "97/20000000",
+      "M_slope": [
+        "-1131282986385327446909/50000000000000000000000",
+        "-22625659727706548938179/1000000000000000000000000"
+      ],
+      "shifted_ear_upper": "-25975084999886311704181/250000000000000000000000",
+      "bad_q1_upper": "-80504354378724287452073/500000000000000000000000",
+      "ordinary_margin": "10083273211437482109/125000000000000000000000",
+      "core_premise": "Simple chordless P25/F103 core implies p<=d-4",
+      "branch": "M25 with all original interior degrees>=6"
+    },
+    {
+      "M": 26,
+      "restricted": true,
+      "faces": 10,
+      "vertices": 469,
+      "corner_labels": [
+        "-308167941/1000000000",
+        "-84488977/500000000",
+        "0"
+      ],
+      "minimum_face_slack": "74989132542113467/1000000000000000000000000",
+      "minimum_vertex_slack": "97/20000000",
+      "M_slope": [
+        "-61399911635011338906151/1000000000000000000000000",
+        "-1227998232700226778123/20000000000000000000000"
+      ],
+      "shifted_ear_upper": "-127801473092240456848753/1000000000000000000000000",
+      "bad_q1_upper": "-98202953378724287452073/500000000000000000000000",
+      "ordinary_margin": "16042062609909122661/62500000000000000000000",
+      "core_premise": "Simple P26/F102 core implies p<=d-3 and at most one d-p=3 vertex",
+      "degree_two_core_vertex_allowance": "13504919/500000000",
+      "branch": "Remaining M26: e=b=0 and all original interior degrees>=6"
+    }
+  ]
+}

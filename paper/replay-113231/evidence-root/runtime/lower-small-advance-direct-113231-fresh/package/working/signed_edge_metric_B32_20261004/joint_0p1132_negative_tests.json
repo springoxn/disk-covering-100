@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "rejected_cases": [
+    "schema",
+    "radius",
+    "u",
+    "arc_sum_multiplier",
+    "edge_ids",
+    "noninteger coefficient",
+    "optimized mode"
+  ]
+}

@@ -1,0 +1,169 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,tabularx,array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xurl}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,pdftitle={A Source-Bound Arithmetic Replay at Radius 0.113231 for the 100-Disk Covering Problem},pdfauthor={}}
+\setlist{nosep}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newcommand{\D}{\mathbb D}
+\newcommand{\R}{\mathbb R}
+\newcommand{\rd}{r_D}
+\newcommand{\cR}{R_0}
+\newcommand{\Q}{\mathbb Q}
+\title{A Source-Bound Arithmetic Replay at Radius $0.113231$ for the 100-Disk Covering Problem}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $\rd(100)$ denote the least radius of 100 congruent closed disks whose union covers the closed unit disk. We document a source-bound replay, at the exact rational radius $\cR=113231/10^6$, of a six-branch certificate for the lower-bound argument. A fresh transformed copy of a fixed release was checked file-by-file; only occurrences of the exact baseline radius were changed. The complete arithmetic entry was run twice, and a separate fresh-process replay recorded verifier parameters and source hashes. All six boundary-count branches and the 96-case reduction excluding at most 99 effective sites returned positive exact rational margins. The largest-boundary branch visited 3,767,981 rational boxes. The replay consumed no saved branch PASS reports at its acceptance boundary and no certificate at a larger radius. This is a computational verification of the finite arithmetic layer of an existing geometric argument, not a proof-assistant formalization or an independent rederivation of its geometric lemmas. We state the lower-bound conclusion only conditionally on the normalization, planar-diagram, support, cancellation, degeneracy, and compactness steps specified below.
+\end{abstract}
+
+\noindent\textbf{Keywords:} disk covering; exact rational arithmetic; reproducible computation; source integrity; geometric optimization.
+
+\section{Problem and scope}
+Let $\D=\{x\in\R^2:\|x\|\leq 1\}$. Define
+\[
+ \rd(n)=\inf\{r\geq0:\text{there exist }c_1,\ldots,c_n\in\R^2\text{ with }\D\subseteq\bigcup_{i=1}^n\overline B(c_i,r)\}.
+\]
+The centers are unrestricted and disks are closed. This is the classical circular covering problem, studied computationally by Zahn and in later work on covering constants; see \cite{Zahn1962,Kershner1939,FejesToth2005}.
+
+The purpose of this paper is narrower than a new geometric solution. We give a reproducible, exact-radius computational replay at
+\[
+ \cR=\frac{113231}{1000000}=0.113231.
+\]
+The source release already contains a geometric proof architecture and executable arithmetic verifiers. The work reported here specializes its exact radius constants in an isolated copy, executes the complete lower-bound entry from the bottom up, and independently checks source and runtime dependencies. It does not supply a new formal proof of every geometric implication used by the source release.
+
+\begin{theorem}[Conditional certificate statement]\label{thm:conditional}
+Assume the geometric transfer package in Section~\ref{sec:geometry}: (G1) radius-$\cR$ center normalization preserves coverage and permits construction of one common clipped diagram; (G2) the diagram's boundary/interior count identities and the reduction to the 96 cases with at most 99 effective sites are valid; (G3) the listed star, face, hinge, signed-edge, and capped-pair inequalities bound the relevant area contributions for every admissible diagram; (G4) the planar, core-reduction, and degeneracy arguments cover all limiting cases; and (G5) the enlargement/compactness/continuity argument transfers strict exclusion at the endpoint to a lower bound for the infimum. Then the replayed finite arithmetic certificate implies
+\[
+ \rd(100)>\frac{113231}{1000000}.
+\]
+The computational result established here is that the exact rational predicates and finite enumerations used by this certificate pass at $\cR$, under the source hashes and run conditions recorded in Section~\ref{sec:replay}. The geometric assumptions are not formalized by the replay software.
+\end{theorem}
+
+The distinction in Theorem~\ref{thm:conditional} is essential: the output `PASS' is a statement about executable arithmetic checks, not by itself about the truth of the continuum geometric transfer package. In particular, neither an exact optimum nor a lower bound at $0.11324$ is asserted here.
+
+\section{Normalization and finite classification}
+\label{sec:architecture}
+A crucial feature of the source proof is that it normalizes all centers at the same target radius before rebuilding the diagram. Put
+\[
+ C=\sqrt{1-\cR^2}=\sqrt{\frac{987178740639}{10^{12}}}.
+\]
+Suppose a center is $du$ with $d>C$ and $\|u\|=1$. Replace it by $d'u$, where $d'=(1-\cR^2)/d$. For every $z\in\D$,
+\begin{equation}\label{eq:normalize}
+ \|z-d'u\|^2-\cR^2=\frac{d'}d\bigl(\|z-du\|^2-\cR^2\bigr)+\left(1-\frac{d'}d\right)(\|z\|^2-1).
+\end{equation}
+Here $0<d'/d<1$. Thus if $z$ was covered by the old disk, the first term on the right is nonpositive, and the second term is nonpositive because $z\in\D$. Hence $z$ remains covered. Applying this operation to every center yields a representative with $\|c_i\|\leq C$. The diagram and all counts are then formed anew; no old ownership or boundary-count information is assumed to persist.
+
+The exact squared norm cap used in the run is
+\[
+ C^2=1-\cR^2=\frac{987178740639}{10^{12}}.
+\]
+The global arithmetic entry first excludes configurations with at most 99 effective sites. It tests 96 count cases; the tightest reported case has $B=34$ and an exact rational minimum margin. Its decimal display is $5.48874303\\times 10^{-4}>0$; the audit checks the sign from the exact certificate value.
+\[
+ 5.48874303\times 10^{-4}>0.
+\]
+After this reduction, the surviving boundary counts in the common $m=100$ diagram are $B=31,\ldots,39$. They are partitioned into six arithmetic branches: $B=31,32,33,34,35$, and $B\geq36$.
+
+\section{The six arithmetic branches}
+\label{sec:branches}
+Each component verifier returns a rational lower bound for its minimum final area margin. The table reports decimal displays rounded for readability; acceptance in the code uses the exact rational values stored in the cited JSON certificate. The exact rational for every row is checked by the companion audit script.
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Branch & Scope of the finite check & Positive margin (display)\\
+\midrule
+$B=31$ & Global curvature rows; full-face and vertex supports & $0.003738017486$\\
+$B=32$ & Low-$M$ profiles and high-$M$ core split & $0.000267991536$\\
+$B=33$ & Coherent hinge and metric rows & $0.000090870200$\\
+$B=34$ & Single hinge-bank rows & $0.000179345825$\\
+$B=35$ & Low-degree/ear reductions and exceptional $M=26$ core & $0.000025324509$\\
+$B\geq36$ & Capped-pair tail over the full declared domain & $0.000290874695$\\
+\bottomrule
+\end{tabular}
+\end{center}
+All six entries were run twice at the same exact radius. The second run compared each branch's exact margin with the first run. For $B\geq36$, the rational branch-and-bound visited 3,767,981 boxes and accepted 1,879,204; its exact parameters include $\lambda=3/50$, $\mu=92531/10000000$, and target $751/100000$. These counts describe the recorded computation and do not replace the correctness of the box enclosure rule.
+
+\subsection{What the branches check}
+The branch labels denote the boundary count in the rebuilt diagram, not a partition of an inherited graph. In outline, the $B=31$ branch combines global degree/curvature restrictions with full-face inequalities; $B=32$ combines a direct low-$M$ profile check with high-$M$ core reductions; $B=33$ uses coherent replacement rows and high-$M$ metric cases; $B=34$ uses a single boundary hinge bank; $B=35$ combines low-degree and exceptional-core reductions; and $B\geq36$ is handled by the capped-pair tail. Detailed source arguments and case definitions are retained in the fixed release package. The executable certificate verifies their finite rational consequences, including the source assertions, but is not a proof assistant checking the geometric derivations.
+
+\section{Replay protocol and provenance}
+\label{sec:replay}
+The source package is the fixed `certified\_bounds\_11323' release associated with upstream commit `67ebf1c5776f72a7b7786a8655eed5463429ae55'~\\cite{Disk100Release}. A fresh isolated copy was made. The radius conversion changed only exact occurrences of $11323/100000$ and `F(11323,100000)' into $113231/1000000$ and its corresponding rational string. The run records 626 source files, 60 transformed files, 158 Python files parsed, and 1,662 assertions preserved. The source and transformed-copy snapshots matched their manifests after execution.
+
+The full entry was run twice: the initial fresh run took about 260.12 seconds; the separately instrumented replay took about 781.49 seconds. The latter recorded 20 processes and 28 loaded package sources, with no verifier entry carrying a different global radius. Each observed branch radius equals $113231/1000000$. A full-file manifest binds dynamically loaded sources that are not visible as ordinary imports to the recorder. Negative controls rejected an optimized/assertions-disabled run and a verifier deliberately passed the wrong radius; both exited with code 1.
+
+No saved branch PASS report was used as acceptance evidence, and the $0.113235$ certificates were not used. The direct entry reran its six branches and repeated radius/margin assertions. These are source-bound replay and dependency claims, rather than claims that every Python frame was instrumented.
+
+\section{Geometric transfer obligations}
+\label{sec:geometry}
+The finite certificate is useful only together with the following mathematical obligations. They are stated explicitly because they are not discharged by the process trace or the rational arithmetic audit.
+\begin{enumerate}[label=(G\arabic*)]
+ \item \textbf{Same-radius normalization and diagram.} The transformation in \eqref{eq:normalize} preserves coverage for the fixed endpoint radius. The geometric proof must justify construction of a common clipped diagram after normalizing all centers and must not transfer ownership or counts from a prior diagram.
+ \item \textbf{Count reduction.} The boundary/interior identities, effective-site reductions, and exclusion of all 96 cases with at most 99 effective sites must apply to arbitrary admissible covers, not only generic diagrams.
+ \item \textbf{Local area inequalities.} Star, face, hinge, and metric supports must bound actual geometric area for every allowed label/profile. The charged signed-edge terms must cancel with the stated multiplicities, without dropping positive interface contributions or counting a physical edge more than once.
+ \item \textbf{Planarity and degeneracies.} The planar graph and combinatorial isoperimetric inequalities, core reductions, limiting configurations, ties, boundary coincidences, and zero-area faces require proofs covering degenerate cases.
+ \item \textbf{Strict endpoint.} The generic perturbation/enlargement procedure must preserve the required bounds uniformly as the radius decreases to $\cR$. Compactness of the projected center space and continuity of the covering-radius functional then support attainment and the strict endpoint conclusion.
+\end{enumerate}
+The source release gives analytic arguments for these steps, but this paper's independent work verifies the transformed numerical chain and its provenance rather than re-proving those arguments. A reader accepting (G1)--(G5) obtains the stated strict lower bound from the finite certificate; without that acceptance, the unconditional geometric conclusion remains open here.
+
+\section{Limitations and interpretation}
+The work establishes a reproducible arithmetic specialization of an existing proof chain at a new exact radius. Its evidential strengths are exact rational assertions, a complete six-branch entry executed twice, explicit failure controls, and source/module hash binding. Its limitations are equally concrete:
+\begin{itemize}
+ \item no proof assistant formalization of the analytic geometric lemmas;
+ \item no independent implementation of the entire geometry-to-area argument;
+ \item no exact value or optimal configuration for $\rd(100)$;
+ \item no claim at any radius larger than $113231/1000000$.
+\end{itemize}
+The reported minimum margins are certificates for the specified finite inequalities under their stated premises. They are not direct geometric measurements of arbitrary covers.
+
+\section{Reproducibility}
+The source bundle, transformation manifest, raw replay outputs, process traces, controls, and exact certificates are part of the accompanying repository at \url{https://github.com/cjt42554-crypto/disk100-covering-certificates}. The primary machine-readable summary is `verify/out/n100-direct-113231-complete.json'; the independent dependency audit is `verify/out/n100-radius-dependency-audit-direct-113231-fresh.json'; the source transformation record is `runtime/lower-small-advance-direct-113231-fresh/transformation.json'. The paper bundle contains `audit/verify\_claims.py', which validates the numerical claims and hashes against those committed artifacts.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\appendix
+\section{Evidence ledger}
+\label{app:ledger}
+Table~\ref{tab:ledger} states what the software verifies and what remains a mathematical dependency.
+\begin{longtable}{@{}p{0.25\linewidth}p{0.27\linewidth}p{0.39\linewidth}@{}}
+\caption{Claim-to-evidence ledger.}\label{tab:ledger}\\
+\toprule Claim & Evidence status & Independent check / limitation\\
+\midrule
+\endfirsthead
+\toprule Claim & Evidence status & Independent check / limitation\\
+\midrule
+\endhead
+Exact target radius $113231/10^6$ & Confirmed & Rational parsing and equality in both complete outputs and all branch rows.\\
+Six branches have positive margins & Confirmed arithmetically & Two full runs; exact Fraction comparison and repeat equality; geometric meanings depend on (G3).\\
+At most 99 effective sites excluded & Confirmed arithmetically & 96 finite cases and positive exact minimum margin; geometric case coverage depends on (G1)--(G2).\\
+No higher-radius PASS inherited & Confirmed by entry and certificate metadata & Full fresh entry; explicit flags state no saved PASS acceptance and no 0.113235 evidence.\\
+Source transformation constrained & Confirmed by hash audit & 626 files snapshotted, 60 changed by exact radius substitutions; 1,662 assertions preserved.\\
+Runtime radius/source binding & Confirmed within recorder scope & 20 processes, 28 loaded package sources; full manifest additionally binds dynamic files. Not every Python frame is instrumented.\\
+Geometric transfer from inequalities to all covers & Not independently verified here & Requires (G1)--(G5), including degeneracies and endpoint compactness.\\
+Exact optimum $\rd(100)$ & Unverified & No matching upper/lower endpoint or optimality proof is claimed.\\
+\bottomrule
+\end{longtable}
+
+\section{Exact branch margins}
+For convenient machine checking, the exact branch margins are retained verbatim in `verify/out/n100-direct-113231-complete.json'. In branch order $31,32,33,34,35,\geq36$, they are
+\begin{align*}
+&\frac{1869008743124689739451}{500000000000000000000000},\quad
+\frac{53598307165582960111}{200000000000000000000000},\\
+&\frac{90870199742281553043}{1000000000000000000000000},\quad
+\frac{179345824655025580389}{1000000000000000000000000},\\
+&\frac{633112725883465801}{25000000000000000000000},\quad
+\frac{29087469503098483006469778967931605940457120574226219}{100000000000000000000000000000000000000000000000000000000}.
+\end{align*}
+The decimals in Section~\ref{sec:branches} are rounded representations only; these rational values are the acceptance values.
+\end{document}

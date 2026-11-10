@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "claim": "The listed closed disks cover the closed unit disk.",
+  "radius": "0.1154469548855829",
+  "input_centers": 100,
+  "distinct_centers": 100,
+  "scale": 1000000000000000000000000000000000000000000000000000000000000,
+  "counts": {
+    "triples": 161700,
+    "degenerate_triples": 0,
+    "outside_triples": 33264,
+    "interior_candidates": 128436,
+    "boundary_pairs": 4950,
+    "disjoint_bisectors": 0,
+    "boundary_candidates": 9900,
+    "antipodes": 100,
+    "cardinal": 4,
+    "exact_fallbacks": 0
+  },
+  "witness_disks_used": 100,
+  "maximum_candidate_distance_approx": 0.1154469548855823,
+  "worst_candidate_approx": {
+    "kind": "bisector_boundary",
+    "indices": [
+      15,
+      55
+    ],
+    "a": 414167717359347528384674348553326831426056919495825405924882,
+    "b": 39405002262717592824001372842286684716123256357312190354800,
+    "d": 90878969276474502134919891779835130906386349291894232905688405981147125684373918685549153188544162568780530040715525975,
+    "surd_radicand": 164828665249222762126769857026867665131505126165387851130004944434279458950702095737008651986666265951989451129928913369901702173834173952412227336707606933011892536628960487103475151576993716747050087382140845911487211763712444579100299375,
+    "sign": -1
+  },
+  "seconds": 3.816994187000091,
+  "arithmetic": "All acceptance and candidate inclusion tests use exact integers. Floats only choose witnesses and report approximations.",
+  "scope": "Configuration-specific upper bound only; no assertion of local or global optimality.",
+  "input_sha256": "d7a94c26b45ce3538d336b8445a351b194035b7d57a3af114ad6bac664742c0a",
+  "verifier_sha256": "06806070a7c185bc0c710629561d4c2d713eaf231efaadb9f7b9924a05ecb514"
+}

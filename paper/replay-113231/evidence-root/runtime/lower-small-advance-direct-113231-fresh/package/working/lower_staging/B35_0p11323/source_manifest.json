@@ -1,0 +1,16 @@
+{
+  "historical_source_hashes": {
+    "PROOF_11322.md": "ba9d7415a59ea2e8c451329023d4e27729b7c8be2896b1e0fb3f896e6f94007e",
+    "lower_bounds_extension_20261004/check_B35_normalized_penalty_0p11322.py": "a307f19dfed4e5bc46d4f121ccd7b9b415ac306dc16d24d3a3fb09a82791cb77",
+    "verify_normalized_boundary_penalty_0p11322.py": "5b0653cacc9b5b0f878686765bfbefa5282282f316d9aee0c649f79950421d01",
+    "NORMALIZED_CENTER_DISPLACEMENT_PENALTY.md": "1b6a85fb5c1a1f2b11cede7c5d243e93e753a0e0e0c6d9e526c90e93b3ee2b11",
+    "lower_bounds_extension_20261004/GENERAL_DISK_ISOPERIMETRY.md": "3dd646f173e5b840370d725260d98500d7c2e1b6b7ce87feecbfaf7e8a92de38",
+    "UNMARKED_LOW_DEGREE_CORE_OBSTRUCTION.md": "79372435a76d0b935a41ce3b003d4a96d39f44b172bdccb5c2f426dc0039ae5e",
+    "exact_range_one_face_support.py": "a33023537a5f20e406e2fac79dc16f6ce79ac152798e08563a7097e48a1414ef",
+    "exact_linear_halfside_marked_conjugate.py": "12308a08e76ead613dc36555bc16026bfaf0ea928dda6f18d18b1f4e8ccc23e4",
+    "verify_jensen_slab_ear_support.py": "1c8d46f5e08714519e1545199fdd6edebe7b1defec0df3b693649be0ad6c4e4b",
+    "lower_bounds_extension_20261004/verify_extension.py": "489947e87ba99acdd342b238129fad35c5cb3b1ba7906d29543383a2c7261b61",
+    "verify_star_lp_duals.py": "23568fed518e451d3d6b7f11603e080546bb74afa020ef0fd8fbb1a3b02be6d7",
+    "verify_potential_star_duals.py": "d4609b4441dae93c105966dd28f72b2e9d84342f012dd519dca25f2515e3e2c3"
+  }
+}

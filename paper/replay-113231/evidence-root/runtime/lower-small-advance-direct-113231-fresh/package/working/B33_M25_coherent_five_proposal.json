@@ -1,0 +1,314 @@
+{
+  "schema": "B33-M25-coherent-five-replacement-v1",
+  "denominator": 10000000000,
+  "epsilon": [
+    3,
+    10
+  ],
+  "tau": [
+    13,
+    10
+  ],
+  "central": [
+    {
+      "high_neighbors": 0,
+      "counts": [
+        5,
+        0,
+        0
+      ],
+      "center_potential": 3500000160,
+      "cells": [
+        {
+          "high_base_corners": 0,
+          "nu": -3090169842
+        }
+      ]
+    },
+    {
+      "high_neighbors": 1,
+      "counts": [
+        3,
+        2,
+        0
+      ],
+      "center_potential": 2825106848,
+      "cells": [
+        {
+          "high_base_corners": 0,
+          "nu": -3505885894
+        },
+        {
+          "high_base_corners": 1,
+          "nu": -4758123862
+        }
+      ]
+    },
+    {
+      "high_neighbors": 2,
+      "counts": [
+        2,
+        2,
+        1
+      ],
+      "center_potential": 1319160314,
+      "cells": [
+        {
+          "high_base_corners": 0,
+          "nu": -4343056797
+        },
+        {
+          "high_base_corners": 1,
+          "nu": -5723182056
+        },
+        {
+          "high_base_corners": 2,
+          "nu": -7056303889
+        }
+      ]
+    },
+    {
+      "high_neighbors": 2,
+      "counts": [
+        1,
+        4,
+        0
+      ],
+      "center_potential": 2202570390,
+      "cells": [
+        {
+          "high_base_corners": 0,
+          "nu": -3865324372
+        },
+        {
+          "high_base_corners": 1,
+          "nu": -5179731845
+        }
+      ]
+    },
+    {
+      "high_neighbors": 3,
+      "counts": [
+        1,
+        2,
+        2
+      ],
+      "center_potential": 1319160306,
+      "cells": [
+        {
+          "high_base_corners": 0,
+          "nu": -4343056801
+        },
+        {
+          "high_base_corners": 1,
+          "nu": -5723182061
+        },
+        {
+          "high_base_corners": 2,
+          "nu": -7056303895
+        }
+      ]
+    },
+    {
+      "high_neighbors": 3,
+      "counts": [
+        0,
+        4,
+        1
+      ],
+      "center_potential": 1319160309,
+      "cells": [
+        {
+          "high_base_corners": 1,
+          "nu": -5723182059
+        },
+        {
+          "high_base_corners": 2,
+          "nu": -7056303893
+        }
+      ]
+    }
+  ],
+  "outside": [
+    {
+      "selected_edges": 1,
+      "labels": [
+        0,
+        0,
+        0
+      ],
+      "nu": -7732322703
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        0,
+        0,
+        1
+      ],
+      "nu": -7532434858
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        0,
+        0,
+        2
+      ],
+      "nu": -6593918724
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        0,
+        2,
+        0
+      ],
+      "nu": -6515321007
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        0,
+        2,
+        1
+      ],
+      "nu": -6332411880
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        0,
+        2,
+        2
+      ],
+      "nu": -5478950772
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        2,
+        0,
+        0
+      ],
+      "nu": -6515321007
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        2,
+        0,
+        1
+      ],
+      "nu": -6332411880
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        2,
+        0,
+        2
+      ],
+      "nu": -5478950772
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        2,
+        2,
+        0
+      ],
+      "nu": -5397327513
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        2,
+        2,
+        1
+      ],
+      "nu": -5220308764
+    },
+    {
+      "selected_edges": 1,
+      "labels": [
+        2,
+        2,
+        2
+      ],
+      "nu": -4403808603
+    },
+    {
+      "selected_edges": 2,
+      "labels": [
+        0,
+        0,
+        0
+      ],
+      "nu": -7084270270
+    },
+    {
+      "selected_edges": 2,
+      "labels": [
+        0,
+        0,
+        2
+      ],
+      "nu": -5934278877
+    },
+    {
+      "selected_edges": 2,
+      "labels": [
+        0,
+        2,
+        0
+      ],
+      "nu": -5849301012
+    },
+    {
+      "selected_edges": 2,
+      "labels": [
+        0,
+        2,
+        2
+      ],
+      "nu": -4782276985
+    },
+    {
+      "selected_edges": 2,
+      "labels": [
+        2,
+        0,
+        0
+      ],
+      "nu": -5934278877
+    },
+    {
+      "selected_edges": 2,
+      "labels": [
+        2,
+        0,
+        2
+      ],
+      "nu": -4871729882
+    },
+    {
+      "selected_edges": 2,
+      "labels": [
+        2,
+        2,
+        0
+      ],
+      "nu": -4782276985
+    },
+    {
+      "selected_edges": 2,
+      "labels": [
+        2,
+        2,
+        2
+      ],
+      "nu": -3755756170
+    }
+  ]
+}

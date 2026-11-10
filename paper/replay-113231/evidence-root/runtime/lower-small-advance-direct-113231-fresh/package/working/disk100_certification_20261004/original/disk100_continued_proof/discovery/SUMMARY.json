@@ -1,0 +1,17 @@
+{
+  "multistart_attempts": 360,
+  "basin_attempts_per_chain": [
+    220,
+    220,
+    220,
+    220
+  ],
+  "total_attempt_records": 1240,
+  "error_records": 0,
+  "best_reported_float_radius": 0.11563027142022507,
+  "exact_certified_upper": [
+    11563027143,
+    100000000000
+  ],
+  "scope": "Numerical discovery only. Does not establish global optimality."
+}

@@ -1,0 +1,150 @@
+{
+  "scope": "NUMERICAL PROPOSALS ONLY; exact acceptance remains separate",
+  "rows": [
+    {
+      "area_margin": 0.002888715506513595,
+      "pure_center_bound": 229.79639632572594,
+      "maximum_face_range": 0.29999999700000035,
+      "maximum_boundary_weight_difference": 0.02499999975,
+      "optimizer_success": true,
+      "iterations": 9,
+      "family_id": "B32_P26_F108_000"
+    },
+    {
+      "area_margin": 0.00288792225182144,
+      "pure_center_bound": 229.79645518678896,
+      "maximum_face_range": 0.299999996999999,
+      "maximum_boundary_weight_difference": 0.02499999975,
+      "optimizer_success": true,
+      "iterations": 10,
+      "family_id": "B32_P26_F108_001"
+    },
+    {
+      "area_margin": 0.0031203068790719435,
+      "pure_center_bound": 229.79622880198198,
+      "maximum_face_range": 0.29999999699999924,
+      "maximum_boundary_weight_difference": 0.02499999975,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_002"
+    },
+    {
+      "area_margin": 0.0031207183002202044,
+      "pure_center_bound": 229.79619817364326,
+      "maximum_face_range": 0.29999999699999613,
+      "maximum_boundary_weight_difference": 0.024999999749985166,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_003"
+    },
+    {
+      "area_margin": 0.0031207183002197603,
+      "pure_center_bound": 229.79619817364292,
+      "maximum_face_range": 0.29999999699999874,
+      "maximum_boundary_weight_difference": 0.02499999975,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_004"
+    },
+    {
+      "area_margin": 0.0031207183002215366,
+      "pure_center_bound": 229.79619817364255,
+      "maximum_face_range": 0.29999999700000307,
+      "maximum_boundary_weight_difference": 0.02499999974999051,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_005"
+    },
+    {
+      "area_margin": 0.003120306879074164,
+      "pure_center_bound": 229.79622880198198,
+      "maximum_face_range": 0.2999999970000028,
+      "maximum_boundary_weight_difference": 0.02499999975,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_006"
+    },
+    {
+      "area_margin": 0.003122005346909873,
+      "pure_center_bound": 229.79616998391407,
+      "maximum_face_range": 0.2999999969999998,
+      "maximum_boundary_weight_difference": 0.02499999975,
+      "optimizer_success": true,
+      "iterations": 10,
+      "family_id": "B32_P26_F108_007"
+    },
+    {
+      "area_margin": 0.003355084954524301,
+      "pure_center_bound": 229.79578375969513,
+      "maximum_face_range": 0.2999999970000035,
+      "maximum_boundary_weight_difference": 0.024999999749970577,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_008"
+    },
+    {
+      "area_margin": 0.0031224166938832454,
+      "pure_center_bound": 229.7961393982769,
+      "maximum_face_range": 0.2999999970000087,
+      "maximum_boundary_weight_difference": 0.02499999975,
+      "optimizer_success": true,
+      "iterations": 10,
+      "family_id": "B32_P26_F108_009"
+    },
+    {
+      "area_margin": 0.0033553286650951364,
+      "pure_center_bound": 229.79576558242326,
+      "maximum_face_range": 0.29999999699999635,
+      "maximum_boundary_weight_difference": 0.02499999975,
+      "optimizer_success": true,
+      "iterations": 12,
+      "family_id": "B32_P26_F108_010"
+    },
+    {
+      "area_margin": 0.0033550849545260775,
+      "pure_center_bound": 229.79578375969552,
+      "maximum_face_range": 0.2999999969999931,
+      "maximum_boundary_weight_difference": 0.024999999749999276,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_011"
+    },
+    {
+      "area_margin": 0.0031224166938841336,
+      "pure_center_bound": 229.79613939827686,
+      "maximum_face_range": 0.29999999700000285,
+      "maximum_boundary_weight_difference": 0.024999999749997497,
+      "optimizer_success": true,
+      "iterations": 10,
+      "family_id": "B32_P26_F108_012"
+    },
+    {
+      "area_margin": 0.003355084954524745,
+      "pure_center_bound": 229.79578375969496,
+      "maximum_face_range": 0.2999999970000046,
+      "maximum_boundary_weight_difference": 0.02499999975,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_013"
+    },
+    {
+      "area_margin": 0.0033550849545256334,
+      "pure_center_bound": 229.79578375969493,
+      "maximum_face_range": 0.29999999700000274,
+      "maximum_boundary_weight_difference": 0.024999999749998107,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_014"
+    },
+    {
+      "area_margin": 0.0033550849545251893,
+      "pure_center_bound": 229.79578375969493,
+      "maximum_face_range": 0.29999999699999746,
+      "maximum_boundary_weight_difference": 0.02499999974999633,
+      "optimizer_success": true,
+      "iterations": 11,
+      "family_id": "B32_P26_F108_015"
+    }
+  ],
+  "seconds": 1.2695014710043324
+}

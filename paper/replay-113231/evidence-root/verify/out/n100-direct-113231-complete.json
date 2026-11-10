@@ -1,0 +1,125 @@
+{
+  "schema": "n100-direct-same-radius-full-replay/v1",
+  "status": "PASS_ALL_SIX_BRANCH_ARITHMETIC_AT_SAME_RADIUS",
+  "radius": "113231/1000000",
+  "claim_of_analytic_chain": "r_D(100)>113231/1000000",
+  "fresh_bottom_up_numeric_entry": "working/verify_all_11323.py",
+  "fresh_full_runs": 2,
+  "uses_0p113235_certificates": false,
+  "uses_saved_branch_PASS_reports_for_acceptance": false,
+  "original_release_unchanged": true,
+  "transformed_copy_unchanged": true,
+  "required_center_norm_squared_upper": "987178740639/1000000000000",
+  "count_bridge": {
+    "n": 99,
+    "radius": "113231/1000000",
+    "cases": 96,
+    "tightest_B": 34,
+    "minimum_area_margin": "18661726301611604766374848575967886702619752877727830219116819901674737468361698385636598784391971/34000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "complete_surviving_boundary_counts": [
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "all_six_branch_arithmetic_closed": true,
+  "branch_margins": [
+    {
+      "branch": "B31",
+      "radius": "113231/1000000",
+      "minimum_margin": "1869008743124689739451/500000000000000000000000",
+      "source": "working\\verify_B31_global_low_degree_0p11323.py"
+    },
+    {
+      "branch": "B32",
+      "radius": "113231/1000000",
+      "minimum_margin": "53598307165582960111/200000000000000000000000",
+      "source": "lower_staging\\verify_B32_complete_0p11323_v2.py"
+    },
+    {
+      "branch": "B33",
+      "radius": "113231/1000000",
+      "minimum_margin": "90870199742281553043/1000000000000000000000000",
+      "source": "working\\verify_B33_hinge_metric_complete_0p11323.py"
+    },
+    {
+      "branch": "B34",
+      "radius": "113231/1000000",
+      "minimum_margin": "179345824655025580389/1000000000000000000000000",
+      "source": "lower_staging\\B34_0p11323\\verify_hinge_B34_complete_0p11323.py"
+    },
+    {
+      "branch": "B35",
+      "radius": "113231/1000000",
+      "minimum_margin": "633112725883465801/25000000000000000000000",
+      "source": "working\\lower_staging\\B35_0p11323\\check_B35_complete_0p11323_v2.py"
+    },
+    {
+      "branch": "B36plus",
+      "radius": "113231/1000000",
+      "minimum_margin": "29087469503098483006469778967931605940457120574226219/100000000000000000000000000000000000000000000000000000000",
+      "source": "working\\verify_capped_pair_B36plus_0p11323.py"
+    }
+  ],
+  "tail_boxes": {
+    "B": 36,
+    "status": "PASS",
+    "lambda_value": "3/50",
+    "mu": "92531/10000000",
+    "target": "751/100000",
+    "normalized_sine_minimum": "0",
+    "visited": 3767981,
+    "accepted": 1879204,
+    "seconds": 213.2260540999996
+  },
+  "parameter_trace": {
+    "process_count": 20,
+    "loaded_source_count": 28,
+    "other_global_R_entries": [],
+    "scope": "Tracked verifier calls and registered imported modules; full 626-file manifest binds anonymous dynamic loaders too."
+  },
+  "negative_controls": [
+    {
+      "name": "assertions_disabled",
+      "expected_rejection": true,
+      "exit_code": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"E:\\study\\ADB\\runtime\\lower-small-advance-direct-113231-fresh\\package\\working\\verify_all_11323.py\", line 73, in <module>\n    if __name__=='__main__':print(json.dumps(verify(),indent=2),flush=True)\n                                             ~~~~~~^^\n  File \"E:\\study\\ADB\\runtime\\lower-small-advance-direct-113231-fresh\\package\\working\\verify_all_11323.py\", line 16, in verify\n    if not __debug__:raise RuntimeError('Assertions must remain enabled')\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Assertions must remain enabled\n"
+    },
+    {
+      "name": "wrong_radius",
+      "expected_rejection": true,
+      "exit_code": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n    m.verify()\n    ~~~~~~~~^^\n  File \"E:\\study\\ADB\\runtime\\lower-small-advance-direct-113231-fresh\\package\\working\\verify_B31_global_low_degree_0p11323.py\", line 34, in verify\n    assert rows['radius']==str(R) and rows['B']==B\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ],
+  "geometry_independently_reproved": false,
+  "machine_verified_geometry": false,
+  "analytic_dependencies": [
+    "Same-radius normalization of every center, followed by rebuilding the common diagram and m/B classification.",
+    "Normalized star/face bounds, hinge payments and signed edge cancellation.",
+    "Planar graph and combinatorial isoperimetric lemmas including degenerate limits.",
+    "Compactness and continuity convert exclusion of the closed endpoint into a strict radius lower bound."
+  ],
+  "scope": "Full fresh arithmetic replay of the existing analytic proof chain at .113231. Not an independent derivation of all analytic geometric premises, and no assertion that .11324 is proved.",
+  "bindings": {
+    "verify/n100_direct_113231_complete.py": "a08877b6c27f6cddf916f7510f261547e2962189ef7d486a8732989fca4efa3b",
+    "verify/n100_lower_small_advance.py": "f2674a312ae140a3630b4022740724e65f6e9259eb427b4e768cabcff462b0b8",
+    "verify/n100_radius_dependency_audit.py": "34e54737c2f4ae322783d50e36b04662a62efc4addfddfc4ea3afc59b5dd5fef",
+    "verify/n100_radius_process_trace.py": "460dec0db2735b924c2c648bc5b453814dbea5056f80374157f39b4411b19363",
+    "verify/n100_direct_113231_controls.py": "c4765deb9b46de1d4cfe9a7ffeacb7654f5da637d28cb3d248a632398c6e27dd",
+    "runtime/lower-small-advance-direct-113231-fresh/transformation.json": "bade03e518d0ca88189f16d1fe6af2baf555f9b78a095bf8792be6cd242d581d",
+    "runtime/lower-small-advance-direct-113231-fresh/stdout.json": "fe553721b59ff3d343f5c96e3789326d39609618c0b9ddf6c528599f20d575c3",
+    "runtime/lower-small-advance-direct-113231-fresh/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runtime/lower-small-advance-direct-113231-fresh/audit.stdout.json": "87b23901720993cce1ec570d1ad2f7e34d25de59e1df90c6f77624bb550c9cf7",
+    "runtime/lower-small-advance-direct-113231-fresh/audit.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verify/out/n100-lower-small-advance-direct-113231-fresh.json": "988675db63aacee5d5d33bf833cfd57635189bd0e5bf0ff08b41b4f1559fb995",
+    "verify/out/n100-radius-dependency-audit-direct-113231-fresh.json": "7611679a6b15e49bdac348d8f43ee4d0097617ed231861a4ca660b183de1f1fd",
+    "verify/out/n100-direct-113231-controls.json": "906ce250296510ac207a7e0e7ef6fa5c76919ced7a9d0a67f7bab5727be39784"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "This supplied B32 catalog graph is excluded at the stated radius using an independently replayed pure support/window; complete branch reduction remains separate",
+  "family_id": "B32_P26_F108_012",
+  "radius": "453/4000",
+  "graph_sha256": "2bb6e462c75f15e57d43caeade9e4da601cb6e50660ed30e7c1ccad73b667f6e",
+  "graph_check": {
+    "vertices": 100,
+    "edges": 265,
+    "faces": 166,
+    "B": 32,
+    "I": 68,
+    "N": 26,
+    "marked_apex_count_K": 25,
+    "interior_degree_histogram": {
+      "6": 68
+    },
+    "max_marked_fan_size": 2,
+    "outer_degree_histogram": {
+      "3": 7,
+      "4": 24,
+      "5": 1
+    },
+    "oriented_edge_check": "PASS",
+    "all_vertex_links_check": "PASS",
+    "connected": "PASS"
+  },
+  "pure_normalized_center_cap": "114898069699138415519587823/500000000000000000000000",
+  "geometry_status": "PASS",
+  "q0_face_supports": 134,
+  "q1_unequal_base_supports": 32,
+  "boundary_arc_supports": 32,
+  "cancelled_shared_edges": 176,
+  "retained_arc_roots": 32,
+  "minimum_full_face_guard": "117529949957/200000000000",
+  "boundary_active_faces": 0,
+  "maximum_neighbor_weight_difference": "1099999989/10000000000",
+  "half_arc_support_lower": "307/5000",
+  "area_margin": "1178843802984338583611/500000000000000000000000"
+}

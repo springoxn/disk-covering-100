@@ -1,0 +1,1 @@
+PASS: balanced environments, braces, theorem structure, evidence-bound scope markers

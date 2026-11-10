@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "This specified no-ear graph is excluded at the reported radius, with arbitrary actual coordinates. No complete graph catalog or universal improvement is claimed.",
+  "family_id": "flat_N27_0009",
+  "radius": "2829/25000",
+  "graph_sha256": "6d0078a9504a2e320b6edfb3d8df7023707b94a2b3e422edcac655f58158d20f",
+  "graph_check": {
+    "vertices": 100,
+    "edges": 264,
+    "faces": 165,
+    "B": 33,
+    "I": 67,
+    "N": 27,
+    "marked_apex_count_K": 26,
+    "interior_degree_histogram": {
+      "6": 67
+    },
+    "outer_degree_histogram": {
+      "3": 7,
+      "4": 25,
+      "5": 1
+    },
+    "oriented_edge_check": "PASS",
+    "all_vertex_links_check": "PASS"
+  },
+  "geometry_status": "PASS",
+  "q0_face_supports": 132,
+  "q1_unequal_base_supports": 33,
+  "cancelled_shared_edges": 172,
+  "boundary_arc_supports": 33,
+  "retained_quadratic_roots": 66,
+  "maximum_neighbor_weight_difference": "99999999/4000000000",
+  "minimum_localization_gap": "564881604791123134099/62500000000000000000000",
+  "area_margin": "40591109685851157357/200000000000000000000000",
+  "area_margin_approx": 0.00020295554842925578,
+  "seconds_reporting_only": 0.707543672004249
+}

@@ -1,0 +1,16 @@
+{
+  "DISCOVERY_SUMMARY.json": "c4c4293abff497614f0a94d1da6ba14ca9b02d8981d7de64904d797ec7264006",
+  "GLOBAL_LOWER_PROOF.md": "0c013e1bc2c6370b11ef4332d18320af3edebb05f92af1183ee6a1f4be449d1c",
+  "README.md": "07689c24635fbfccf10226f9163a8e8e5f1d9ac9840c08541fdd74518276552c",
+  "RESEARCH_NOTES.md": "714798683d4308670ad7be2007071456d22bffb90dbf4a2ce0c413e0146ca302",
+  "configuration.json": "a01a70528af80cb143fc82b65c184bc1156e1b70920e378f9553d3db723c484c",
+  "lower_verification_result.json": "ee22ae259f5fc9dde97b03d1885f49409b06185dcee7f44761c5905c2d03b31e",
+  "negative_tests.log": "31538cceefaa7ef5afcca6a11ab141df1aa30b7c3dcfed0a6774ea123263f695",
+  "test_negative.py": "8b3226d60b06a4408d4a05880d31305bab5432d0a733b3b36a2934dbe51507d3",
+  "upper_certificate.json": "53749375e84bcc09bea3ff46cb0556032d54143f38a088ac7495c8a7f426fecf",
+  "verification.log": "152796b382ce13210c0a7d7f4a62ea6f969ae11738c411da00b559eeb45fda72",
+  "verification_result.json": "d83ff990949253ed2bab826232470fcedf62b2dba07624f9bd2a3e0463e27a73",
+  "verify.py": "64cedb1c334f9965bb4f789b874e0d9a0230d1890d214add5e24116e783fc733",
+  "verify_critical.py": "93b202d1893f5f3aaa2ab013c2d6a623ffc182a471a6ae255d54a3cb1d4d9c3e",
+  "verify_global_lower.py": "183ecdbe5f7f04b430621495e3ac8a1666836cfacdcbd529dd5328f9a13d0473"
+}

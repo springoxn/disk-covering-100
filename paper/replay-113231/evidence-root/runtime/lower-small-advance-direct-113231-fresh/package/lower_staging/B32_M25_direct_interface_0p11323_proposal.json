@@ -1,0 +1,351 @@
+{
+  "schema": "B32-M25-direct-interface-R23-v1",
+  "denominator": 1000000000000,
+  "radius": "113231/1000000",
+  "B": 32,
+  "epsilon": [
+    1,
+    2
+  ],
+  "perimeter_penalty": [
+    13,
+    10
+  ],
+  "halfside_multiplier": [
+    11,
+    25
+  ],
+  "labels": [
+    -227581178143,
+    -278435929802,
+    0
+  ],
+  "charges": [
+    14350505968,
+    14665009600,
+    100000
+  ],
+  "outside_allowances": [
+    586689943514,
+    1163161676751
+  ],
+  "interface_H": 16067700658,
+  "interface_O": 0,
+  "ordinary_credit_per_marked": 0,
+  "face_rows": [
+    {
+      "ids": [
+        0,
+        0,
+        1
+      ],
+      "nu": -744345380695
+    },
+    {
+      "ids": [
+        0,
+        0,
+        2
+      ],
+      "nu": -647438934350
+    },
+    {
+      "ids": [
+        0,
+        1,
+        1
+      ],
+      "nu": -761288308990
+    },
+    {
+      "ids": [
+        0,
+        1,
+        2
+      ],
+      "nu": -663209120194
+    },
+    {
+      "ids": [
+        0,
+        2,
+        2
+      ],
+      "nu": -572368881158
+    },
+    {
+      "ids": [
+        1,
+        1,
+        1
+      ],
+      "nu": -778435905451
+    },
+    {
+      "ids": [
+        1,
+        1,
+        2
+      ],
+      "nu": -679037229220
+    },
+    {
+      "ids": [
+        1,
+        2,
+        2
+      ],
+      "nu": -587686070399
+    },
+    {
+      "ids": [
+        2,
+        2,
+        2
+      ],
+      "nu": -500000001216
+    }
+  ],
+  "outside_rows": [
+    {
+      "selected_edges": 1,
+      "ids": [
+        0,
+        0,
+        1
+      ],
+      "nu": -649097740440
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        0,
+        0,
+        2
+      ],
+      "nu": -560980414115
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        0,
+        2,
+        0
+      ],
+      "nu": -551445911018
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        0,
+        2,
+        1
+      ],
+      "nu": -566081047902
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        0,
+        2,
+        2
+      ],
+      "nu": -482493193463
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        2,
+        0,
+        0
+      ],
+      "nu": -551445911018
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        2,
+        0,
+        1
+      ],
+      "nu": -566081047902
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        2,
+        0,
+        2
+      ],
+      "nu": -482493193463
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        2,
+        2,
+        0
+      ],
+      "nu": -472907736074
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        2,
+        2,
+        1
+      ],
+      "nu": -487152277396
+    },
+    {
+      "selected_edges": 1,
+      "ids": [
+        2,
+        2,
+        2
+      ],
+      "nu": -406130728196
+    },
+    {
+      "selected_edges": 2,
+      "ids": [
+        0,
+        0,
+        2
+      ],
+      "nu": -451425635579
+    },
+    {
+      "selected_edges": 2,
+      "ids": [
+        0,
+        2,
+        0
+      ],
+      "nu": -440826252455
+    },
+    {
+      "selected_edges": 2,
+      "ids": [
+        0,
+        2,
+        2
+      ],
+      "nu": -368786412332
+    },
+    {
+      "selected_edges": 2,
+      "ids": [
+        2,
+        0,
+        0
+      ],
+      "nu": -451425628836
+    },
+    {
+      "selected_edges": 2,
+      "ids": [
+        2,
+        0,
+        2
+      ],
+      "nu": -379649878575
+    },
+    {
+      "selected_edges": 2,
+      "ids": [
+        2,
+        2,
+        0
+      ],
+      "nu": -368786412332
+    },
+    {
+      "selected_edges": 2,
+      "ids": [
+        2,
+        2,
+        2
+      ],
+      "nu": -298656963101
+    }
+  ],
+  "stars": [
+    {
+      "high_neighbors": 0,
+      "counts": [
+        5,
+        0,
+        0
+      ],
+      "center_potential": 250000023099,
+      "faces": [
+        {
+          "high_base_vertices": 0,
+          "nu": -309016974303
+        }
+      ]
+    },
+    {
+      "high_neighbors": 1,
+      "counts": [
+        3,
+        2,
+        0
+      ],
+      "center_potential": 203897636510,
+      "faces": [
+        {
+          "high_base_vertices": 0,
+          "nu": -348834180582
+        },
+        {
+          "high_base_vertices": 1,
+          "nu": -468915339904
+        }
+      ]
+    },
+    {
+      "high_neighbors": 2,
+      "counts": [
+        2,
+        2,
+        1
+      ],
+      "center_potential": 104395565196,
+      "faces": [
+        {
+          "high_base_vertices": 0,
+          "nu": -426834115669
+        },
+        {
+          "high_base_vertices": 1,
+          "nu": -558524182750
+        },
+        {
+          "high_base_vertices": 2,
+          "nu": -685290719414
+        }
+      ]
+    },
+    {
+      "high_neighbors": 2,
+      "counts": [
+        1,
+        4,
+        0
+      ],
+      "center_potential": 161188691833,
+      "faces": [
+        {
+          "high_base_vertices": 0,
+          "nu": -383491360025
+        },
+        {
+          "high_base_vertices": 1,
+          "nu": -509335123513
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,579 @@
+{
+  "scope": "Rational proposals only; exact acceptance required",
+  "radius": "5661/50000",
+  "B": 33,
+  "rows": [
+    {
+      "branch": "M22_23",
+      "M": 22,
+      "deep_witnesses": 2,
+      "denominator": 10000000000,
+      "potential_denominator": 100000000,
+      "high_potential": -28610549,
+      "boundary_potential": -15852248,
+      "deep_potential": 30033395,
+      "u0": 200000,
+      "beta": 1416849632,
+      "eta": -1257365569,
+      "apex": 0,
+      "flag": 2889029462,
+      "charge_a": 201289276,
+      "charge_b": 47851265,
+      "charge_0": 500,
+      "charge_deep": 302685675,
+      "interface_a": 129752921,
+      "interface_deep": 0,
+      "interface_0": 0,
+      "faces": [
+        {
+          "indices": [
+            0,
+            0,
+            0
+          ],
+          "nu": -7861054900
+        },
+        {
+          "indices": [
+            0,
+            0,
+            1
+          ],
+          "nu": -7422984488
+        },
+        {
+          "indices": [
+            0,
+            0,
+            2
+          ],
+          "nu": -6837529674
+        },
+        {
+          "indices": [
+            0,
+            0,
+            3
+          ],
+          "nu": -5550277192
+        },
+        {
+          "indices": [
+            0,
+            1,
+            1
+          ],
+          "nu": -6999082930
+        },
+        {
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "nu": -6434773290
+        },
+        {
+          "indices": [
+            0,
+            2,
+            2
+          ],
+          "nu": -5899718716
+        },
+        {
+          "indices": [
+            0,
+            2,
+            3
+          ],
+          "nu": -4746126469
+        },
+        {
+          "indices": [
+            0,
+            3,
+            3
+          ],
+          "nu": -3747172486
+        },
+        {
+          "indices": [
+            1,
+            1,
+            1
+          ],
+          "nu": -6585224800
+        },
+        {
+          "indices": [
+            1,
+            1,
+            2
+          ],
+          "nu": -6036762472
+        },
+        {
+          "indices": [
+            1,
+            2,
+            2
+          ],
+          "nu": -5511000187
+        },
+        {
+          "indices": [
+            2,
+            2,
+            2
+          ],
+          "nu": -5000000000
+        },
+        {
+          "indices": [
+            2,
+            2,
+            3
+          ],
+          "nu": -3921316259
+        },
+        {
+          "indices": [
+            2,
+            3,
+            3
+          ],
+          "nu": -2938621025
+        },
+        {
+          "indices": [
+            3,
+            3,
+            3
+          ],
+          "nu": -1996660500
+        }
+      ],
+      "numerical_margin_reporting_only": 0.0013800260883640725
+    },
+    {
+      "branch": "M24_profile",
+      "M": 24,
+      "deep_witnesses": 1,
+      "denominator": 10000000000,
+      "potential_denominator": 100000000,
+      "high_potential": -33706566,
+      "boundary_potential": -23562718,
+      "deep_potential": 26242904,
+      "u0": 200000,
+      "beta": 2127007228,
+      "eta": -1630106930,
+      "apex": 0,
+      "flag": 2828786322,
+      "charge_a": 214304187,
+      "charge_b": 105257196,
+      "charge_0": 500,
+      "charge_deep": 309894717,
+      "interface_a": 143680313,
+      "interface_deep": 0,
+      "interface_0": 0,
+      "faces": [
+        {
+          "indices": [
+            0,
+            0,
+            0
+          ],
+          "nu": -8370656600
+        },
+        {
+          "indices": [
+            0,
+            0,
+            1
+          ],
+          "nu": -8024541978
+        },
+        {
+          "indices": [
+            0,
+            0,
+            2
+          ],
+          "nu": -7147337012
+        },
+        {
+          "indices": [
+            0,
+            0,
+            3
+          ],
+          "nu": -5996597002
+        },
+        {
+          "indices": [
+            0,
+            1,
+            1
+          ],
+          "nu": -7687103429
+        },
+        {
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "nu": -6835273976
+        },
+        {
+          "indices": [
+            0,
+            2,
+            2
+          ],
+          "nu": -6050045789
+        },
+        {
+          "indices": [
+            0,
+            2,
+            3
+          ],
+          "nu": -5044262647
+        },
+        {
+          "indices": [
+            0,
+            3,
+            3
+          ],
+          "nu": -4161437089
+        },
+        {
+          "indices": [
+            1,
+            1,
+            1
+          ],
+          "nu": -7356271800
+        },
+        {
+          "indices": [
+            1,
+            1,
+            2
+          ],
+          "nu": -6524752961
+        },
+        {
+          "indices": [
+            1,
+            2,
+            2
+          ],
+          "nu": -5748112451
+        },
+        {
+          "indices": [
+            2,
+            2,
+            2
+          ],
+          "nu": -5000000000
+        },
+        {
+          "indices": [
+            2,
+            2,
+            3
+          ],
+          "nu": -4067232903
+        },
+        {
+          "indices": [
+            2,
+            3,
+            3
+          ],
+          "nu": -3204662235
+        },
+        {
+          "indices": [
+            3,
+            3,
+            3
+          ],
+          "nu": -2375709600
+        }
+      ],
+      "numerical_margin_reporting_only": -0.0008134975218396789
+    },
+    {
+      "branch": "M24_isolated",
+      "M": 24,
+      "deep_witnesses": 1,
+      "denominator": 10000000000,
+      "potential_denominator": 100000000,
+      "high_potential": -35828186,
+      "boundary_potential": -24082162,
+      "deep_potential": 50000000,
+      "u0": 200000,
+      "beta": 2175347465,
+      "eta": -1653219163,
+      "apex": 0,
+      "flag": 4357667325,
+      "charge_a": 241899415,
+      "charge_b": 109918507,
+      "charge_0": 500,
+      "charge_deep": 506308419,
+      "interface_a": 155680268,
+      "interface_deep": 0,
+      "interface_0": 0,
+      "faces": [
+        {
+          "indices": [
+            0,
+            0,
+            0
+          ],
+          "nu": -8582818600
+        },
+        {
+          "indices": [
+            0,
+            0,
+            1
+          ],
+          "nu": -8180493431
+        },
+        {
+          "indices": [
+            0,
+            0,
+            2
+          ],
+          "nu": -7274418313
+        },
+        {
+          "indices": [
+            0,
+            1,
+            1
+          ],
+          "nu": -7790031473
+        },
+        {
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "nu": -6914980357
+        },
+        {
+          "indices": [
+            0,
+            2,
+            2
+          ],
+          "nu": -6111857697
+        },
+        {
+          "indices": [
+            1,
+            1,
+            1
+          ],
+          "nu": -7408216200
+        },
+        {
+          "indices": [
+            1,
+            1,
+            2
+          ],
+          "nu": -6557194994
+        },
+        {
+          "indices": [
+            1,
+            2,
+            2
+          ],
+          "nu": -5763841782
+        },
+        {
+          "indices": [
+            2,
+            2,
+            2
+          ],
+          "nu": -5000000000
+        },
+        {
+          "indices": [
+            2,
+            2,
+            3
+          ],
+          "nu": -3090169944
+        }
+      ],
+      "numerical_margin_reporting_only": 0.0011388007832966451
+    },
+    {
+      "branch": "M25",
+      "M": 25,
+      "deep_witnesses": 1,
+      "denominator": 10000000000,
+      "potential_denominator": 100000000,
+      "high_potential": -33285141,
+      "boundary_potential": -27065539,
+      "deep_potential": 30011312,
+      "u0": 200000,
+      "beta": 2454206797,
+      "eta": -1683679089,
+      "apex": 0,
+      "flag": 3108291248,
+      "charge_a": 242021094,
+      "charge_b": 138623045,
+      "charge_0": 500,
+      "charge_deep": 343633517,
+      "interface_a": 195349539,
+      "interface_deep": 0,
+      "interface_0": 0,
+      "faces": [
+        {
+          "indices": [
+            0,
+            0,
+            0
+          ],
+          "nu": -8328514100
+        },
+        {
+          "indices": [
+            0,
+            0,
+            1
+          ],
+          "nu": -8118246537
+        },
+        {
+          "indices": [
+            0,
+            0,
+            2
+          ],
+          "nu": -7121957474
+        },
+        {
+          "indices": [
+            0,
+            0,
+            3
+          ],
+          "nu": -5788531590
+        },
+        {
+          "indices": [
+            0,
+            1,
+            1
+          ],
+          "nu": -7911085099
+        },
+        {
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "nu": -6931955762
+        },
+        {
+          "indices": [
+            0,
+            2,
+            2
+          ],
+          "nu": -6037714595
+        },
+        {
+          "indices": [
+            0,
+            2,
+            3
+          ],
+          "nu": -4873346027
+        },
+        {
+          "indices": [
+            0,
+            3,
+            3
+          ],
+          "nu": -3874274205
+        },
+        {
+          "indices": [
+            1,
+            1,
+            1
+          ],
+          "nu": -7706553900
+        },
+        {
+          "indices": [
+            1,
+            1,
+            2
+          ],
+          "nu": -6742395889
+        },
+        {
+          "indices": [
+            1,
+            2,
+            2
+          ],
+          "nu": -5853608173
+        },
+        {
+          "indices": [
+            2,
+            2,
+            2
+          ],
+          "nu": -5000000000
+        },
+        {
+          "indices": [
+            2,
+            2,
+            3
+          ],
+          "nu": -3922175955
+        },
+        {
+          "indices": [
+            2,
+            3,
+            3
+          ],
+          "nu": -2940175334
+        },
+        {
+          "indices": [
+            3,
+            3,
+            3
+          ],
+          "nu": -1998868800
+        }
+      ],
+      "numerical_margin_reporting_only": 0.0002867206734991079
+    }
+  ]
+}

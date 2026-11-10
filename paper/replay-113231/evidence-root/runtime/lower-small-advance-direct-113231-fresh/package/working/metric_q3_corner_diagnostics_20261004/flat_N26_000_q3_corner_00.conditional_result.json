@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "Algebraic supplied-graph dual conditional on all explicitly stated lens premises; no universal or unconditional graph exclusion",
+  "family_id": "flat_N26_000_q3_corner_00",
+  "radius": "11321/100000",
+  "graph_sha256": "00e46b8a2be1388647336b2a9aeedbd32bc49459e30ef5dad877a0db7b337ae9",
+  "graph_check": {
+    "vertices": 100,
+    "edges": 264,
+    "faces": 165,
+    "B": 33,
+    "I": 67,
+    "N": 26,
+    "marked_apex_count_K": 26,
+    "interior_degree_histogram": {
+      "6": 66,
+      "7": 1
+    },
+    "outer_degree_histogram": {
+      "3": 7,
+      "4": 26
+    },
+    "oriented_edge_check": "PASS",
+    "all_vertex_links_check": "PASS"
+  },
+  "pending_geometric_premises": [
+    "Actual normalized half-arc sine is greater than3/5",
+    "Every marked base exceeds9R/10",
+    "Inner reference edges exceed3R/5 and the same orientation constant9/(4R) holds",
+    "Outer-angle absorption for neighbor differences<=79/1000",
+    "The ordinary marked unequal-base cap25/16 applies"
+  ],
+  "q0_face_supports": 132,
+  "q1_unequal_base_supports": 33,
+  "boundary_arc_supports": 33,
+  "cancelled_shared_edges": 172,
+  "retained_arc_roots": 33,
+  "minimum_full_face_guard": "471395429243/1000000000000",
+  "boundary_active_faces": 0,
+  "maximum_neighbor_weight_difference": "7899999921/100000000000",
+  "half_arc_support_lower": "679/10000",
+  "area_margin": "17894291077544861959/8000000000000000000000"
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "radius": "11321/100000",
+  "scope": "Every supplied402 graph excluded conditional on the explicitly stated actual-diagram lens premises; global profile/domain proofs are separate",
+  "core_count": 57,
+  "raw_placements": 442,
+  "verified_graphs": 402,
+  "regenerated_full_graph_equality_checks": 402,
+  "local_support_count_per_graph": [
+    132,
+    33,
+    33
+  ],
+  "minimum_area_margin": "2161925075955345718681/1000000000000000000000000",
+  "minimum_margin_family": "flat_N26_000_q3_corner_02",
+  "minimum_full_face_guard": "766802359539/2000000000000",
+  "maximum_neighbor_weight_difference": "7899999921/100000000000",
+  "pending_geometric_premises": [
+    "Actual normalized half-arc sine is greater than3/5",
+    "Every marked base exceeds9R/10",
+    "Inner reference edges exceed3R/5 and the same orientation constant9/(4R) holds",
+    "Outer-angle absorption for neighbor differences<=79/1000",
+    "The ordinary marked unequal-base cap25/16 applies"
+  ],
+  "bindings_aggregate_sha256": "4ebdee504e255a67583e34dc3bdcbf292dcd919b7ff64a7dcf9f5ec2b9eccb57",
+  "elapsed_seconds_reporting_only": 283.65819485199995
+}

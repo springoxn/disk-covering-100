@@ -1,0 +1,492 @@
+{
+  "status": "PASS",
+  "audit_date_utc": "2026-10-05T02:57:32.311859+00:00",
+  "scope": "Complete normalized B34 branch only at 113231/1000000; no all-count theorem or exact optimum",
+  "radius": "113231/1000000",
+  "B": 34,
+  "m": 100,
+  "python_version": "3.12.14",
+  "fresh_entry_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "-S",
+    "/workspace/scratch/0876c32d02f5/disk100_recovery_20261004_2305/lower_staging/B34_0p11323/verify_hinge_B34_complete_0p11323.py"
+  ],
+  "fresh_entry_result": {
+    "status": "PASS",
+    "radius": "113231/1000000",
+    "B": 34,
+    "m": 100,
+    "scope": "Complete B34 branch after whole-cover norm normalization; no all-count radius theorem",
+    "geometry": {
+      "status": "PASS",
+      "radius": "113231/1000000",
+      "m": 100,
+      "B": 34,
+      "remaining_boundary_counts": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "n99_exclusion": {
+        "n": 99,
+        "radius": "113231/1000000",
+        "cases": 96,
+        "tightest_B": 34,
+        "minimum_area_margin": "93591732347747920006153107439494216107661633777884476873367781737690463949606826459158012299304439/170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "q_at_most_four": {
+        "B": 34,
+        "consecutive_arcs": 6,
+        "angle_upper": "1733/2500",
+        "containing_radius_factor": 3,
+        "certified_margin_greater_than": "1/1000",
+        "margin_interval": [
+          "611221661780220637/100000000000000000000",
+          "305610830890110319/50000000000000000000"
+        ]
+      },
+      "minimum_M": 22,
+      "old_normalized_loss_upper": "14591674112918633193336898408248294518129541110730847875213/12821032900000000000000000000000000000000000000000000000000",
+      "core_cut_gap": "66370286625151933054804485333217591804131915558412699801521407821924514123981327458837875763934068303891401/256420658000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "normalized_boundary_envelope": {
+      "status": "PASS",
+      "radius": "113231/1000000",
+      "B": 34,
+      "halfside_multiplier": "1/2",
+      "scope": "Conditional exact-lens normalized boundary envelope only",
+      "required_center_norm_squared_upper": "9871789671/10000000000",
+      "variance_coefficient": "0",
+      "bad_arc_boxes": 1000,
+      "root_tangent_proposals": 389,
+      "endpoint_tangent_proposals": 611,
+      "minimum_bad_arc_margin": "316398043505902310001/1000000000000000000000000",
+      "good_arc_curvature_margin": "665185597236175542695841/1000000000000000000000000",
+      "zero_arc_penalty_interval": [
+        "4268580904660140014887/500000000000000000000000",
+        "341486472372811201191/40000000000000000000000"
+      ],
+      "floating_acceptance": false
+    },
+    "halfside_multiplier": "1/2",
+    "arbitrary_ears": true,
+    "arbitrary_bad_q1": true,
+    "arbitrary_all_boundary_q0": true,
+    "face_supports": 48,
+    "vertex_supports": 1455,
+    "integer_ranges": 3,
+    "q4_hinge_allocation": {
+      "status": "PASS",
+      "radius": "113231/1000000",
+      "B": 34,
+      "halfside_multiplier": "1/2",
+      "scope": "Conditional normalized boundary allocation only; no covering-radius exclusion",
+      "required_center_norm_squared_upper": "9871789671/10000000000",
+      "required_interior_vertex_count_minimum": 2,
+      "hinge_slope": "1/200",
+      "hinge_zero": "9/100",
+      "footprint_span_upper": "1733/2500",
+      "footprint_sine_margin": "598221893320318109/50000000000000000000000",
+      "endpoint_owner_multiplicity_upper": 2,
+      "paid_q4_charge": "1/50",
+      "paid_q4_charge_margin": "1039671/6410516450",
+      "marked_incidence_domain": [
+        0,
+        33
+      ],
+      "normalized_area_charges": [
+        "0",
+        "0",
+        "0",
+        "5000/1913587",
+        "2585000/128210329",
+        "4835000/128210329",
+        "545000/9862333",
+        "9335000/128210329",
+        "11585000/128210329",
+        "13835000/128210329",
+        "16085000/128210329",
+        "18335000/128210329",
+        "20585000/128210329",
+        "22835000/128210329",
+        "25085000/128210329",
+        "27335000/128210329",
+        "29585000/128210329",
+        "31835000/128210329",
+        "34085000/128210329",
+        "215000/758641",
+        "38585000/128210329",
+        "40835000/128210329",
+        "43085000/128210329",
+        "45335000/128210329",
+        "47585000/128210329",
+        "49835000/128210329",
+        "52085000/128210329",
+        "54335000/128210329",
+        "56585000/128210329",
+        "58835000/128210329",
+        "61085000/128210329",
+        "63335000/128210329",
+        "5045000/9862333",
+        "67835000/128210329"
+      ],
+      "charge_convention": "Total area loss is at least R^2 times the sum of the charge indexed by each ordinary marked apex count",
+      "simultaneous_variance_spending": "None; the hinge consumes the stated scalar deficit",
+      "split_fans_allowed": true,
+      "ears_and_bad_marked_faces_allowed": true,
+      "global_nonnegative_deficit_status": "PASS",
+      "hinge_interval_boxes": 1000,
+      "minimum_hinge_scalar_margin": "3481966518091660859/250000000000000000000000"
+    },
+    "no_second_deficit_spend": true,
+    "minimum_area_margin": "234527127568630562727/1000000000000000000000000",
+    "branches": [
+      {
+        "branch": "M22..23",
+        "M_endpoint": 22,
+        "support": "linear_q4_hinge",
+        "deep_flag_requirement": 2,
+        "q_max": 4,
+        "directly_excluded_M": 22,
+        "potential_range": "10919851/20000000",
+        "minimum_face_slack": "149987386777170913/1000000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "shifted_ear_upper": "-66446218550284663690947/500000000000000000000000",
+        "bad_q1_coefficient_upper": "-186728920300868348349343/1000000000000000000000000",
+        "area_margin": "172929487672575337487/125000000000000000000000"
+      },
+      {
+        "branch": "M24..25",
+        "M_endpoint": 24,
+        "support": "linear_q4_hinge",
+        "deep_flag_requirement": 1,
+        "q_max": 4,
+        "directly_excluded_M": 24,
+        "potential_range": "31018739/50000000",
+        "minimum_face_slack": "74999999999999987/500000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "shifted_ear_upper": "-145879811377358144000007/1000000000000000000000000",
+        "bad_q1_coefficient_upper": "-210943467200868348349343/1000000000000000000000000",
+        "area_margin": "45209244052843981811/125000000000000000000000"
+      },
+      {
+        "branch": "M>=26",
+        "M_endpoint": 26,
+        "support": "linear_q4_hinge",
+        "deep_flag_requirement": 0,
+        "q_max": 4,
+        "directly_excluded_M": 26,
+        "potential_range": "16801811/25000000",
+        "minimum_face_slack": "74989416575866969/500000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "shifted_ear_upper": "-74961498933425653640857/500000000000000000000000",
+        "bad_q1_coefficient_upper": "-234933919000868348349343/1000000000000000000000000",
+        "area_margin": "234527127568630562727/1000000000000000000000000"
+      }
+    ]
+  },
+  "fresh_entry_stdout_sha256": "cf16ebf6bb661875c3420c1fbf2e2c66acbbf08c0ac70db193280c66350ad0ba",
+  "author_saved_result_agrees": true,
+  "optimized_mode_negative_test": {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "-B",
+      "-S",
+      "-O",
+      "/workspace/scratch/0876c32d02f5/disk100_recovery_20261004_2305/lower_staging/B34_0p11323/verify_hinge_B34_complete_0p11323.py"
+    ],
+    "returncode": 1,
+    "required_rejection": "Assertions must remain enabled"
+  },
+  "independent_reconstruction": {
+    "face_supports": 48,
+    "vertex_supports": 1455,
+    "rows": [
+      {
+        "M_range": [
+          22,
+          23
+        ],
+        "deep_requirement": 2,
+        "face_supports": 16,
+        "vertex_supports": 485,
+        "enlarged_count_profiles_checked": 648,
+        "potential_range": "10919851/20000000",
+        "minimum_face_slack": "149987386777170913/1000000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "M_slope_upper": "-44685116618943198620509/500000000000000000000000",
+        "ear_slope_upper": "-26578487420113865476379/200000000000000000000000",
+        "bad_q1_slope_upper": "-186728920300868348349343/1000000000000000000000000",
+        "area_margin": "172929487672575337487/125000000000000000000000",
+        "local_domain_counts": {
+          "(0, 0)": 93,
+          "(0, 2)": 4,
+          "(0, 3)": 3,
+          "(1, 0)": 93,
+          "(1, 2)": 4,
+          "(2, 0)": 93,
+          "(2, 2)": 4,
+          "(3, 0)": 93,
+          "(3, 2)": 3,
+          "(4, 0)": 93,
+          "(4, 2)": 2
+        }
+      },
+      {
+        "M_range": [
+          24,
+          25
+        ],
+        "deep_requirement": 1,
+        "face_supports": 16,
+        "vertex_supports": 485,
+        "enlarged_count_profiles_checked": 648,
+        "potential_range": "31018739/50000000",
+        "minimum_face_slack": "74999999999999987/500000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "M_slope_upper": "-14516806220137197577863/125000000000000000000000",
+        "ear_slope_upper": "-18234976422169768000001/125000000000000000000000",
+        "bad_q1_slope_upper": "-210943467200868348349343/1000000000000000000000000",
+        "area_margin": "45209244052843981811/125000000000000000000000",
+        "local_domain_counts": {
+          "(0, 0)": 93,
+          "(0, 2)": 4,
+          "(0, 3)": 3,
+          "(1, 0)": 93,
+          "(1, 2)": 4,
+          "(2, 0)": 93,
+          "(2, 2)": 4,
+          "(3, 0)": 93,
+          "(3, 2)": 3,
+          "(4, 0)": 93,
+          "(4, 2)": 2
+        }
+      },
+      {
+        "M_range": [
+          26,
+          null
+        ],
+        "deep_requirement": 0,
+        "face_supports": 16,
+        "vertex_supports": 485,
+        "enlarged_count_profiles_checked": 120045,
+        "potential_range": "16801811/25000000",
+        "minimum_face_slack": "74989416575866969/500000000000000000000000",
+        "minimum_vertex_slack": "197/10000000",
+        "M_slope_upper": "-71099458285802208670599/500000000000000000000000",
+        "ear_slope_upper": "-29984599573370261456343/200000000000000000000000",
+        "bad_q1_slope_upper": "-234933919000868348349343/1000000000000000000000000",
+        "area_margin": "234527127568630562727/1000000000000000000000000",
+        "local_domain_counts": {
+          "(0, 0)": 93,
+          "(0, 2)": 4,
+          "(0, 3)": 3,
+          "(1, 0)": 93,
+          "(1, 2)": 4,
+          "(2, 0)": 93,
+          "(2, 2)": 4,
+          "(3, 0)": 93,
+          "(3, 2)": 3,
+          "(4, 0)": 93,
+          "(4, 2)": 2
+        }
+      }
+    ],
+    "minimum_area_margin": "234527127568630562727/1000000000000000000000000",
+    "complete_M_domain": "all integers M>=22",
+    "ears_domain": "0<=e<=17",
+    "bad_q1_domain": "0<=b<=34-2e",
+    "degree_domain": "3..99; 0<=p<=4 and p<d",
+    "all_boundary_q0_included": true,
+    "split_fans_allowed": true,
+    "required_center_norm_squared_upper": "9871789671/10000000000",
+    "q4_charge": "2585000/128210329",
+    "paid_charge": "1/50",
+    "q4_charge_excess": "1039671/6410516450",
+    "endpoint_owner_multiplicity": 2,
+    "variance_spent": "0",
+    "analytic_review": [
+      "Whole-cover norm normalization precedes all classification",
+      "Six-cell Jensen applies to any six selected endpoint arcs; no contiguous-fan premise",
+      "Proper edge subsets have p+1 endpoints; each endpoint cell belongs to at most two owners",
+      "The delta bank pays the q4 charge once, with variance coefficient zero",
+      "Deep flags allow degree3,4,5 and disconnected/bridged cores; no unique-five or simple-core premise",
+      "All16 full-face triples include BBB and degenerate-vertex caps; no actual-angle acuteness",
+      "All degrees3..99 and separate deep/nondeep unmarked low types are included",
+      "Original e,b,U counts reconstruct the shifted allowance on all enlarged finite count profiles",
+      "Generic enlarged covers normalize before perturbation/classification; finite-type closed-domain limit retains strict endpoint gaps"
+    ]
+  },
+  "dependency_bindings": [
+    {
+      "path": "lower_staging/B34_0p11323/audit_B34_hinge_11323_independent_20261005.py",
+      "sha256": "41a0a0fbb1669ed76b4cf0a818a9ce80ba50f4b70a8bd48a703cf14078bd26c6",
+      "bytes": 15132
+    },
+    {
+      "path": "lower_staging/B34_0p11323/verify_hinge_B34_complete_0p11323.py",
+      "sha256": "04add9f7fe6ee82529c5bf2c03f56dfd0d6e012a60919fc685222c185ee77cc1",
+      "bytes": 7419
+    },
+    {
+      "path": "lower_staging/B34_0p11323/hinge_B34_0p11323_proposals.json",
+      "sha256": "0f3eca6c85c03fb01686df5c59481ac752a650e62e1efb24b155944beed95037",
+      "bytes": 8178
+    },
+    {
+      "path": "lower_staging/B34_0p11323/verify_B34_q4_hinge_charge_0p11323.py",
+      "sha256": "680805ab121764c384700995452912608d8f4c67f37449308a9e13cf8d9c7397",
+      "bytes": 2404
+    },
+    {
+      "path": "lower_staging/B34_0p11323/PROOF_B34_11323.md",
+      "sha256": "ac1e7f2b6d4b3b254f6d26e1a419f9983e473cb2095e8e3f85d17403d2f20334",
+      "bytes": 7484
+    },
+    {
+      "path": "working/verify_star_lp_duals.py",
+      "sha256": "23568fed518e451d3d6b7f11603e080546bb74afa020ef0fd8fbb1a3b02be6d7",
+      "bytes": 7565
+    },
+    {
+      "path": "working/verify_potential_star_duals.py",
+      "sha256": "d4609b4441dae93c105966dd28f72b2e9d84342f012dd519dca25f2515e3e2c3",
+      "bytes": 6721
+    },
+    {
+      "path": "working/exact_angle_conjugates.py",
+      "sha256": "cee5e03352e7b6c94ecbe5dbf0cd43f97342c9c23492b6820e7fc935fc8d1cb9",
+      "bytes": 2811
+    },
+    {
+      "path": "working/exact_linear_halfside_marked_conjugate.py",
+      "sha256": "12308a08e76ead613dc36555bc16026bfaf0ea928dda6f18d18b1f4e8ccc23e4",
+      "bytes": 2657
+    },
+    {
+      "path": "working/exact_quadratic_marked_conjugate.py",
+      "sha256": "a54af21d3b405b468e74f93ec53cab24714c5bb0fb4c66a61bd16987edfdfb6d",
+      "bytes": 3470
+    },
+    {
+      "path": "working/exact_range_one_face_support.py",
+      "sha256": "a33023537a5f20e406e2fac79dc16f6ce79ac152798e08563a7097e48a1414ef",
+      "bytes": 2364
+    },
+    {
+      "path": "working/verify_exact_lens_boundary_0p11322.py",
+      "sha256": "3c6e6a762c5681a70d06606c27e755743e5c851fe92055495207924e7a6737b1",
+      "bytes": 3554
+    },
+    {
+      "path": "working/verify_exact_lens_hinge_deficit.py",
+      "sha256": "02832e72682ac7c2578dbc71550711d9624e51ad6bb1b63255fd27bb0adc7951",
+      "bytes": 3767
+    },
+    {
+      "path": "working/verify_jensen_slab_ear_support.py",
+      "sha256": "1c8d46f5e08714519e1545199fdd6edebe7b1defec0df3b693649be0ad6c4e4b",
+      "bytes": 2158
+    },
+    {
+      "path": "working/verify_one_positive_curvature_isoperimetry.py",
+      "sha256": "f16a50aa3c9abefcf35d5c6fdc7d16a031afff1da3b1322d3fdafd8aa882a275",
+      "bytes": 1090
+    },
+    {
+      "path": "working/verify_unmarked_low_degree_core_obstruction.py",
+      "sha256": "ea4639cd3bb6955d4df1a12b473a65053200e335c899c844d104078880fa45bb",
+      "bytes": 1160
+    },
+    {
+      "path": "working/lower_bounds_extension_20261004/verify_extension.py",
+      "sha256": "489947e87ba99acdd342b238129fad35c5cb3b1ba7906d29543383a2c7261b61",
+      "bytes": 8650
+    },
+    {
+      "path": "working/EXACT_NORMALIZED_LENS_PENALTY.md",
+      "sha256": "cf9b4a8f68bb9cf8c1c06888cfd70a437c91a4f6234d42dea5b5ffc35f957ca7",
+      "bytes": 4030
+    },
+    {
+      "path": "working/MARKED_APEX_HINGE_CHARGE.md",
+      "sha256": "2dda51e1ecb8fa6d6dca1954a605eacea94052bc7ebeff50514effc2e0bd9c6b",
+      "bytes": 2573
+    },
+    {
+      "path": "working/DEEP_CORE_CURVATURE_WITNESSES.md",
+      "sha256": "33984c68b5d4d111d535f8a0c1e33ef9cf0b9a4418b97a833a96f93cab32b667",
+      "bytes": 2385
+    },
+    {
+      "path": "working/UNMARKED_LOW_DEGREE_CORE_OBSTRUCTION.md",
+      "sha256": "79372435a76d0b935a41ce3b003d4a96d39f44b172bdccb5c2f426dc0039ae5e",
+      "bytes": 5519
+    },
+    {
+      "path": "working/ONE_POSITIVE_CURVATURE_ISOPERIMETRY.md",
+      "sha256": "2f293c5ebb259b078bf47d6be8552062c6a81c0bcd2932940df322836922352d",
+      "bytes": 3417
+    },
+    {
+      "path": "working/FULL_FACE_RANGE_ONE_SUPPORT.md",
+      "sha256": "72680706132cc5c53996caed9081532c4912b22b16ff6e81d3c9d6a10afaceea",
+      "bytes": 2379
+    },
+    {
+      "path": "working/FULL_APEX_LINEAR_HALFSIDE_CONJUGATE.md",
+      "sha256": "185362d74fb02d89ecb07472b3f4efc71c8bbb301ce3ef49eb2617f76f7c5356",
+      "bytes": 1893
+    },
+    {
+      "path": "working/JENSEN_SLAB_EAR_SUPPORT.md",
+      "sha256": "a8ab214fcfda4aee12bbc7af0f23a3777cef89095df78f8dd18c2d282d2b4fd2",
+      "bytes": 3715
+    },
+    {
+      "path": "working/LINEAR_LENS_B34_0p11321_PROOF.md",
+      "sha256": "780f0814ca00d4d926402155280f814663794fa39bfb8dab93a5fe92b029f492",
+      "bytes": 3913
+    },
+    {
+      "path": "working/LINEAR_BOOTSTRAP_B34_0p11322_PROOF.md",
+      "sha256": "171b54d61ee85914efb3c00f0cf191600e14df14e130df4ef4095882bdb5236d",
+      "bytes": 6003
+    },
+    {
+      "path": "working/lower_bounds_extension_20261004/GENERAL_DISK_ISOPERIMETRY.md",
+      "sha256": "3dd646f173e5b840370d725260d98500d7c2e1b6b7ce87feecbfaf7e8a92de38",
+      "bytes": 5213
+    },
+    {
+      "path": "working/lower_bounds_extension_20261004/CORE_CUT_ISOPERIMETRY.md",
+      "sha256": "7b5a5f309bf937f193be19c3b728af7b456a24756e001a209a00c3d0648d711a",
+      "bytes": 5025
+    },
+    {
+      "path": "working/lower_bounds_extension_20261004/PROOF_EXTENSION.md",
+      "sha256": "9ff97098c0dea73320661ecb4f375985b795f54d0fd8d1d1b4375ac11032e61b",
+      "bytes": 14453
+    },
+    {
+      "path": "working/lower_bounds_extension_20261004/STAR_PREMISES_0p11307.md",
+      "sha256": "669555da5fe7097920591979bff55a947df2087cc20421d6fb1ca8459f6eac4d",
+      "bytes": 5866
+    },
+    {
+      "path": "working/disk100_certification_20261004/original/disk100_continued_proof/previous/GLOBAL_LOWER_PROOF.md",
+      "sha256": "0c013e1bc2c6370b11ef4332d18320af3edebb05f92af1183ee6a1f4be449d1c",
+      "bytes": 19088
+    }
+  ],
+  "sources_unchanged_during_audit": true,
+  "formalization_status": "Analytic mathematical geometry/topology review, not a machine formal proof"
+}

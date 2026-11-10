@@ -1,0 +1,16 @@
+{
+  "pid": 50660,
+  "argv": [
+    "working/verify_all_11323.py"
+  ],
+  "verifier_entries": [
+    {
+      "source": "working/verify_all_11323.py",
+      "function": "verify",
+      "parameters": {
+        "R": "113231/1000000"
+      }
+    }
+  ],
+  "loaded_package_modules": {}
+}
